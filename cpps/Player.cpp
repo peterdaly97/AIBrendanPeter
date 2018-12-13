@@ -4,15 +4,16 @@ Player::Player()
 {
 	m_texture.loadFromFile("assets/ship.png");
 	m_sprite.setTexture(m_texture);
-	m_sprite.setScale(0.5, 0.5);
+	m_sprite.setScale(0.3, 0.3);
 	m_sprite.setOrigin(m_sprite.getLocalBounds().width / 2, m_sprite.getLocalBounds().height / 2);
 
-	m_position = sf::Vector2f(300, 100);
+	m_position = sf::Vector2f(0, 0);
 	m_velocity = sf::Vector2f(0, 0);
 	m_sprite.setPosition(m_position);
 	m_rotation = 0;
 	m_speed = 0;
-	m_view.setSize(1920, 1080);
+	m_view.setSize(1200, 800);
+	
 }
 
 

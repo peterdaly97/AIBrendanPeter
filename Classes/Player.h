@@ -30,8 +30,10 @@ public:
 	const float MAX_FORWARD_SPEED = 10;
 	const float MAX_BACKWARD_SPEED = -5;
 
-private:
 	sf::View m_view;
+
+private:
+	
 	
 };
 

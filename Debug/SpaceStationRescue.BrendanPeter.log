@@ -1,3 +1,3 @@
 ﻿  game.cpp
-c:\users\gameuser\desktop\college\spacestationrescue.brendanpeter\cpps\game.cpp(3): warning C4244: 'initializing': conversion from 'double' to 'sf::Int32', possible loss of data
-  SpaceStationRescue.BrendanPeter.vcxproj -> C:\Users\gameuser\Desktop\College\SpaceStationRescue.BrendanPeter\Debug\SpaceStationRescue.BrendanPeter.exe
+c:\users\peter\desktop\aibrendanpeter\cpps\game.cpp(3): warning C4244: 'initializing': conversion from 'double' to 'sf::Int32', possible loss of data
+  SpaceStationRescue.BrendanPeter.vcxproj -> C:\Users\peter\Desktop\AIBrendanPeter\Debug\SpaceStationRescue.BrendanPeter.exe
