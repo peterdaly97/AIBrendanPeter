@@ -11,14 +11,10 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_worldSprite.setTexture(m_worldTexture);
 	m_worldSprite.setScale(4, 4);
 	m_worldSprite.setOrigin(m_worldSprite.getLocalBounds().width / 2, m_worldSprite.getLocalBounds().height / 2);
-
-	
-	//m_miniMap.zoom(1);
-	
 	
 	m_mapBorder.setOutlineThickness(10.0f);
 	m_mapBorder.setOutlineColor(sf::Color::Black);
-	m_mapBorder.setSize(sf::Vector2f(300, 200)); // SCREEN_WIDTH * 0.25, SCREEN_HEIGHT * 0.25));
+	m_mapBorder.setSize(sf::Vector2f(300, 200));
 }
 
 Game::~Game() {

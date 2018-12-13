@@ -1,3 +1,4 @@
-﻿  game.cpp
-c:\users\peter\desktop\aibrendanpeter\cpps\game.cpp(3): warning C4244: 'initializing': conversion from 'double' to 'sf::Int32', possible loss of data
+﻿  Bullet.cpp
+c:\users\peter\desktop\aibrendanpeter\cpps\bullet.cpp(16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\bullet.cpp(15): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   SpaceStationRescue.BrendanPeter.vcxproj -> C:\Users\peter\Desktop\AIBrendanPeter\Debug\SpaceStationRescue.BrendanPeter.exe

@@ -3,6 +3,8 @@
 
 #include "SFML/Graphics.hpp"
 #include <iostream>
+#include "Bullet.h"
+#include <vector>
 
 class Player
 {
@@ -31,6 +33,8 @@ public:
 	const float MAX_BACKWARD_SPEED = -5;
 
 	sf::View m_view;
+
+	std::vector<Bullet *> m_bullets;
 
 private:
 	

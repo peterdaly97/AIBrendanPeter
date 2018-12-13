@@ -26,6 +26,13 @@ void Player::update()
 {
 	handleInput();
 	move();
+
+	for (Bullet * bullet : m_bullets) {
+		bullet->update();
+		if (bullet->m_lifeTime > bullet->MAX_LIFE) {
+			m_bullets.erase(m_bullets.begin()); // ToDo: Stop memory leak
+		}
+	}
 }
 
 void Player::handleInput() {
@@ -47,6 +54,10 @@ void Player::handleInput() {
 	{
 		m_rotation += 3;
 	}
+	if (m_keys.isKeyPressed(sf::Keyboard::Space))
+	{
+		m_bullets.push_back(new Bullet(m_sprite.getPosition(), m_sprite.getRotation()));
+	}
 }
 
 void Player::move() {
@@ -65,4 +76,10 @@ void Player::render(sf::RenderWindow & window)
 	m_view.setCenter(m_sprite.getPosition());
 	window.setView(m_view);
 	window.draw(m_sprite);
+	for (Bullet * bullet : m_bullets) {
+		if (bullet) {
+			bullet->render(window); 
+		}
+		
+	}
 }
