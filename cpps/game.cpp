@@ -32,22 +32,25 @@ void Game::run() {
 void Game::update() {
 	
 	player.update();
-
+	nest.update();
 }
 
 void Game::render() {
 	m_window.clear();
 	m_window.setView(player.m_view);
 	m_window.draw(m_worldSprite);
+	nest.render(m_window);
 	player.render(m_window);
+	
 	m_mapBorder.setPosition(player.m_sprite.getPosition().x + 300,player.m_sprite.getPosition().y + 200);
 	m_window.draw(m_mapBorder);
 
 	m_window.setView(m_miniMap);
 	
 	
-	m_miniMap.setCenter(player.m_position);
+	m_miniMap.setCenter(player.m_sprite.getPosition());
 	m_window.draw(m_worldSprite);
+	nest.render(m_window);
 	m_window.draw(player.m_sprite);
 	m_miniMap.setViewport(sf::FloatRect(0.75, 0.75, 0.25, 0.25));
 	

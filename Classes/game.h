@@ -3,6 +3,7 @@
 
 #include "SFML/Graphics.hpp"
 #include "Player.h"
+#include "Nest.h"
 
 class Game
 {
@@ -19,6 +20,8 @@ public:
 	Player player = Player();
 	sf::RenderWindow m_window;
 
+	Nest nest = Nest(sf::Vector2f(300,-200));
+	 
 	const int SCREEN_WIDTH = 1200;
 	const int SCREEN_HEIGHT = 800;
 
