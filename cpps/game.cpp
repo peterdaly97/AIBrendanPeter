@@ -15,6 +15,8 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_mapBorder.setOutlineThickness(10.0f);
 	m_mapBorder.setOutlineColor(sf::Color::Black);
 	m_mapBorder.setSize(sf::Vector2f(300, 200));
+
+	m_workers.push_back(new Worker(act::WANDER, sf::Vector2f(200, 200)));
 }
 
 Game::~Game() {
@@ -33,6 +35,10 @@ void Game::update() {
 	
 	player.update();
 	nest.update();
+	for (Worker * en : m_workers) {
+		en->update();
+	}
+	player.checkCollection(&m_workers);
 }
 
 void Game::render() {
@@ -40,7 +46,11 @@ void Game::render() {
 	m_window.setView(player.m_view);
 	m_window.draw(m_worldSprite);
 	nest.render(m_window);
+	for (Worker * en : m_workers) {
+		en->render(m_window);
+	}
 	player.render(m_window);
+	
 	
 	m_mapBorder.setPosition(player.m_sprite.getPosition().x + 300,player.m_sprite.getPosition().y + 200);
 	m_window.draw(m_mapBorder);

@@ -22,7 +22,7 @@ struct steering {
 class Enemy
 {
 public:
-	Enemy(behaviour behaviour, sf::Vector2f pos, float maxSpeed);
+	Enemy(behaviour behaviour, sf::Vector2f pos, float maxSpeed, sf::Texture * tex);
 
 	~Enemy();
 

@@ -2,6 +2,7 @@
 
 Nest::Nest(sf::Vector2f pos) : m_position(pos) {
 	m_texture.loadFromFile("assets/nest.png");
+	m_enemyTex.loadFromFile("assets/alien.png");
 	m_sprite.setTexture(m_texture);
 	m_sprite.setOrigin(m_sprite.getLocalBounds().width / 2, m_sprite.getLocalBounds().height / 2);
 	m_sprite.setPosition(m_position);
@@ -41,5 +42,5 @@ void Nest::render(sf::RenderWindow &window) {
 
 void Nest::spawn() {
 	m_spawnTimer = 0;
-	m_enemies.push_back(new Enemy(behaviour::PATROL, m_position, 5.0f));
+	m_enemies.push_back(new Enemy(behaviour::PATROL, m_position, 5.0f, &m_enemyTex));
 }

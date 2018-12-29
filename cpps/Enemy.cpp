@@ -1,10 +1,9 @@
 ﻿#include "../Classes/Enemy.h"
 
-Enemy::Enemy(behaviour behaviour, sf::Vector2f pos, float maxSpeed)
+Enemy::Enemy(behaviour behaviour, sf::Vector2f pos, float maxSpeed, sf::Texture * tex)
 {
 	srand(time(0));
-	m_texture.loadFromFile("assets/alien.png");
-	m_sprite.setTexture(m_texture);
+	m_sprite.setTexture(*tex);
 	m_position = pos;
 	MAX_FORWARD_SPEED = maxSpeed;
 	m_sprite.setScale(0.05, 0.05);

@@ -4,6 +4,9 @@
 #include "SFML/Graphics.hpp"
 #include "Player.h"
 #include "Nest.h"
+#include "Worker.h"
+#include <iostream>
+#include <vector>
 
 class Game
 {
@@ -31,6 +34,8 @@ private:
 
 	sf::View m_miniMap;
 	sf::RectangleShape m_mapBorder;
+
+	std::vector<Worker *> m_workers;
 };
 
 #endif //!GAME_H

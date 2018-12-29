@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Bullet.h"
 #include <vector>
+#include "Worker.h"
 
 class Player
 {
@@ -18,6 +19,9 @@ public:
 	void handleInput();
 	void move();
 
+	void checkCollection(std::vector<Worker *> * workers);
+
+	float dist(sf::Vector2f v1, sf::Vector2f v2);
 	
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;
@@ -35,6 +39,8 @@ public:
 	sf::View m_view;
 
 	std::vector<Bullet *> m_bullets;
+
+	int m_collected = 0;
 
 private:
 	

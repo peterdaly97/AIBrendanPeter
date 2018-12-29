@@ -71,6 +71,15 @@ void Player::move() {
 
 }
 
+void Player::checkCollection(std::vector<Worker*> * workers) {
+	for (int i = 0; i < workers->size(); i++) {
+		if (dist(m_position, workers->at(i)->m_position) < 30) {
+			workers->erase(workers->begin() + i);
+			m_collected++;
+		}
+	}
+}
+
 void Player::render(sf::RenderWindow & window)
 {
 	m_view.setCenter(m_sprite.getPosition());
@@ -82,4 +91,9 @@ void Player::render(sf::RenderWindow & window)
 		}
 		
 	}
+}
+
+float Player::dist(sf::Vector2f v1, sf::Vector2f v2) {
+	float dist = std::sqrt(((v1.x - v2.x) * (v1.x - v2.x)) + ((v1.y - v2.y) * (v1.y - v2.y)));
+	return dist;
 }

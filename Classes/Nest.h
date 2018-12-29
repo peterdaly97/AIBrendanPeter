@@ -22,6 +22,8 @@ public:
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;
 
+	sf::Texture m_enemyTex;
+
 	sf::Vector2f m_position;
 
 	int m_health;

@@ -1,6 +1,9 @@
-﻿  Nest.cpp
-  game.cpp
-c:\users\peter\desktop\aibrendanpeter\cpps\game.cpp(3): warning C4244: 'initializing': conversion from 'double' to 'sf::Int32', possible loss of data
-  main.cpp
-  Generating Code...
+﻿  Player.cpp
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(7): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(42): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(47): warning C4305: '-=': truncation from 'double' to 'float'
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(70): warning C4305: '*=': truncation from 'double' to 'float'
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(75): warning C4018: '<': signed/unsigned mismatch
   SpaceStationRescue.BrendanPeter.vcxproj -> C:\Users\peter\Desktop\AIBrendanPeter\Debug\SpaceStationRescue.BrendanPeter.exe
