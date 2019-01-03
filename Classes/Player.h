@@ -40,6 +40,8 @@ public:
 
 	std::vector<Bullet *> m_bullets;
 
+	int m_health = 100;
+
 	int m_collected = 0;
 
 private:

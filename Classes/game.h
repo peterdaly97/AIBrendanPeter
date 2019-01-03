@@ -36,6 +36,16 @@ private:
 	sf::RectangleShape m_mapBorder;
 
 	std::vector<Worker *> m_workers;
+
+	sf::Texture m_heartTex;
+	sf::Texture m_workerTex;
+
+	sf::Sprite m_heartSprite;
+	sf::Sprite m_workerSprite;
+
+	sf::Text m_heartText;
+	sf::Text m_workerText;
+	sf::Font m_font;
 };
 
 #endif //!GAME_H
