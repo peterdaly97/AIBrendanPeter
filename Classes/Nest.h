@@ -1,9 +1,6 @@
 #ifndef NEST_H
 #define NEST_H
 
-#include "SFML/Graphics.hpp"
-#include <iostream>
-#include <vector>
 #include "Enemy.h"
 
 class Nest
@@ -26,9 +23,12 @@ public:
 
 	sf::Vector2f m_position;
 
-	int m_health;
+	int m_health = 3;
+
+	bool m_dead = false;
 private:
 	std::vector<Enemy *> m_enemies;
+	
 	const int SPAWN_NEXT = 100;
 	int m_spawnTimer;
 

@@ -130,7 +130,7 @@
     <ClCompile Include="cpps\Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Classes\Bullet.h" />
     <ClInclude Include="Classes\Enemy.h" />
     <ClInclude Include="Classes\game.h" />
     <ClInclude Include="Classes\Nest.h" />

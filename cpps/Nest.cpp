@@ -29,7 +29,7 @@ void Nest::update() {
 void Nest::loseHealth() {
 	m_health--;
 	if (m_health <= 0) {
-		delete this;
+		m_dead = true;
 	}
 }
 

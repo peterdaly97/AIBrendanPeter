@@ -44,9 +44,6 @@
     <ClInclude Include="Classes\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Classes\Nest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -54,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Worker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Bullet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

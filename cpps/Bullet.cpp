@@ -4,6 +4,8 @@ Bullet::Bullet(sf::Vector2f pos, float rot) : m_pos(pos), m_rot(rot) {
 	m_speed = 15;
 	m_tex.loadFromFile("assets/bullet.png");
 	m_sprite.setTexture(m_tex);
+	m_sprite.setOrigin(m_sprite.getLocalBounds().width / 2, m_sprite.getLocalBounds().height / 2);
+
 
 	m_lifeTime = 0;
 
@@ -20,7 +22,7 @@ void Bullet::update() {
 	m_sprite.setPosition(m_pos);
 }
 
-void Bullet::render(sf::RenderWindow & window)
-{
+void Bullet::render(sf::RenderWindow & window) {
+
 	window.draw(m_sprite);
 }

@@ -7,6 +7,8 @@
 #include <vector>
 #include "Worker.h"
 
+class Nest;
+
 class Player
 {
 public:
@@ -21,8 +23,10 @@ public:
 
 	void checkCollection(std::vector<Worker *> * workers);
 
+	void checkNest(Nest & nest);
+
 	float dist(sf::Vector2f v1, sf::Vector2f v2);
-	
+
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;
 	sf::Keyboard m_keys;
@@ -40,13 +44,19 @@ public:
 
 	std::vector<Bullet *> m_bullets;
 
+
 	int m_health = 100;
 
 	int m_collected = 0;
 
 private:
-	
-	
+	int m_bulletCounter = 0;
+	const int BULLET_TIME = 30;
+
 };
 
-#endif //!PLAYER_H
+
+#endif // !PLAYER_H
+
+
+

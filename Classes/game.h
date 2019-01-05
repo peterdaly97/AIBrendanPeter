@@ -1,9 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "SFML/Graphics.hpp"
-#include "Player.h"
 #include "Nest.h"
+#include "Player.h"
 #include "Worker.h"
 #include <iostream>
 #include <vector>
@@ -18,12 +17,12 @@ public:
 	void run();
 	void update();
 	void render();
-
+	void updateUI();
 
 	Player player = Player();
 	sf::RenderWindow m_window;
 
-	Nest nest = Nest(sf::Vector2f(300,-200));
+	std::vector<Nest *> m_nests;
 	 
 	const int SCREEN_WIDTH = 1200;
 	const int SCREEN_HEIGHT = 800;

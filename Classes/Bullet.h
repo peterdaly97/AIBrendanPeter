@@ -2,6 +2,7 @@
 #define BULLET_H
 
 #include <SFML\Graphics.hpp>
+#include <iostream>
 
 class Bullet
 {
@@ -31,8 +32,7 @@ private:
 
 	const double DEG_TO_RAD = 3.14159 / 180.0f;
 
-	
-
 	int m_speed;
 };
 #endif // !BULLET_H
+

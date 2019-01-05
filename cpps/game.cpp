@@ -39,6 +39,7 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_mapBorder.setSize(sf::Vector2f(300, 200));
 
 	m_workers.push_back(new Worker(act::WANDER, sf::Vector2f(200, 200)));
+	m_nests.push_back(new Nest(sf::Vector2f(300, -200)));
 }
 
 Game::~Game() {
@@ -56,11 +57,66 @@ void Game::run() {
 void Game::update() {
 	
 	player.update();
-	nest.update();
+	for (int i = 0; i < m_nests.size(); i++) {
+		m_nests.at(i)->update();
+		player.checkNest(*m_nests.at(i));
+		if (m_nests.at(i)->m_dead) {
+			m_nests.erase(m_nests.begin() + i);
+		}
+	}
+	
 	for (Worker * en : m_workers) {
 		en->update();
 	}
 	player.checkCollection(&m_workers);
+	
+	
+	updateUI();
+}
+
+void Game::render() {
+	m_window.clear();
+	m_window.setView(player.m_view);
+	m_window.draw(m_worldSprite);
+	
+	for (Nest * nest : m_nests) {
+		nest->render(m_window);
+	}
+	for (Worker * en : m_workers) {
+		en->render(m_window);
+	}
+	
+	player.render(m_window);
+	m_window.draw(m_heartSprite);
+	m_window.draw(m_workerSprite);
+	m_window.draw(m_heartText);
+	m_window.draw(m_workerText);
+	
+	m_mapBorder.setPosition(player.m_sprite.getPosition().x + 300,player.m_sprite.getPosition().y + 200);
+	m_window.draw(m_mapBorder);
+
+	m_window.setView(m_miniMap);
+	
+	
+	m_miniMap.setCenter(player.m_sprite.getPosition());
+	m_window.draw(m_worldSprite);
+	for (Nest * nest : m_nests) {
+		nest->render(m_window);
+	}
+	for (Worker * en : m_workers) {
+		en->render(m_window);
+	}
+	m_window.draw(player.m_sprite);
+	m_miniMap.setViewport(sf::FloatRect(0.75, 0.75, 0.25, 0.25));
+	
+	
+	
+	m_window.display();
+	
+}
+
+void Game::updateUI() {
+
 	m_heartSprite.setPosition(
 		player.m_sprite.getPosition().x - 550,
 		player.m_sprite.getPosition().y - 350
@@ -82,41 +138,4 @@ void Game::update() {
 		player.m_sprite.getPosition().x + 500,
 		player.m_sprite.getPosition().y - 370
 	);
-}
-
-void Game::render() {
-	m_window.clear();
-	m_window.setView(player.m_view);
-	m_window.draw(m_worldSprite);
-	
-	nest.render(m_window);
-	for (Worker * en : m_workers) {
-		en->render(m_window);
-	}
-	
-	player.render(m_window);
-	m_window.draw(m_heartSprite);
-	m_window.draw(m_workerSprite);
-	m_window.draw(m_heartText);
-	m_window.draw(m_workerText);
-	
-	m_mapBorder.setPosition(player.m_sprite.getPosition().x + 300,player.m_sprite.getPosition().y + 200);
-	m_window.draw(m_mapBorder);
-
-	m_window.setView(m_miniMap);
-	
-	
-	m_miniMap.setCenter(player.m_sprite.getPosition());
-	m_window.draw(m_worldSprite);
-	nest.render(m_window);
-	for (Worker * en : m_workers) {
-		en->render(m_window);
-	}
-	m_window.draw(player.m_sprite);
-	m_miniMap.setViewport(sf::FloatRect(0.75, 0.75, 0.25, 0.25));
-	
-	
-	
-	m_window.display();
-	
 }

@@ -1,4 +1,5 @@
 #include "..\Classes\Player.h"
+#include "..\Classes\Nest.h"
 
 Player::Player()
 {
@@ -54,8 +55,12 @@ void Player::handleInput() {
 	{
 		m_rotation += 3;
 	}
-	if (m_keys.isKeyPressed(sf::Keyboard::Space))
+
+	m_bulletCounter++;
+	if (m_keys.isKeyPressed(sf::Keyboard::Space) && 
+		m_bulletCounter > BULLET_TIME)
 	{
+		m_bulletCounter = 0;
 		m_bullets.push_back(new Bullet(m_sprite.getPosition(), m_sprite.getRotation()));
 	}
 }
@@ -76,6 +81,15 @@ void Player::checkCollection(std::vector<Worker*> * workers) {
 		if (dist(m_position, workers->at(i)->m_position) < 30) {
 			workers->erase(workers->begin() + i);
 			m_collected++;
+		}
+	}
+}
+
+void Player::checkNest(Nest & nest) {
+	for (int i = 0; i < m_bullets.size(); i++) {
+		if (dist(m_bullets.at(i)->m_pos, nest.m_position) < 150) {
+			nest.loseHealth();
+			m_bullets.erase(m_bullets.begin() + i);
 		}
 	}
 }
