@@ -2,8 +2,11 @@
 #include <iostream>
 #include <math.h>
 
-Node::Node(int x,int y,int size, sf::Font &costFont,int obstacle)
+Node::Node(int x, int y, int size, sf::Font &costFont, sf::Texture &groundTexture, sf::Texture &obstacleTexture, int obstacle)
 {
+	//m_groundSprite.setOrigin(m_groundSprite.getLocalBounds().width / 2, m_groundSprite.getLocalBounds().height / 2);
+	m_groundSprite.setPosition(x, y);
+
 	rectSize = size;
 
 	rectangle.setSize(sf::Vector2f(size, size));
@@ -13,6 +16,11 @@ Node::Node(int x,int y,int size, sf::Font &costFont,int obstacle)
 	if (obstacle == 1)
 	{
 		setCost(999999);
+		m_groundSprite.setTexture(obstacleTexture);
+	}
+	else
+	{
+		m_groundSprite.setTexture(groundTexture);
 	}
 }
 
@@ -127,7 +135,8 @@ int Node::getPositionY()
 }
 void Node::draw(sf::RenderWindow & window)
 {
-	window.draw(rectangle);
+	//window.draw(rectangle);
+	window.draw(m_groundSprite);
 
 //	sf::Vertex line[] =
 //	{

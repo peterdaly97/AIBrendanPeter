@@ -17,6 +17,9 @@ public:
 
 private:
 
+	sf::Texture m_groundTexture;
+	sf::Texture m_obstacleTexture;
+
 	bool zPressed = false;
 	int randomSize = 1;
 	int rectSize = 200;
