@@ -1,10 +1,4 @@
-﻿  Player.cpp
-c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(8): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(43): warning C4305: '+=': truncation from 'double' to 'float'
-c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(48): warning C4305: '-=': truncation from 'double' to 'float'
-c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(71): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(75): warning C4305: '*=': truncation from 'double' to 'float'
-c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(80): warning C4018: '<': signed/unsigned mismatch
-c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(89): warning C4018: '<': signed/unsigned mismatch
-  SpaceStationRescue.BrendanPeter.vcxproj -> C:\Users\peter\Desktop\AIBrendanPeter\Debug\SpaceStationRescue.BrendanPeter.exe
+﻿  game.cpp
+c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(3): warning C4244: 'initializing': conversion from 'double' to 'sf::Int32', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(64): warning C4018: '<': signed/unsigned mismatch
+  SpaceStationRescue.BrendanPeter.vcxproj -> C:\Users\gameuser\Desktop\AIBrendanPeter\Debug\SpaceStationRescue.BrendanPeter.exe

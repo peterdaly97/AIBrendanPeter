@@ -121,19 +121,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cpps\AI.cpp" />
     <ClCompile Include="cpps\Bullet.cpp" />
     <ClCompile Include="cpps\Enemy.cpp" />
     <ClCompile Include="cpps\game.cpp" />
+    <ClCompile Include="cpps\grid.cpp" />
     <ClCompile Include="cpps\main.cpp" />
     <ClCompile Include="cpps\Nest.cpp" />
+    <ClCompile Include="cpps\Node.cpp" />
     <ClCompile Include="cpps\Player.cpp" />
     <ClCompile Include="cpps\Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Classes\AI.h" />
     <ClInclude Include="Classes\Bullet.h" />
     <ClInclude Include="Classes\Enemy.h" />
     <ClInclude Include="Classes\game.h" />
+    <ClInclude Include="Classes\grid.h" />
     <ClInclude Include="Classes\Nest.h" />
+    <ClInclude Include="Classes\Node.h" />
     <ClInclude Include="Classes\Player.h" />
     <ClInclude Include="Classes\Worker.h" />
   </ItemGroup>

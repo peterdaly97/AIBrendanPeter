@@ -4,8 +4,11 @@
 #include "Nest.h"
 #include "Player.h"
 #include "Worker.h"
+#include "grid.h"
 #include <iostream>
 #include <vector>
+
+class grid;
 
 class Game
 {
@@ -26,6 +29,8 @@ public:
 	 
 	const int SCREEN_WIDTH = 1200;
 	const int SCREEN_HEIGHT = 800;
+
+	Grid* grid;
 
 private:
 	sf::Texture m_worldTexture;
