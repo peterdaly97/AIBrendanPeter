@@ -6,6 +6,7 @@
 #include "Bullet.h"
 #include <vector>
 #include "Worker.h"
+#include "grid.h"
 
 class Nest;
 
@@ -16,7 +17,10 @@ public:
 
 	~Player();
 
-	void update();
+	void update(Grid grid);
+
+	void checkCollision(Grid grid);
+
 	void render(sf::RenderWindow &window);
 	void handleInput();
 	void move();
@@ -52,6 +56,15 @@ public:
 private:
 	int m_bulletCounter = 0;
 	const int BULLET_TIME = 30;
+
+	bool UpAvailable = true;
+	bool DownAvailable = true;
+	bool LeftAvailable = true;
+	bool RightAvailable = true;
+
+	int playerGrid = 0;
+	int playerGridX = 0;
+	int playerGridY = 0;
 
 };
 

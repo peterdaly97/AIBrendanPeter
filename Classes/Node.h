@@ -4,7 +4,7 @@
 class Node
 {
 public:
-	Node(int x, int y, int size, sf::Font &costFont, sf::Texture &groundTexture, sf::Texture &obstacleTexture, int obstacle);
+	Node(int x, int y, int size, sf::Font &costFont, int obstacle);
 	~Node();
 	void update(double dt);
 	void draw(sf::RenderWindow & window);
@@ -26,8 +26,6 @@ public:
 	void swapIntegrationCalc();
 
 private:
-
-	sf::Sprite m_groundSprite;
 
 	bool useDistance = true;
 	double vectX = 0;

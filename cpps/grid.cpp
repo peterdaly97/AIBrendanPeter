@@ -83,7 +83,7 @@ void Grid::createGrid(int random)
 		for (int y = 1; y <= gridY; y++)
 		{
 
-			node = new Node(-5200 + x * (rectSize),-5200 + y * (rectSize), rectSize, costFont,m_groundTexture,m_obstacleTexture, map[x - 1][y - 1]);
+			node = new Node(-5200 + x * (rectSize),-5200 + y * (rectSize), rectSize, costFont, map[x - 1][y - 1]);
 			nodes.push_back(node);
 		}
 	}

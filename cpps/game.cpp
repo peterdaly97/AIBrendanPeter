@@ -60,7 +60,7 @@ void Game::run() {
 void Game::update() {
 
 	grid->update(m_window);
-	player.update();
+	player.update(*grid);
 	for (int i = 0; i < m_nests.size(); i++) {
 		m_nests.at(i)->update();
 		player.checkNest(*m_nests.at(i));
@@ -82,7 +82,8 @@ void Game::render() {
 	m_window.clear();
 	m_window.setView(player.m_view);
 	//m_window.draw(m_worldSprite);
-	grid->draw(m_window);
+	m_window.draw(m_worldSprite);
+	//grid->draw(m_window);
 	for (Nest * nest : m_nests) {
 		nest->render(m_window);
 	}

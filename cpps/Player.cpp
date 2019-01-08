@@ -22,11 +22,88 @@ Player::Player()
 Player::~Player()
 {
 }
+void Player::checkCollision(Grid grid)
+{
+	UpAvailable = true;
+	DownAvailable = true;
+	LeftAvailable = true;
+	RightAvailable = true;
 
-void Player::update()
+
+	int gridX = 50;
+	int gridY = 50;
+	int indexHorizontal = gridY;
+	int indexVertical = 1;
+
+	playerGridX = (m_sprite.getPosition().x+4800) / 200;
+	playerGridY = (m_sprite.getPosition().y+4800) / 200;
+	playerGrid = playerGridX*50 + (playerGridY +1);
+
+
+	if (playerGrid < gridY)
+	{
+		LeftAvailable = false;
+	}
+	if (playerGrid > ((gridX * gridY) - (gridY + 1))) //2249
+	{
+		RightAvailable = false;
+	}
+	if (playerGrid % gridY == 0)
+	{
+		UpAvailable = false;
+	}
+	for (int x = 0; x < gridX; x++)
+	{
+		if (playerGrid == ((gridY - 1) + (gridY * x)))
+		{
+			DownAvailable = false;
+		}
+	}
+	if (UpAvailable == true)
+	{
+		if (grid.nodes[playerGrid - indexVertical]->getCost() >= 9999)
+		{
+			UpAvailable = false;
+		}
+	}
+	if (DownAvailable == true)
+	{
+		if (grid.nodes[playerGrid + indexVertical]->getCost() >= 9999)
+		{
+			DownAvailable = false;
+		}
+	}
+	if (LeftAvailable == true)
+	{
+		if (grid.nodes[playerGrid - indexHorizontal]->getCost() >= 9999)
+		{
+			LeftAvailable = false;
+		}
+	}
+	if (RightAvailable == true)
+	{
+		if (grid.nodes[playerGrid + indexHorizontal]->getCost() >= 9999)
+		{
+			RightAvailable = false;
+		}
+	}
+
+	if (LeftAvailable == false)
+	{
+		m_velocity.x = 0;
+	}
+	if (RightAvailable == false)
+	{
+		m_velocity.x = 0;
+		m_speed = 0;
+	}
+
+}
+void Player::update(Grid grid)
 {
 	handleInput();
 	move();
+	checkCollision(grid);
 
 	for (Bullet * bullet : m_bullets) {
 		bullet->update();
