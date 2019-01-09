@@ -57,11 +57,6 @@ private:
 	int m_bulletCounter = 0;
 	const int BULLET_TIME = 30;
 
-	bool UpAvailable = true;
-	bool DownAvailable = true;
-	bool LeftAvailable = true;
-	bool RightAvailable = true;
-
 	int playerGrid = 0;
 	int playerGridX = 0;
 	int playerGridY = 0;

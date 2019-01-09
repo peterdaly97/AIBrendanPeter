@@ -22,80 +22,28 @@ Player::Player()
 Player::~Player()
 {
 }
+
 void Player::checkCollision(Grid grid)
 {
-	UpAvailable = true;
-	DownAvailable = true;
-	LeftAvailable = true;
-	RightAvailable = true;
+	float scalar = 1.03;
+	sf::Vector2f playerPursue = m_position + m_velocity;
 
+	playerPursue = sf::Vector2f(playerPursue.x * scalar, playerPursue.y * scalar);
 
 	int gridX = 50;
 	int gridY = 50;
 	int indexHorizontal = gridY;
 	int indexVertical = 1;
 
-	playerGridX = (m_sprite.getPosition().x+4800) / 200;
-	playerGridY = (m_sprite.getPosition().y+4800) / 200;
-	playerGrid = playerGridX*50 + (playerGridY +1);
+	playerGridX = (playerPursue.x+5000) / 200;
+	playerGridY = (playerPursue.y+5000) / 200;
+	playerGrid = playerGridX*50 + (playerGridY);
 
-
-	if (playerGrid < gridY)
-	{
-		LeftAvailable = false;
-	}
-	if (playerGrid > ((gridX * gridY) - (gridY + 1))) //2249
-	{
-		RightAvailable = false;
-	}
-	if (playerGrid % gridY == 0)
-	{
-		UpAvailable = false;
-	}
-	for (int x = 0; x < gridX; x++)
-	{
-		if (playerGrid == ((gridY - 1) + (gridY * x)))
-		{
-			DownAvailable = false;
-		}
-	}
-	if (UpAvailable == true)
-	{
-		if (grid.nodes[playerGrid - indexVertical]->getCost() >= 9999)
-		{
-			UpAvailable = false;
-		}
-	}
-	if (DownAvailable == true)
-	{
-		if (grid.nodes[playerGrid + indexVertical]->getCost() >= 9999)
-		{
-			DownAvailable = false;
-		}
-	}
-	if (LeftAvailable == true)
-	{
-		if (grid.nodes[playerGrid - indexHorizontal]->getCost() >= 9999)
-		{
-			LeftAvailable = false;
-		}
-	}
-	if (RightAvailable == true)
-	{
-		if (grid.nodes[playerGrid + indexHorizontal]->getCost() >= 9999)
-		{
-			RightAvailable = false;
-		}
-	}
-
-	if (LeftAvailable == false)
-	{
-		m_velocity.x = 0;
-	}
-	if (RightAvailable == false)
-	{
-		m_velocity.x = 0;
-		m_speed = 0;
+	std::cout << playerGrid << std::endl;
+	if (grid.nodes[playerGrid]->getCost() >= 9999) {
+		m_velocity.x = -m_velocity.x * 0.6;
+		m_velocity.y = -m_velocity.y * 0.6;
+		m_speed = -m_speed;
 	}
 
 }
