@@ -64,6 +64,7 @@ void Game::update() {
 	for (int i = 0; i < m_nests.size(); i++) {
 		m_nests.at(i)->update();
 		player.checkNest(*m_nests.at(i));
+		player.checkEnemies(m_nests.at(i)->m_enemies);
 		if (m_nests.at(i)->m_dead) {
 			for (Enemy * e : m_nests.at(i)->m_enemies) {
 				m_remainingEnemies.push_back(e);
@@ -72,7 +73,7 @@ void Game::update() {
 			std::cout << "" << std::endl;
 		}
 	}
-	
+	player.checkEnemies(m_remainingEnemies);
 	for (Worker * en : m_workers) {
 		en->update();
 	}

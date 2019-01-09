@@ -119,6 +119,17 @@ void Player::checkNest(Nest & nest) {
 	}
 }
 
+void Player::checkEnemies(std::vector<Enemy *> & enemies) {
+	for (int i = 0; i < m_bullets.size(); i++) {
+		for (int j = 0; j < enemies.size(); j++) {
+			if (dist(m_bullets.at(i)->m_pos, enemies.at(j)->m_position) < 75) {
+				enemies.erase(enemies.begin() + j);
+				m_bullets.erase(m_bullets.begin() + i);
+			}
+		}
+	}
+}
+
 void Player::render(sf::RenderWindow & window)
 {
 	m_view.setCenter(m_sprite.getPosition());

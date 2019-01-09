@@ -1,7 +1,7 @@
 ﻿#include "../Classes/Enemy.h"
 
-Enemy::Enemy(behaviour behaviour, sf::Vector2f pos, float maxSpeed, sf::Texture * tex)
-{
+Enemy::Enemy(behaviour behaviour, sf::Vector2f pos, float maxSpeed, sf::Texture * tex) {
+
 	srand(time(0));
 	m_sprite.setTexture(*tex);
 	m_position = pos;
@@ -31,12 +31,10 @@ Enemy::Enemy(behaviour behaviour, sf::Vector2f pos, float maxSpeed, sf::Texture 
 
 
 
-Enemy::~Enemy()
-{
-}
+Enemy::~Enemy() {}
 
-void Enemy::update(sf::Vector2f playerPos, sf::Vector2f playerVel)
-{
+
+void Enemy::update(sf::Vector2f playerPos, sf::Vector2f playerVel) {
 	
 	
 	int scalar = 30;
@@ -149,8 +147,7 @@ steering Enemy::arrive(sf::Vector2f playerPos) {
 	return arriveSteer;
 }
 
-bool Enemy::avoid(std::vector<sf::Vector2f *> enemies)
-{
+bool Enemy::avoid(std::vector<sf::Vector2f *> enemies) {
 	for (sf::Vector2f * enemy : enemies) {
 		if (mag(m_position - *enemy) < m_cone.getRadius() && *enemy != m_position) {
 			sf::Vector2f realVelPos = m_velocity + m_position;
@@ -181,16 +178,20 @@ bool Enemy::avoid(std::vector<sf::Vector2f *> enemies)
 	return false;
 }
 
+void Enemy::die() {
+	delete this;
+}
 
-void Enemy::render(sf::RenderWindow & window)
-{
+
+void Enemy::render(sf::RenderWindow & window) {
+
 	window.draw(m_sprite);
 	window.draw(m_text);
 	window.draw(m_cone);
 }
 
-float Enemy::getNewRotation(float rot, sf::Vector2f vel)
-{
+float Enemy::getNewRotation(float rot, sf::Vector2f vel) {
+
 	if (mag(m_velocity) > 0.0) {
 		float rotation = std::atan2(-m_velocity.x, m_velocity.y) * (180 / 3.14159);
 		return (rotation + 90);

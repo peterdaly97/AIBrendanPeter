@@ -39,6 +39,8 @@ public:
 	steering arrive(sf::Vector2f playerPos);
 	bool avoid(std::vector<sf::Vector2f *> enemies);
 
+	void die();
+
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;
 

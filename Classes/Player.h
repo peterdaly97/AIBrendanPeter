@@ -9,6 +9,7 @@
 #include "grid.h"
 
 class Nest;
+class Enemy;
 
 class Player
 {
@@ -28,6 +29,7 @@ public:
 	void checkCollection(std::vector<Worker *> * workers);
 
 	void checkNest(Nest & nest);
+	void checkEnemies(std::vector<Enemy *> & enemies);
 
 	float dist(sf::Vector2f v1, sf::Vector2f v2);
 
