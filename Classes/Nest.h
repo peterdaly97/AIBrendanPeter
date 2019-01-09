@@ -26,8 +26,9 @@ public:
 	int m_health = 3;
 
 	bool m_dead = false;
-private:
+
 	std::vector<Enemy *> m_enemies;
+private:
 	
 	const int SPAWN_NEXT = 100;
 	int m_spawnTimer;

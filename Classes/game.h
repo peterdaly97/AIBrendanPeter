@@ -40,6 +40,7 @@ private:
 	sf::RectangleShape m_mapBorder;
 
 	std::vector<Worker *> m_workers;
+	std::vector<Enemy *> m_remainingEnemies;
 
 	sf::Texture m_heartTex;
 	sf::Texture m_workerTex;

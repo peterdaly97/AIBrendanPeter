@@ -65,7 +65,11 @@ void Game::update() {
 		m_nests.at(i)->update();
 		player.checkNest(*m_nests.at(i));
 		if (m_nests.at(i)->m_dead) {
+			for (Enemy * e : m_nests.at(i)->m_enemies) {
+				m_remainingEnemies.push_back(e);
+			}
 			m_nests.erase(m_nests.begin() + i);
+			std::cout << "" << std::endl;
 		}
 	}
 	
@@ -74,6 +78,10 @@ void Game::update() {
 	}
 	player.checkCollection(&m_workers);
 	
+	for (Enemy* enemy : m_remainingEnemies) {
+		// Two vectors will be changed to player position and velocity
+		enemy->update(sf::Vector2f(0, 0), sf::Vector2f(0, 0));
+	}
 	
 	updateUI();
 }
@@ -81,7 +89,7 @@ void Game::update() {
 void Game::render() {
 	m_window.clear();
 	m_window.setView(player.m_view);
-	//m_window.draw(m_worldSprite);
+	
 	m_window.draw(m_worldSprite);
 	grid->draw(m_window);
 	for (Nest * nest : m_nests) {
@@ -89,6 +97,9 @@ void Game::render() {
 	}
 	for (Worker * en : m_workers) {
 		en->render(m_window);
+	}
+	for (Enemy* enemy : m_remainingEnemies) {
+		enemy->render(m_window);
 	}
 	
 	player.render(m_window);
@@ -110,6 +121,9 @@ void Game::render() {
 	}
 	for (Worker * en : m_workers) {
 		en->render(m_window);
+	}
+	for (Enemy* enemy : m_remainingEnemies) {
+		enemy->render(m_window);
 	}
 	
 	m_window.draw(player.m_sprite);
