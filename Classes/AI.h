@@ -4,7 +4,7 @@
 class AI
 {
 public:
-	AI(int x, int y);
+	AI(int x, int y, sf::Texture &aiTexture);
 	~AI();
 	void update(double dt);
 	void draw(sf::RenderWindow & window);
@@ -14,5 +14,11 @@ public:
 
 private:
 	sf::CircleShape shape;
-	double speed = 5;
+
+	sf::Sprite aiSprite;
+
+	sf::Vector2f aiPosition;
+	sf::Vector2f aiVelocity;
+	float aiRotation;
+	double aiSpeed = 5;
 };

@@ -2,11 +2,22 @@
 #include <iostream>
 #include <math.h>
 
-AI::AI(int x, int y)
+AI::AI(int x, int y, sf::Texture &aiTexture)
 {
-	shape.setRadius(4);
-	shape.setFillColor(sf::Color::Red);
-	shape.setPosition(x, y);
+
+	aiPosition = sf::Vector2f(x, y);
+
+
+	aiSprite.setTexture(aiTexture);
+	aiSprite.setScale(0.3, 0.3);
+	aiSprite.setOrigin(aiSprite.getLocalBounds().width / 2, aiSprite.getLocalBounds().height / 2);
+	aiSprite.setPosition(aiPosition);
+
+	aiPosition = sf::Vector2f(x, y);
+	aiVelocity = sf::Vector2f(0, 0);
+	aiSprite.setPosition(aiPosition);
+	aiRotation = 0;
+	aiSpeed = 5;
 }
 
 AI::~AI()
@@ -22,19 +33,19 @@ void AI::update(double dt)
 }
 void AI::move(double vectorX,double vectorY)
 {
-	shape.setPosition(shape.getPosition().x + vectorX * speed, shape.getPosition().y + vectorY * speed);
+	aiSprite.setPosition(aiSprite.getPosition().x + vectorX * aiSpeed, aiSprite.getPosition().y + vectorY * aiSpeed);
 }
 
 
 int AI::getPositionX()
 {
-	return shape.getPosition().x;
+	return aiSprite.getPosition().x;
 }
 int AI::getPositionY()
 {
-	return shape.getPosition().y;
+	return aiSprite.getPosition().y;
 }
 void AI::draw(sf::RenderWindow & window)
 {
-	window.draw(shape);
+	window.draw(aiSprite);
 }

@@ -17,6 +17,7 @@ Grid::Grid()
 	{
 
 	}
+	AItexture.loadFromFile("assets/ship.png");
 	createGrid(randomSize);
 
 	//m_player = new Player();
@@ -280,7 +281,7 @@ void Grid::update(sf::RenderWindow & window)
 		{
 			//sf::Vector2i position = sf::Mouse::getPosition(window);
 
-			ai = new AI(0 + (rectSize / 2), 0 + (rectSize / 2));
+			ai = new AI(0 + (rectSize / 2), 0 + (rectSize / 2), AItexture);
 			ais.push_back(ai);
 			startSet = true;
 			leftPressed = true;

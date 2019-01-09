@@ -19,6 +19,7 @@ public:
 private:
 
 	sf::Texture m_groundTexture;
+	sf::Texture AItexture;
 	sf::Texture m_obstacleTexture;
 
 	bool zPressed = false;
