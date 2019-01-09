@@ -83,7 +83,7 @@ void Game::render() {
 	m_window.setView(player.m_view);
 	//m_window.draw(m_worldSprite);
 	m_window.draw(m_worldSprite);
-	//grid->draw(m_window);
+	grid->draw(m_window);
 	for (Nest * nest : m_nests) {
 		nest->render(m_window);
 	}

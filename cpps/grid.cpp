@@ -5,7 +5,6 @@
 
 Grid::Grid()
 {
-	createGrid(randomSize);
 
 	if (!costFont.loadFromFile("font.ttf"))
 	{
@@ -196,33 +195,34 @@ void Grid::update(sf::RenderWindow & window)
 	}
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
 	{
-		sf::Vector2i position = sf::Mouse::getPosition(window);
+		//sf::Vector2i position = sf::Mouse::getPosition(window);
 
-		for (int i = 0; i < nodes.size(); i++)
+		//for (int i = 0; i < nodes.size(); i++)
+		//{
+		//if (position.x > nodes[i]->getPositionX() && position.x < nodes[i]->getPositionX() + rectSize && position.y > nodes[i]->getPositionY() && position.y < nodes[i]->getPositionY() + rectSize)
+		//{
+		int i = 550;
+		if (goalSet == true)
 		{
-			if (position.x > nodes[i]->getPositionX() && position.x < nodes[i]->getPositionX() + rectSize && position.y > nodes[i]->getPositionY() && position.y < nodes[i]->getPositionY() + rectSize)
-			{
-				if (goalSet == true)
-				{
-					clearAll();
-					goalNode = i;
-					setCost();
-					setDistance();
-					setVector();
-					nodes[i]->setColor(sf::Color::Red);
-				}
-				else
-				{
-					goalNode = i;
-					setCost();
-					setDistance();
-					setVector();
-					nodes[i]->setColor(sf::Color::Red);
-					goalSet = true;
-				}
-
-			}
+			clearAll();
+			goalNode = 2030;
+			setCost();
+			setDistance();
+			setVector();
+			nodes[i]->setColor(sf::Color::Red);
 		}
+		else
+		{
+			goalNode = 2030;
+			setCost();
+			setDistance();
+			setVector();
+			nodes[i]->setColor(sf::Color::Red);
+			goalSet = true;
+		}
+
+		//}
+		//}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::R))
 	{
@@ -278,20 +278,24 @@ void Grid::update(sf::RenderWindow & window)
 	{
 		if (leftPressed == false)
 		{
-			sf::Vector2i position = sf::Mouse::getPosition(window);
+			//sf::Vector2i position = sf::Mouse::getPosition(window);
 
-			for (int i = 0; i < nodes.size(); i++)
+			ai = new AI(0 + (rectSize / 2), 0 + (rectSize / 2));
+			ais.push_back(ai);
+			startSet = true;
+			leftPressed = true;
+
+			/*for (int i = 0; i < nodes.size(); i++)
 			{
-				if (position.x > nodes[i]->getPositionX() && position.x < nodes[i]->getPositionX() + rectSize && position.y > nodes[i]->getPositionY() && position.y < nodes[i]->getPositionY() + rectSize)
-				{
-					//nodes[i]->setColor(sf::Color::Green);
-					ai = new AI(nodes[i]->getPositionX() + (rectSize / 2), nodes[i]->getPositionY() + (rectSize / 2));
-					ais.push_back(ai);
-					startSet = true;
-					leftPressed = true;
-				}
-
+			if (position.x > nodes[i]->getPositionX() && position.x < nodes[i]->getPositionX() + rectSize && position.y > nodes[i]->getPositionY() && position.y < nodes[i]->getPositionY() + rectSize)
+			{
+			ai = new AI(nodes[i]->getPositionX() + (rectSize / 2), nodes[i]->getPositionY() + (rectSize / 2));
+			ais.push_back(ai);
+			startSet = true;
+			leftPressed = true;
 			}
+
+			}*/
 
 		}
 	}
@@ -558,10 +562,10 @@ void Grid::setDistance()
 void Grid::draw(sf::RenderWindow & window)
 {
 	//m_player->draw(m_window);
-	for (int i = 0; i < nodes.size(); i++)
-	{
-		nodes[i]->draw(window);
-	}
+	//for (int i = 0; i < nodes.size(); i++)
+	//{
+	//	nodes[i]->draw(window);
+	//}
 
 	if (startSet == true)
 	{
