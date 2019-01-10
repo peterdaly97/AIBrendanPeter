@@ -150,6 +150,10 @@ Grid::~Grid()
 void Grid::update(sf::RenderWindow & window)
 {
 	sf::Time deltaTime;
+	if (goalSet == true)
+	{
+		moveAI();
+	}
 	//m_player->update(dt);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::L))
 	{
@@ -206,7 +210,6 @@ void Grid::update(sf::RenderWindow & window)
 		if (goalSet == true)
 		{
 			clearAll();
-			goalNode = 2030;
 			setCost();
 			setDistance();
 			setVector();
@@ -214,7 +217,6 @@ void Grid::update(sf::RenderWindow & window)
 		}
 		else
 		{
-			goalNode = 2030;
 			setCost();
 			setDistance();
 			setVector();
@@ -300,8 +302,7 @@ void Grid::update(sf::RenderWindow & window)
 
 		}
 	}
-	if (startSet == true && goalSet == true)
-	{
+		/*
 		for (int i = 0; i < nodes.size(); i++)
 		{
 			for (int x = 0; x < ais.size(); x++)
@@ -357,7 +358,8 @@ void Grid::update(sf::RenderWindow & window)
 				}
 			}
 		}
-	}
+		*/
+	
 }
 void Grid::clearAll()
 {
@@ -552,6 +554,50 @@ void Grid::setVector()
 
 	}
 }
+void Grid::moveAI()
+{
+	if (startSet == true && goalSet == true)
+	{
+		if (ais.size() > 0)
+		{
+			for (int x = 0; x < ais.size(); x++)
+			{
+				int AIgridX = (ais[x]->getPositionX() + 5000) / 200;
+				int AIgridY = (ais[x]->getPositionY() + 5000) / 200;
+				int AIgrid = AIgridX * 50 + (AIgridY);
+				
+				if (AIgrid == goalNode)
+				{
+					ais.erase(ais.begin() + x);
+				}
+				else
+				{
+					ais[x]->move(nodes[AIgrid]->getVectX(), nodes[AIgrid]->getVectY());
+				}
+			}
+		}
+	}
+}
+void Grid::seek(int goal)
+{
+	int i = goal;
+	if (goalSet == true)
+	{
+		clearAll();
+		goalNode = goal;
+		setCost();
+		setDistance();
+		setVector();
+	}
+	else
+	{
+		goalNode = goal;
+		setCost();
+		setDistance();
+		setVector();
+		goalSet = true;
+	}
+}
 void Grid::setDistance()
 {
 	for (int i = 0; i < nodes.size(); i++)
@@ -570,9 +616,14 @@ void Grid::draw(sf::RenderWindow & window)
 
 	if (startSet == true)
 	{
-		for (int x = 0; x < ais.size(); x++)
+		if (ais.size() > 0)
 		{
-			ais[x]->draw(window);
+
+			for (int x = 0; x < ais.size(); x++)
+			{
+				ais[x]->draw(window);
+			}
 		}
+	
 	}
 }

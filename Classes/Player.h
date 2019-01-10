@@ -18,7 +18,7 @@ public:
 
 	~Player();
 
-	void update(Grid grid);
+	void update(Grid &grid);
 
 	void checkCollision(Grid grid);
 
@@ -54,6 +54,9 @@ public:
 	int m_health = 100;
 
 	int m_collected = 0;
+
+	bool gridChanged = false;
+	int tempGrid = 999999;
 
 private:
 	int m_bulletCounter = 0;

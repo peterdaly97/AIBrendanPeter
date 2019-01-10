@@ -13,7 +13,10 @@ public:
 	~Grid();
 	void update(sf::RenderWindow & window);
 	void draw(sf::RenderWindow & window);
+	void seek(int goal);
 	std::vector<Node*> nodes;
+
+	int goalNode = 0;
 	
 
 private:
@@ -30,10 +33,10 @@ private:
 	void setCost();
 	void setVector();
 	void setDistance();
+	void moveAI();
 	void createGrid(int random);
 	void makeMap();
 	void clearAll();
-	int goalNode;
 	//Player* m_player;
 	sf::Font costFont;
 

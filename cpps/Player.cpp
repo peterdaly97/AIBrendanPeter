@@ -38,8 +38,13 @@ void Player::checkCollision(Grid grid)
 	playerGridX = (playerPursue.x+5000) / 200;
 	playerGridY = (playerPursue.y+5000) / 200;
 	playerGrid = playerGridX*50 + (playerGridY);
+	if (tempGrid != playerGrid)
+	{
+		gridChanged = true;
+	}
+	tempGrid = playerGrid;
 
-	std::cout << playerGrid << std::endl;
+	//std::cout << playerGrid << std::endl;
 	if (grid.nodes[playerGrid]->getCost() >= 9999) {
 		m_velocity.x = -m_velocity.x * 0.6;
 		m_velocity.y = -m_velocity.y * 0.6;
@@ -47,11 +52,16 @@ void Player::checkCollision(Grid grid)
 	}
 
 }
-void Player::update(Grid grid)
+void Player::update(Grid &grid)
 {
 	handleInput();
 	move();
 	checkCollision(grid);
+	if (gridChanged == true)
+	{
+		grid.seek(playerGrid);
+		gridChanged = false;
+	}
 
 	for (Bullet * bullet : m_bullets) {
 		bullet->update();
