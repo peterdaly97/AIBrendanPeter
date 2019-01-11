@@ -25,6 +25,7 @@ public:
 	void render(sf::RenderWindow &window);
 	void handleInput();
 	void move();
+	void animationUpdate();
 
 	void checkCollection(std::vector<Worker *> * workers);
 
@@ -36,6 +37,10 @@ public:
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;
 	sf::Keyboard m_keys;
+
+	sf::Texture m_fireTexture;
+	sf::Sprite m_fireSprite;
+	sf::IntRect rectSourceSprite;
 
 	sf::Vector2f m_position;
 	sf::Vector2f m_velocity;

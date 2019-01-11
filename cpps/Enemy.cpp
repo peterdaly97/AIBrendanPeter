@@ -20,6 +20,7 @@ Enemy::Enemy(behaviour behaviour, sf::Vector2f pos, float maxSpeed, sf::Texture 
 	{
 		std::cout << "Problem loading font file!" << std::endl;
 	}
+
 	m_text.setFont(m_font);
 	m_text.setFillColor(sf::Color::White);
 	m_text.setOrigin(m_text.getLocalBounds().width / 2, m_text.getLocalBounds().height / 2);

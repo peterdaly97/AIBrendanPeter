@@ -8,6 +8,18 @@ Player::Player()
 	m_sprite.setScale(0.3, 0.3);
 	m_sprite.setOrigin(m_sprite.getLocalBounds().width / 2, m_sprite.getLocalBounds().height / 2);
 
+	m_fireTexture.loadFromFile("assets/fire.png");
+
+	rectSourceSprite.left = 320;
+	rectSourceSprite.top = 0;
+	rectSourceSprite.width = 64;
+	rectSourceSprite.height = 64;
+
+	m_fireSprite.setTexture(m_fireTexture);
+	m_fireSprite.setTextureRect(rectSourceSprite);
+	m_fireSprite.setOrigin(m_sprite.getOrigin());
+	//m_fireSprite.setOrigin(m_fireSprite.getLocalBounds().width / 2, m_fireSprite.getLocalBounds().height / 2);
+
 	m_position = sf::Vector2f(0, 0);
 	m_velocity = sf::Vector2f(0, 0);
 	m_sprite.setPosition(m_position);
@@ -52,8 +64,30 @@ void Player::checkCollision(Grid grid)
 	}
 
 }
+void Player::animationUpdate()
+{
+	if (rectSourceSprite.top < 320)
+	{
+		rectSourceSprite.top += 64;
+	}
+	else
+	{
+		rectSourceSprite.top = 0;
+		if (rectSourceSprite.left > 0)
+		{
+			rectSourceSprite.left -= 64;
+		}
+		else
+		{
+			rectSourceSprite.left = 320;
+		}
+	}
+	m_fireSprite.setTextureRect(rectSourceSprite);
+	//m_fireSprite.setScale(0.1, 1);
+}
 void Player::update(Grid &grid)
 {
+	animationUpdate();
 	handleInput();
 	move();
 	checkCollision(grid);
@@ -103,6 +137,8 @@ void Player::handleInput() {
 void Player::move() {
 	m_sprite.setPosition(m_position);
 	m_sprite.setRotation(m_rotation);
+	m_fireSprite.setPosition(m_position.x,m_position.y);
+	m_fireSprite.setRotation(m_rotation);
 	m_velocity = sf::Vector2f(std::cos(DEG_TO_RAD  * (m_rotation)) * m_speed,
 		std::sin(DEG_TO_RAD * (m_rotation)) * m_speed);
 	m_position += m_velocity;
@@ -145,6 +181,7 @@ void Player::render(sf::RenderWindow & window)
 	m_view.setCenter(m_sprite.getPosition());
 	window.setView(m_view);
 	window.draw(m_sprite);
+	window.draw(m_fireSprite);
 	for (Bullet * bullet : m_bullets) {
 		if (bullet) {
 			bullet->render(window); 

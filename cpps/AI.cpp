@@ -2,6 +2,8 @@
 #include <iostream>
 #include <math.h>
 
+#define PI 3.14159265
+
 AI::AI(int x, int y, sf::Texture &aiTexture)
 {
 
@@ -34,6 +36,8 @@ void AI::update(double dt)
 void AI::move(double vectorX,double vectorY)
 {
 	aiSprite.setPosition(aiSprite.getPosition().x + vectorX * aiSpeed, aiSprite.getPosition().y + vectorY * aiSpeed);
+	double rotation = atan2(vectorY, vectorX)*180/PI;
+	aiSprite.setRotation(rotation);
 }
 
 
