@@ -1,3 +1,18 @@
-﻿  ParticleSystem.cpp
-c:\users\peter\desktop\aibrendanpeter\cpps\particlesystem.cpp(12): warning C4018: '<': signed/unsigned mismatch
+﻿  Player.cpp
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(8): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(40): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(50): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(51): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(61): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(62): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(112): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(117): warning C4305: '-=': truncation from 'double' to 'float'
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(143): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(142): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(146): warning C4305: '*=': truncation from 'double' to 'float'
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(151): warning C4018: '<': signed/unsigned mismatch
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(160): warning C4018: '<': signed/unsigned mismatch
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(169): warning C4018: '<': signed/unsigned mismatch
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(170): warning C4018: '<': signed/unsigned mismatch
+c:\users\peter\desktop\aibrendanpeter\cpps\player.cpp(171): warning C4018: '>': signed/unsigned mismatch
   SpaceStationRescue.BrendanPeter.vcxproj -> C:\Users\peter\Desktop\AIBrendanPeter\Debug\SpaceStationRescue.BrendanPeter.exe

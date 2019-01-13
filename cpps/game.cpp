@@ -61,31 +61,42 @@ void Game::run() {
 void Game::update() {
 
 	grid->update(m_window);
+	checkEntities();
+	for (int i = 0; i < m_particles.size(); i++) {
+		m_particles.at(i)->update();
+		if (m_particles.at(i)->m_particles.size() <= 0) {
+			m_particles.erase(m_particles.begin() + i);
+		}
+	}
+	updateUI();
+}
+
+void Game::checkEntities() {
 	player.update(*grid);
 	for (int i = 0; i < m_nests.size(); i++) {
 		m_nests.at(i)->update();
 		player.checkNest(*m_nests.at(i));
-		player.checkEnemies(m_nests.at(i)->m_enemies);
+		player.checkEnemies(m_nests.at(i)->m_enemies, m_particles);
 		if (m_nests.at(i)->m_dead) {
 			for (Enemy * e : m_nests.at(i)->m_enemies) {
 				m_remainingEnemies.push_back(e);
 			}
+			m_particles.push_back(new ParticleSystem(1000, m_nests.at(i)->m_position));
 			m_nests.erase(m_nests.begin() + i);
+
 			std::cout << "" << std::endl;
 		}
 	}
-	player.checkEnemies(m_remainingEnemies);
+	player.checkEnemies(m_remainingEnemies, m_particles);
 	for (Worker * en : m_workers) {
 		en->update();
 	}
 	player.checkCollection(&m_workers);
-	
+
 	for (Enemy* enemy : m_remainingEnemies) {
 		// Two vectors will be changed to player position and velocity
 		enemy->update(sf::Vector2f(0, 0), sf::Vector2f(0, 0));
 	}
-	
-	updateUI();
 }
 
 void Game::render() {
@@ -103,6 +114,10 @@ void Game::render() {
 	for (Enemy* enemy : m_remainingEnemies) {
 		enemy->render(m_window);
 	}
+	for (ParticleSystem* ps : m_particles) {
+		ps->draw(m_window);
+	}
+
 	
 	player.render(m_window);
 	m_window.draw(m_heartSprite);

@@ -20,6 +20,7 @@ public:
 
 	void run();
 	void update();
+	void checkEntities();
 	void render();
 	void updateUI();
 

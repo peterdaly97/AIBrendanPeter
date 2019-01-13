@@ -17,8 +17,8 @@ Player::Player()
 
 	m_fireSprite.setTexture(m_fireTexture);
 	m_fireSprite.setTextureRect(rectSourceSprite);
-	m_fireSprite.setOrigin(m_sprite.getOrigin());
-	//m_fireSprite.setOrigin(m_fireSprite.getLocalBounds().width / 2, m_fireSprite.getLocalBounds().height / 2);
+	//m_fireSprite.setOrigin(m_sprite.getOrigin());
+	m_fireSprite.setOrigin(m_fireSprite.getLocalBounds().width + 30, m_fireSprite.getLocalBounds().height / 2);
 
 	m_position = sf::Vector2f(0, 0);
 	m_velocity = sf::Vector2f(0, 0);
@@ -165,10 +165,11 @@ void Player::checkNest(Nest & nest) {
 	}
 }
 
-void Player::checkEnemies(std::vector<Enemy *> & enemies) {
+void Player::checkEnemies(std::vector<Enemy *> & enemies, std::vector<ParticleSystem *> & ps) {
 	for (int i = 0; i < m_bullets.size(); i++) {
 		for (int j = 0; j < enemies.size(); j++) {
 			if (m_bullets.size() > i && dist(m_bullets.at(i)->m_pos, enemies.at(j)->m_position) < 75) {
+				ps.push_back(new ParticleSystem(1000, enemies.at(j)->m_position));
 				enemies.erase(enemies.begin() + j);
 				m_bullets.erase(m_bullets.begin() + i);
 			}

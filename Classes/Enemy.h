@@ -57,6 +57,8 @@ public:
 	const float MAX_BACKWARD_SPEED = 2.5;
 	const float TIME_TO_TARGET = 80.0f;
 
+	bool m_dead = false;
+
 private:
 	behaviour b;
 	sf::Text m_text;

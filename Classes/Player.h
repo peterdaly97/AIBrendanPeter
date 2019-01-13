@@ -7,6 +7,7 @@
 #include <vector>
 #include "Worker.h"
 #include "grid.h"
+#include "ParticleSystem.h"
 
 class Nest;
 class Enemy;
@@ -30,7 +31,7 @@ public:
 	void checkCollection(std::vector<Worker *> * workers);
 
 	void checkNest(Nest & nest);
-	void checkEnemies(std::vector<Enemy *> & enemies);
+	void checkEnemies(std::vector<Enemy *> & enemies, std::vector<ParticleSystem *> & ps);
 
 	float dist(sf::Vector2f v1, sf::Vector2f v2);
 
