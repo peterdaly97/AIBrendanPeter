@@ -43,6 +43,7 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 
 	m_miniMap.zoom(2);
 	grid = new Grid();
+
 }
 
 Game::~Game() {
@@ -126,7 +127,6 @@ void Game::render() {
 	for (Enemy* enemy : m_remainingEnemies) {
 		enemy->render(m_window);
 	}
-	
 	m_window.draw(player.m_sprite);
 	m_miniMap.setViewport(sf::FloatRect(0.75, 0.75, 0.25, 0.25));
 	

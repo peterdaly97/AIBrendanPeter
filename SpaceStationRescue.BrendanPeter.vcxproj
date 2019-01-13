@@ -129,6 +129,8 @@
     <ClCompile Include="cpps\main.cpp" />
     <ClCompile Include="cpps\Nest.cpp" />
     <ClCompile Include="cpps\Node.cpp" />
+    <ClCompile Include="cpps\Particle.cpp" />
+    <ClCompile Include="cpps\ParticleSystem.cpp" />
     <ClCompile Include="cpps\Player.cpp" />
     <ClCompile Include="cpps\Worker.cpp" />
   </ItemGroup>
@@ -140,6 +142,8 @@
     <ClInclude Include="Classes\grid.h" />
     <ClInclude Include="Classes\Nest.h" />
     <ClInclude Include="Classes\Node.h" />
+    <ClInclude Include="Classes\Particle.h" />
+    <ClInclude Include="Classes\ParticleSystem.h" />
     <ClInclude Include="Classes\Player.h" />
     <ClInclude Include="Classes\Worker.h" />
   </ItemGroup>

@@ -7,6 +7,7 @@
 #include "grid.h"
 #include <iostream>
 #include <vector>
+#include "ParticleSystem.h"
 
 class grid;
 
@@ -51,6 +52,9 @@ private:
 	sf::Text m_heartText;
 	sf::Text m_workerText;
 	sf::Font m_font;
+
+	std::vector<ParticleSystem *> m_particles;
+	
 };
 
 #endif //!GAME_H
