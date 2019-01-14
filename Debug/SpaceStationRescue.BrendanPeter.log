@@ -1,10 +1,4 @@
-﻿  AI.cpp
-c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(10): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(14): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(87): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(89): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(94): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(98): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+﻿  Particle.cpp
+c:\users\gameuser\desktop\aibrendanpeter\cpps\particle.cpp(13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\particle.cpp(15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   SpaceStationRescue.BrendanPeter.vcxproj -> C:\Users\gameuser\Desktop\AIBrendanPeter\Debug\SpaceStationRescue.BrendanPeter.exe

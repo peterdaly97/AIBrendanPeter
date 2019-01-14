@@ -67,7 +67,7 @@ void AI::update(sf::Vector2f playerPosition)
 
 
 		angleToPlayer = angleToPlayer * 180 / PI;
-		std::cout << "angle = " << +angleToPlayer;
+		std::cout << "angle = " << +angleToPlayer << std::endl;
 		m_bulletCounter = 0;
 		m_bullets.push_back(new Bullet(aiSprite.getPosition(), angleToPlayer));
 	}

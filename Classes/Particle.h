@@ -20,6 +20,7 @@ private:
 	sf::Vector2f m_velocity;
 	sf::CircleShape m_circle;
 	int m_red;
+	int m_yellow;
 	int m_alpha = 255;
 };
 #endif // !Particle_H
