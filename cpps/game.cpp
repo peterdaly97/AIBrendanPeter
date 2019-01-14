@@ -7,9 +7,9 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 		
 	m_window.setFramerateLimit(60);
 
-	m_worldTexture.loadFromFile("assets/mapSnip.PNG");
+	m_worldTexture.loadFromFile("assets/tileBack.png");
 	m_worldSprite.setTexture(m_worldTexture);
-	m_worldSprite.setScale(5, 5);
+	m_worldSprite.setScale(1, 1);
 	m_worldSprite.setOrigin(m_worldSprite.getLocalBounds().width / 2, m_worldSprite.getLocalBounds().height / 2);
 	
 	m_heartTex.loadFromFile("assets/heart.png");

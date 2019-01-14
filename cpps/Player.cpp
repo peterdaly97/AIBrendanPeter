@@ -38,9 +38,9 @@ Player::~Player()
 void Player::checkCollision(Grid grid)
 {
 	float scalar = 1.03;
-	sf::Vector2f playerPursue = m_position + m_velocity;
+	sf::Vector2f playerPursue = m_position + (m_velocity * scalar);
 
-	playerPursue = sf::Vector2f(playerPursue.x * scalar, playerPursue.y * scalar);
+	//playerPursue = sf::Vector2f(playerPursue.x * scalar, playerPursue.y * scalar);
 
 	int gridX = 50;
 	int gridY = 50;

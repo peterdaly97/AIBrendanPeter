@@ -1,17 +1,4 @@
-﻿  Enemy.cpp
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(5): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(9): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(85): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(84): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(103): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(104): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(166): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(167): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(197): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  Nest.cpp
-  Player.cpp
+﻿  Player.cpp
 c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(8): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(40): warning C4305: 'initializing': truncation from 'double' to 'float'
 c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(50): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
@@ -28,10 +15,4 @@ c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(170): warning C4018: '<
 c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(179): warning C4018: '<': signed/unsigned mismatch
 c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(180): warning C4018: '<': signed/unsigned mismatch
 c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(181): warning C4018: '>': signed/unsigned mismatch
-  game.cpp
-c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(3): warning C4244: 'initializing': conversion from 'double' to 'sf::Int32', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(65): warning C4018: '<': signed/unsigned mismatch
-c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(76): warning C4018: '<': signed/unsigned mismatch
-  main.cpp
-  Generating Code...
   SpaceStationRescue.BrendanPeter.vcxproj -> C:\Users\gameuser\Desktop\AIBrendanPeter\Debug\SpaceStationRescue.BrendanPeter.exe
