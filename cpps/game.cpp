@@ -41,7 +41,7 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_workers.push_back(new Worker(act::WANDER, sf::Vector2f(200, 200)));
 	m_nests.push_back(new Nest(sf::Vector2f(300, -200)));
 
-	m_miniMap.zoom(2);
+	m_miniMap.zoom(5);
 	grid = new Grid();
 
 }

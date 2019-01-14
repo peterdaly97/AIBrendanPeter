@@ -93,8 +93,13 @@ void Player::update(Grid &grid)
 	checkCollision(grid);
 	if (gridChanged == true)
 	{
-		grid.seek(playerGrid);
-		gridChanged = false;
+		gridChangedCount += 1;
+		if (gridChangedCount == 100)
+		{
+			grid.seek(playerGrid);
+			gridChanged = false;
+			gridChangedCount = 0;
+		}
 	}
 
 	for (Bullet * bullet : m_bullets) {
@@ -108,8 +113,13 @@ void Player::update(Grid &grid)
 void Player::handleInput() {
 	if (m_keys.isKeyPressed(sf::Keyboard::Up))
 	{
+		drawFireBack = true;
 		if (m_speed < MAX_FORWARD_SPEED)
 			m_speed += 0.15;
+	}
+	else
+	{
+		drawFireBack = false;
 	}
 	if (m_keys.isKeyPressed(sf::Keyboard::Down))
 	{
@@ -182,7 +192,10 @@ void Player::render(sf::RenderWindow & window)
 	m_view.setCenter(m_sprite.getPosition());
 	window.setView(m_view);
 	window.draw(m_sprite);
-	window.draw(m_fireSprite);
+	if (drawFireBack == true)
+	{
+		window.draw(m_fireSprite);
+	}
 	for (Bullet * bullet : m_bullets) {
 		if (bullet) {
 			bullet->render(window); 

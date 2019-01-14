@@ -65,8 +65,11 @@ public:
 	int tempGrid = 999999;
 
 private:
+	int gridChangedCount = 0;
 	int m_bulletCounter = 0;
 	const int BULLET_TIME = 30;
+
+	bool drawFireBack = false;
 
 	int playerGrid = 0;
 	int playerGridX = 0;

@@ -581,22 +581,13 @@ void Grid::moveAI()
 void Grid::seek(int goal)
 {
 	int i = goal;
-	if (goalSet == true)
-	{
+
 		clearAll();
 		goalNode = goal;
 		setCost();
 		setDistance();
 		setVector();
-	}
-	else
-	{
-		goalNode = goal;
-		setCost();
-		setDistance();
-		setVector();
 		goalSet = true;
-	}
 }
 void Grid::setDistance()
 {
