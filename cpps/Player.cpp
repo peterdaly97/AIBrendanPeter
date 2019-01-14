@@ -35,7 +35,7 @@ Player::~Player()
 {
 }
 
-void Player::checkCollision(Grid grid)
+void Player::checkCollision(Grid &grid)
 {
 	float scalar = 1.03;
 	sf::Vector2f playerPursue = m_position + (m_velocity * scalar);
@@ -91,6 +91,7 @@ void Player::update(Grid &grid)
 	handleInput();
 	move();
 	checkCollision(grid);
+	grid.updateAI(m_position);
 	if (gridChanged == true)
 	{
 		gridChangedCount += 1;

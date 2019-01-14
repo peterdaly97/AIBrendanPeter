@@ -12,6 +12,7 @@ public:
 	Grid();
 	~Grid();
 	void update(sf::RenderWindow & window);
+	void updateAI(sf::Vector2f position);
 	void draw(sf::RenderWindow & window);
 	void seek(int goal);
 	std::vector<Node*> nodes;

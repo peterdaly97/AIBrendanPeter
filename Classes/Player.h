@@ -21,7 +21,7 @@ public:
 
 	void update(Grid &grid);
 
-	void checkCollision(Grid grid);
+	void checkCollision(Grid &grid);
 
 	void render(sf::RenderWindow &window);
 	void handleInput();

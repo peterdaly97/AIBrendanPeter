@@ -17,7 +17,7 @@ Grid::Grid()
 	{
 
 	}
-	AItexture.loadFromFile("assets/ship.png");
+	AItexture.loadFromFile("assets/predator.png");
 	createGrid(randomSize);
 
 	//m_player = new Player();
@@ -577,6 +577,17 @@ void Grid::moveAI()
 			}
 		}
 	}
+}
+void Grid::updateAI(sf::Vector2f playerPosition)
+{
+		if (ais.size() > 0)
+		{
+			for (int x = 0; x < ais.size(); x++)
+			{
+				ais[x]->update(playerPosition);
+			}
+		}
+	
 }
 void Grid::seek(int goal)
 {

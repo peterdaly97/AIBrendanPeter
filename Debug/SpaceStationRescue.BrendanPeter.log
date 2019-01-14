@@ -1,18 +1,10 @@
-﻿  Player.cpp
-c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(8): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(40): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(50): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(51): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(61): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(62): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(118): warning C4305: '+=': truncation from 'double' to 'float'
-c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(127): warning C4305: '-=': truncation from 'double' to 'float'
-c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(153): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(152): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(156): warning C4305: '*=': truncation from 'double' to 'float'
-c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(161): warning C4018: '<': signed/unsigned mismatch
-c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(170): warning C4018: '<': signed/unsigned mismatch
-c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(179): warning C4018: '<': signed/unsigned mismatch
-c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(180): warning C4018: '<': signed/unsigned mismatch
-c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(181): warning C4018: '>': signed/unsigned mismatch
+﻿  AI.cpp
+c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(10): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(14): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(87): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(89): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(94): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(98): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
   SpaceStationRescue.BrendanPeter.vcxproj -> C:\Users\gameuser\Desktop\AIBrendanPeter\Debug\SpaceStationRescue.BrendanPeter.exe
