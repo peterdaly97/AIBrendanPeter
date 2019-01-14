@@ -15,7 +15,7 @@ Nest::~Nest() {
 
 }
 
-void Nest::update() {
+void Nest::update(sf::Vector2f playerPos) {
 	m_spawnTimer++;
 	if (m_spawnTimer > SPAWN_NEXT && m_enemies.size() < 5) {
 		spawn();
@@ -23,6 +23,12 @@ void Nest::update() {
 	for (Enemy* enemy : m_enemies) {
 		// Two vectors will be changed to player position and velocity
 		enemy->update(sf::Vector2f(0,0), sf::Vector2f(0, 0));
+	}
+	for (int i = 0; i < m_missiles.size(); i++) {
+		m_missiles.at(i)->update(playerPos);
+		if (m_missiles.at(i)->m_dead) {
+			m_missiles.erase(m_missiles.begin() + i);
+		}
 	}
 }
 
@@ -33,10 +39,19 @@ void Nest::loseHealth() {
 	}
 }
 
+void Nest::addMissile() {
+	if (m_missiles.size() < 1) {
+		m_missiles.push_back(new Missile(m_position));
+	}
+}
+
 void Nest::render(sf::RenderWindow &window) {
 	window.draw(m_sprite);
 	for (Enemy* enemy : m_enemies) {
 		enemy->render(window);
+	}
+	for (Missile* m : m_missiles) {
+		m->render(window);
 	}
 }
 

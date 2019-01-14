@@ -127,6 +127,7 @@
     <ClCompile Include="cpps\game.cpp" />
     <ClCompile Include="cpps\grid.cpp" />
     <ClCompile Include="cpps\main.cpp" />
+    <ClCompile Include="cpps\Missile.cpp" />
     <ClCompile Include="cpps\Nest.cpp" />
     <ClCompile Include="cpps\Node.cpp" />
     <ClCompile Include="cpps\Particle.cpp" />
@@ -140,6 +141,7 @@
     <ClInclude Include="Classes\Enemy.h" />
     <ClInclude Include="Classes\game.h" />
     <ClInclude Include="Classes\grid.h" />
+    <ClInclude Include="Classes\Missile.h" />
     <ClInclude Include="Classes\Nest.h" />
     <ClInclude Include="Classes\Node.h" />
     <ClInclude Include="Classes\Particle.h" />

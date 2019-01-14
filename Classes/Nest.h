@@ -2,6 +2,7 @@
 #define NEST_H
 
 #include "Enemy.h"
+#include "Missile.h"
 
 class Nest
 {
@@ -10,11 +11,12 @@ public:
 
 	~Nest();
 
-	void update();
+	void update(sf::Vector2f playerPos);
 	void render(sf::RenderWindow &window);
 	void spawn();
 	void loseHealth();
 
+	void addMissile();
 
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;
@@ -28,6 +30,7 @@ public:
 	bool m_dead = false;
 
 	std::vector<Enemy *> m_enemies;
+	std::vector<Missile *> m_missiles;
 private:
 	
 	const int SPAWN_NEXT = 100;

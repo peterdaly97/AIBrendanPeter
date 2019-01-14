@@ -1,32 +1,26 @@
-#ifndef WORKER_H
-#define WORKER_H
+#ifndef MISSILE_H
+#define MISSILE_H
 
-#include "SFML/Graphics.hpp"
+#include <SFML/Graphics.hpp>
+#include <iostream>
 
-enum act
-{
-	FLEE,
-	WANDER	
-};
-
-struct handling {
+struct pathing {
 	sf::Vector2f linear;
 	float angular;
 };
 
-class Worker
+class Missile
 {
 public:
-	Worker(act behaviour, sf::Vector2f pos);
-	~Worker();
+	Missile(sf::Vector2f pos);
+	~Missile() {}
 
-	void update();
+	void update(sf::Vector2f playerPos);
 	void render(sf::RenderWindow &window);
 
 	float getNewRotation(float rot, sf::Vector2f vel);
-	handling wander();
+	pathing seek(sf::Vector2f playerPos);
 
-	handling flee(sf::Vector2f playerPos);
 	float mag(sf::Vector2f v);
 	void startCalc();
 	float dist(sf::Vector2f v1, sf::Vector2f v2);
@@ -42,16 +36,15 @@ public:
 	const double DEG_TO_RAD = 3.14159 / 180.0f;
 	const double RAD_TO_DEG = 180.0f / 3.14159;
 	float m_speed;
-	float MAX_FORWARD_SPEED = 2.5;
-	const float MAX_ROTATION = 30;
-	const float MAX_BACKWARD_SPEED = 2.5;
-	const float TIME_TO_TARGET = 80.0f;
+	float MAX_FORWARD_SPEED = 3.0;
+	const float MAX_ROTATION = 45;
 
+	bool m_dead = false;
 private:
-	act b;
-	float m_angleDev = 0.0f;
-	float m_changeAngle = 1.0f;
-	handling steer;
+	sf::Time m_time;
+	sf::Clock m_clock;
+	pathing steer;
+
 };
-#endif // !WORKER_H
+#endif // !MISSILE_H
 

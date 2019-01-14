@@ -168,11 +168,15 @@ void Player::checkCollection(std::vector<Worker*> * workers) {
 }
 
 void Player::checkNest(Nest & nest) {
+	if (dist(m_position, nest.m_position) < 500) {
+		nest.addMissile();
+	}
 	for (int i = 0; i < m_bullets.size(); i++) {
 		if (dist(m_bullets.at(i)->m_pos, nest.m_position) < 150) {
 			nest.loseHealth();
 			m_bullets.erase(m_bullets.begin() + i);
 		}
+		
 	}
 }
 

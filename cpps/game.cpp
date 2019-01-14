@@ -74,7 +74,7 @@ void Game::update() {
 void Game::checkEntities() {
 	player.update(*grid);
 	for (int i = 0; i < m_nests.size(); i++) {
-		m_nests.at(i)->update();
+		m_nests.at(i)->update(player.m_position);
 		player.checkNest(*m_nests.at(i));
 		player.checkEnemies(m_nests.at(i)->m_enemies, m_particles);
 		if (m_nests.at(i)->m_dead) {

@@ -6,7 +6,7 @@ Worker::Worker(act behaviour, sf::Vector2f pos) {
 	m_sprite.setTexture(m_texture);
 	m_sprite.setScale(3, 3);
 	m_sprite.setOrigin(m_sprite.getLocalBounds().width / 2, m_sprite.getLocalBounds().height / 2);
-	m_speed = 0.0;
+	m_speed = 2.5;
 	m_position = pos;
 	m_sprite.setPosition(pos);
 
@@ -41,7 +41,7 @@ void Worker::update() {
 handling Worker::wander() {
 	m_velocity = m_targetPos - m_position;
 	startCalc();
-	//m_rotation = m_rotation + (MAX_ROTATION * ((rand() % 1) - 1));
+	m_rotation = m_rotation + (MAX_ROTATION * ((rand() % 1) - 1));
 
 	m_angleDev += m_changeAngle;
 	m_rotation += m_angleDev;
