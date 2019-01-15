@@ -22,6 +22,7 @@ public:
 
 	void update();
 	void render(sf::RenderWindow &window);
+	void renderDot(sf::RenderWindow &window);
 
 	float getNewRotation(float rot, sf::Vector2f vel);
 	handling wander();

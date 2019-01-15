@@ -28,6 +28,7 @@ public:
 
 	void update(sf::Vector2f playerPos, sf::Vector2f playerVel);
 	void render(sf::RenderWindow &window);
+	void renderDot(sf::RenderWindow &window);
 
 	float getNewRotation(float rot, sf::Vector2f vel);
 	steering wander();

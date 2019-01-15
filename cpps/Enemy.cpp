@@ -190,6 +190,12 @@ void Enemy::render(sf::RenderWindow & window) {
 	window.draw(m_text);
 	window.draw(m_cone);
 }
+void Enemy::renderDot(sf::RenderWindow &window) {
+	sf::CircleShape shape(100);
+	shape.setFillColor(sf::Color(255, 0, 0));
+	shape.setPosition(m_sprite.getPosition());
+	window.draw(shape);
+}
 
 float Enemy::getNewRotation(float rot, sf::Vector2f vel) {
 

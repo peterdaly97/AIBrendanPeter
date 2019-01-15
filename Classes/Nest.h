@@ -13,6 +13,7 @@ public:
 
 	void update(sf::Vector2f playerPos);
 	void render(sf::RenderWindow &window);
+	void renderDot(sf::RenderWindow &window);
 	void spawn();
 	void loseHealth();
 

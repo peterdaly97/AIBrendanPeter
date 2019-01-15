@@ -11,6 +11,7 @@ public:
 	~AI();
 	void update(sf::Vector2f playerPosition, int &health);
 	void draw(sf::RenderWindow & window);
+	void renderDot(sf::RenderWindow & window);
 	void move(double vectorX,double vectorY);
 	int getPositionX();
 	int getPositionY();

@@ -24,6 +24,7 @@ public:
 	void checkCollision(Grid &grid);
 
 	void render(sf::RenderWindow &window);
+	void renderDot(sf::RenderWindow &window);
 	void handleInput();
 	void move();
 	void animationUpdate();

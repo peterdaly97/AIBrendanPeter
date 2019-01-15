@@ -94,3 +94,9 @@ float AI::dist(sf::Vector2f v1, sf::Vector2f v2) {
 	float dist = std::sqrt(((v1.x - v2.x) * (v1.x - v2.x)) + ((v1.y - v2.y) * (v1.y - v2.y)));
 	return dist;
 }
+void AI::renderDot(sf::RenderWindow &window) {
+	sf::CircleShape shape(100);
+	shape.setFillColor(sf::Color(255, 0, 0));
+	shape.setPosition(aiSprite.getPosition());
+	window.draw(shape);
+}

@@ -76,6 +76,12 @@ void Worker::render(sf::RenderWindow & window)
 {
 	window.draw(m_sprite);
 }
+void Worker::renderDot(sf::RenderWindow &window) {
+	sf::CircleShape shape(100);
+	shape.setFillColor(sf::Color(255, 255, 0));
+	shape.setPosition(m_sprite.getPosition());
+	window.draw(shape);
+}
 
 float Worker::getNewRotation(float rot, sf::Vector2f vel)
 {

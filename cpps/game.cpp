@@ -41,7 +41,7 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_workers.push_back(new Worker(act::WANDER, sf::Vector2f(200, 200)));
 	m_nests.push_back(new Nest(sf::Vector2f(300, -200)));
 
-	m_miniMap.zoom(5);
+	m_miniMap.zoom(10);
 	grid = new Grid();
 
 }
@@ -132,17 +132,19 @@ void Game::render() {
 	
 	
 	m_window.draw(m_worldSprite);
-	m_miniMap.setCenter(player.m_sprite.getPosition());
+	//m_miniMap.setCenter(player.m_sprite.getPosition());
+	m_miniMap.setCenter(0,0);
 	for (Nest * nest : m_nests) {
-		nest->render(m_window);
+		nest->renderDot(m_window);
 	}
 	for (Worker * en : m_workers) {
-		en->render(m_window);
+		en->renderDot(m_window);
 	}
 	for (Enemy* enemy : m_remainingEnemies) {
-		enemy->render(m_window);
+		enemy->renderDot(m_window);
 	}
-	m_window.draw(player.m_sprite);
+	grid->renderDots(m_window);
+	player.renderDot(m_window);
 	m_miniMap.setViewport(sf::FloatRect(0.75, 0.75, 0.25, 0.25));
 	
 	

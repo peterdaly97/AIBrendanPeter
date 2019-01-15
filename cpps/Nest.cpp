@@ -54,6 +54,12 @@ void Nest::render(sf::RenderWindow &window) {
 		m->render(window);
 	}
 }
+void Nest::renderDot(sf::RenderWindow &window) {
+	sf::CircleShape shape(250);
+	shape.setFillColor(sf::Color(153, 0, 204));
+	shape.setPosition(m_sprite.getPosition());
+	window.draw(shape);
+}
 
 void Nest::spawn() {
 	m_spawnTimer = 0;
