@@ -568,7 +568,7 @@ void Grid::moveAI()
 				
 				if (AIgrid == goalNode)
 				{
-					ais.erase(ais.begin() + x);
+					//ais.erase(ais.begin() + x);
 				}
 				else
 				{

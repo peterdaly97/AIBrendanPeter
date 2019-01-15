@@ -21,7 +21,7 @@ private:
 	int m_bulletCounter = 0;
 	const int BULLET_TIME = 30;
 
-	void checkPlayer(Player & player);
+	void checkPlayer(sf::Vector2f playerPosition);
 
 	sf::CircleShape shape;
 
