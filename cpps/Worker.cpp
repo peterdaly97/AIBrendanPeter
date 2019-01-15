@@ -20,6 +20,38 @@ Worker::Worker(act behaviour, sf::Vector2f pos) {
 Worker::~Worker() {
 
 }
+
+void Worker::checkCollision(Grid &grid) {
+	float scalar = 1.03;
+	sf::Vector2f playerPursue = m_position + (m_velocity * scalar);
+
+	//playerPursue = sf::Vector2f(playerPursue.x * scalar, playerPursue.y * scalar);
+
+	int gridX = 50;
+	int gridY = 50;
+	int indexHorizontal = gridY;
+	int indexVertical = 1;
+
+	playerGridX = (playerPursue.x + 5000) / 200;
+	playerGridY = (playerPursue.y + 5000) / 200;
+	playerGrid = playerGridX * 50 + (playerGridY);
+	if (tempGrid != playerGrid)
+	{
+		gridChanged = true;
+	}
+	tempGrid = playerGrid;
+
+	//std::cout << playerGrid << std::endl;
+	if (grid.nodes[playerGrid]->getCost() >= 9999) {
+		m_position -= m_velocity;
+		m_velocity.x = -m_velocity.x * 0.6;
+		m_velocity.y = -m_velocity.y * 0.6;
+
+		m_targetPos.x = rand() % 3840;
+		m_targetPos.y = rand() % 2160;
+	}
+}
+
 void Worker::move(double vectorX, double vectorY)
 {
 	m_sprite.setPosition(m_sprite.getPosition().x + vectorX * 5, m_sprite.getPosition().y + vectorY * 5);
@@ -67,13 +99,13 @@ void Worker::update(std::vector<Node*> &nodes, int goalNode) {
 handling Worker::wander() {
 	m_velocity = m_targetPos - m_position;
 	startCalc();
-	m_rotation = m_rotation + (MAX_ROTATION * ((rand() % 1) - 1));
+	//m_rotation = m_rotation +(MAX_ROTATION * ((rand() % 1) - 1));
 
-	m_angleDev += m_changeAngle;
+	/*m_angleDev += m_changeAngle;
 	m_rotation += m_angleDev;
 	if (m_angleDev > MAX_ROTATION || m_angleDev < -MAX_ROTATION) {
 		m_changeAngle *= -1;
-	}
+	}*/
 	m_sprite.setRotation(m_rotation);
 
 	if (dist(m_targetPos, m_position) < 10) {

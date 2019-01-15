@@ -15,7 +15,7 @@ public:
 	Missile(sf::Vector2f pos);
 	~Missile() {}
 
-	void update(sf::Vector2f playerPos);
+	void update(sf::Vector2f playerPos, int & health);
 	void render(sf::RenderWindow &window);
 
 	float getNewRotation(float rot, sf::Vector2f vel);

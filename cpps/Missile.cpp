@@ -8,7 +8,7 @@ Missile::Missile(sf::Vector2f pos) : m_position(pos) {
 
 }
 
-void Missile::update(sf::Vector2f playerPos) {
+void Missile::update(sf::Vector2f playerPos, int & health) {
 
 	steer = seek(playerPos);
 		
@@ -18,11 +18,17 @@ void Missile::update(sf::Vector2f playerPos) {
 	m_position = sf::Vector2f(m_position.x + std::cos(DEG_TO_RAD  * (m_rotation)) * m_speed,
 		m_position.y + std::sin(DEG_TO_RAD * (m_rotation)) * m_speed);
 
+	if (dist(playerPos, m_position) < 45) {
+		health--;
+		m_dead = true;
+	}
+
 	m_time += m_clock.restart();
 	if (m_time.asSeconds() > 5) {
 		m_dead = true;
 	}
 }
+
 
 pathing Missile::seek(sf::Vector2f playerPos) {
 

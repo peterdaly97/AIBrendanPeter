@@ -85,7 +85,7 @@ void Game::update() {
 void Game::checkEntities() {
 	player.update(*grid);
 	for (int i = 0; i < m_nests.size(); i++) {
-		m_nests.at(i)->update(player.m_position);
+		m_nests.at(i)->update(player.m_position, player.m_health, m_particles);
 		player.checkNest(*m_nests.at(i));
 		player.checkEnemies(m_nests.at(i)->m_enemies, m_particles);
 		if (m_nests.at(i)->m_dead) {
@@ -101,6 +101,7 @@ void Game::checkEntities() {
 	player.checkEnemies(m_remainingEnemies, m_particles);
 	for (Worker * en : m_workers) {
 		en->update(grid->nodes,grid->goalNode);
+		en->checkCollision(*grid);
 	}
 	player.checkCollection(&m_workers);
 

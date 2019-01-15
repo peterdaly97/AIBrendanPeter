@@ -15,7 +15,7 @@ Nest::~Nest() {
 
 }
 
-void Nest::update(sf::Vector2f playerPos) {
+void Nest::update(sf::Vector2f playerPos, int & health, std::vector<ParticleSystem *> & ps) {
 	m_spawnTimer++;
 	if (m_spawnTimer > SPAWN_NEXT && m_enemies.size() < 5) {
 		spawn();
@@ -25,8 +25,9 @@ void Nest::update(sf::Vector2f playerPos) {
 		enemy->update(sf::Vector2f(0,0), sf::Vector2f(0, 0));
 	}
 	for (int i = 0; i < m_missiles.size(); i++) {
-		m_missiles.at(i)->update(playerPos);
+		m_missiles.at(i)->update(playerPos, health);
 		if (m_missiles.at(i)->m_dead) {
+			ps.push_back(new ParticleSystem(1000, m_missiles.at(i)->m_position));
 			m_missiles.erase(m_missiles.begin() + i);
 		}
 	}

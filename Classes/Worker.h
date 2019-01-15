@@ -2,7 +2,8 @@
 #define WORKER_H
 
 #include "SFML/Graphics.hpp"
-#include "Node.h"
+#include "Grid.h"
+
 
 enum act
 {
@@ -25,6 +26,7 @@ public:
 	void render(sf::RenderWindow &window);
 	void renderDot(sf::RenderWindow &window);
 
+	void checkCollision(Grid &grid);
 	float getNewRotation(float rot, sf::Vector2f vel);
 	handling wander();
 
@@ -52,11 +54,18 @@ public:
 	bool magnet = false;
 	void move(double vectorX, double vectorY);
 
+	int tempGrid = 999999;
+	bool gridChanged = false;
+
 private:
 	act b;
 	float m_angleDev = 0.0f;
 	float m_changeAngle = 1.0f;
 	handling steer;
+
+	int playerGrid = 0;
+	int playerGridX = 0;
+	int playerGridY = 0;
 };
 #endif // !WORKER_H
 
