@@ -200,12 +200,7 @@ void Grid::update(sf::RenderWindow & window)
 	}
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
 	{
-		//sf::Vector2i position = sf::Mouse::getPosition(window);
-
-		//for (int i = 0; i < nodes.size(); i++)
-		//{
-		//if (position.x > nodes[i]->getPositionX() && position.x < nodes[i]->getPositionX() + rectSize && position.y > nodes[i]->getPositionY() && position.y < nodes[i]->getPositionY() + rectSize)
-		//{
+		
 		int i = 550;
 		if (goalSet == true)
 		{
@@ -288,77 +283,11 @@ void Grid::update(sf::RenderWindow & window)
 			startSet = true;
 			leftPressed = true;
 
-			/*for (int i = 0; i < nodes.size(); i++)
-			{
-			if (position.x > nodes[i]->getPositionX() && position.x < nodes[i]->getPositionX() + rectSize && position.y > nodes[i]->getPositionY() && position.y < nodes[i]->getPositionY() + rectSize)
-			{
-			ai = new AI(nodes[i]->getPositionX() + (rectSize / 2), nodes[i]->getPositionY() + (rectSize / 2));
-			ais.push_back(ai);
-			startSet = true;
-			leftPressed = true;
-			}
-
-			}*/
+			
 
 		}
 	}
-		/*
-		for (int i = 0; i < nodes.size(); i++)
-		{
-			for (int x = 0; x < ais.size(); x++)
-			{
-				if (ais[x]->getPositionX() >= nodes[i]->getPositionX() && ais[x]->getPositionX() <= nodes[i]->getPositionX() + rectSize && ais[x]->getPositionY() >= nodes[i]->getPositionY() && ais[x]->getPositionY() <= nodes[i]->getPositionY() + rectSize)
-				{
-					if (i == goalNode)
-					{
-						ais.erase(ais.begin() + x);
-					}
-					else
-					{
-						if (nodes[i]->getVectX() != 0)
-						{
-							tempX = nodes[i]->getVectX();
-						}
-						if (nodes[i]->getVectX() != 0)
-						{
-							tempY = nodes[i]->getVectY();
-						}
-						if (nodes[i]->getVectX() == 0 && nodes[i]->getVectY() == 0)
-						{
-							if (tempX > tempY)
-							{
-								if (tempX <= 0)
-								{
-									ais[x]->move(-tempX, tempY);
-								}
-								if (tempX > 0)
-								{
-
-									ais[x]->move(tempX, -tempY);
-
-								}
-							}
-							else if (tempY > tempX)
-							{
-								if (tempY <= 0)
-								{
-									ais[x]->move(tempX, -tempY);
-								}
-								if (tempY > 0)
-								{
-									ais[x]->move(-tempX, tempY);
-								}
-							}
-						}
-						else
-						{
-							ais[x]->move(nodes[i]->getVectX(), nodes[i]->getVectY());
-						}
-					}
-				}
-			}
-		}
-		*/
+		
 	
 }
 void Grid::clearAll()
@@ -610,11 +539,7 @@ void Grid::setDistance()
 
 void Grid::draw(sf::RenderWindow & window)
 {
-	//m_player->draw(m_window);
-	//for (int i = 0; i < nodes.size(); i++)
-	//{
-	//	nodes[i]->draw(window);
-	//}
+	
 
 	if (startSet == true)
 	{
