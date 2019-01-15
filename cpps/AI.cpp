@@ -26,7 +26,7 @@ AI::~AI()
 
 
 
-void AI::update(sf::Vector2f playerPosition)
+void AI::update(sf::Vector2f playerPosition, int &health)
 {
 	for (Bullet * bullet : m_bullets) {
 		bullet->update();
@@ -38,6 +38,7 @@ void AI::update(sf::Vector2f playerPosition)
 	for (int i = 0; i < m_bullets.size(); i++) {
 		if (dist(m_bullets.at(i)->m_pos, playerPosition) < 35) {
 			//player.loseHealth();
+			health = health - 1;
 			m_bullets.erase(m_bullets.begin() + i);
 		}
 	}
@@ -51,7 +52,6 @@ void AI::update(sf::Vector2f playerPosition)
 
 		float angle = atan2(playerPosition.y - aiSprite.getPosition().y, playerPosition.x - aiSprite.getPosition().x);
 		angle = angle * 180 / PI;
-		std::cout << "Angle = " << +angle << std::endl;
 
 		aiSprite.setRotation(angle);
 	    

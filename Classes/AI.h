@@ -9,7 +9,7 @@ class AI
 public:
 	AI(int x, int y, sf::Texture &aiTexture);
 	~AI();
-	void update(sf::Vector2f playerPosition);
+	void update(sf::Vector2f playerPosition, int &health);
 	void draw(sf::RenderWindow & window);
 	void move(double vectorX,double vectorY);
 	int getPositionX();

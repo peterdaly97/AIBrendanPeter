@@ -91,7 +91,7 @@ void Player::update(Grid &grid)
 	handleInput();
 	move();
 	checkCollision(grid);
-	grid.updateAI(m_position);
+	grid.updateAI(m_position, m_health);
 	if (gridChanged == true)
 	{
 		gridChangedCount += 1;

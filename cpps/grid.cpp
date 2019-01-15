@@ -578,13 +578,13 @@ void Grid::moveAI()
 		}
 	}
 }
-void Grid::updateAI(sf::Vector2f playerPosition)
+void Grid::updateAI(sf::Vector2f playerPosition, int &health)
 {
 		if (ais.size() > 0)
 		{
 			for (int x = 0; x < ais.size(); x++)
 			{
-				ais[x]->update(playerPosition);
+				ais[x]->update(playerPosition,health);
 			}
 		}
 	
