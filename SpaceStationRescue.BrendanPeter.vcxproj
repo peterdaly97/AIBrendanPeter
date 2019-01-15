@@ -133,6 +133,7 @@
     <ClCompile Include="cpps\Particle.cpp" />
     <ClCompile Include="cpps\ParticleSystem.cpp" />
     <ClCompile Include="cpps\Player.cpp" />
+    <ClCompile Include="cpps\PowerUp.cpp" />
     <ClCompile Include="cpps\Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +148,7 @@
     <ClInclude Include="Classes\Particle.h" />
     <ClInclude Include="Classes\ParticleSystem.h" />
     <ClInclude Include="Classes\Player.h" />
+    <ClInclude Include="Classes\PowerUp.h" />
     <ClInclude Include="Classes\Worker.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,5 +1,7 @@
 #include "../Classes/Worker.h"
 
+#define PI 3.14159265
+
 Worker::Worker(act behaviour, sf::Vector2f pos) {
 
 	m_texture.loadFromFile("assets/worker.png");
@@ -18,23 +20,47 @@ Worker::Worker(act behaviour, sf::Vector2f pos) {
 Worker::~Worker() {
 
 }
-
-void Worker::update() {
-	switch (b)
+void Worker::move(double vectorX, double vectorY)
+{
+	m_sprite.setPosition(m_sprite.getPosition().x + vectorX * 5, m_sprite.getPosition().y + vectorY * 5);
+	m_position = m_sprite.getPosition();
+	double rotation = atan2(vectorY, vectorX)*180/PI;
+	m_sprite.setRotation(rotation);
+}
+void Worker::update(std::vector<Node*> &nodes, int goalNode) {
+	if (magnet == false)
 	{
-	case FLEE:
-		steer = flee(sf::Vector2f(0,0));
-		break;
-	case WANDER:
-		steer = wander();
-		break;
-	default:
-		break;
+		switch (b)
+		{
+		case FLEE:
+			steer = flee(sf::Vector2f(0, 0));
+			break;
+		case WANDER:
+			steer = wander();
+			break;
+		default:
+			break;
+		}
+		m_position += steer.linear;
+		m_sprite.setPosition(m_position);
+		m_position = sf::Vector2f(m_position.x + std::cos(DEG_TO_RAD  * (m_rotation)) * m_speed,
+			m_position.y + std::sin(DEG_TO_RAD * (m_rotation)) * m_speed);
 	}
-	m_position += steer.linear;
-	m_sprite.setPosition(m_position);
-	m_position = sf::Vector2f(m_position.x + std::cos(DEG_TO_RAD  * (m_rotation)) * m_speed,
-		m_position.y + std::sin(DEG_TO_RAD * (m_rotation)) * m_speed);
+	else {
+		int WorkergridX = (m_sprite.getPosition().x + 5000) / 200;
+		int WorkergridY = (m_sprite.getPosition().y + 5000) / 200;
+		int Workergrid = WorkergridX * 50 + (WorkergridY);
+
+		if (Workergrid == goalNode)
+		{
+			//ais.erase(ais.begin() + x);
+		}
+		else
+		{
+			move(nodes[Workergrid]->getVectX(), nodes[Workergrid]->getVectY());
+		}
+		
+	}
 
 }
 

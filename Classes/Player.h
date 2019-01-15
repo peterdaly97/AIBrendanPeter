@@ -28,6 +28,7 @@ public:
 	void handleInput();
 	void move();
 	void animationUpdate();
+	void powerUp(int power);
 
 	void checkCollection(std::vector<Worker *> * workers);
 
@@ -64,6 +65,8 @@ public:
 
 	bool gridChanged = false;
 	int tempGrid = 999999;
+
+	bool magnet = false;
 
 private:
 	int gridChangedCount = 0;

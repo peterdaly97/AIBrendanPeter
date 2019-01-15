@@ -165,6 +165,12 @@ void Player::checkCollection(std::vector<Worker*> * workers) {
 			m_collected++;
 		}
 	}
+	// Set Workers to be attracted if magnet got
+	for (int i = 0; i < workers->size(); i++) {
+		if (magnet == true) {
+			workers->at(i)->magnet = true;
+		}
+	}
 }
 
 void Player::checkNest(Nest & nest) {
@@ -206,6 +212,13 @@ void Player::render(sf::RenderWindow & window)
 			bullet->render(window); 
 		}
 		
+	}
+}
+void Player::powerUp(int power)
+{
+	if (power == 1)
+	{
+		magnet = true;
 	}
 }
 void Player::renderDot(sf::RenderWindow &window) {

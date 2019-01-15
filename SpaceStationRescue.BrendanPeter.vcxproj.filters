@@ -54,6 +54,9 @@
     <ClCompile Include="cpps\Missile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cpps\PowerUp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Classes\game.h">
@@ -90,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Missile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\PowerUp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

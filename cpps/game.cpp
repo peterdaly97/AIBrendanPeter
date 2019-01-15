@@ -26,6 +26,8 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 		std::cout << "Problem loading font file!" << std::endl;
 	}
 
+	m_powerTex.loadFromFile("assets/magnet.png");
+
 	m_heartText.setFont(m_font);
 	m_heartText.setFillColor(sf::Color::White);
 	m_heartText.setOrigin(m_heartText.getLocalBounds().width / 2, m_heartText.getLocalBounds().height / 2);
@@ -40,6 +42,7 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 
 	m_workers.push_back(new Worker(act::WANDER, sf::Vector2f(200, 200)));
 	m_nests.push_back(new Nest(sf::Vector2f(300, -200)));
+	m_powerUps.push_back(new PowerUp(500, 500, m_powerTex));
 
 	m_miniMap.zoom(10);
 	grid = new Grid();
@@ -60,6 +63,14 @@ void Game::run() {
 
 void Game::update() {
 
+	for (PowerUp * powerUp : m_powerUps)
+	{
+		if (powerUp->checkCollected(player.m_sprite.getPosition()) == 1)
+		{
+			player.powerUp(1);
+		}
+
+	}
 	grid->update(m_window);
 	checkEntities();
 	for (int i = 0; i < m_particles.size(); i++) {
@@ -89,7 +100,7 @@ void Game::checkEntities() {
 	}
 	player.checkEnemies(m_remainingEnemies, m_particles);
 	for (Worker * en : m_workers) {
-		en->update();
+		en->update(grid->nodes,grid->goalNode);
 	}
 	player.checkCollection(&m_workers);
 
@@ -105,6 +116,10 @@ void Game::render() {
 	
 	m_window.draw(m_worldSprite);
 	grid->draw(m_window);
+	for (PowerUp * powerUp : m_powerUps)
+	{
+		powerUp->draw(m_window);
+	}
 	for (Nest * nest : m_nests) {
 		nest->render(m_window);
 	}
@@ -142,6 +157,10 @@ void Game::render() {
 	}
 	for (Enemy* enemy : m_remainingEnemies) {
 		enemy->renderDot(m_window);
+	}
+	for (PowerUp * powerUp : m_powerUps)
+	{
+		powerUp->renderDot(m_window);
 	}
 	grid->renderDots(m_window);
 	player.renderDot(m_window);

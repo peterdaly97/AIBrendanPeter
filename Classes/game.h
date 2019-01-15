@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 #include "ParticleSystem.h"
+#include "PowerUp.h"
 
 class grid;
 
@@ -43,6 +44,9 @@ private:
 
 	std::vector<Worker *> m_workers;
 	std::vector<Enemy *> m_remainingEnemies;
+	
+	std::vector<PowerUp *> m_powerUps;
+	sf::Texture m_powerTex;
 
 	sf::Texture m_heartTex;
 	sf::Texture m_workerTex;

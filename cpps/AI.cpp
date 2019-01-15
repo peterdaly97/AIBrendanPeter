@@ -67,7 +67,7 @@ void AI::update(sf::Vector2f playerPosition, int &health)
 void AI::move(double vectorX,double vectorY)
 {
 	aiSprite.setPosition(aiSprite.getPosition().x + vectorX * aiSpeed, aiSprite.getPosition().y + vectorY * aiSpeed);
-	double rotation = atan2(vectorY, vectorX)*180/PI;
+	//double rotation = atan2(vectorY, vectorX)*180/PI;
 	//aiSprite.setRotation(rotation);
 }
 

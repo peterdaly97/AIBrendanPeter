@@ -2,6 +2,7 @@
 #define WORKER_H
 
 #include "SFML/Graphics.hpp"
+#include "Node.h"
 
 enum act
 {
@@ -20,7 +21,7 @@ public:
 	Worker(act behaviour, sf::Vector2f pos);
 	~Worker();
 
-	void update();
+	void update(std::vector<Node*> &nodes,int goalNode);
 	void render(sf::RenderWindow &window);
 	void renderDot(sf::RenderWindow &window);
 
@@ -47,6 +48,9 @@ public:
 	const float MAX_ROTATION = 30;
 	const float MAX_BACKWARD_SPEED = 2.5;
 	const float TIME_TO_TARGET = 80.0f;
+
+	bool magnet = false;
+	void move(double vectorX, double vectorY);
 
 private:
 	act b;
