@@ -88,8 +88,16 @@ void Game::update() {
 
 void Game::checkEntities() {
 	player.update(*grid);
-	player.checkAIs(grid->ais, m_particles);
+	if (player.checkPreds(grid->ais, m_particles) == 1)
+	{
+		predCount = predCount - 1;
+	}
 	for (int i = 0; i < m_nests.size(); i++) {
+		if (m_nests.at(i)->spawnPredator() == 1 && predCount < predMax)
+		{
+			grid->spawnPred(m_nests.at(i)->m_sprite.getPosition());
+			predCount = predCount + 1;
+		}
 		m_nests.at(i)->update(player.m_position, player.m_health, m_particles);
 		player.checkNest(*m_nests.at(i));
 		player.checkEnemies(m_nests.at(i)->m_enemies, m_particles);

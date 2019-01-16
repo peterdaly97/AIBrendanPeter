@@ -21,6 +21,8 @@ public:
 	int goalNode = 0;
 
 	std::vector<AI*> ais;
+
+	void spawnPred(sf::Vector2f);
 	
 
 private:

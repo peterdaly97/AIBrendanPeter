@@ -34,7 +34,7 @@ public:
 
 	void checkNest(Nest & nest);
 	void checkEnemies(std::vector<Enemy *> & enemies, std::vector<ParticleSystem *> & ps);
-	void checkAIs(std::vector<AI *> & ais, std::vector<ParticleSystem *> & ps);
+	bool checkPreds(std::vector<AI *> & ais, std::vector<ParticleSystem *> & ps);
 
 	float dist(sf::Vector2f v1, sf::Vector2f v2);
 

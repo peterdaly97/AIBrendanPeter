@@ -33,6 +33,9 @@ public:
 	const int SCREEN_WIDTH = 1200;
 	const int SCREEN_HEIGHT = 800;
 
+	int predCount = 0;
+	int predMax = 5;
+
 	Grid* grid;
 
 private:

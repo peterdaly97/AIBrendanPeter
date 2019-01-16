@@ -146,7 +146,12 @@ Grid::~Grid()
 }
 
 
-
+void Grid::spawnPred(sf::Vector2f position)
+{
+	ai = new AI(position.x + (rectSize / 2), position.y + (rectSize / 2), AItexture);
+	ais.push_back(ai);
+	startSet = true;
+}
 void Grid::update(sf::RenderWindow & window)
 {
 	sf::Time deltaTime;

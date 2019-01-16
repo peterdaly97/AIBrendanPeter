@@ -17,6 +17,7 @@ Nest::~Nest() {
 
 void Nest::update(sf::Vector2f playerPos, int & health, std::vector<ParticleSystem *> & ps) {
 	m_spawnTimer++;
+	predSpawnTimer++;
 	if (m_spawnTimer > SPAWN_NEXT && m_enemies.size() < 5) {
 		spawn();
 	}
@@ -30,6 +31,17 @@ void Nest::update(sf::Vector2f playerPos, int & health, std::vector<ParticleSyst
 			ps.push_back(new ParticleSystem(1000, m_missiles.at(i)->m_position));
 			m_missiles.erase(m_missiles.begin() + i);
 		}
+	}
+}
+int Nest::spawnPredator()
+{
+	if (predSpawnTimer > 100)
+	{
+		predSpawnTimer = 0;
+		return 1;
+	}
+	else {
+		return 0;
 	}
 }
 

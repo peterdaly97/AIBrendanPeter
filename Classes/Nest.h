@@ -15,6 +15,8 @@ public:
 	void render(sf::RenderWindow &window);
 	void renderDot(sf::RenderWindow &window);
 	void spawn();
+	int spawnPredator();
+	int predSpawnTimer = 0;
 	void loseHealth();
 
 	void addMissile();
