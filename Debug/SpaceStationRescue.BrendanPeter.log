@@ -1,9 +1,5 @@
-﻿  PowerUp.cpp
-c:\users\gameuser\desktop\aibrendanpeter\cpps\powerup.cpp(9): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  game.cpp
+﻿  game.cpp
 c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(3): warning C4244: 'initializing': conversion from 'double' to 'sf::Int32', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(78): warning C4018: '<': signed/unsigned mismatch
-c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(89): warning C4018: '<': signed/unsigned mismatch
-  main.cpp
-  Generating Code...
+c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(80): warning C4018: '<': signed/unsigned mismatch
+c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(91): warning C4018: '<': signed/unsigned mismatch
   SpaceStationRescue.BrendanPeter.vcxproj -> C:\Users\gameuser\Desktop\AIBrendanPeter\Debug\SpaceStationRescue.BrendanPeter.exe

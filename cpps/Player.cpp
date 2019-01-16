@@ -228,6 +228,14 @@ void Player::powerUp(int power)
 	else if (power == 2) {
 		m_blast = true;
 	}
+	else if (power == 3) {
+		if (m_health < 90) {
+			m_health += 10;
+		}
+		else {
+			m_health = 100;
+		}
+	}
 }
 void Player::renderDot(sf::RenderWindow &window) {
 	sf::CircleShape shape(100);

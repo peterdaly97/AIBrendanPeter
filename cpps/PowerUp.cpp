@@ -26,7 +26,6 @@ void PowerUp::update(sf::Vector2f playerPosition, int &health)
 int PowerUp::checkCollected(sf::Vector2f playerPosition)
 {
 	if (dist(powerSprite.getPosition(), playerPosition) < 80) {
-		//player.loseHealth();
 		return m_value;
 	}
 	return 0;

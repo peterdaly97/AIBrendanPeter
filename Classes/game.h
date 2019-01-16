@@ -48,6 +48,7 @@ private:
 	std::vector<PowerUp *> m_powerUps;
 	sf::Texture m_powerTex;
 	sf::Texture m_blastTex;
+	sf::Texture m_healthTex;
 
 	sf::Texture m_heartTex;
 	sf::Texture m_workerTex;

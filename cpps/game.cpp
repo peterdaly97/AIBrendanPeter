@@ -28,6 +28,7 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 
 	m_powerTex.loadFromFile("assets/magnet.png");
 	m_blastTex.loadFromFile("assets/blast.png");
+	m_healthTex.loadFromFile("assets/health.png");
 
 	m_heartText.setFont(m_font);
 	m_heartText.setFillColor(sf::Color::White);
@@ -45,6 +46,7 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_nests.push_back(new Nest(sf::Vector2f(300, -200)));
 	m_powerUps.push_back(new PowerUp(500, 500, m_powerTex, 1));
 	m_powerUps.push_back(new PowerUp(500, 1000, m_blastTex, 2));
+	m_powerUps.push_back(new PowerUp(500, 1500, m_healthTex, 3));
 
 	m_miniMap.zoom(10);
 	grid = new Grid();
