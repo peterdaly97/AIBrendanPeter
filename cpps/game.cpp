@@ -43,7 +43,9 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_mapBorder.setSize(sf::Vector2f(300, 200));
 
 	m_workers.push_back(new Worker(act::WANDER, sf::Vector2f(200, 200)));
-	m_nests.push_back(new Nest(sf::Vector2f(300, -200)));
+	m_nests.push_back(new Nest(sf::Vector2f(0, -4000)));
+	m_nests.push_back(new Nest(sf::Vector2f(-3500, 2000)));
+	m_nests.push_back(new Nest(sf::Vector2f(3500, -2000)));
 	m_powerUps.push_back(new PowerUp(500, 500, m_powerTex, 1));
 	m_powerUps.push_back(new PowerUp(500, 1000, m_blastTex, 2));
 	m_powerUps.push_back(new PowerUp(500, 1500, m_healthTex, 3));
@@ -91,6 +93,7 @@ void Game::checkEntities() {
 	if (player.checkPreds(grid->ais, m_particles) == 1)
 	{
 		predCount = predCount - 1;
+		grid->surroundCount = grid->surroundCount - 1;
 	}
 	for (int i = 0; i < m_nests.size(); i++) {
 		if (m_nests.at(i)->spawnPredator() == 1 && predCount < predMax)
@@ -105,7 +108,7 @@ void Game::checkEntities() {
 			for (Enemy * e : m_nests.at(i)->m_enemies) {
 				m_remainingEnemies.push_back(e);
 			}
-			m_particles.push_back(new ParticleSystem(1000, m_nests.at(i)->m_position));
+			m_particles.push_back(new ParticleSystem(500, m_nests.at(i)->m_position));
 			m_nests.erase(m_nests.begin() + i);
 
 			std::cout << "" << std::endl;

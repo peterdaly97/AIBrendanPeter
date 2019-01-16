@@ -196,7 +196,7 @@ void Player::checkEnemies(std::vector<Enemy *> & enemies, std::vector<ParticleSy
 	for (int i = 0; i < m_bullets.size(); i++) {
 		for (int j = 0; j < enemies.size(); j++) {
 			if (m_bullets.size() > i && dist(m_bullets.at(i)->m_pos, enemies.at(j)->m_position) < 75) {
-				ps.push_back(new ParticleSystem(1000, enemies.at(j)->m_position));
+				ps.push_back(new ParticleSystem(500, enemies.at(j)->m_position));
 				enemies.erase(enemies.begin() + j);
 				m_bullets.erase(m_bullets.begin() + i);
 			}
@@ -207,7 +207,7 @@ bool Player::checkPreds(std::vector<AI *> & ais, std::vector<ParticleSystem *> &
 	for (int i = 0; i < m_bullets.size(); i++) {
 		for (int j = 0; j < ais.size(); j++) {
 			if (m_bullets.size() > i && dist(m_bullets.at(i)->m_pos, ais.at(j)->aiSprite.getPosition()) < 75) {
-				ps.push_back(new ParticleSystem(1000, ais.at(j)->aiSprite.getPosition()));
+				ps.push_back(new ParticleSystem(500, ais.at(j)->aiSprite.getPosition()));
 				ais.erase(ais.begin() + j);
 				m_bullets.erase(m_bullets.begin() + i);
 				return true;

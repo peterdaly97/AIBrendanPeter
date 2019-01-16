@@ -8,7 +8,7 @@ Particle::Particle(sf::Vector2f pos, int index) :
 	m_red = rand() % 55 + 200;
 	m_yellow = rand() % 200;
 	m_circle.setFillColor(sf::Color(m_red, m_yellow, 0, m_alpha));
-	m_lifetime = rand() % 255;
+	m_lifetime = rand() % 75;
 
 	m_velocity.x = 6.0 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (6.0 - 18.1)));
 	

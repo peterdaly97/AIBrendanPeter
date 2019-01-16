@@ -15,10 +15,21 @@ public:
 	void move(double vectorX,double vectorY);
 	int getPositionX();
 	int getPositionY();
+	void surround(sf::Vector2f position);
+	void setSpot(int surroundCount,int i);
+
+	double xOffset = 0;
+	double yOffset = 0;
 
 	sf::Sprite aiSprite;
+	sf::Vector2f normalise(sf::Vector2f vector);
 
 	std::vector<Bullet *> m_bullets;
+
+	bool surroundNow = false;
+	bool surrounded = false;
+
+	int spot = 0;
 
 private:
 	int m_bulletCounter = 0;

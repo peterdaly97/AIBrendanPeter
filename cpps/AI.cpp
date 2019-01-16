@@ -60,13 +60,21 @@ void AI::update(sf::Vector2f playerPosition, int &health)
 			m_bulletCounter = 0;
 			m_bullets.push_back(new Bullet(aiSprite.getPosition(), angle));
 		}
+		surroundNow = true;
 	}
 
 
 }
 void AI::move(double vectorX,double vectorY)
 {
-	aiSprite.setPosition(aiSprite.getPosition().x + vectorX * aiSpeed, aiSprite.getPosition().y + vectorY * aiSpeed);
+	if (surroundNow != true)
+	{
+		aiSprite.setPosition(aiSprite.getPosition().x + vectorX * aiSpeed, aiSprite.getPosition().y + vectorY * aiSpeed);
+	}
+	else
+	{
+		aiSprite.setPosition(aiSprite.getPosition().x + aiVelocity.x * aiSpeed, aiSprite.getPosition().y + aiVelocity.y * aiSpeed);
+	}
 	//double rotation = atan2(vectorY, vectorX)*180/PI;
 	//aiSprite.setRotation(rotation);
 }
@@ -99,4 +107,91 @@ void AI::renderDot(sf::RenderWindow &window) {
 	shape.setFillColor(sf::Color(255, 0, 0));
 	shape.setPosition(aiSprite.getPosition());
 	window.draw(shape);
+}
+void AI::surround(sf::Vector2f position)
+{
+	/*
+	if (spot == 1)
+	{
+		position.x = position.x - 300;  //left
+	}
+	if (spot == 2)
+	{
+		position.y = position.y - 300;  //bottom
+	}
+	if (spot == 3)
+	{
+		position.x = position.x + 300;  //right
+	}
+	if (spot == 4)
+	{
+		position.y = position.y + 300;  //bottom
+	}
+	if (spot == 5)
+	{
+		position.x = position.x - 200;
+		position.y = position.y - 200;  //top left
+	}
+	if (spot == 6)
+	{
+		position.x = position.x - 200;
+		position.y = position.y + 200;  //bottom left
+	}
+	if (spot == 7)
+	{
+		position.x = position.x + 200;
+		position.y = position.y - 200;  //top right
+	}
+	if (spot == 8)
+	{
+		position.x = position.x + 200;
+		position.y = position.y + 200;  //bottom right
+	}
+	if (spot == 9)
+	{
+		position.x = position.x + 200;
+		position.y = position.y + 200;  //bottom right right
+	}
+	if (spot == 10)
+	{
+		position.x = position.x + 200;
+		position.y = position.y + 200;  //top right right
+	}
+	if (spot == 11)
+	{
+		position.x = position.x + 150;
+		position.y = position.y + 150;  //bottom left left
+	}
+	if (spot == 12)
+	{
+		position.x = position.x + 200;
+		position.y = position.y + 200;  //top left left
+	} */
+	// return [(math.cos(2*pi/n*x)*r,math.sin(2*pi/n*x)*r) for x in range(0,n+1)]
+	position.x = position.x + xOffset;
+	position.y = position.y + yOffset;
+	aiVelocity = position - aiSprite.getPosition();
+	aiVelocity = normalise(aiVelocity);
+	//aiVelocity.x = aiVelocity.x * maxSpeed;
+	//aiVelocity.y = aiVelocity.y * maxSpeed;
+}
+void AI::setSpot(int surroundCount, int i)
+{
+	xOffset = cos(2 * PI / surroundCount * i) * 300;
+	yOffset = sin(2 * PI / surroundCount * i) * 300;
+	//spot = surroundCount;
+	surrounded = true;
+}
+sf::Vector2f AI::normalise(sf::Vector2f vector)
+{
+	//length = sqrt((ax * ax) + (ay * ay) + (az * az))
+	float length = sqrt((vector.x * vector.x) + (vector.y * vector.y));
+	//divide each by length
+	if (length != 0)
+	{
+		vector.x = vector.x / length;
+		vector.y = vector.y / length;
+	}
+	return vector;
+
 }

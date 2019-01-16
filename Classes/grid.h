@@ -23,6 +23,8 @@ public:
 	std::vector<AI*> ais;
 
 	void spawnPred(sf::Vector2f);
+
+	int surroundCount = 0;
 	
 
 private:
