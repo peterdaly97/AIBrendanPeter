@@ -27,6 +27,7 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	}
 
 	m_powerTex.loadFromFile("assets/magnet.png");
+	m_blastTex.loadFromFile("assets/blast.png");
 
 	m_heartText.setFont(m_font);
 	m_heartText.setFillColor(sf::Color::White);
@@ -42,7 +43,8 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 
 	m_workers.push_back(new Worker(act::WANDER, sf::Vector2f(200, 200)));
 	m_nests.push_back(new Nest(sf::Vector2f(300, -200)));
-	m_powerUps.push_back(new PowerUp(500, 500, m_powerTex));
+	m_powerUps.push_back(new PowerUp(500, 500, m_powerTex, 1));
+	m_powerUps.push_back(new PowerUp(500, 1000, m_blastTex, 2));
 
 	m_miniMap.zoom(10);
 	grid = new Grid();
@@ -65,9 +67,9 @@ void Game::update() {
 
 	for (PowerUp * powerUp : m_powerUps)
 	{
-		if (powerUp->checkCollected(player.m_sprite.getPosition()) == 1)
+		if (powerUp->checkCollected(player.m_sprite.getPosition()) > 0)
 		{
-			player.powerUp(1);
+			player.powerUp(powerUp->m_value);
 		}
 
 	}

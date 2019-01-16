@@ -3,12 +3,12 @@
 #include <math.h>
 
 
-PowerUp::PowerUp(int x, int y, sf::Texture &powerTexture)
+PowerUp::PowerUp(int x, int y, sf::Texture &powerTexture, int value)
 {
 
 	powerPosition = sf::Vector2f(x, y);
 
-
+	m_value = value;
 	powerSprite.setTexture(powerTexture);
 	powerSprite.setOrigin(powerSprite.getLocalBounds().width / 2, powerSprite.getLocalBounds().height / 2);
 	powerSprite.setPosition(powerPosition);
@@ -25,14 +25,11 @@ void PowerUp::update(sf::Vector2f playerPosition, int &health)
 }
 int PowerUp::checkCollected(sf::Vector2f playerPosition)
 {
-	if (dist(powerSprite.getPosition(), playerPosition) < 100) {
+	if (dist(powerSprite.getPosition(), playerPosition) < 80) {
 		//player.loseHealth();
-		return 1;
+		return m_value;
 	}
-	else
-	{
-		return 0;
-	}
+	return 0;
 }
 
 

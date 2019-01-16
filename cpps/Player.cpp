@@ -143,6 +143,12 @@ void Player::handleInput() {
 		m_bulletCounter = 0;
 		m_bullets.push_back(new Bullet(m_sprite.getPosition(), m_sprite.getRotation()));
 	}
+	if (m_keys.isKeyPressed(sf::Keyboard::Q) && m_blast) {
+		for (int i = 0; i < 360; i += 15) {
+			m_bullets.push_back(new Bullet(m_sprite.getPosition(), i));
+			m_blast = false;
+		}
+	}
 }
 
 void Player::move() {
@@ -216,9 +222,11 @@ void Player::render(sf::RenderWindow & window)
 }
 void Player::powerUp(int power)
 {
-	if (power == 1)
-	{
+	if (power == 1) {
 		magnet = true;
+	}
+	else if (power == 2) {
+		m_blast = true;
 	}
 }
 void Player::renderDot(sf::RenderWindow &window) {

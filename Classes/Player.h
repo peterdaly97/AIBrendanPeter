@@ -68,6 +68,8 @@ public:
 
 	bool magnet = false;
 
+	bool m_blast = false;
+
 private:
 	int gridChangedCount = 0;
 	int m_bulletCounter = 0;

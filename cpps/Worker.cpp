@@ -41,9 +41,9 @@ void Worker::checkCollision(Grid &grid) {
 	}
 	tempGrid = playerGrid;
 
-	//std::cout << playerGrid << std::endl;
 	if (grid.nodes[playerGrid]->getCost() >= 9999) {
-		m_position -= m_velocity;
+		
+		m_position -= (m_velocity * 3.0f);
 		m_velocity.x = -m_velocity.x * 0.6;
 		m_velocity.y = -m_velocity.y * 0.6;
 
@@ -99,13 +99,13 @@ void Worker::update(std::vector<Node*> &nodes, int goalNode) {
 handling Worker::wander() {
 	m_velocity = m_targetPos - m_position;
 	startCalc();
-	//m_rotation = m_rotation +(MAX_ROTATION * ((rand() % 1) - 1));
+	m_rotation = m_rotation +(MAX_ROTATION * ((rand() % 1) - 1));
 
-	/*m_angleDev += m_changeAngle;
+	m_angleDev += m_changeAngle;
 	m_rotation += m_angleDev;
 	if (m_angleDev > MAX_ROTATION || m_angleDev < -MAX_ROTATION) {
 		m_changeAngle *= -1;
-	}*/
+	}
 	m_sprite.setRotation(m_rotation);
 
 	if (dist(m_targetPos, m_position) < 10) {
