@@ -15,7 +15,7 @@ Nest::~Nest() {
 
 }
 
-void Nest::update(sf::Vector2f playerPos, int & health, std::vector<ParticleSystem *> & ps) {
+void Nest::update(sf::Vector2f playerPos, int & health, std::vector<ParticleSystem *> & ps, Grid &grid, std::vector<sf::Vector2f *> wpos) {
 	m_spawnTimer++;
 	predSpawnTimer++;
 	if (m_spawnTimer > SPAWN_NEXT && m_enemies.size() < 5) {
@@ -23,7 +23,9 @@ void Nest::update(sf::Vector2f playerPos, int & health, std::vector<ParticleSyst
 	}
 	for (Enemy* enemy : m_enemies) {
 		// Two vectors will be changed to player position and velocity
-		enemy->update(sf::Vector2f(0,0), sf::Vector2f(0, 0));
+		enemy->update(playerPos, sf::Vector2f(0, 0));
+		enemy->checkCollision(grid);
+		enemy->avoid(wpos);
 	}
 	for (int i = 0; i < m_missiles.size(); i++) {
 		m_missiles.at(i)->update(playerPos, health);

@@ -48,7 +48,10 @@ public:
 	sf::Vector2f m_position;
 	sf::Vector2f m_velocity;
 	float m_rotation;
-	sf::Vector2f m_targetPos;
+	sf::Vector2f * m_targetPos = new sf::Vector2f();
+
+	void checkCollision(Grid &grid);
+	void checkPlayer(sf::Vector2f playerPos);
 
 	const double DEG_TO_RAD = 3.14159 / 180.0f;
 	const double RAD_TO_DEG = 180.0f / 3.14159;
@@ -59,6 +62,9 @@ public:
 	const float TIME_TO_TARGET = 80.0f;
 
 	bool m_dead = false;
+
+	int tempGrid = 999999;
+	bool gridChanged = false;
 
 private:
 	behaviour b;
@@ -74,6 +80,11 @@ private:
 	float m_angleDev = 0.0f;
 	float m_changeAngle = 1.0f;
 	steering steer;
+
+
+	int playerGrid = 0;
+	int playerGridX = 0;
+	int playerGridY = 0;
 };
 
 #endif //!Enemy_H

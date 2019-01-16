@@ -64,7 +64,7 @@ private:
 	sf::Font m_font;
 
 	std::vector<ParticleSystem *> m_particles;
-	
+	std::vector<sf::Vector2f *> m_workerPos;
 };
 
 #endif //!GAME_H

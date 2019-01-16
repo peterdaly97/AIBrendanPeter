@@ -11,8 +11,8 @@ Enemy::Enemy(behaviour behaviour, sf::Vector2f pos, float maxSpeed, sf::Texture 
 
 	m_speed = 2.5;
 
-	m_targetPos.x = rand() % 2048;
-	m_targetPos.y = rand() % 1080;
+	m_targetPos->x = rand() % 2048;
+	m_targetPos->y = rand() % 1080;
 	b = behaviour;
 	m_original = behaviour;
 
@@ -25,7 +25,7 @@ Enemy::Enemy(behaviour behaviour, sf::Vector2f pos, float maxSpeed, sf::Texture 
 	m_text.setFillColor(sf::Color::White);
 	m_text.setOrigin(m_text.getLocalBounds().width / 2, m_text.getLocalBounds().height / 2);
 
-	m_cone = sf::CircleShape(150);
+	m_cone = sf::CircleShape(300);
 	m_cone.setFillColor(sf::Color(255,255,255, 80));
 	m_cone.setOrigin(m_cone.getLocalBounds().width / 2, m_cone.getLocalBounds().height / 2);
 }
@@ -41,7 +41,7 @@ void Enemy::update(sf::Vector2f playerPos, sf::Vector2f playerVel) {
 	int scalar = 30;
 	playerVel = sf::Vector2f(playerVel.x * scalar, playerVel.y * scalar);
 	sf::Vector2f playerPursue = playerPos + playerVel;
-
+	checkPlayer(playerPos);
 	switch (b)
 	{
 	case PURSUE:
@@ -50,15 +50,15 @@ void Enemy::update(sf::Vector2f playerPos, sf::Vector2f playerVel) {
 		break;
 	case SEEK:
 		m_text.setString("Seek");
-		steer = seek(playerPos);
+		steer = seek(*m_targetPos);
 		break;
 	case EVADE:
 		m_text.setString("Evade");
 		if (m_detected) {
 			m_detectedColl++;
-			steer = flee(m_detectedVec);
+			steer = flee(playerPos);
 			if (m_detectedColl >= 120) {
-				b = m_original;
+				//b = m_original;
 				m_detected = false;
 				m_detectedColl = 0;
 			}
@@ -87,8 +87,48 @@ void Enemy::update(sf::Vector2f playerPos, sf::Vector2f playerVel) {
 	m_cone.setPosition(m_position.x, m_position.y);
 }
 
+void Enemy::checkCollision(Grid &grid) {
+	float scalar = 1.03;
+	sf::Vector2f playerPursue = m_position + (m_velocity * scalar);
+
+	//playerPursue = sf::Vector2f(playerPursue.x * scalar, playerPursue.y * scalar);
+
+	int gridX = 50;
+	int gridY = 50;
+	int indexHorizontal = gridY;
+	int indexVertical = 1;
+
+	playerGridX = (playerPursue.x + 5000) / 200;
+	playerGridY = (playerPursue.y + 5000) / 200;
+	playerGrid = playerGridX * 50 + (playerGridY);
+	if (tempGrid != playerGrid)
+	{
+		gridChanged = true;
+	}
+	tempGrid = playerGrid;
+
+	if (grid.nodes[playerGrid]->getCost() >= 9999) {
+
+		m_position -= (m_velocity * 3.0f);
+		m_velocity.x = -m_velocity.x * 0.6;
+		m_velocity.y = -m_velocity.y * 0.6;
+
+		m_targetPos->x = rand() % 3840;
+		m_targetPos->y = rand() % 2160;
+	}
+}
+
+void Enemy::checkPlayer(sf::Vector2f playerPos) {
+	if (dist(playerPos, m_position) < 300) {
+		b = behaviour::EVADE;
+	}
+	else if (b == behaviour::EVADE) {
+		b = behaviour::PATROL;
+	}
+}
+
 steering Enemy::wander() {
-	m_velocity = m_targetPos - m_position;
+	m_velocity = *m_targetPos - m_position;
 	startCalc();
 	//m_rotation = m_rotation + (MAX_ROTATION * ((rand() % 1) - 1));
 
@@ -99,9 +139,9 @@ steering Enemy::wander() {
 	}
 	m_sprite.setRotation(m_rotation);
 	
-	if (dist(m_targetPos, m_position) < 10) {
-		m_targetPos.x = rand() % 3840;
-		m_targetPos.y = rand() % 2160;
+	if (dist(*m_targetPos, m_position) < 10) {
+		m_targetPos->x = rand() % 3840;
+		m_targetPos->y = rand() % 2160;
 	}
 
 	steering wanderSteer;
@@ -166,8 +206,14 @@ bool Enemy::avoid(std::vector<sf::Vector2f *> enemies) {
 			float angle = Angle_ACB;
 			angle = angle * RAD_TO_DEG;
 
+			if (dist(*enemy, m_position)) {
+				std::cout << "Ding" << std::endl;
+			}
+
 			if (angle < 45 && angle > -45) {
-				b = behaviour::EVADE;
+				//b = behaviour::EVADE;
+				m_targetPos = enemy;
+				b = behaviour::SEEK;
 				m_detectedVec = *enemy;
 				m_detected = true;
 				return true;

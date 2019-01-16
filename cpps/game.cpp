@@ -43,9 +43,14 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_mapBorder.setSize(sf::Vector2f(300, 200));
 
 	m_workers.push_back(new Worker(act::WANDER, sf::Vector2f(200, 200)));
+	for (Worker * w : m_workers) {
+		m_workerPos.push_back(&w->m_position);
+	}
+
 	m_nests.push_back(new Nest(sf::Vector2f(0, -4000)));
 	m_nests.push_back(new Nest(sf::Vector2f(-3500, 2000)));
 	m_nests.push_back(new Nest(sf::Vector2f(3500, -2000)));
+	
 	m_powerUps.push_back(new PowerUp(500, 500, m_powerTex, 1));
 	m_powerUps.push_back(new PowerUp(500, 1000, m_blastTex, 2));
 	m_powerUps.push_back(new PowerUp(500, 1500, m_healthTex, 3));
@@ -101,7 +106,7 @@ void Game::checkEntities() {
 			grid->spawnPred(m_nests.at(i)->m_sprite.getPosition());
 			predCount = predCount + 1;
 		}
-		m_nests.at(i)->update(player.m_position, player.m_health, m_particles);
+		m_nests.at(i)->update(player.m_position, player.m_health, m_particles, *grid, m_workerPos);
 		player.checkNest(*m_nests.at(i));
 		player.checkEnemies(m_nests.at(i)->m_enemies, m_particles);
 		if (m_nests.at(i)->m_dead) {
@@ -123,7 +128,9 @@ void Game::checkEntities() {
 
 	for (Enemy* enemy : m_remainingEnemies) {
 		// Two vectors will be changed to player position and velocity
-		enemy->update(sf::Vector2f(0, 0), sf::Vector2f(0, 0));
+		enemy->update(player.m_position, sf::Vector2f(0, 0));
+		enemy->checkCollision(*grid);
+		enemy->avoid(m_workerPos);
 	}
 }
 

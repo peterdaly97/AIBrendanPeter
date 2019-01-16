@@ -1,5 +1,20 @@
-﻿  game.cpp
-c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(3): warning C4244: 'initializing': conversion from 'double' to 'sf::Int32', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(82): warning C4018: '<': signed/unsigned mismatch
-c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(98): warning C4018: '<': signed/unsigned mismatch
-  SpaceStationRescue.BrendanPeter.vcxproj -> C:\Users\gameuser\Desktop\AIBrendanPeter\Debug\SpaceStationRescue.BrendanPeter.exe
+﻿  Enemy.cpp
+c:\users\peter\desktop\aibrendanpeter\cpps\enemy.cpp(5): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\enemy.cpp(9): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\peter\desktop\aibrendanpeter\cpps\enemy.cpp(14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\enemy.cpp(15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\enemy.cpp(85): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\enemy.cpp(84): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\enemy.cpp(91): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\peter\desktop\aibrendanpeter\cpps\enemy.cpp(101): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\enemy.cpp(102): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\enemy.cpp(113): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\enemy.cpp(114): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\enemy.cpp(116): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\enemy.cpp(117): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\enemy.cpp(143): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\enemy.cpp(144): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\enemy.cpp(206): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\enemy.cpp(207): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\peter\desktop\aibrendanpeter\cpps\enemy.cpp(249): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  SpaceStationRescue.BrendanPeter.vcxproj -> C:\Users\peter\Desktop\AIBrendanPeter\Debug\SpaceStationRescue.BrendanPeter.exe
