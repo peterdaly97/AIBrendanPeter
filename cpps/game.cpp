@@ -88,6 +88,7 @@ void Game::update() {
 
 void Game::checkEntities() {
 	player.update(*grid);
+	player.checkAIs(grid->ais, m_particles);
 	for (int i = 0; i < m_nests.size(); i++) {
 		m_nests.at(i)->update(player.m_position, player.m_health, m_particles);
 		player.checkNest(*m_nests.at(i));

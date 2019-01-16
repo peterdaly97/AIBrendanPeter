@@ -16,6 +16,8 @@ public:
 	int getPositionX();
 	int getPositionY();
 
+	sf::Sprite aiSprite;
+
 	std::vector<Bullet *> m_bullets;
 
 private:
@@ -28,7 +30,6 @@ private:
 
 	float dist(sf::Vector2f v1, sf::Vector2f v2);
 
-	sf::Sprite aiSprite;
 
 	sf::Vector2f aiPosition;
 	sf::Vector2f aiVelocity;

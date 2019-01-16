@@ -19,6 +19,8 @@ public:
 	std::vector<Node*> nodes;
 
 	int goalNode = 0;
+
+	std::vector<AI*> ais;
 	
 
 private:
@@ -63,6 +65,6 @@ private:
 
 	sf::RectangleShape rectangle;
 	Node* node;
-	std::vector<AI*> ais;
+	
 	AI* ai;
 };
