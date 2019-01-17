@@ -1,12 +1,14 @@
 #include "..\Classes\game.h"
 
-static sf::Int32 MS_PER_UPDATE = 10.0;
-
-
+/// <summary>
+/// Game constructor which initialises our render window
+/// </summary>
 Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 		
+	// Setting the update time for the game
 	m_window.setFramerateLimit(60);
 
+	// Loading in all our assets
 	m_worldTexture.loadFromFile("assets/tileBack.png");
 	m_worldSprite.setTexture(m_worldTexture);
 	m_worldSprite.setScale(1, 1);
@@ -44,140 +46,179 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_mapBorder.setOutlineColor(sf::Color::Black);
 	m_mapBorder.setSize(sf::Vector2f(300, 200));
 
+	// Initialising and positioning the workers
 	m_workers.push_back(new Worker(act::WANDER, sf::Vector2f(200, 200)));
 
+	// Initialising and positioning the nests
 	m_nests.push_back(new Nest(sf::Vector2f(0, -4000)));
 	m_nests.push_back(new Nest(sf::Vector2f(-3500, 2000)));
 	m_nests.push_back(new Nest(sf::Vector2f(3500, -2000)));
 	
+	// Initialising and positioning the power ups
 	m_powerUps.push_back(new PowerUp(500, 500, m_powerTex, 1));
 	m_powerUps.push_back(new PowerUp(500, 1000, m_blastTex, 2));
 	m_powerUps.push_back(new PowerUp(500, 1500, m_healthTex, 3));
 
-	m_miniMap.zoom(10);
-	grid = new Grid();
 
-	
+	m_miniMap.zoom(10);	// Setting how zoomed out the mini map is
+	grid = new Grid();	// Initialising the grid
+
+	// Passing the loaded in bullet texture to the player and grid
 	player.m_bulletTex = m_bulletTex;
 	grid->m_bulletTex = m_bulletTex;
 }
 
-Game::~Game() {
+/// <summary>
+/// Destructor for game object
+/// </summary>
+Game::~Game() { }
 
-}
-
+/// <summary>
+/// function handles the updating of the game
+/// </summary>
 void Game::run() {
 
+	// While game is running
 	while (m_window.isOpen()) {
 		update();
 		render();
 	}
 }
 
+/// <summary>
+/// Update actions of the game
+/// </summary>
 void Game::update() {
 
-	for (PowerUp * powerUp : m_powerUps)
-	{
+	for (PowerUp * powerUp : m_powerUps) { 
+	// Loops through power ups
+		// Checks if power up was collected
 		if (powerUp->checkCollected(player.m_sprite.getPosition()) > 0)
 		{
+			// Carries out effect on player based on which power up was collected
 			player.powerUp(powerUp->m_value);
 		}
 
 	}
-	grid->update(m_window);
-	checkEntities();
+	grid->update(m_window);	// Updates grid
+
+	checkEntities(); // Calls function which updates every entity
+
 	for (int i = 0; i < m_particles.size(); i++) {
-		m_particles.at(i)->update();
+	// Loops through particle systems
+		m_particles.at(i)->update(); 
+
+		//Checks if the particle system is empty
 		if (m_particles.at(i)->m_particles.size() <= 0) {
+			// Deletes the particle system
 			m_particles.erase(m_particles.begin() + i);
 		}
 	}
-	updateUI();
+
+	updateUI(); // Calls function which updates the UI
 }
 
+/// <summary>
+/// Function which updates and checks every active entity
+/// </summary>
 void Game::checkEntities() {
-	player.update(*grid);
+
+	player.update(*grid); // Updates the player
+
 	if (player.checkPreds(grid->ais, m_particles) == 1)
-	{
-		predCount = predCount - 1;
-		grid->surroundCount = grid->surroundCount - 1;
+	{ // Checks if player has killed predator	
+		predCount = predCount - 1;	// Reduces amount of current predators
+
+		grid->surroundCount = grid->surroundCount - 1; // Reduces amount of predators surrounding player
 	}
 	for (int i = 0; i < m_nests.size(); i++) {
+	// Loops through nests
 		if (m_nests.at(i)->spawnPredator() == 1 && predCount < predMax)
-		{
+		{ // Checks if theres availability for another predator
+			// Spawns a predator at the current nest being checked
 			grid->spawnPred(m_nests.at(i)->m_sprite.getPosition());
-			predCount = predCount + 1;
+			predCount = predCount + 1; // Increment amount of current predators
 		}
+		// Update the nest
 		m_nests.at(i)->update(player.m_position, player.m_health, m_particles, *grid, m_workers);
-		player.checkNest(*m_nests.at(i));
-		player.checkEnemies(m_nests.at(i)->m_enemies, m_particles);
+		player.checkNest(*m_nests.at(i));	// Player checks nest for bullet collision
+		player.checkEnemies(m_nests.at(i)->m_enemies, m_particles); // Player checks enemies for bullet collision
 		if (m_nests.at(i)->m_dead) {
+		// Checks if nest is dead
 			for (Enemy * e : m_nests.at(i)->m_enemies) {
-				m_remainingEnemies.push_back(e);
+			// Loops through enemies belonging to dead nest
+				m_remainingEnemies.push_back(e);	// Pushes these enemies onto vector of enemies
 			}
+			// Spawn particles at dead nest position
 			m_particles.push_back(new ParticleSystem(500, m_nests.at(i)->m_position));
-			m_nests.erase(m_nests.begin() + i);
-
-			std::cout << "" << std::endl;
+			m_nests.erase(m_nests.begin() + i);	// Delete nest
 		}
 	}
+	// Player checks enemies for bullet collision
 	player.checkEnemies(m_remainingEnemies, m_particles);
 	for (int i = 0; i < m_workers.size(); i++) {
-		m_workers.at(i)->update(grid->nodes,grid->goalNode);
-		m_workers.at(i)->checkCollision(*grid);
+	// Loops through workeres
+		m_workers.at(i)->update(grid->nodes,grid->goalNode);	// Calls update on workers
+		m_workers.at(i)->checkCollision(*grid);	// Checks collision between walls and workers
 		if (m_workers.at(i)->m_collected) {
-			m_workers.erase(m_workers.begin() + i);
+		// Checks if worker has been collected
+			m_workers.erase(m_workers.begin() + i);	// Deletes worker
 		}
 	}
-	player.checkCollection(&m_workers);
+	player.checkCollection(&m_workers);	// Checks if player is collecting any workers
 
 	for (Enemy* enemy : m_remainingEnemies) {
-		// Two vectors will be changed to player position and velocity
-		enemy->update(player.m_position, sf::Vector2f(0, 0));
-		enemy->checkCollision(*grid);
-		enemy->avoid(m_workers);
+	// Loops through enemies not belonging to a nest
+		
+		enemy->update(player.m_position, sf::Vector2f(0, 0));	// Updates enemy
+		enemy->checkCollision(*grid); // Checks collision between walls and enemy
+		enemy->lookFor(m_workers);	// Checks if workers are in line of sight
 	}
 }
 
+/// <summary>
+/// Function that handles rendering of all game entities
+/// </summary>
 void Game::render() {
-	m_window.clear();
-	m_window.setView(player.m_view);
+	m_window.clear();	// Clears window
+	m_window.setView(player.m_view);	// Sets view of window to be the players view
 	
-	m_window.draw(m_worldSprite);
-	grid->draw(m_window);
+	m_window.draw(m_worldSprite);	// Draws background
+	grid->draw(m_window);	// Draws all the tiles
 	for (PowerUp * powerUp : m_powerUps)
 	{
-		powerUp->draw(m_window);
+		powerUp->draw(m_window);	// Draw powerup
 	}
 	for (Nest * nest : m_nests) {
-		nest->render(m_window);
+		nest->render(m_window);	// Draw nest
 	}
 	for (Worker * en : m_workers) {
-		en->render(m_window);
+		en->render(m_window);	// Draw worker
 	}
 	for (Enemy* enemy : m_remainingEnemies) {
-		enemy->render(m_window);
+		enemy->render(m_window);	// Draw remaining enemy
 	}
 	for (ParticleSystem* ps : m_particles) {
-		ps->draw(m_window);
+		ps->draw(m_window); // Draw particle system
 	}
 
 	
-	player.render(m_window);
+	player.render(m_window);	// Draw the player
+
+	// Draw UI
 	m_window.draw(m_heartSprite);
 	m_window.draw(m_workerSprite);
 	m_window.draw(m_heartText);
 	m_window.draw(m_workerText);
-	
 	m_mapBorder.setPosition(player.m_sprite.getPosition().x + 300,player.m_sprite.getPosition().y + 200);
 	m_window.draw(m_mapBorder);
-	m_window.setView(m_miniMap);
 
-	
-	
-	m_window.draw(m_worldSprite);
-	//m_miniMap.setCenter(player.m_sprite.getPosition());
-	m_miniMap.setCenter(0,0);
+	m_window.setView(m_miniMap);	// Set view to the mini map view
+
+	m_window.draw(m_worldSprite);	// Draw background
+	m_miniMap.setCenter(0,0);	// Set center of mini map
+
+	// Draw all game entites as dots
 	for (Nest * nest : m_nests) {
 		nest->renderDot(m_window);
 	}
@@ -193,27 +234,29 @@ void Game::render() {
 	}
 	grid->renderDots(m_window);
 	player.renderDot(m_window);
+
+	// Set mini map viewport to bottom right corner of the screen
 	m_miniMap.setViewport(sf::FloatRect(0.75, 0.75, 0.25, 0.25));
 	
-	
-	
-
-	m_window.display();
-	
+	m_window.display();		// Display the window 
 }
 
+/// <summary>
+/// Function for positioning UI objects
+/// </summary>
 void Game::updateUI() {
-
+	// Set the position of the two sprites corresponding to health and workers collected
 	m_heartSprite.setPosition(
 		player.m_sprite.getPosition().x - 550,
 		player.m_sprite.getPosition().y - 350
 	);
-
 	m_workerSprite.setPosition(
 		player.m_sprite.getPosition().x + 450,
 		player.m_sprite.getPosition().y - 350
 	);
 
+	// Set the position of the text objects displaying the current amount
+	// of health and workers collected
 	m_heartText.setString(std::to_string(player.m_health));
 	m_heartText.setPosition(
 		player.m_sprite.getPosition().x - 500,

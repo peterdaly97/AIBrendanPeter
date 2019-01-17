@@ -10,6 +10,7 @@
 #include "ParticleSystem.h"
 #include "PowerUp.h"
 
+// Referencing grid before compiling
 class grid;
 
 class Game
@@ -21,22 +22,23 @@ public:
 
 	void run();
 	void update();
-	void checkEntities();
+	void checkEntities();	// Function to monitor the updating of all entities
 	void render();
-	void updateUI();
+	void updateUI();	// Updates UI on screen
 
-	Player player = Player();
+	Player player = Player();	// Declaring the user controlled player
 	sf::RenderWindow m_window;
 
-	std::vector<Nest *> m_nests;
+	std::vector<Nest *> m_nests;	// The vector containing all nests in game
 	 
 	const int SCREEN_WIDTH = 1200;
 	const int SCREEN_HEIGHT = 800;
 
+	// Current and max amount of predators
 	int predCount = 0;
 	int predMax = 15;
 
-	Grid* grid;
+	Grid* grid;	// Our grid object
 
 private:
 	sf::Texture m_worldTexture;
@@ -45,10 +47,10 @@ private:
 	sf::View m_miniMap;
 	sf::RectangleShape m_mapBorder;
 
-	std::vector<Worker *> m_workers;
-	std::vector<Enemy *> m_remainingEnemies;
+	std::vector<Worker *> m_workers;	// The vector containing all workers in game
+	std::vector<Enemy *> m_remainingEnemies;	// The vector containing all enemies not being updates by nests
 	
-	std::vector<PowerUp *> m_powerUps;
+	std::vector<PowerUp *> m_powerUps; // The vector containing all power ups in game
 	sf::Texture m_powerTex;
 	sf::Texture m_blastTex;
 	sf::Texture m_healthTex;
@@ -63,7 +65,7 @@ private:
 	sf::Text m_workerText;
 	sf::Font m_font;
 
-	std::vector<ParticleSystem *> m_particles;
+	std::vector<ParticleSystem *> m_particles; // The vector containing all particles in game
 	sf::Texture m_bulletTex;
 };
 

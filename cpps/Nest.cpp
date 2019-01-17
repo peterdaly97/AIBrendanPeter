@@ -25,7 +25,7 @@ void Nest::update(sf::Vector2f playerPos, int & health, std::vector<ParticleSyst
 		// Two vectors will be changed to player position and velocity
 		enemy->update(playerPos, sf::Vector2f(0, 0));
 		enemy->checkCollision(grid);
-		enemy->avoid(wpos);
+		enemy->lookFor(wpos);
 	}
 	for (int i = 0; i < m_missiles.size(); i++) {
 		m_missiles.at(i)->update(playerPos, health);
