@@ -148,7 +148,7 @@ Grid::~Grid()
 
 void Grid::spawnPred(sf::Vector2f position)
 {
-	ai = new AI(position.x + (rectSize / 2), position.y + (rectSize / 2), AItexture);
+	ai = new AI(position.x + (rectSize / 2), position.y + (rectSize / 2), AItexture, m_bulletTex);
 	ais.push_back(ai);
 	startSet = true;
 }
@@ -283,7 +283,7 @@ void Grid::update(sf::RenderWindow & window)
 		{
 			//sf::Vector2i position = sf::Mouse::getPosition(window);
 
-			ai = new AI(0 + (rectSize / 2), 0 + (rectSize / 2), AItexture);
+			ai = new AI(0 + (rectSize / 2), 0 + (rectSize / 2), AItexture, m_bulletTex);
 			ais.push_back(ai);
 			startSet = true;
 			leftPressed = true;

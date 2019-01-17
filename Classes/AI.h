@@ -7,7 +7,7 @@ class Player;
 class AI
 {
 public:
-	AI(int x, int y, sf::Texture &aiTexture);
+	AI(int x, int y, sf::Texture &aiTexture, sf::Texture & bulTex);
 	~AI();
 	void update(sf::Vector2f playerPosition, int &health);
 	void draw(sf::RenderWindow & window);
@@ -46,4 +46,5 @@ private:
 	sf::Vector2f aiVelocity;
 	float aiRotation;
 	double aiSpeed = 5;
+	sf::Texture m_bulletTexture;
 };

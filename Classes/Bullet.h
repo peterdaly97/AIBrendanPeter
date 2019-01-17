@@ -8,7 +8,7 @@ class Bullet
 {
 public:
 
-	Bullet(sf::Vector2f pos, float rot);
+	Bullet(sf::Vector2f pos, float rot, sf::Texture & tex);
 
 	~Bullet() { }
 

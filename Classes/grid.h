@@ -26,6 +26,7 @@ public:
 
 	int surroundCount = 0;
 	
+	sf::Texture m_bulletTex;
 
 private:
 

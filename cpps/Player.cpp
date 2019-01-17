@@ -141,11 +141,11 @@ void Player::handleInput() {
 		m_bulletCounter > BULLET_TIME)
 	{
 		m_bulletCounter = 0;
-		m_bullets.push_back(new Bullet(m_sprite.getPosition(), m_sprite.getRotation()));
+		m_bullets.push_back(new Bullet(m_sprite.getPosition(), m_sprite.getRotation(), m_bulletTex));
 	}
 	if (m_keys.isKeyPressed(sf::Keyboard::Q) && m_blast) {
 		for (int i = 0; i < 360; i += 15) {
-			m_bullets.push_back(new Bullet(m_sprite.getPosition(), i));
+			m_bullets.push_back(new Bullet(m_sprite.getPosition(), i, m_bulletTex));
 			m_blast = false;
 		}
 	}
@@ -167,7 +167,7 @@ void Player::move() {
 void Player::checkCollection(std::vector<Worker*> * workers) {
 	for (int i = 0; i < workers->size(); i++) {
 		if (dist(m_position, workers->at(i)->m_position) < 30) {
-			workers->erase(workers->begin() + i);
+			workers->at(i)->m_collected = true;
 			m_collected++;
 		}
 	}
@@ -196,6 +196,7 @@ void Player::checkEnemies(std::vector<Enemy *> & enemies, std::vector<ParticleSy
 	for (int i = 0; i < m_bullets.size(); i++) {
 		for (int j = 0; j < enemies.size(); j++) {
 			if (m_bullets.size() > i && dist(m_bullets.at(i)->m_pos, enemies.at(j)->m_position) < 75) {
+				m_collected += enemies.at(j)->m_collected;
 				ps.push_back(new ParticleSystem(500, enemies.at(j)->m_position));
 				enemies.erase(enemies.begin() + j);
 				m_bullets.erase(m_bullets.begin() + i);

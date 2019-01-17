@@ -120,7 +120,9 @@ void Enemy::checkCollision(Grid &grid) {
 
 void Enemy::checkPlayer(sf::Vector2f playerPos) {
 	if (dist(playerPos, m_position) < 300) {
-		b = behaviour::EVADE;
+		if (b == behaviour::PATROL) {
+			b = behaviour::EVADE;
+		}
 	}
 	else if (b == behaviour::EVADE) {
 		b = behaviour::PATROL;
@@ -188,14 +190,14 @@ steering Enemy::arrive(sf::Vector2f playerPos) {
 	return arriveSteer;
 }
 
-bool Enemy::avoid(std::vector<sf::Vector2f *> enemies) {
-	for (sf::Vector2f * enemy : enemies) {
-		if (mag(m_position - *enemy) < m_cone.getRadius() && *enemy != m_position) {
+bool Enemy::avoid(std::vector<Worker *> enemies) {
+	for (Worker * w : enemies) {
+		if (mag(m_position - w->m_position) < m_cone.getRadius() && w->m_position != m_position) {
 			sf::Vector2f realVelPos = m_velocity + m_position;
 
 			// C = m_position A = m_velocity B = Player Pos
 			double Dir_C_to_A = atan2(realVelPos.y - m_position.y, realVelPos.x - m_position.x);
-			double Dir_C_to_B = atan2(enemy->y - m_position.y, enemy->x - m_position.x);
+			double Dir_C_to_B = atan2(w->m_position.y - m_position.y, w->m_position.x - m_position.x);
 			double Angle_ACB = Dir_C_to_A - Dir_C_to_B;
 
 			// Handle wrap around
@@ -206,15 +208,18 @@ bool Enemy::avoid(std::vector<sf::Vector2f *> enemies) {
 			float angle = Angle_ACB;
 			angle = angle * RAD_TO_DEG;
 
-			if (dist(*enemy, m_position)) {
-				std::cout << "Ding" << std::endl;
+			if (dist(w->m_position, m_position) < 50) {
+				b = behaviour::PATROL;
+				m_collected++;
+				w->m_collected = true;
+				angle = 180;
 			}
 
 			if (angle < 45 && angle > -45) {
 				//b = behaviour::EVADE;
-				m_targetPos = enemy;
+				m_targetPos = &w->m_position;
 				b = behaviour::SEEK;
-				m_detectedVec = *enemy;
+				m_detectedVec = w->m_position;
 				m_detected = true;
 				return true;
 			}

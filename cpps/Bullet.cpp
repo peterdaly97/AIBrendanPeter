@@ -1,9 +1,9 @@
 #include "../Classes/Bullet.h"
 
-Bullet::Bullet(sf::Vector2f pos, float rot) : m_pos(pos), m_rot(rot) {
+Bullet::Bullet(sf::Vector2f pos, float rot, sf::Texture & tex) : m_pos(pos), m_rot(rot) {
 	m_speed = 15;
-	m_tex.loadFromFile("assets/bullet.png");
-	m_sprite.setTexture(m_tex);
+	//m_tex.loadFromFile("assets/bullet.png");
+	m_sprite.setTexture(tex);
 	m_sprite.setOrigin(m_sprite.getLocalBounds().width / 2, m_sprite.getLocalBounds().height / 2);
 
 

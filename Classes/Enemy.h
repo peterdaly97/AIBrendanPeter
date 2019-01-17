@@ -38,7 +38,7 @@ public:
 	void startCalc();
 	float dist(sf::Vector2f v1, sf::Vector2f v2);
 	steering arrive(sf::Vector2f playerPos);
-	bool avoid(std::vector<sf::Vector2f *> enemies);
+	bool avoid(std::vector<Worker *> enemies);
 
 	void die();
 
@@ -65,6 +65,8 @@ public:
 
 	int tempGrid = 999999;
 	bool gridChanged = false;
+
+	int m_collected = 0;
 
 private:
 	behaviour b;

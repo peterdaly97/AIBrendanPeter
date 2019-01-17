@@ -43,6 +43,8 @@ public:
 	float m_rotation;
 	sf::Vector2f m_targetPos;
 
+	bool m_collected = false;
+
 	const double DEG_TO_RAD = 3.14159 / 180.0f;
 	const double RAD_TO_DEG = 180.0f / 3.14159;
 	float m_speed;

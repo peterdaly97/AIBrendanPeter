@@ -4,7 +4,7 @@
 
 #define PI 3.14159265
 
-AI::AI(int x, int y, sf::Texture &aiTexture)
+AI::AI(int x, int y, sf::Texture &aiTexture, sf::Texture & bulTex)
 {
 
 	aiPosition = sf::Vector2f(x, y);
@@ -18,6 +18,8 @@ AI::AI(int x, int y, sf::Texture &aiTexture)
 	aiVelocity = sf::Vector2f(0, 0);
 	aiRotation = 0;
 	aiSpeed = 5;
+
+	m_bulletTexture = bulTex;
 }
 
 AI::~AI()
@@ -58,7 +60,7 @@ void AI::update(sf::Vector2f playerPosition, int &health)
 		if (m_bulletCounter >= 35)
 		{
 			m_bulletCounter = 0;
-			m_bullets.push_back(new Bullet(aiSprite.getPosition(), angle));
+			m_bullets.push_back(new Bullet(aiSprite.getPosition(), angle, m_bulletTexture));
 		}
 		surroundNow = true;
 	}

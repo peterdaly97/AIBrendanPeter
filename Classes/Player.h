@@ -71,6 +71,8 @@ public:
 
 	bool m_blast = false;
 
+	sf::Texture m_bulletTex;
+
 private:
 	int gridChangedCount = 0;
 	int m_bulletCounter = 0;

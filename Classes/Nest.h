@@ -11,7 +11,7 @@ public:
 
 	~Nest();
 
-	void update(sf::Vector2f playerPos, int & heath, std::vector<ParticleSystem *> & ps, Grid &grid, std::vector<sf::Vector2f *> wpos);
+	void update(sf::Vector2f playerPos, int & heath, std::vector<ParticleSystem *> & ps, Grid &grid, std::vector<Worker *> wpos);
 	void render(sf::RenderWindow &window);
 	void renderDot(sf::RenderWindow &window);
 	void spawn();

@@ -26,6 +26,8 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 		std::cout << "Problem loading font file!" << std::endl;
 	}
 
+	m_bulletTex.loadFromFile("assets/bullet.png");
+
 	m_powerTex.loadFromFile("assets/magnet.png");
 	m_blastTex.loadFromFile("assets/blast.png");
 	m_healthTex.loadFromFile("assets/health.png");
@@ -43,9 +45,6 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_mapBorder.setSize(sf::Vector2f(300, 200));
 
 	m_workers.push_back(new Worker(act::WANDER, sf::Vector2f(200, 200)));
-	for (Worker * w : m_workers) {
-		m_workerPos.push_back(&w->m_position);
-	}
 
 	m_nests.push_back(new Nest(sf::Vector2f(0, -4000)));
 	m_nests.push_back(new Nest(sf::Vector2f(-3500, 2000)));
@@ -58,6 +57,9 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_miniMap.zoom(10);
 	grid = new Grid();
 
+	
+	player.m_bulletTex = m_bulletTex;
+	grid->m_bulletTex = m_bulletTex;
 }
 
 Game::~Game() {
@@ -106,7 +108,7 @@ void Game::checkEntities() {
 			grid->spawnPred(m_nests.at(i)->m_sprite.getPosition());
 			predCount = predCount + 1;
 		}
-		m_nests.at(i)->update(player.m_position, player.m_health, m_particles, *grid, m_workerPos);
+		m_nests.at(i)->update(player.m_position, player.m_health, m_particles, *grid, m_workers);
 		player.checkNest(*m_nests.at(i));
 		player.checkEnemies(m_nests.at(i)->m_enemies, m_particles);
 		if (m_nests.at(i)->m_dead) {
@@ -120,9 +122,12 @@ void Game::checkEntities() {
 		}
 	}
 	player.checkEnemies(m_remainingEnemies, m_particles);
-	for (Worker * en : m_workers) {
-		en->update(grid->nodes,grid->goalNode);
-		en->checkCollision(*grid);
+	for (int i = 0; i < m_workers.size(); i++) {
+		m_workers.at(i)->update(grid->nodes,grid->goalNode);
+		m_workers.at(i)->checkCollision(*grid);
+		if (m_workers.at(i)->m_collected) {
+			m_workers.erase(m_workers.begin() + i);
+		}
 	}
 	player.checkCollection(&m_workers);
 
@@ -130,7 +135,7 @@ void Game::checkEntities() {
 		// Two vectors will be changed to player position and velocity
 		enemy->update(player.m_position, sf::Vector2f(0, 0));
 		enemy->checkCollision(*grid);
-		enemy->avoid(m_workerPos);
+		enemy->avoid(m_workers);
 	}
 }
 

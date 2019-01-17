@@ -15,7 +15,7 @@ Nest::~Nest() {
 
 }
 
-void Nest::update(sf::Vector2f playerPos, int & health, std::vector<ParticleSystem *> & ps, Grid &grid, std::vector<sf::Vector2f *> wpos) {
+void Nest::update(sf::Vector2f playerPos, int & health, std::vector<ParticleSystem *> & ps, Grid &grid, std::vector<Worker *> wpos) {
 	m_spawnTimer++;
 	predSpawnTimer++;
 	if (m_spawnTimer > SPAWN_NEXT && m_enemies.size() < 5) {
