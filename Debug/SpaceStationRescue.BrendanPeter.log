@@ -7,6 +7,11 @@ c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(107): warning C4244: 'argum
 c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(139): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(221): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(222): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(264): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(274): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(263): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(273): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+  game.cpp
+c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(107): warning C4018: '<': signed/unsigned mismatch
+c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(134): warning C4018: '<': signed/unsigned mismatch
+c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(159): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
   SpaceStationRescue.BrendanPeter.vcxproj -> C:\Users\gameuser\Desktop\AIBrendanPeter\Debug\SpaceStationRescue.BrendanPeter.exe

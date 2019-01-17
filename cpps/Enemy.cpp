@@ -246,10 +246,10 @@ void Enemy::render(sf::RenderWindow & window) {
 /// Function to render a dot onto the minimap at the sweepers position
 /// </summary>
 /// <param name="window"></param>
-void Enemy::renderDot(sf::RenderWindow &window) {
+void Enemy::renderEnemyDot(sf::RenderWindow &window) {
 	// Sets up dot
 	sf::CircleShape shape(100);
-	shape.setFillColor(sf::Color(255, 0, 0));
+	shape.setFillColor(sf::Color(255, 51, 204));
 	shape.setPosition(m_sprite.getPosition());
 
 	// Draws dot onto the minimap

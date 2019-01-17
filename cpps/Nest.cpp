@@ -119,6 +119,10 @@ void Nest::renderDot(sf::RenderWindow &window) {
 	shape.setFillColor(sf::Color(153, 0, 204));
 	shape.setPosition(m_sprite.getPosition());
 
+	for (Enemy* enemy : m_enemies) {
+		enemy->renderEnemyDot(window);	// Draw all the enemies
+	}
+
 	// Draws the dot to the screen
 	window.draw(shape);
 }

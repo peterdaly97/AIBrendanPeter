@@ -226,7 +226,7 @@ void Game::render() {
 		en->renderDot(m_window);
 	}
 	for (Enemy* enemy : m_remainingEnemies) {
-		enemy->renderDot(m_window);
+		enemy->renderEnemyDot(m_window);	// Draw remaining enemy
 	}
 	for (PowerUp * powerUp : m_powerUps)
 	{

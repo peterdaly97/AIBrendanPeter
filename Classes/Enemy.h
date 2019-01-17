@@ -32,7 +32,7 @@ public:
 	void render(sf::RenderWindow &window);	// Render function
 
 	// Function fo rendering dot on minimap at enemies position
-	void renderDot(sf::RenderWindow &window);	
+	void renderEnemyDot(sf::RenderWindow &window);	
 
 	// Function that updates enemies rotation
 	float getNewRotation(float rot, sf::Vector2f vel);
