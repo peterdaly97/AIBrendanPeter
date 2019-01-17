@@ -12,11 +12,11 @@ public:
 	void update(sf::Vector2f playerPosition, int &health);
 	void draw(sf::RenderWindow & window);
 	void renderDot(sf::RenderWindow & window);
-	void move(double vectorX,double vectorY);
+	void move(double vectorX, double vectorY);
 	int getPositionX();
 	int getPositionY();
 	void surround(sf::Vector2f position);
-	void setSpot(int surroundCount,int i);
+	void setSpot(int surroundCount, int i);
 
 	double xOffset = 0;
 	double yOffset = 0;

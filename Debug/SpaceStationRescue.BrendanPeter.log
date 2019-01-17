@@ -1,24 +1,51 @@
-﻿  Enemy.cpp
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(5): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(9): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(47): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(53): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(63): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(64): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(75): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(76): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(78): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(79): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(107): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(108): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(156): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(157): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(195): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+﻿  AI.cpp
+c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(23): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(58): warning C4018: '<': signed/unsigned mismatch
+c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(73): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(97): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(101): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(150): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(151): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(192): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\ai.cpp(202): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+  Bullet.cpp
+c:\users\gameuser\desktop\aibrendanpeter\cpps\bullet.cpp(29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\bullet.cpp(28): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Enemy.cpp
+c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(13): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(63): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(62): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(74): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(84): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(85): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(98): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(99): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(102): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(103): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(145): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(146): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(213): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(214): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\enemy.cpp(270): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Missile.cpp
+c:\users\gameuser\desktop\aibrendanpeter\cpps\missile.cpp(31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\missile.cpp(30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\missile.cpp(83): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   Nest.cpp
-c:\users\gameuser\desktop\aibrendanpeter\cpps\nest.cpp(30): warning C4018: '<': signed/unsigned mismatch
+c:\users\gameuser\desktop\aibrendanpeter\cpps\nest.cpp(49): warning C4018: '<': signed/unsigned mismatch
+  Node.cpp
+c:\users\gameuser\desktop\aibrendanpeter\cpps\node.cpp(15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\node.cpp(16): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\node.cpp(140): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\node.cpp(149): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+  Particle.cpp
+c:\users\gameuser\desktop\aibrendanpeter\cpps\particle.cpp(22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\particle.cpp(23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  ParticleSystem.cpp
+c:\users\gameuser\desktop\aibrendanpeter\cpps\particlesystem.cpp(21): warning C4018: '<': signed/unsigned mismatch
   Player.cpp
 c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(12): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(47): warning C4305: 'initializing': truncation from 'double' to 'float'
@@ -40,10 +67,42 @@ c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(252): warning C4018: '>
 c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(270): warning C4018: '<': signed/unsigned mismatch
 c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(272): warning C4018: '<': signed/unsigned mismatch
 c:\users\gameuser\desktop\aibrendanpeter\cpps\player.cpp(274): warning C4018: '>': signed/unsigned mismatch
+  PowerUp.cpp
+c:\users\gameuser\desktop\aibrendanpeter\cpps\powerup.cpp(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Worker.cpp
+c:\users\gameuser\desktop\aibrendanpeter\cpps\worker.cpp(23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\worker.cpp(24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\worker.cpp(40): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\aibrendanpeter\cpps\worker.cpp(50): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\worker.cpp(51): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\worker.cpp(64): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\worker.cpp(65): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\worker.cpp(68): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\worker.cpp(69): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\worker.cpp(80): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\worker.cpp(85): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\worker.cpp(109): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\worker.cpp(108): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\worker.cpp(114): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\worker.cpp(115): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\worker.cpp(151): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\worker.cpp(152): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\worker.cpp(194): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   game.cpp
 c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(107): warning C4018: '<': signed/unsigned mismatch
 c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(134): warning C4018: '<': signed/unsigned mismatch
 c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(159): warning C4018: '<': signed/unsigned mismatch
+  grid.cpp
+c:\users\gameuser\desktop\aibrendanpeter\cpps\grid.cpp(24): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\grid.cpp(105): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\grid.cpp(130): warning C4018: '<': signed/unsigned mismatch
+c:\users\gameuser\desktop\aibrendanpeter\cpps\grid.cpp(220): warning C4018: '<': signed/unsigned mismatch
+c:\users\gameuser\desktop\aibrendanpeter\cpps\grid.cpp(343): warning C4018: '<': signed/unsigned mismatch
+c:\users\gameuser\desktop\aibrendanpeter\cpps\grid.cpp(374): warning C4018: '<': signed/unsigned mismatch
+c:\users\gameuser\desktop\aibrendanpeter\cpps\grid.cpp(413): warning C4018: '<': signed/unsigned mismatch
+c:\users\gameuser\desktop\aibrendanpeter\cpps\grid.cpp(433): warning C4018: '<': signed/unsigned mismatch
+c:\users\gameuser\desktop\aibrendanpeter\cpps\grid.cpp(453): warning C4018: '<': signed/unsigned mismatch
   main.cpp
   Generating Code...
+  LINK : C:\Users\gameuser\Desktop\AIBrendanPeter\Debug\SpaceStationRescue.BrendanPeter.exe not found or not built by the last incremental link; performing full link
   SpaceStationRescue.BrendanPeter.vcxproj -> C:\Users\gameuser\Desktop\AIBrendanPeter\Debug\SpaceStationRescue.BrendanPeter.exe

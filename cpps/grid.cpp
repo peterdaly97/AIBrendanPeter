@@ -3,31 +3,29 @@
 #include <fstream>
 #include <math.h>
 
+
+/// <summary>
+/// Grid constructor.
+/// Load in textures for predators.
+/// Call create.
+/// </summary>
 Grid::Grid()
 {
-
-	if (!costFont.loadFromFile("font.ttf"))
-	{
-	}
-	if (!m_groundTexture.loadFromFile("assets/ground.jpg"))
-	{
-
-	}
-	if (!m_obstacleTexture.loadFromFile("assets/obstacle.jpg"))
-	{
-
-	}
 	AItexture.loadFromFile("assets/predator.png");
 	createGrid(randomSize);
-
-	//m_player = new Player();
 }
+
+/// <summary>
+/// Initialises a new grid with hard coded values
+/// </summary>
+/// <param name="random"></param>
 void Grid::createGrid(int random)
 {
 	srand(time(NULL));
 
+	// values for grid world. 1 = obstacle
 	int map[50][50] =
-	{{ 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
+	{ { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
 	{ 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
 	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
 	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
@@ -76,82 +74,45 @@ void Grid::createGrid(int random)
 	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
 	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
 	{ 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
-	{ 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 }};
+	{ 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 } };
 
+	// For loop to create a nide at each grid spot and pass if it is an obstacle
 	for (int x = 1; x <= gridX; x++)
 	{
 		for (int y = 1; y <= gridY; y++)
 		{
 
-			node = new Node(-5200 + x * (rectSize),-5200 + y * (rectSize), rectSize, costFont, map[x - 1][y - 1]);
+			node = new Node(-5200 + x * (rectSize), -5200 + y * (rectSize), rectSize, map[x - 1][y - 1]);
 			nodes.push_back(node);
 		}
 	}
 }
-void Grid::makeMap()
-{
-	if (mapMade == false)
-	{
-		using namespace std;
 
-		ofstream myfile("map.txt");
-		if (myfile.is_open())
-		{
-			myfile << "{{";
-			for (int i = 0; i < nodes.size(); i++)
-			{
-
-				if (mapCount == 50)
-				{
-					myfile << "},\n";
-					myfile << "{";
-					mapCount = 0;
-				}
-				if (nodes[i]->getCost() > 9999)
-				{
-					if (mapCount != 49)
-					{
-						myfile << "1,";
-					}
-					else
-					{
-						myfile << "1";
-					}
-				}
-				else
-				{
-					if (mapCount != 49)
-					{
-						myfile << "0,";
-					}
-					else
-					{
-						myfile << "0";
-					}
-				}
-				mapCount++;
-
-			}
-			myfile << "}};";
-			myfile.close();
-			mapMade = true;
-		}
-
-		else cout << "Unable to open file";
-	}
-}
-
+/// <summary>
+/// deconstructor for grid
+/// </summary>
 Grid::~Grid()
 {
 }
 
-
+/// <summary>
+/// creates a predator AI at the desired position
+/// </summary>
+/// <param name="position"></param>
 void Grid::spawnPred(sf::Vector2f position)
 {
+	// Pass position and textures to new ai and push to ai container.
 	ai = new AI(position.x + (rectSize / 2), position.y + (rectSize / 2), AItexture, m_bulletTex);
 	ais.push_back(ai);
+	// Start set will initiate the pathfinding
 	startSet = true;
 }
+
+/// <summary>
+/// Move the predators is called
+/// Grid key press functionality removed
+/// </summary>
+/// <param name="window"></param>
 void Grid::update(sf::RenderWindow & window)
 {
 	sf::Time deltaTime;
@@ -159,185 +120,58 @@ void Grid::update(sf::RenderWindow & window)
 	{
 		moveAI();
 	}
-	//m_player->update(dt);
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::L))
-	{
-		sf::Vector2i position = sf::Mouse::getPosition(window);
-
-		for (int i = 0; i < nodes.size(); i++)
-		{
-			if (position.x > nodes[i]->getPositionX() && position.x < nodes[i]->getPositionX() + rectSize && position.y > nodes[i]->getPositionY() && position.y < nodes[i]->getPositionY() + rectSize)
-			{
-				nodes[i]->setCost(999999);
-			}
-		}
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::K))
-	{
-		sf::Vector2i position = sf::Mouse::getPosition(window);
-
-		for (int i = 0; i < nodes.size(); i++)
-		{
-			if (position.x > nodes[i]->getPositionX() && position.x < nodes[i]->getPositionX() + rectSize && position.y > nodes[i]->getPositionY() && position.y < nodes[i]->getPositionY() + rectSize)
-			{
-				nodes[i]->setCost(0);
-				nodes[i]->setCheck(0);
-				nodes[i]->setVector(0, 0);
-				nodes[i]->setIntegrationField(0);
-				nodes[i]->setColor(sf::Color::White);
-			}
-		}
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Z))
-	{
-		if (zPressed == false)
-		{
-			zPressed = true;
-			for (int i = 0; i < nodes.size(); i++)
-			{
-				nodes[i]->swapIntegrationCalc();
-			}
-		}
-	}
-	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Z))
-	{
-		zPressed = false;
-	}
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
-	{
-		
-		int i = 550;
-		if (goalSet == true)
-		{
-			clearAll();
-			setCost();
-			setDistance();
-			setVector();
-			nodes[i]->setColor(sf::Color::Red);
-		}
-		else
-		{
-			setCost();
-			setDistance();
-			setVector();
-			nodes[i]->setColor(sf::Color::Red);
-			goalSet = true;
-		}
-
-		//}
-		//}
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::R))
-	{
-		goalSet = false;
-		startSet = false;
-		ais.clear();
-		nodes.clear();
-		createGrid(randomSize);
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::N))
-	{
-		makeMap();
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::M))
-	{
-		mapMade = false;
-	}
-	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
-	{
-		UpPressed = false;
-	}
-	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
-	{
-		DownPressed = false;
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
-	{
-		if (UpPressed == false)
-		{
-			UpPressed = true;
-			if (randomSize < 99)
-			{
-				randomSize = randomSize + 1;
-			}
-		}
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
-	{
-		if (DownPressed == false)
-		{
-			DownPressed = true;
-			if (randomSize > 1)
-			{
-				randomSize = randomSize - 1;
-			}
-		}
-	}
-	if (!sf::Mouse::isButtonPressed(sf::Mouse::Left))
-	{
-		leftPressed = false;
-	}
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-	{
-		if (leftPressed == false)
-		{
-			//sf::Vector2i position = sf::Mouse::getPosition(window);
-
-			ai = new AI(0 + (rectSize / 2), 0 + (rectSize / 2), AItexture, m_bulletTex);
-			ais.push_back(ai);
-			startSet = true;
-			leftPressed = true;
-
-			
-
-		}
-	}
-		
-	
 }
+
+/// <summary>
+/// Resets all paramaters of nodes so they can be used for new path
+/// </summary>
 void Grid::clearAll()
 {
 	for (int i = 0; i < nodes.size(); i++)
 	{
-		if (nodes[i]->getCost() < 999)
+		if (nodes[i]->getCost() < 999)  // does not reset obstacles
 		{
 			nodes[i]->setCost(0);
 			nodes[i]->setCheck(0);
-			nodes[i]->setColor(sf::Color::White);
 		}
 		nodes[i]->setVector(0, 0);
 		nodes[i]->setIntegrationField(0);
 	}
 }
+
+/// <summary>
+/// Set the cost of each obstacle for the flow field pathfinding
+/// </summary>
 void Grid::setCost()
 {
-	std::vector<int> que;
-	que.push_back(goalNode);
-	nodes[goalNode]->setCost(0);
+	std::vector<int> que;  // Que of node index to perform cost calculation on.
+	que.push_back(goalNode);  // Start with goal.
+	nodes[goalNode]->setCost(0);  // Goal cost will always be 0.
 	int indexHorizontal = gridY;
 	int indexVertical = 1;
 	while (que.empty() == false)
 	{
+		// Calculate what directions are available.
 		UpAvailable = true;
 		DownAvailable = true;
 		LeftAvailable = true;
 		RightAvailable = true;
 
-		if (que.front() < gridY)
+		if (que.front() < gridY)  // Furthest left possible.
 		{
 			LeftAvailable = false;
 		}
-		if (que.front() > ((gridX * gridY) - (gridY + 1))) //2249
+		if (que.front() > ((gridX * gridY) - (gridY + 1))) // Greater than max right value (2249).
 		{
 			RightAvailable = false;
 		}
-		if (que.front() % gridY == 0)
+		if (que.front() % gridY == 0)  // Checks if is on top row of nodes.
 		{
 			UpAvailable = false;
 		}
 		for (int x = 0; x < gridX; x++)
 		{
-			if (que.front() == ((gridY - 1) + (gridY * x)))
+			if (que.front() == ((gridY - 1) + (gridY * x)))  // Checks if is on bottom row of nodes.
 			{
 				DownAvailable = false;
 			}
@@ -346,8 +180,8 @@ void Grid::setCost()
 		{
 			if (nodes[que.front() - indexVertical]->checkSet() == false)
 			{
-				nodes[(que.front() - indexVertical)]->setCost(nodes[que.front()]->getCost() + 1);
-				que.push_back(que.front() - indexVertical);
+				nodes[(que.front() - indexVertical)]->setCost(nodes[que.front()]->getCost() + 1);   // Set cost to previous + 1.
+				que.push_back(que.front() - indexVertical);  // Push onto que so cost is performed on this node.
 			}
 		}
 		if (DownAvailable == true)
@@ -374,9 +208,13 @@ void Grid::setCost()
 				que.push_back(que.front() + indexHorizontal);
 			}
 		}
-		que.erase(que.begin());
+		que.erase(que.begin());  // Get rid of node index just used.
 	}
 }
+
+/// <summary>
+/// set the vector of each node used by ai to move
+/// </summary>
 void Grid::setVector()
 {
 	for (int i = 0; i < nodes.size(); i++)
@@ -394,14 +232,15 @@ void Grid::setVector()
 		double downIntField = 0;
 		double vectorX = 0;
 		double vectorY = 0;
-		int offset = 19;
+		int offset = 19;  // Offset to force ai away from walls.
 		if (nodes[i]->getIntegrationField() < 9000)
 		{
+			// Calculate what directions are available.
 			if (i < gridY)
 			{
 				LeftAvailable = false;
 			}
-			if (i >((gridX * gridY) - (gridY + 1))) //2249
+			if (i >((gridX * gridY) - (gridY + 1)))
 			{
 				RightAvailable = false;
 			}
@@ -416,6 +255,7 @@ void Grid::setVector()
 					DownAvailable = false;
 				}
 			}
+			// Get the integration field of all available nodes and use to calculate vector
 			if (UpAvailable == true)
 			{
 				if (nodes[i - indexVertical]->getIntegrationField() < 9000)
@@ -424,12 +264,12 @@ void Grid::setVector()
 				}
 				else
 				{
-					upIntField = nodes[i]->getIntegrationField() + nodes[i]->getIntegrationField() / offset;
+					upIntField = nodes[i]->getIntegrationField() + nodes[i]->getIntegrationField() / offset;  // Use own value + offset if node is an obstacle;
 				}
 			}
 			else
 			{
-				upIntField = nodes[i]->getIntegrationField() + nodes[i]->getIntegrationField() / offset;
+				upIntField = nodes[i]->getIntegrationField() + nodes[i]->getIntegrationField() / offset;  // Use own value if node is unavailable;
 			}
 			if (DownAvailable == true)
 			{
@@ -477,17 +317,23 @@ void Grid::setVector()
 			{
 				rightIntField = nodes[i]->getIntegrationField() + nodes[i]->getIntegrationField() / offset;
 			}
+			// Combine surrounding cost values to create a vector.
 			vectorX = leftIntField - rightIntField;
 			vectorY = upIntField - downIntField;
+			// Turn into a unit vector
 			double vectMag = sqrt(((((nodes[i]->getPositionX() + (rectSize / 2)) + vectorX) - (nodes[i]->getPositionX() + (rectSize / 2))) * (((nodes[i]->getPositionX() + (rectSize / 2)) + vectorX) - (nodes[i]->getPositionX() + (rectSize / 2)))) + ((((nodes[i]->getPositionY() + (rectSize / 2)) + vectorY) - (nodes[i]->getPositionY() + (rectSize / 2))) * (((nodes[i]->getPositionY() + (rectSize / 2)) + vectorY) - (nodes[i]->getPositionY() + (rectSize / 2)))));
 			vectorX = vectorX / vectMag;
 			vectorY = vectorY / vectMag;
-			nodes[i]->setVector(vectorX, vectorY);
+			nodes[i]->setVector(vectorX, vectorY);  // Assign the unit vector to the node.
 		}
 
 
 	}
 }
+
+/// <summary>
+/// Goes through predator container and moves them all with the pathfinding vector.
+/// </summary>
 void Grid::moveAI()
 {
 	if (startSet == true && goalSet == true)
@@ -496,53 +342,72 @@ void Grid::moveAI()
 		{
 			for (int x = 0; x < ais.size(); x++)
 			{
+				// Turn position into the grid number.
 				int AIgridX = (ais[x]->getPositionX() + 5000) / 200;
 				int AIgridY = (ais[x]->getPositionY() + 5000) / 200;
 				int AIgrid = AIgridX * 50 + (AIgridY);
-				
+
 				if (AIgrid == goalNode)
 				{
-					//ais.erase(ais.begin() + x);
+					// Don't move (vector will be 0).
 				}
 				else
 				{
-					ais[x]->move(nodes[AIgrid]->getVectX(), nodes[AIgrid]->getVectY());
+					ais[x]->move(nodes[AIgrid]->getVectX(), nodes[AIgrid]->getVectY());  // Use grid number to apply correct vector to the predator.
 				}
 			}
 		}
 	}
 }
+
+/// <summary>
+/// Updates the ai.
+/// Player health is passed so they can decrease it if they hit.
+/// Player position is passed to determin the behaviour of ai.
+/// </summary>
+/// <param name="playerPosition"></param>
+/// <param name="health"></param>
 void Grid::updateAI(sf::Vector2f playerPosition, int &health)
 {
-		if (ais.size() > 0)
+	if (ais.size() > 0)
+	{
+		for (int x = 0; x < ais.size(); x++)
 		{
-			for (int x = 0; x < ais.size(); x++)
+			ais[x]->update(playerPosition, health);
+			if (ais[x]->surroundNow == true)  // Within surround distance.
 			{
-				ais[x]->update(playerPosition,health);
-				if (ais[x]->surroundNow == true)
+				if (ais[x]->surrounded == false)  // Ensure has not been given a surround spot already.
 				{
-					if (ais[x]->surrounded == false)
-					{
-						surroundCount = surroundCount + 1;
-					}
-					ais[x]->setSpot(surroundCount,x);
-					ais[x]->surround(playerPosition);
+					surroundCount = surroundCount + 1;  // Increase surround spot amount.
 				}
+				ais[x]->setSpot(surroundCount, x);  // Calculates the ai spot in circle around player
+				ais[x]->surround(playerPosition);  // Ai seeks its spot position
 			}
 		}
-	
+	}
+
 }
+
+/// <summary>
+/// Sets the goal node.
+/// Calls all functions to set up a path to seek to that node.
+/// </summary>
+/// <param name="goal"></param>
 void Grid::seek(int goal)
 {
 	int i = goal;
 
-		clearAll();
-		goalNode = goal;
-		setCost();
-		setDistance();
-		setVector();
-		goalSet = true;
+	clearAll();
+	goalNode = goal;
+	setCost();
+	setDistance();
+	setVector();
+	goalSet = true;  // Is set to true so AI can pathfind
 }
+
+/// <summary>
+/// Calls the set distance of each node for pathfinding.
+/// </summary>
 void Grid::setDistance()
 {
 	for (int i = 0; i < nodes.size(); i++)
@@ -551,9 +416,14 @@ void Grid::setDistance()
 	}
 }
 
+/// <summary>
+/// Calls the draw of all predators.
+/// Grid no longer drawn.
+/// </summary>
+/// <param name="window"></param>
 void Grid::draw(sf::RenderWindow & window)
 {
-	
+
 
 	if (startSet == true)
 	{
@@ -565,9 +435,14 @@ void Grid::draw(sf::RenderWindow & window)
 				ais[x]->draw(window);
 			}
 		}
-	
+
 	}
 }
+
+/// <summary>
+/// Draws dots for predators for radar.
+/// </summary>
+/// <param name="window"></param>
 void Grid::renderDots(sf::RenderWindow & window)
 {
 	if (startSet == true)
