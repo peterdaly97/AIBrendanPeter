@@ -1,0 +1,98 @@
+\hypertarget{class_node}{}\section{Node Class Reference}
+\label{class_node}\index{Node@{Node}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_node_a821ac801921f60f513c6e9870413316a}\label{class_node_a821ac801921f60f513c6e9870413316a}} 
+{\bfseries Node} (int x, int y, int size, sf\+::\+Font \&cost\+Font, int obstacle)
+\item 
+\mbox{\Hypertarget{class_node_acaf47c612c7c8762ec58cb7f15019357}\label{class_node_acaf47c612c7c8762ec58cb7f15019357}} 
+void {\bfseries update} (double dt)
+\item 
+\mbox{\Hypertarget{class_node_a0c3d6ad1d2e0b22ca4f4327a8fb93e31}\label{class_node_a0c3d6ad1d2e0b22ca4f4327a8fb93e31}} 
+void {\bfseries draw} (sf\+::\+Render\+Window \&window)
+\item 
+\mbox{\Hypertarget{class_node_a535896357ea40bc56fe4d6aed70b6361}\label{class_node_a535896357ea40bc56fe4d6aed70b6361}} 
+int {\bfseries get\+PositionX} ()
+\item 
+\mbox{\Hypertarget{class_node_a9a5a7aa1c1cade5e1c959115d8f56441}\label{class_node_a9a5a7aa1c1cade5e1c959115d8f56441}} 
+int {\bfseries get\+PositionY} ()
+\item 
+\mbox{\Hypertarget{class_node_ab680abb24e66f0ac44ad1c01100c284d}\label{class_node_ab680abb24e66f0ac44ad1c01100c284d}} 
+double {\bfseries get\+VectX} ()
+\item 
+\mbox{\Hypertarget{class_node_a94cc29a521ebaf4de2a8d71b7e55346e}\label{class_node_a94cc29a521ebaf4de2a8d71b7e55346e}} 
+double {\bfseries get\+VectY} ()
+\item 
+\mbox{\Hypertarget{class_node_afa06743d48ed804dbadfe408c6b9c7e5}\label{class_node_afa06743d48ed804dbadfe408c6b9c7e5}} 
+void {\bfseries set\+Color} (sf\+::\+Color color)
+\item 
+\mbox{\Hypertarget{class_node_adefee65f1133ce5f2e0b5a363e250ae6}\label{class_node_adefee65f1133ce5f2e0b5a363e250ae6}} 
+void {\bfseries set\+Cost} (double x)
+\item 
+\mbox{\Hypertarget{class_node_a2066fcdaacfab4e47e976a9a4f60f011}\label{class_node_a2066fcdaacfab4e47e976a9a4f60f011}} 
+void {\bfseries set\+Distance} (int goalX, int goalY)
+\item 
+\mbox{\Hypertarget{class_node_af93f2231cdb17bec0ff4d77972aefc82}\label{class_node_af93f2231cdb17bec0ff4d77972aefc82}} 
+void {\bfseries set\+Vector} (double vectorX, double vectorY)
+\item 
+\mbox{\Hypertarget{class_node_ae93169d2d1e75142b35699b22804ab82}\label{class_node_ae93169d2d1e75142b35699b22804ab82}} 
+void {\bfseries set\+Integration\+Field} (double field)
+\item 
+\mbox{\Hypertarget{class_node_a88680b24156b672fc7cb3598e03b065b}\label{class_node_a88680b24156b672fc7cb3598e03b065b}} 
+void {\bfseries set\+Check} (int num)
+\item 
+\mbox{\Hypertarget{class_node_a6598ebb34ab252ac0258b32a78f689d0}\label{class_node_a6598ebb34ab252ac0258b32a78f689d0}} 
+double {\bfseries get\+Cost} ()
+\item 
+\mbox{\Hypertarget{class_node_a1d3e51a36ef8794ca73d3be104ba792c}\label{class_node_a1d3e51a36ef8794ca73d3be104ba792c}} 
+double {\bfseries get\+Integration\+Field} ()
+\item 
+\mbox{\Hypertarget{class_node_a7888accf4c497dbc71e5f55f8c75a5e4}\label{class_node_a7888accf4c497dbc71e5f55f8c75a5e4}} 
+bool {\bfseries check\+Set} ()
+\item 
+\mbox{\Hypertarget{class_node_ae5153ca337211f2dc2ec3b88aecd1063}\label{class_node_ae5153ca337211f2dc2ec3b88aecd1063}} 
+void {\bfseries swap\+Integration\+Calc} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_node_a2e322c34152537dd2bec43ad60e1be0b}\label{class_node_a2e322c34152537dd2bec43ad60e1be0b}} 
+int {\bfseries rect\+Size}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_node_ad2af1003bff44ae41540d812e7d6a43f}\label{class_node_ad2af1003bff44ae41540d812e7d6a43f}} 
+bool {\bfseries use\+Distance} = true
+\item 
+\mbox{\Hypertarget{class_node_aad84ff62bb1ee73058dea68759b92b33}\label{class_node_aad84ff62bb1ee73058dea68759b92b33}} 
+double {\bfseries vectX} = 0
+\item 
+\mbox{\Hypertarget{class_node_a07546c605cfcb7bd8819c5dbfeb67a39}\label{class_node_a07546c605cfcb7bd8819c5dbfeb67a39}} 
+double {\bfseries vectY} = 0
+\item 
+\mbox{\Hypertarget{class_node_aed83b557f50b4891d285aa1c0fbff485}\label{class_node_aed83b557f50b4891d285aa1c0fbff485}} 
+double {\bfseries integration\+Field} = 0
+\item 
+\mbox{\Hypertarget{class_node_a83fb85bdafcc4a764b6b6b8c31b63b4c}\label{class_node_a83fb85bdafcc4a764b6b6b8c31b63b4c}} 
+sf\+::\+Rectangle\+Shape {\bfseries rectangle}
+\item 
+\mbox{\Hypertarget{class_node_a1d5854f89d8291b5790f6c428ee293ff}\label{class_node_a1d5854f89d8291b5790f6c428ee293ff}} 
+bool {\bfseries start} = false
+\item 
+\mbox{\Hypertarget{class_node_a8452fe942107b0ca329892da2dbbbfbc}\label{class_node_a8452fe942107b0ca329892da2dbbbfbc}} 
+bool {\bfseries goal} = false
+\item 
+\mbox{\Hypertarget{class_node_a054e3940b7350c170fe70a367e6e9746}\label{class_node_a054e3940b7350c170fe70a367e6e9746}} 
+bool {\bfseries cost\+Set} = false
+\item 
+\mbox{\Hypertarget{class_node_a6e7b74adca863064ca0d1684873f33e0}\label{class_node_a6e7b74adca863064ca0d1684873f33e0}} 
+double {\bfseries cost} = 0
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/gameuser/\+Desktop/\+Doxy\+Files\+For\+Checking/Node.\+h\item 
+C\+:/\+Users/gameuser/\+Desktop/\+Doxy\+Files\+For\+Checking/Node.\+cpp\end{DoxyCompactItemize}

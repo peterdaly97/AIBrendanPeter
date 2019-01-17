@@ -1,0 +1,306 @@
+\hypertarget{class_worker}{}\section{Worker Class Reference}
+\label{class_worker}\index{Worker@{Worker}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_worker_ac70dfea860cf30817650e750ed924c08}{Worker}} (act behaviour, sf\+::\+Vector2f pos)
+\begin{DoxyCompactList}\small\item\em Constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_worker_aa8e4543ef1e93fd9d884269ba30c5bfe}{$\sim$\+Worker}} ()
+\begin{DoxyCompactList}\small\item\em Deconstructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_worker_a6d522360a022f0a94db7e01547c4bcdc}{update}} (std\+::vector$<$ \mbox{\hyperlink{class_node}{Node}} $\ast$ $>$ \&nodes, int goal\+Node)
+\begin{DoxyCompactList}\small\item\em Update function for the worker \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_worker_a18940af5e921feefc2373e120d66ff24}{render}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Function that handles the rendering of the worker \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_worker_a7e1feb9eceef5b8f2cf215e9e1f992f9}{render\+Dot}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Function to render a dot onto the minimap at the workers position \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_worker_a1b3dae07dd02fed908d3864d02f481d8}{check\+Collision}} (\mbox{\hyperlink{class_grid}{Grid}} \&grid)
+\begin{DoxyCompactList}\small\item\em Function to check for collisions between player and walls \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_worker_a3bdb981b147cd2eedcf68f8a6ac1e82c}{get\+New\+Rotation}} (float rot, sf\+::\+Vector2f vel)
+\begin{DoxyCompactList}\small\item\em Function to calculate rotation so that worker faces its target \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structhandling}{handling}} \mbox{\hyperlink{class_worker_afa1c335f1943af0a28fc7f458c0479b1}{wander}} ()
+\begin{DoxyCompactList}\small\item\em Function for handling how the worker wanders \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_worker_a6c93a3c589595dd0dfeeee21754e961a}{mag}} (sf\+::\+Vector2f v)
+\begin{DoxyCompactList}\small\item\em Function for calculating magnitude of a vector \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_worker_a9bb217423adfa630f0fe3a71e2dc5468}{start\+Calc}} ()
+\begin{DoxyCompactList}\small\item\em Function that handles updating of velocity and rotation \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_worker_aafe153e1510b1d70e5f08d5eff13f275}{dist}} (sf\+::\+Vector2f v1, sf\+::\+Vector2f v2)
+\begin{DoxyCompactList}\small\item\em Function that calculates and returns the distance between two vectors \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_worker_a79945b1af05632250c8f0d905474506d}{move}} (double vectorX, double vectorY)
+\begin{DoxyCompactList}\small\item\em Function to calculate and update workers position \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_worker_a737d86e6c4ee0ac68795c9767f3aa346}\label{class_worker_a737d86e6c4ee0ac68795c9767f3aa346}} 
+bool {\bfseries m\+\_\+collected} = false
+\item 
+\mbox{\Hypertarget{class_worker_ad5ef4caeba7332642a64ff135669020b}\label{class_worker_ad5ef4caeba7332642a64ff135669020b}} 
+sf\+::\+Texture {\bfseries m\+\_\+texture}
+\item 
+\mbox{\Hypertarget{class_worker_a25d12889e0e55055b8731d3b52dd6e1e}\label{class_worker_a25d12889e0e55055b8731d3b52dd6e1e}} 
+sf\+::\+Sprite {\bfseries m\+\_\+sprite}
+\item 
+\mbox{\Hypertarget{class_worker_a00add12299316bd66a2dd67c7bc1e25f}\label{class_worker_a00add12299316bd66a2dd67c7bc1e25f}} 
+sf\+::\+Vector2f {\bfseries m\+\_\+position}
+\item 
+\mbox{\Hypertarget{class_worker_a64f6c47c236420b91e3c0b28915b7434}\label{class_worker_a64f6c47c236420b91e3c0b28915b7434}} 
+sf\+::\+Vector2f {\bfseries m\+\_\+velocity}
+\item 
+\mbox{\Hypertarget{class_worker_a241bf09f83a8b02c18b7ec3ca2a5d151}\label{class_worker_a241bf09f83a8b02c18b7ec3ca2a5d151}} 
+float {\bfseries m\+\_\+rotation}
+\item 
+\mbox{\Hypertarget{class_worker_ab85105e0e353ce92467cb6b397b55f71}\label{class_worker_ab85105e0e353ce92467cb6b397b55f71}} 
+sf\+::\+Vector2f {\bfseries m\+\_\+target\+Pos}
+\item 
+\mbox{\Hypertarget{class_worker_a84d042d49cb78c064216e1ddc74ae550}\label{class_worker_a84d042d49cb78c064216e1ddc74ae550}} 
+const double {\bfseries D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD} = 3.\+14159 / 180.\+0f
+\item 
+\mbox{\Hypertarget{class_worker_a83a707751699634d4834319b9955a580}\label{class_worker_a83a707751699634d4834319b9955a580}} 
+const double {\bfseries R\+A\+D\+\_\+\+T\+O\+\_\+\+D\+EG} = 180.\+0f / 3.\+14159
+\item 
+\mbox{\Hypertarget{class_worker_a349b7755216672f76050ddec9014481a}\label{class_worker_a349b7755216672f76050ddec9014481a}} 
+float {\bfseries m\+\_\+speed}
+\item 
+\mbox{\Hypertarget{class_worker_acc7497e66cb95c486a276ba99c63e6a5}\label{class_worker_acc7497e66cb95c486a276ba99c63e6a5}} 
+float {\bfseries M\+A\+X\+\_\+\+F\+O\+R\+W\+A\+R\+D\+\_\+\+S\+P\+E\+ED} = 2.\+5
+\item 
+\mbox{\Hypertarget{class_worker_a57bdb01b44c8f7eff6e42b7532002a25}\label{class_worker_a57bdb01b44c8f7eff6e42b7532002a25}} 
+const float {\bfseries M\+A\+X\+\_\+\+R\+O\+T\+A\+T\+I\+ON} = 30
+\item 
+\mbox{\Hypertarget{class_worker_ad4170242cad3938fbb6da129dae662a0}\label{class_worker_ad4170242cad3938fbb6da129dae662a0}} 
+const float {\bfseries M\+A\+X\+\_\+\+B\+A\+C\+K\+W\+A\+R\+D\+\_\+\+S\+P\+E\+ED} = 2.\+5
+\item 
+\mbox{\Hypertarget{class_worker_a32a8bc96b895c1281eaee0ecdf9dbfcc}\label{class_worker_a32a8bc96b895c1281eaee0ecdf9dbfcc}} 
+const float {\bfseries T\+I\+M\+E\+\_\+\+T\+O\+\_\+\+T\+A\+R\+G\+ET} = 80.\+0f
+\item 
+\mbox{\Hypertarget{class_worker_abfd53664f71851bd04d939203cdb7ac5}\label{class_worker_abfd53664f71851bd04d939203cdb7ac5}} 
+bool {\bfseries magnet} = false
+\item 
+\mbox{\Hypertarget{class_worker_a6e59079e590245001b6f352ca359144b}\label{class_worker_a6e59079e590245001b6f352ca359144b}} 
+int {\bfseries temp\+Grid} = 999999
+\item 
+\mbox{\Hypertarget{class_worker_accb0a2bf848c733a98a589e270ace38e}\label{class_worker_accb0a2bf848c733a98a589e270ace38e}} 
+bool {\bfseries grid\+Changed} = false
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_worker_a6fb7cdf697fcbc7dc30b000e39ec414f}\label{class_worker_a6fb7cdf697fcbc7dc30b000e39ec414f}} 
+act {\bfseries b}
+\item 
+\mbox{\Hypertarget{class_worker_a11f0037019ff2cca6dbddc31da784738}\label{class_worker_a11f0037019ff2cca6dbddc31da784738}} 
+float {\bfseries m\+\_\+angle\+Dev} = 0.\+0f
+\item 
+\mbox{\Hypertarget{class_worker_a1e7c4e21264504d441dba25855cfea90}\label{class_worker_a1e7c4e21264504d441dba25855cfea90}} 
+float {\bfseries m\+\_\+change\+Angle} = 1.\+0f
+\item 
+\mbox{\Hypertarget{class_worker_a5addc8afceef416fcea7df5613f9a1ff}\label{class_worker_a5addc8afceef416fcea7df5613f9a1ff}} 
+\mbox{\hyperlink{structhandling}{handling}} {\bfseries steer}
+\item 
+\mbox{\Hypertarget{class_worker_a4358744600aeda087d8d1f8e49ca9bca}\label{class_worker_a4358744600aeda087d8d1f8e49ca9bca}} 
+int {\bfseries player\+Grid} = 0
+\item 
+\mbox{\Hypertarget{class_worker_ac94e3dee39538d68ac82fab37b391a93}\label{class_worker_ac94e3dee39538d68ac82fab37b391a93}} 
+int {\bfseries player\+GridX} = 0
+\item 
+\mbox{\Hypertarget{class_worker_aa517ea9cc69027a46bd9d32a70d54ba7}\label{class_worker_aa517ea9cc69027a46bd9d32a70d54ba7}} 
+int {\bfseries player\+GridY} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_worker_ac70dfea860cf30817650e750ed924c08}\label{class_worker_ac70dfea860cf30817650e750ed924c08}} 
+\index{Worker@{Worker}!Worker@{Worker}}
+\index{Worker@{Worker}!Worker@{Worker}}
+\subsubsection{\texorpdfstring{Worker()}{Worker()}}
+{\footnotesize\ttfamily Worker\+::\+Worker (\begin{DoxyParamCaption}\item[{act}]{behaviour,  }\item[{sf\+::\+Vector2f}]{pos }\end{DoxyParamCaption})}
+
+
+
+Constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em behaviour} & \\
+\hline
+{\em pos} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_worker_aa8e4543ef1e93fd9d884269ba30c5bfe}\label{class_worker_aa8e4543ef1e93fd9d884269ba30c5bfe}} 
+\index{Worker@{Worker}!````~Worker@{$\sim$Worker}}
+\index{````~Worker@{$\sim$Worker}!Worker@{Worker}}
+\subsubsection{\texorpdfstring{$\sim$Worker()}{~Worker()}}
+{\footnotesize\ttfamily Worker\+::$\sim$\+Worker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Deconstructor 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_worker_a1b3dae07dd02fed908d3864d02f481d8}\label{class_worker_a1b3dae07dd02fed908d3864d02f481d8}} 
+\index{Worker@{Worker}!checkCollision@{checkCollision}}
+\index{checkCollision@{checkCollision}!Worker@{Worker}}
+\subsubsection{\texorpdfstring{checkCollision()}{checkCollision()}}
+{\footnotesize\ttfamily void Worker\+::check\+Collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_grid}{Grid}} \&}]{grid }\end{DoxyParamCaption})}
+
+
+
+Function to check for collisions between player and walls 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_worker_aafe153e1510b1d70e5f08d5eff13f275}\label{class_worker_aafe153e1510b1d70e5f08d5eff13f275}} 
+\index{Worker@{Worker}!dist@{dist}}
+\index{dist@{dist}!Worker@{Worker}}
+\subsubsection{\texorpdfstring{dist()}{dist()}}
+{\footnotesize\ttfamily float Worker\+::dist (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{v1,  }\item[{sf\+::\+Vector2f}]{v2 }\end{DoxyParamCaption})}
+
+
+
+Function that calculates and returns the distance between two vectors 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & \\
+\hline
+{\em v2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_worker_a3bdb981b147cd2eedcf68f8a6ac1e82c}\label{class_worker_a3bdb981b147cd2eedcf68f8a6ac1e82c}} 
+\index{Worker@{Worker}!getNewRotation@{getNewRotation}}
+\index{getNewRotation@{getNewRotation}!Worker@{Worker}}
+\subsubsection{\texorpdfstring{getNewRotation()}{getNewRotation()}}
+{\footnotesize\ttfamily float Worker\+::get\+New\+Rotation (\begin{DoxyParamCaption}\item[{float}]{rot,  }\item[{sf\+::\+Vector2f}]{vel }\end{DoxyParamCaption})}
+
+
+
+Function to calculate rotation so that worker faces its target 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rot} & \\
+\hline
+{\em vel} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_worker_a6c93a3c589595dd0dfeeee21754e961a}\label{class_worker_a6c93a3c589595dd0dfeeee21754e961a}} 
+\index{Worker@{Worker}!mag@{mag}}
+\index{mag@{mag}!Worker@{Worker}}
+\subsubsection{\texorpdfstring{mag()}{mag()}}
+{\footnotesize\ttfamily float Worker\+::mag (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{v }\end{DoxyParamCaption})}
+
+
+
+Function for calculating magnitude of a vector 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_worker_a79945b1af05632250c8f0d905474506d}\label{class_worker_a79945b1af05632250c8f0d905474506d}} 
+\index{Worker@{Worker}!move@{move}}
+\index{move@{move}!Worker@{Worker}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Worker\+::move (\begin{DoxyParamCaption}\item[{double}]{vectorX,  }\item[{double}]{vectorY }\end{DoxyParamCaption})}
+
+
+
+Function to calculate and update workers position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vectorX} & \\
+\hline
+{\em vectorY} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_worker_a18940af5e921feefc2373e120d66ff24}\label{class_worker_a18940af5e921feefc2373e120d66ff24}} 
+\index{Worker@{Worker}!render@{render}}
+\index{render@{render}!Worker@{Worker}}
+\subsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Worker\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Function that handles the rendering of the worker 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_worker_a7e1feb9eceef5b8f2cf215e9e1f992f9}\label{class_worker_a7e1feb9eceef5b8f2cf215e9e1f992f9}} 
+\index{Worker@{Worker}!renderDot@{renderDot}}
+\index{renderDot@{renderDot}!Worker@{Worker}}
+\subsubsection{\texorpdfstring{renderDot()}{renderDot()}}
+{\footnotesize\ttfamily void Worker\+::render\+Dot (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Function to render a dot onto the minimap at the workers position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_worker_a9bb217423adfa630f0fe3a71e2dc5468}\label{class_worker_a9bb217423adfa630f0fe3a71e2dc5468}} 
+\index{Worker@{Worker}!startCalc@{startCalc}}
+\index{startCalc@{startCalc}!Worker@{Worker}}
+\subsubsection{\texorpdfstring{startCalc()}{startCalc()}}
+{\footnotesize\ttfamily void Worker\+::start\+Calc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function that handles updating of velocity and rotation 
+
+\mbox{\Hypertarget{class_worker_a6d522360a022f0a94db7e01547c4bcdc}\label{class_worker_a6d522360a022f0a94db7e01547c4bcdc}} 
+\index{Worker@{Worker}!update@{update}}
+\index{update@{update}!Worker@{Worker}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Worker\+::update (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_node}{Node}} $\ast$ $>$ \&}]{nodes,  }\item[{int}]{goal\+Node }\end{DoxyParamCaption})}
+
+
+
+Update function for the worker 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nodes} & \\
+\hline
+{\em goal\+Node} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_worker_afa1c335f1943af0a28fc7f458c0479b1}\label{class_worker_afa1c335f1943af0a28fc7f458c0479b1}} 
+\index{Worker@{Worker}!wander@{wander}}
+\index{wander@{wander}!Worker@{Worker}}
+\subsubsection{\texorpdfstring{wander()}{wander()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structhandling}{handling}} Worker\+::wander (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function for handling how the worker wanders 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/gameuser/\+Desktop/\+Doxy\+Files\+For\+Checking/Worker.\+h\item 
+C\+:/\+Users/gameuser/\+Desktop/\+Doxy\+Files\+For\+Checking/Worker.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,188 @@
+\hypertarget{class_game}{}\section{Game Class Reference}
+\label{class_game}\index{Game@{Game}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_ad59df6562a58a614fda24622d3715b65}{Game}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_game}{Game}} constructor which initialises our render window \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_ae3d112ca6e0e55150d2fdbc704474530}{$\sim$\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for game object \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a1ab78f5ed0d5ea879157357cf2fb2afa}{run}} ()
+\begin{DoxyCompactList}\small\item\em function handles the updating of the game \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a79df6376b332d63c9eca0dcee30305c3}{update}} ()
+\begin{DoxyCompactList}\small\item\em Update actions of the game \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a0f45755826070a27ccc98e32deca5d87}{check\+Entities}} ()
+\begin{DoxyCompactList}\small\item\em Function which updates and checks every active entity \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a15ddd769261d923827a3cdf41499c843}{render}} ()
+\begin{DoxyCompactList}\small\item\em Function that handles rendering of all game entities \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a9f1f11b62bf54070912cb94ad8e990df}{update\+UI}} ()
+\begin{DoxyCompactList}\small\item\em Function for positioning UI objects \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_a6e48721b0532833b99fd5615a3628792}\label{class_game_a6e48721b0532833b99fd5615a3628792}} 
+\mbox{\hyperlink{class_player}{Player}} {\bfseries player} = \mbox{\hyperlink{class_player}{Player}}()
+\item 
+\mbox{\Hypertarget{class_game_a22a61b5ea27c609be8cf2724c33d7ae5}\label{class_game_a22a61b5ea27c609be8cf2724c33d7ae5}} 
+sf\+::\+Render\+Window {\bfseries m\+\_\+window}
+\item 
+\mbox{\Hypertarget{class_game_a0bf2c4ab713882ac7ea85043e364edfd}\label{class_game_a0bf2c4ab713882ac7ea85043e364edfd}} 
+std\+::vector$<$ \mbox{\hyperlink{class_nest}{Nest}} $\ast$ $>$ {\bfseries m\+\_\+nests}
+\item 
+\mbox{\Hypertarget{class_game_a8aee472d1972eced3c805bcc6f9e439b}\label{class_game_a8aee472d1972eced3c805bcc6f9e439b}} 
+const int {\bfseries S\+C\+R\+E\+E\+N\+\_\+\+W\+I\+D\+TH} = 1200
+\item 
+\mbox{\Hypertarget{class_game_ad2702f723f5e55929cb6047c79ebdf2e}\label{class_game_ad2702f723f5e55929cb6047c79ebdf2e}} 
+const int {\bfseries S\+C\+R\+E\+E\+N\+\_\+\+H\+E\+I\+G\+HT} = 800
+\item 
+\mbox{\Hypertarget{class_game_a31064a4d2c16c47b345ccdc3ee50014f}\label{class_game_a31064a4d2c16c47b345ccdc3ee50014f}} 
+int {\bfseries pred\+Count} = 0
+\item 
+\mbox{\Hypertarget{class_game_aaaa8c73a0bc4154802451a2effe484ee}\label{class_game_aaaa8c73a0bc4154802451a2effe484ee}} 
+int {\bfseries pred\+Max} = 15
+\item 
+\mbox{\Hypertarget{class_game_ac39fcaa59b270bbc551ca841a0466170}\label{class_game_ac39fcaa59b270bbc551ca841a0466170}} 
+\mbox{\hyperlink{class_grid}{Grid}} $\ast$ {\bfseries grid}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_a3791cdf694d6610f50ad6096a78ccd85}\label{class_game_a3791cdf694d6610f50ad6096a78ccd85}} 
+sf\+::\+Texture {\bfseries m\+\_\+world\+Texture}
+\item 
+\mbox{\Hypertarget{class_game_afe284d6a275b05722d56eeabb9e64902}\label{class_game_afe284d6a275b05722d56eeabb9e64902}} 
+sf\+::\+Sprite {\bfseries m\+\_\+world\+Sprite}
+\item 
+\mbox{\Hypertarget{class_game_a99d18f21435cd983388097ec23772175}\label{class_game_a99d18f21435cd983388097ec23772175}} 
+sf\+::\+View {\bfseries m\+\_\+mini\+Map}
+\item 
+\mbox{\Hypertarget{class_game_a9e8e2376034c2665492ba3c2b719d31f}\label{class_game_a9e8e2376034c2665492ba3c2b719d31f}} 
+sf\+::\+Rectangle\+Shape {\bfseries m\+\_\+map\+Border}
+\item 
+\mbox{\Hypertarget{class_game_a9d2ad349c6454740f202ec75ee7041cf}\label{class_game_a9d2ad349c6454740f202ec75ee7041cf}} 
+std\+::vector$<$ \mbox{\hyperlink{class_worker}{Worker}} $\ast$ $>$ {\bfseries m\+\_\+workers}
+\item 
+\mbox{\Hypertarget{class_game_abe0d0b5407db443a19c5d49686d42bee}\label{class_game_abe0d0b5407db443a19c5d49686d42bee}} 
+std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} $\ast$ $>$ {\bfseries m\+\_\+remaining\+Enemies}
+\item 
+\mbox{\Hypertarget{class_game_ad1dba8fd74497954716c1210951fc8f9}\label{class_game_ad1dba8fd74497954716c1210951fc8f9}} 
+std\+::vector$<$ \mbox{\hyperlink{class_power_up}{Power\+Up}} $\ast$ $>$ {\bfseries m\+\_\+power\+Ups}
+\item 
+\mbox{\Hypertarget{class_game_a5fc54f9e38842296763277991f640d39}\label{class_game_a5fc54f9e38842296763277991f640d39}} 
+sf\+::\+Texture {\bfseries m\+\_\+power\+Tex}
+\item 
+\mbox{\Hypertarget{class_game_a92be945c6cc98d56a5dbeef64a9289b3}\label{class_game_a92be945c6cc98d56a5dbeef64a9289b3}} 
+sf\+::\+Texture {\bfseries m\+\_\+blast\+Tex}
+\item 
+\mbox{\Hypertarget{class_game_a86ce8939c9ec47b8748aae570e642711}\label{class_game_a86ce8939c9ec47b8748aae570e642711}} 
+sf\+::\+Texture {\bfseries m\+\_\+health\+Tex}
+\item 
+\mbox{\Hypertarget{class_game_a8c9545659212304d00a4e637f331dba8}\label{class_game_a8c9545659212304d00a4e637f331dba8}} 
+sf\+::\+Texture {\bfseries m\+\_\+heart\+Tex}
+\item 
+\mbox{\Hypertarget{class_game_a008a66ca39b6dccb8631c17663e013d8}\label{class_game_a008a66ca39b6dccb8631c17663e013d8}} 
+sf\+::\+Texture {\bfseries m\+\_\+worker\+Tex}
+\item 
+\mbox{\Hypertarget{class_game_aa02a4a51979c3176fe39df9593a7bf6c}\label{class_game_aa02a4a51979c3176fe39df9593a7bf6c}} 
+sf\+::\+Sprite {\bfseries m\+\_\+heart\+Sprite}
+\item 
+\mbox{\Hypertarget{class_game_a56f697c84aafadb61ed676f323a30479}\label{class_game_a56f697c84aafadb61ed676f323a30479}} 
+sf\+::\+Sprite {\bfseries m\+\_\+worker\+Sprite}
+\item 
+\mbox{\Hypertarget{class_game_af2db6e375436b38baab7db80ac663112}\label{class_game_af2db6e375436b38baab7db80ac663112}} 
+sf\+::\+Text {\bfseries m\+\_\+heart\+Text}
+\item 
+\mbox{\Hypertarget{class_game_a815af4b3dee6999ed7625e7e0f0ae0c8}\label{class_game_a815af4b3dee6999ed7625e7e0f0ae0c8}} 
+sf\+::\+Text {\bfseries m\+\_\+worker\+Text}
+\item 
+\mbox{\Hypertarget{class_game_af5c5c39d0eabe68c3bfff3509900a489}\label{class_game_af5c5c39d0eabe68c3bfff3509900a489}} 
+sf\+::\+Font {\bfseries m\+\_\+font}
+\item 
+\mbox{\Hypertarget{class_game_ac7736cd8da43009ca95d65724c020319}\label{class_game_ac7736cd8da43009ca95d65724c020319}} 
+std\+::vector$<$ \mbox{\hyperlink{class_particle_system}{Particle\+System}} $\ast$ $>$ {\bfseries m\+\_\+particles}
+\item 
+\mbox{\Hypertarget{class_game_ab35d3ba20101c82cdc8adb822870c4f0}\label{class_game_ab35d3ba20101c82cdc8adb822870c4f0}} 
+sf\+::\+Texture {\bfseries m\+\_\+bullet\+Tex}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_ad59df6562a58a614fda24622d3715b65}\label{class_game_ad59df6562a58a614fda24622d3715b65}} 
+\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\subsubsection{\texorpdfstring{Game()}{Game()}}
+{\footnotesize\ttfamily Game\+::\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_game}{Game}} constructor which initialises our render window 
+
+\mbox{\Hypertarget{class_game_ae3d112ca6e0e55150d2fdbc704474530}\label{class_game_ae3d112ca6e0e55150d2fdbc704474530}} 
+\index{Game@{Game}!````~Game@{$\sim$Game}}
+\index{````~Game@{$\sim$Game}!Game@{Game}}
+\subsubsection{\texorpdfstring{$\sim$Game()}{~Game()}}
+{\footnotesize\ttfamily Game\+::$\sim$\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for game object 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_a0f45755826070a27ccc98e32deca5d87}\label{class_game_a0f45755826070a27ccc98e32deca5d87}} 
+\index{Game@{Game}!checkEntities@{checkEntities}}
+\index{checkEntities@{checkEntities}!Game@{Game}}
+\subsubsection{\texorpdfstring{checkEntities()}{checkEntities()}}
+{\footnotesize\ttfamily void Game\+::check\+Entities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function which updates and checks every active entity 
+
+\mbox{\Hypertarget{class_game_a15ddd769261d923827a3cdf41499c843}\label{class_game_a15ddd769261d923827a3cdf41499c843}} 
+\index{Game@{Game}!render@{render}}
+\index{render@{render}!Game@{Game}}
+\subsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Game\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function that handles rendering of all game entities 
+
+\mbox{\Hypertarget{class_game_a1ab78f5ed0d5ea879157357cf2fb2afa}\label{class_game_a1ab78f5ed0d5ea879157357cf2fb2afa}} 
+\index{Game@{Game}!run@{run}}
+\index{run@{run}!Game@{Game}}
+\subsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Game\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+function handles the updating of the game 
+
+\mbox{\Hypertarget{class_game_a79df6376b332d63c9eca0dcee30305c3}\label{class_game_a79df6376b332d63c9eca0dcee30305c3}} 
+\index{Game@{Game}!update@{update}}
+\index{update@{update}!Game@{Game}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Game\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Update actions of the game 
+
+\mbox{\Hypertarget{class_game_a9f1f11b62bf54070912cb94ad8e990df}\label{class_game_a9f1f11b62bf54070912cb94ad8e990df}} 
+\index{Game@{Game}!updateUI@{updateUI}}
+\index{updateUI@{updateUI}!Game@{Game}}
+\subsubsection{\texorpdfstring{updateUI()}{updateUI()}}
+{\footnotesize\ttfamily void Game\+::update\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function for positioning UI objects 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/gameuser/\+Desktop/\+Doxy\+Files\+For\+Checking/game.\+h\item 
+C\+:/\+Users/gameuser/\+Desktop/\+Doxy\+Files\+For\+Checking/game.\+cpp\end{DoxyCompactItemize}

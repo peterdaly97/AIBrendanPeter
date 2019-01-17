@@ -1,0 +1,217 @@
+\hypertarget{class_missile}{}\section{Missile Class Reference}
+\label{class_missile}\index{Missile@{Missile}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_missile_afeeea0fd5a57b2fa5edfdccbb6ffeba1}{Missile}} (sf\+::\+Vector2f pos)
+\begin{DoxyCompactList}\small\item\em Constructor for the missile \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_missile_afd7036f6ab20eabb14920dfe0bc8944d}{update}} (sf\+::\+Vector2f player\+Pos, int \&health)
+\begin{DoxyCompactList}\small\item\em Update function for the missile \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_missile_a882289a30763d8307727a674655c7367}{render}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Function for handling the render of the missile \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_missile_a286613c45f833883801ee1b90f841e37}{get\+New\+Rotation}} (float rot, sf\+::\+Vector2f vel)
+\begin{DoxyCompactList}\small\item\em Function for updating the rotation of the missile \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structpathing}{pathing}} \mbox{\hyperlink{class_missile_a9a79e1c2815d3d97810a810286e6cec4}{seek}} (sf\+::\+Vector2f player\+Pos)
+\begin{DoxyCompactList}\small\item\em Function for calculating how to get the missile to chase the player \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_missile_a81919e4b6e417b114a61e88fa608c6e5}{mag}} (sf\+::\+Vector2f v)
+\begin{DoxyCompactList}\small\item\em Calculates magnitude of vector \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_missile_aa7d46b6d539ed741f55f5d9137bda2ff}{start\+Calc}} ()
+\begin{DoxyCompactList}\small\item\em Function for updating all movement attributes of the missile \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_missile_a0a101a13350fb8af75465e2cdcf01931}{dist}} (sf\+::\+Vector2f v1, sf\+::\+Vector2f v2)
+\begin{DoxyCompactList}\small\item\em Function that calculates the distance between 2 vectors \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_missile_a9219f26e1a3b7344459dd1551295329f}\label{class_missile_a9219f26e1a3b7344459dd1551295329f}} 
+sf\+::\+Texture {\bfseries m\+\_\+texture}
+\item 
+\mbox{\Hypertarget{class_missile_ac006e17dd989f5a3659c72060883dd3d}\label{class_missile_ac006e17dd989f5a3659c72060883dd3d}} 
+sf\+::\+Sprite {\bfseries m\+\_\+sprite}
+\item 
+\mbox{\Hypertarget{class_missile_aee138dea114b6d8f0aec3bb95ea71f50}\label{class_missile_aee138dea114b6d8f0aec3bb95ea71f50}} 
+sf\+::\+Vector2f {\bfseries m\+\_\+position}
+\item 
+\mbox{\Hypertarget{class_missile_aa36d8d7569ae95104fed5ed1a0b90440}\label{class_missile_aa36d8d7569ae95104fed5ed1a0b90440}} 
+sf\+::\+Vector2f {\bfseries m\+\_\+velocity}
+\item 
+\mbox{\Hypertarget{class_missile_a4159c2ca8c15633f2b4e64a52149a192}\label{class_missile_a4159c2ca8c15633f2b4e64a52149a192}} 
+float {\bfseries m\+\_\+rotation}
+\item 
+\mbox{\Hypertarget{class_missile_ab4cd3fbf7278f592f43f0be12a000878}\label{class_missile_ab4cd3fbf7278f592f43f0be12a000878}} 
+sf\+::\+Vector2f {\bfseries m\+\_\+target\+Pos}
+\item 
+\mbox{\Hypertarget{class_missile_ab4a3a052711b466e4152dfc2fa7c2bcc}\label{class_missile_ab4a3a052711b466e4152dfc2fa7c2bcc}} 
+const double {\bfseries D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD} = 3.\+14159 / 180.\+0f
+\item 
+\mbox{\Hypertarget{class_missile_aeb24f712eff93ede635b324c83cc9da3}\label{class_missile_aeb24f712eff93ede635b324c83cc9da3}} 
+const double {\bfseries R\+A\+D\+\_\+\+T\+O\+\_\+\+D\+EG} = 180.\+0f / 3.\+14159
+\item 
+\mbox{\Hypertarget{class_missile_ae3d54aa52663b42c2e0eb3360b62c8dd}\label{class_missile_ae3d54aa52663b42c2e0eb3360b62c8dd}} 
+float {\bfseries m\+\_\+speed}
+\item 
+\mbox{\Hypertarget{class_missile_a8b6e21f47fd3a727a0beb4933347397a}\label{class_missile_a8b6e21f47fd3a727a0beb4933347397a}} 
+float {\bfseries M\+A\+X\+\_\+\+F\+O\+R\+W\+A\+R\+D\+\_\+\+S\+P\+E\+ED} = 3.\+0
+\item 
+\mbox{\Hypertarget{class_missile_abd03c51cfb5d584c2634e8f56851b574}\label{class_missile_abd03c51cfb5d584c2634e8f56851b574}} 
+const float {\bfseries M\+A\+X\+\_\+\+R\+O\+T\+A\+T\+I\+ON} = 45
+\item 
+\mbox{\Hypertarget{class_missile_a317ab9a61aab790021ecf5278706db58}\label{class_missile_a317ab9a61aab790021ecf5278706db58}} 
+bool {\bfseries m\+\_\+dead} = false
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_missile_ac76d06b6e255d1dcd226fdc007832c8c}\label{class_missile_ac76d06b6e255d1dcd226fdc007832c8c}} 
+sf\+::\+Time {\bfseries m\+\_\+time}
+\item 
+\mbox{\Hypertarget{class_missile_ae81b6c01d6cacc8ac188a66274356430}\label{class_missile_ae81b6c01d6cacc8ac188a66274356430}} 
+sf\+::\+Clock {\bfseries m\+\_\+clock}
+\item 
+\mbox{\Hypertarget{class_missile_ace8827b3e211f866908a1e3112b0abc2}\label{class_missile_ace8827b3e211f866908a1e3112b0abc2}} 
+\mbox{\hyperlink{structpathing}{pathing}} {\bfseries steer}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_missile_afeeea0fd5a57b2fa5edfdccbb6ffeba1}\label{class_missile_afeeea0fd5a57b2fa5edfdccbb6ffeba1}} 
+\index{Missile@{Missile}!Missile@{Missile}}
+\index{Missile@{Missile}!Missile@{Missile}}
+\subsubsection{\texorpdfstring{Missile()}{Missile()}}
+{\footnotesize\ttfamily Missile\+::\+Missile (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{pos }\end{DoxyParamCaption})}
+
+
+
+Constructor for the missile 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_missile_a0a101a13350fb8af75465e2cdcf01931}\label{class_missile_a0a101a13350fb8af75465e2cdcf01931}} 
+\index{Missile@{Missile}!dist@{dist}}
+\index{dist@{dist}!Missile@{Missile}}
+\subsubsection{\texorpdfstring{dist()}{dist()}}
+{\footnotesize\ttfamily float Missile\+::dist (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{v1,  }\item[{sf\+::\+Vector2f}]{v2 }\end{DoxyParamCaption})}
+
+
+
+Function that calculates the distance between 2 vectors 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & \\
+\hline
+{\em v2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_missile_a286613c45f833883801ee1b90f841e37}\label{class_missile_a286613c45f833883801ee1b90f841e37}} 
+\index{Missile@{Missile}!getNewRotation@{getNewRotation}}
+\index{getNewRotation@{getNewRotation}!Missile@{Missile}}
+\subsubsection{\texorpdfstring{getNewRotation()}{getNewRotation()}}
+{\footnotesize\ttfamily float Missile\+::get\+New\+Rotation (\begin{DoxyParamCaption}\item[{float}]{rot,  }\item[{sf\+::\+Vector2f}]{vel }\end{DoxyParamCaption})}
+
+
+
+Function for updating the rotation of the missile 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rot} & \\
+\hline
+{\em vel} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_missile_a81919e4b6e417b114a61e88fa608c6e5}\label{class_missile_a81919e4b6e417b114a61e88fa608c6e5}} 
+\index{Missile@{Missile}!mag@{mag}}
+\index{mag@{mag}!Missile@{Missile}}
+\subsubsection{\texorpdfstring{mag()}{mag()}}
+{\footnotesize\ttfamily float Missile\+::mag (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{v }\end{DoxyParamCaption})}
+
+
+
+Calculates magnitude of vector 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_missile_a882289a30763d8307727a674655c7367}\label{class_missile_a882289a30763d8307727a674655c7367}} 
+\index{Missile@{Missile}!render@{render}}
+\index{render@{render}!Missile@{Missile}}
+\subsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Missile\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Function for handling the render of the missile 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_missile_a9a79e1c2815d3d97810a810286e6cec4}\label{class_missile_a9a79e1c2815d3d97810a810286e6cec4}} 
+\index{Missile@{Missile}!seek@{seek}}
+\index{seek@{seek}!Missile@{Missile}}
+\subsubsection{\texorpdfstring{seek()}{seek()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpathing}{pathing}} Missile\+::seek (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{player\+Pos }\end{DoxyParamCaption})}
+
+
+
+Function for calculating how to get the missile to chase the player 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Pos} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_missile_aa7d46b6d539ed741f55f5d9137bda2ff}\label{class_missile_aa7d46b6d539ed741f55f5d9137bda2ff}} 
+\index{Missile@{Missile}!startCalc@{startCalc}}
+\index{startCalc@{startCalc}!Missile@{Missile}}
+\subsubsection{\texorpdfstring{startCalc()}{startCalc()}}
+{\footnotesize\ttfamily void Missile\+::start\+Calc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function for updating all movement attributes of the missile 
+
+\mbox{\Hypertarget{class_missile_afd7036f6ab20eabb14920dfe0bc8944d}\label{class_missile_afd7036f6ab20eabb14920dfe0bc8944d}} 
+\index{Missile@{Missile}!update@{update}}
+\index{update@{update}!Missile@{Missile}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Missile\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{player\+Pos,  }\item[{int \&}]{health }\end{DoxyParamCaption})}
+
+
+
+Update function for the missile 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Pos} & \\
+\hline
+{\em health} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/gameuser/\+Desktop/\+Doxy\+Files\+For\+Checking/Missile.\+h\item 
+C\+:/\+Users/gameuser/\+Desktop/\+Doxy\+Files\+For\+Checking/Missile.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,186 @@
+\hypertarget{class_nest}{}\section{Nest Class Reference}
+\label{class_nest}\index{Nest@{Nest}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_nest_af171ff62bfa8ef5d2ea793ef73be1625}{Nest}} (sf\+::\+Vector2f pos)
+\begin{DoxyCompactList}\small\item\em Constructor for the nest object \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_nest_a3e879ba15acd31717b1dc9bdc87488d5}{$\sim$\+Nest}} ()
+\begin{DoxyCompactList}\small\item\em Deconstructor for the nest \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_nest_ac9896d1f535b58bf155b0366164fe08f}{update}} (sf\+::\+Vector2f player\+Pos, int \&heath, std\+::vector$<$ \mbox{\hyperlink{class_particle_system}{Particle\+System}} $\ast$ $>$ \&ps, \mbox{\hyperlink{class_grid}{Grid}} \&grid, std\+::vector$<$ \mbox{\hyperlink{class_worker}{Worker}} $\ast$ $>$ wpos)
+\begin{DoxyCompactList}\small\item\em Update function to handle all non-\/rendering functionality \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_nest_a09d907a3d411da0249c7d0bb5ad7b36c}{render}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Function that handles all the rendering of the nest \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_nest_abb94bc33eb34d32c3ddb209a777728ab}{render\+Dot}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Function for rendering a dot to the mini map at the nests position \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_nest_a58c91b9fd13c807c65116d36dcaa1887}\label{class_nest_a58c91b9fd13c807c65116d36dcaa1887}} 
+void {\bfseries spawn} ()
+\item 
+int \mbox{\hyperlink{class_nest_adba8d6d839eed2b6a6eaec600d2c52df}{spawn\+Predator}} ()
+\begin{DoxyCompactList}\small\item\em Function for checking whether or not a predator should be spawned \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_nest_ab0943cc2a2ee21734835e0b909f5bdf5}{lose\+Health}} ()
+\begin{DoxyCompactList}\small\item\em Function that is called when the nest is hit by a bullet \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_nest_a39ab7b5112b8d8951d61fb2c7d002a36}{add\+Missile}} ()
+\begin{DoxyCompactList}\small\item\em Function that will fire missile at player \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_nest_a3ff8fac0c765899ca495bb7f5093c3aa}\label{class_nest_a3ff8fac0c765899ca495bb7f5093c3aa}} 
+int {\bfseries pred\+Spawn\+Timer} = 0
+\item 
+\mbox{\Hypertarget{class_nest_ad0ac5a094c1ba7f254b42abeab2782b2}\label{class_nest_ad0ac5a094c1ba7f254b42abeab2782b2}} 
+sf\+::\+Texture {\bfseries m\+\_\+texture}
+\item 
+\mbox{\Hypertarget{class_nest_a943179818abef7612c8b01d94cca1b35}\label{class_nest_a943179818abef7612c8b01d94cca1b35}} 
+sf\+::\+Sprite {\bfseries m\+\_\+sprite}
+\item 
+\mbox{\Hypertarget{class_nest_a2ca01f7b25a686560770d9ab4ce41a9a}\label{class_nest_a2ca01f7b25a686560770d9ab4ce41a9a}} 
+sf\+::\+Texture {\bfseries m\+\_\+enemy\+Tex}
+\item 
+\mbox{\Hypertarget{class_nest_a242f8fdc768bec452ad8c594020c7df6}\label{class_nest_a242f8fdc768bec452ad8c594020c7df6}} 
+sf\+::\+Vector2f {\bfseries m\+\_\+position}
+\item 
+\mbox{\Hypertarget{class_nest_a62458a07bccda0e3a339bc66fb46105d}\label{class_nest_a62458a07bccda0e3a339bc66fb46105d}} 
+int {\bfseries m\+\_\+health}
+\item 
+\mbox{\Hypertarget{class_nest_aba348c507c2842c893ce6bab11c9d0f1}\label{class_nest_aba348c507c2842c893ce6bab11c9d0f1}} 
+bool {\bfseries m\+\_\+dead} = false
+\item 
+\mbox{\Hypertarget{class_nest_aa3e5d28a07cc30883f8d6b39e3552cd2}\label{class_nest_aa3e5d28a07cc30883f8d6b39e3552cd2}} 
+std\+::vector$<$ \mbox{\hyperlink{class_enemy}{Enemy}} $\ast$ $>$ {\bfseries m\+\_\+enemies}
+\item 
+\mbox{\Hypertarget{class_nest_a9894674f676fb6dc1fcf244bdcbde362}\label{class_nest_a9894674f676fb6dc1fcf244bdcbde362}} 
+std\+::vector$<$ \mbox{\hyperlink{class_missile}{Missile}} $\ast$ $>$ {\bfseries m\+\_\+missiles}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_nest_a5c71c1f1f949545a78b1c192d52aa8d8}\label{class_nest_a5c71c1f1f949545a78b1c192d52aa8d8}} 
+const int {\bfseries S\+P\+A\+W\+N\+\_\+\+N\+E\+XT} = 100
+\item 
+\mbox{\Hypertarget{class_nest_a083513ca886fede041e1d109fdf44798}\label{class_nest_a083513ca886fede041e1d109fdf44798}} 
+int {\bfseries m\+\_\+spawn\+Timer}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_nest_af171ff62bfa8ef5d2ea793ef73be1625}\label{class_nest_af171ff62bfa8ef5d2ea793ef73be1625}} 
+\index{Nest@{Nest}!Nest@{Nest}}
+\index{Nest@{Nest}!Nest@{Nest}}
+\subsubsection{\texorpdfstring{Nest()}{Nest()}}
+{\footnotesize\ttfamily Nest\+::\+Nest (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{pos }\end{DoxyParamCaption})}
+
+
+
+Constructor for the nest object 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_nest_a3e879ba15acd31717b1dc9bdc87488d5}\label{class_nest_a3e879ba15acd31717b1dc9bdc87488d5}} 
+\index{Nest@{Nest}!````~Nest@{$\sim$Nest}}
+\index{````~Nest@{$\sim$Nest}!Nest@{Nest}}
+\subsubsection{\texorpdfstring{$\sim$Nest()}{~Nest()}}
+{\footnotesize\ttfamily Nest\+::$\sim$\+Nest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Deconstructor for the nest 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_nest_a39ab7b5112b8d8951d61fb2c7d002a36}\label{class_nest_a39ab7b5112b8d8951d61fb2c7d002a36}} 
+\index{Nest@{Nest}!addMissile@{addMissile}}
+\index{addMissile@{addMissile}!Nest@{Nest}}
+\subsubsection{\texorpdfstring{addMissile()}{addMissile()}}
+{\footnotesize\ttfamily void Nest\+::add\+Missile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function that will fire missile at player 
+
+\mbox{\Hypertarget{class_nest_ab0943cc2a2ee21734835e0b909f5bdf5}\label{class_nest_ab0943cc2a2ee21734835e0b909f5bdf5}} 
+\index{Nest@{Nest}!loseHealth@{loseHealth}}
+\index{loseHealth@{loseHealth}!Nest@{Nest}}
+\subsubsection{\texorpdfstring{loseHealth()}{loseHealth()}}
+{\footnotesize\ttfamily void Nest\+::lose\+Health (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function that is called when the nest is hit by a bullet 
+
+\mbox{\Hypertarget{class_nest_a09d907a3d411da0249c7d0bb5ad7b36c}\label{class_nest_a09d907a3d411da0249c7d0bb5ad7b36c}} 
+\index{Nest@{Nest}!render@{render}}
+\index{render@{render}!Nest@{Nest}}
+\subsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Nest\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Function that handles all the rendering of the nest 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_nest_abb94bc33eb34d32c3ddb209a777728ab}\label{class_nest_abb94bc33eb34d32c3ddb209a777728ab}} 
+\index{Nest@{Nest}!renderDot@{renderDot}}
+\index{renderDot@{renderDot}!Nest@{Nest}}
+\subsubsection{\texorpdfstring{renderDot()}{renderDot()}}
+{\footnotesize\ttfamily void Nest\+::render\+Dot (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Function for rendering a dot to the mini map at the nests position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_nest_adba8d6d839eed2b6a6eaec600d2c52df}\label{class_nest_adba8d6d839eed2b6a6eaec600d2c52df}} 
+\index{Nest@{Nest}!spawnPredator@{spawnPredator}}
+\index{spawnPredator@{spawnPredator}!Nest@{Nest}}
+\subsubsection{\texorpdfstring{spawnPredator()}{spawnPredator()}}
+{\footnotesize\ttfamily int Nest\+::spawn\+Predator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function for checking whether or not a predator should be spawned 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_nest_ac9896d1f535b58bf155b0366164fe08f}\label{class_nest_ac9896d1f535b58bf155b0366164fe08f}} 
+\index{Nest@{Nest}!update@{update}}
+\index{update@{update}!Nest@{Nest}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Nest\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{player\+Pos,  }\item[{int \&}]{health,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_particle_system}{Particle\+System}} $\ast$ $>$ \&}]{ps,  }\item[{\mbox{\hyperlink{class_grid}{Grid}} \&}]{grid,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_worker}{Worker}} $\ast$ $>$}]{wpos }\end{DoxyParamCaption})}
+
+
+
+Update function to handle all non-\/rendering functionality 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Pos} & \\
+\hline
+{\em health} & \\
+\hline
+{\em ps} & \\
+\hline
+{\em grid} & \\
+\hline
+{\em wpos} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/gameuser/\+Desktop/\+Doxy\+Files\+For\+Checking/Nest.\+h\item 
+C\+:/\+Users/gameuser/\+Desktop/\+Doxy\+Files\+For\+Checking/Nest.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,152 @@
+\hypertarget{class_grid}{}\section{Grid Class Reference}
+\label{class_grid}\index{Grid@{Grid}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_grid_a3663bc64d98e521de255d42a971072cc}\label{class_grid_a3663bc64d98e521de255d42a971072cc}} 
+void {\bfseries update} (sf\+::\+Render\+Window \&window)
+\item 
+\mbox{\Hypertarget{class_grid_aed35b0297be5c00ed36e8d27e525fdaa}\label{class_grid_aed35b0297be5c00ed36e8d27e525fdaa}} 
+void {\bfseries update\+AI} (sf\+::\+Vector2f position, int \&health)
+\item 
+\mbox{\Hypertarget{class_grid_a9b42b1d0dcfc434d790b11faf4b461ce}\label{class_grid_a9b42b1d0dcfc434d790b11faf4b461ce}} 
+void {\bfseries draw} (sf\+::\+Render\+Window \&window)
+\item 
+\mbox{\Hypertarget{class_grid_aa58165416bcc766774296f0c8b057d2b}\label{class_grid_aa58165416bcc766774296f0c8b057d2b}} 
+void {\bfseries render\+Dots} (sf\+::\+Render\+Window \&window)
+\item 
+\mbox{\Hypertarget{class_grid_ada242a904e942e6d4a97f458ea3e7ae7}\label{class_grid_ada242a904e942e6d4a97f458ea3e7ae7}} 
+void {\bfseries seek} (int goal)
+\item 
+\mbox{\Hypertarget{class_grid_a2e1a97e06b3d2fcc27e2ea40e80f1f85}\label{class_grid_a2e1a97e06b3d2fcc27e2ea40e80f1f85}} 
+void {\bfseries spawn\+Pred} (sf\+::\+Vector2f)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_grid_a76523519ea42021931d2a5a1674b43ad}\label{class_grid_a76523519ea42021931d2a5a1674b43ad}} 
+std\+::vector$<$ \mbox{\hyperlink{class_node}{Node}} $\ast$ $>$ {\bfseries nodes}
+\item 
+\mbox{\Hypertarget{class_grid_a89f7df50d91e3535998bc7c4185bdf49}\label{class_grid_a89f7df50d91e3535998bc7c4185bdf49}} 
+int {\bfseries goal\+Node} = 0
+\item 
+\mbox{\Hypertarget{class_grid_a0e2434a63726be11c36d1c0cb7d37913}\label{class_grid_a0e2434a63726be11c36d1c0cb7d37913}} 
+std\+::vector$<$ \mbox{\hyperlink{class_a_i}{AI}} $\ast$ $>$ {\bfseries ais}
+\item 
+\mbox{\Hypertarget{class_grid_ae47956131b1101bf7478d662394d43ad}\label{class_grid_ae47956131b1101bf7478d662394d43ad}} 
+int {\bfseries surround\+Count} = 0
+\item 
+\mbox{\Hypertarget{class_grid_a272eb2251ef1279b708a80628d30ddf4}\label{class_grid_a272eb2251ef1279b708a80628d30ddf4}} 
+sf\+::\+Texture {\bfseries m\+\_\+bullet\+Tex}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_grid_ab241558dff6456fdfc66c03a09d33479}\label{class_grid_ab241558dff6456fdfc66c03a09d33479}} 
+void {\bfseries set\+Cost} ()
+\item 
+\mbox{\Hypertarget{class_grid_ad4dcab53aae83978a77ad6b9cd459c3e}\label{class_grid_ad4dcab53aae83978a77ad6b9cd459c3e}} 
+void {\bfseries set\+Vector} ()
+\item 
+\mbox{\Hypertarget{class_grid_a357745b9903ca9c2a9c70024ad079ed1}\label{class_grid_a357745b9903ca9c2a9c70024ad079ed1}} 
+void {\bfseries set\+Distance} ()
+\item 
+\mbox{\Hypertarget{class_grid_aa662cb1071e1138c1c4cf1ddd592146b}\label{class_grid_aa662cb1071e1138c1c4cf1ddd592146b}} 
+void {\bfseries move\+AI} ()
+\item 
+\mbox{\Hypertarget{class_grid_af63dd2374a80c307414dae303b0d052e}\label{class_grid_af63dd2374a80c307414dae303b0d052e}} 
+void {\bfseries create\+Grid} (int random)
+\item 
+\mbox{\Hypertarget{class_grid_ae8c93e8d4957334f59ce65a542b67b98}\label{class_grid_ae8c93e8d4957334f59ce65a542b67b98}} 
+void {\bfseries make\+Map} ()
+\item 
+\mbox{\Hypertarget{class_grid_ad87359494dcfba12f838b621869794ae}\label{class_grid_ad87359494dcfba12f838b621869794ae}} 
+void {\bfseries clear\+All} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_grid_aff1b19814b2c2c92026e8a6f68b7a36e}\label{class_grid_aff1b19814b2c2c92026e8a6f68b7a36e}} 
+sf\+::\+Texture {\bfseries m\+\_\+ground\+Texture}
+\item 
+\mbox{\Hypertarget{class_grid_a31330a09eead0e4ba2ec7b3f5573a225}\label{class_grid_a31330a09eead0e4ba2ec7b3f5573a225}} 
+sf\+::\+Texture {\bfseries A\+Itexture}
+\item 
+\mbox{\Hypertarget{class_grid_a31b3b863dd26d64749b0d14caf049a05}\label{class_grid_a31b3b863dd26d64749b0d14caf049a05}} 
+sf\+::\+Texture {\bfseries m\+\_\+obstacle\+Texture}
+\item 
+\mbox{\Hypertarget{class_grid_a489ad9040376eb6001f7e9ce8fe1bd92}\label{class_grid_a489ad9040376eb6001f7e9ce8fe1bd92}} 
+bool {\bfseries z\+Pressed} = false
+\item 
+\mbox{\Hypertarget{class_grid_a0b31d90a30d0e926fca3921d3a9d18b6}\label{class_grid_a0b31d90a30d0e926fca3921d3a9d18b6}} 
+int {\bfseries random\+Size} = 1
+\item 
+\mbox{\Hypertarget{class_grid_a6f55163793b50a324674ab74c171405c}\label{class_grid_a6f55163793b50a324674ab74c171405c}} 
+int {\bfseries rect\+Size} = 200
+\item 
+\mbox{\Hypertarget{class_grid_ae42eb83f7df37d80727794be8d00ca7e}\label{class_grid_ae42eb83f7df37d80727794be8d00ca7e}} 
+int {\bfseries gridX} = 50
+\item 
+\mbox{\Hypertarget{class_grid_ac00691745f8b6d60317de2a6bceb2fe4}\label{class_grid_ac00691745f8b6d60317de2a6bceb2fe4}} 
+int {\bfseries gridY} = 50
+\item 
+\mbox{\Hypertarget{class_grid_a3a92443cbb6a133cf1cc55d15f75bc6f}\label{class_grid_a3a92443cbb6a133cf1cc55d15f75bc6f}} 
+sf\+::\+Font {\bfseries cost\+Font}
+\item 
+\mbox{\Hypertarget{class_grid_a99b01adcdb8fb1cac271495b728dbd66}\label{class_grid_a99b01adcdb8fb1cac271495b728dbd66}} 
+sf\+::\+Text {\bfseries random\+Text}
+\item 
+\mbox{\Hypertarget{class_grid_a5ef3248356d0766ca1caf0634232f868}\label{class_grid_a5ef3248356d0766ca1caf0634232f868}} 
+bool {\bfseries Up\+Pressed} = false
+\item 
+\mbox{\Hypertarget{class_grid_ab7cd63b536de1738c7f061438a6ea56f}\label{class_grid_ab7cd63b536de1738c7f061438a6ea56f}} 
+bool {\bfseries Down\+Pressed} = false
+\item 
+\mbox{\Hypertarget{class_grid_a2b0896bfef9ceb382855d64421cc23d2}\label{class_grid_a2b0896bfef9ceb382855d64421cc23d2}} 
+bool {\bfseries map\+Made} = false
+\item 
+\mbox{\Hypertarget{class_grid_ace1fa4ec3c67080d58f8b5ed41e5acd3}\label{class_grid_ace1fa4ec3c67080d58f8b5ed41e5acd3}} 
+int {\bfseries map\+Count} = 0
+\item 
+\mbox{\Hypertarget{class_grid_ac3c81729ef49f121e8c763612da73287}\label{class_grid_ac3c81729ef49f121e8c763612da73287}} 
+bool {\bfseries Up\+Available} = true
+\item 
+\mbox{\Hypertarget{class_grid_a0e5af8aadf13ebdd4510645632a63037}\label{class_grid_a0e5af8aadf13ebdd4510645632a63037}} 
+bool {\bfseries Down\+Available} = true
+\item 
+\mbox{\Hypertarget{class_grid_a675ffd9ad2e9b3b17f2bf6ee4e6fd1cc}\label{class_grid_a675ffd9ad2e9b3b17f2bf6ee4e6fd1cc}} 
+bool {\bfseries Left\+Available} = true
+\item 
+\mbox{\Hypertarget{class_grid_a9801f7206613f4b670ca16cf30576820}\label{class_grid_a9801f7206613f4b670ca16cf30576820}} 
+bool {\bfseries Right\+Available} = true
+\item 
+\mbox{\Hypertarget{class_grid_a0c3f88355690745decb6ce33d8003396}\label{class_grid_a0c3f88355690745decb6ce33d8003396}} 
+bool {\bfseries start\+Set} = false
+\item 
+\mbox{\Hypertarget{class_grid_a8a9f76d78f951afeccf173c7ea2d59cb}\label{class_grid_a8a9f76d78f951afeccf173c7ea2d59cb}} 
+bool {\bfseries goal\+Set} = false
+\item 
+\mbox{\Hypertarget{class_grid_a827f92f90e8970d5a71236c440e1f07c}\label{class_grid_a827f92f90e8970d5a71236c440e1f07c}} 
+bool {\bfseries left\+Pressed} = false
+\item 
+\mbox{\Hypertarget{class_grid_a38d94c2a7258b8c49ee5472a28b9bbd9}\label{class_grid_a38d94c2a7258b8c49ee5472a28b9bbd9}} 
+double {\bfseries tempX} = 0
+\item 
+\mbox{\Hypertarget{class_grid_ab69f3d43617e635d3f8f529ce20ea70b}\label{class_grid_ab69f3d43617e635d3f8f529ce20ea70b}} 
+double {\bfseries tempY} = 0
+\item 
+\mbox{\Hypertarget{class_grid_a26208da3e976c5c02b3b6a15ef380959}\label{class_grid_a26208da3e976c5c02b3b6a15ef380959}} 
+sf\+::\+Rectangle\+Shape {\bfseries rectangle}
+\item 
+\mbox{\Hypertarget{class_grid_a7de99d6015c74405c66aea4df8a3ddfd}\label{class_grid_a7de99d6015c74405c66aea4df8a3ddfd}} 
+\mbox{\hyperlink{class_node}{Node}} $\ast$ {\bfseries node}
+\item 
+\mbox{\Hypertarget{class_grid_a832bcd92c2b22cd81efb7ddc6a865c61}\label{class_grid_a832bcd92c2b22cd81efb7ddc6a865c61}} 
+\mbox{\hyperlink{class_a_i}{AI}} $\ast$ {\bfseries ai}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/gameuser/\+Desktop/\+Doxy\+Files\+For\+Checking/grid.\+h\item 
+C\+:/\+Users/gameuser/\+Desktop/\+Doxy\+Files\+For\+Checking/grid.\+cpp\end{DoxyCompactItemize}

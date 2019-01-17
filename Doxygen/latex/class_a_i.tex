@@ -1,0 +1,101 @@
+\hypertarget{class_a_i}{}\section{AI Class Reference}
+\label{class_a_i}\index{AI@{AI}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_a_i_a1d782247a4ef257300018bca8701d02e}\label{class_a_i_a1d782247a4ef257300018bca8701d02e}} 
+{\bfseries AI} (int x, int y, sf\+::\+Texture \&ai\+Texture, sf\+::\+Texture \&bul\+Tex)
+\item 
+\mbox{\Hypertarget{class_a_i_ae8fa5ecda8a59f687bd75be465994467}\label{class_a_i_ae8fa5ecda8a59f687bd75be465994467}} 
+void {\bfseries update} (sf\+::\+Vector2f player\+Position, int \&health)
+\item 
+\mbox{\Hypertarget{class_a_i_a4ccda3d254a3f604222423d15d4f767f}\label{class_a_i_a4ccda3d254a3f604222423d15d4f767f}} 
+void {\bfseries draw} (sf\+::\+Render\+Window \&window)
+\item 
+\mbox{\Hypertarget{class_a_i_a9394f659105b698a75e1fe77f6014e0b}\label{class_a_i_a9394f659105b698a75e1fe77f6014e0b}} 
+void {\bfseries render\+Dot} (sf\+::\+Render\+Window \&window)
+\item 
+\mbox{\Hypertarget{class_a_i_a9761e86bf135a4ccf1b24326a5a01431}\label{class_a_i_a9761e86bf135a4ccf1b24326a5a01431}} 
+void {\bfseries move} (double vectorX, double vectorY)
+\item 
+\mbox{\Hypertarget{class_a_i_ac91b130c717b028b2b712a6b9b29c32f}\label{class_a_i_ac91b130c717b028b2b712a6b9b29c32f}} 
+int {\bfseries get\+PositionX} ()
+\item 
+\mbox{\Hypertarget{class_a_i_a3f54bcc3e90cfc46fefd0389c506720b}\label{class_a_i_a3f54bcc3e90cfc46fefd0389c506720b}} 
+int {\bfseries get\+PositionY} ()
+\item 
+\mbox{\Hypertarget{class_a_i_a14ec51b0b964c0e75c7c7ec2ee4829e4}\label{class_a_i_a14ec51b0b964c0e75c7c7ec2ee4829e4}} 
+void {\bfseries surround} (sf\+::\+Vector2f position)
+\item 
+\mbox{\Hypertarget{class_a_i_a128f8cf306126950c7085f582ed671c5}\label{class_a_i_a128f8cf306126950c7085f582ed671c5}} 
+void {\bfseries set\+Spot} (int surround\+Count, int i)
+\item 
+\mbox{\Hypertarget{class_a_i_a80cd7b646be694678ef28cdf9d9af17e}\label{class_a_i_a80cd7b646be694678ef28cdf9d9af17e}} 
+sf\+::\+Vector2f {\bfseries normalise} (sf\+::\+Vector2f vector)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_a_i_ae3f69b95473b022ad5af6c465024ad5a}\label{class_a_i_ae3f69b95473b022ad5af6c465024ad5a}} 
+double {\bfseries x\+Offset} = 0
+\item 
+\mbox{\Hypertarget{class_a_i_a3b2db453a3efcce1f3cec554f0d761d7}\label{class_a_i_a3b2db453a3efcce1f3cec554f0d761d7}} 
+double {\bfseries y\+Offset} = 0
+\item 
+\mbox{\Hypertarget{class_a_i_aa01d52f6dd63709f84d6bed5fc97e825}\label{class_a_i_aa01d52f6dd63709f84d6bed5fc97e825}} 
+sf\+::\+Sprite {\bfseries ai\+Sprite}
+\item 
+\mbox{\Hypertarget{class_a_i_ae7da38bb99be1429d1e49506f9d63dd9}\label{class_a_i_ae7da38bb99be1429d1e49506f9d63dd9}} 
+std\+::vector$<$ \mbox{\hyperlink{class_bullet}{Bullet}} $\ast$ $>$ {\bfseries m\+\_\+bullets}
+\item 
+\mbox{\Hypertarget{class_a_i_a091dbeb1117790b98e491276bbd2c6f2}\label{class_a_i_a091dbeb1117790b98e491276bbd2c6f2}} 
+bool {\bfseries surround\+Now} = false
+\item 
+\mbox{\Hypertarget{class_a_i_a2bc60baf014d42dbe86b4c8a73eef872}\label{class_a_i_a2bc60baf014d42dbe86b4c8a73eef872}} 
+bool {\bfseries surrounded} = false
+\item 
+\mbox{\Hypertarget{class_a_i_a6439b76012c3b8669ce8997005ea7a80}\label{class_a_i_a6439b76012c3b8669ce8997005ea7a80}} 
+int {\bfseries spot} = 0
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_a_i_a80cacb38bc6ddb3717d9ae451c9d8d88}\label{class_a_i_a80cacb38bc6ddb3717d9ae451c9d8d88}} 
+void {\bfseries check\+Player} (sf\+::\+Vector2f player\+Position)
+\item 
+\mbox{\Hypertarget{class_a_i_a615bdfb1360b73d38f12e91903bd56a0}\label{class_a_i_a615bdfb1360b73d38f12e91903bd56a0}} 
+float {\bfseries dist} (sf\+::\+Vector2f v1, sf\+::\+Vector2f v2)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_a_i_a3c8780b246bc21195a6d3c2b802b1941}\label{class_a_i_a3c8780b246bc21195a6d3c2b802b1941}} 
+int {\bfseries m\+\_\+bullet\+Counter} = 0
+\item 
+\mbox{\Hypertarget{class_a_i_ae2090a65abaae9720c3873a8459033f9}\label{class_a_i_ae2090a65abaae9720c3873a8459033f9}} 
+const int {\bfseries B\+U\+L\+L\+E\+T\+\_\+\+T\+I\+ME} = 30
+\item 
+\mbox{\Hypertarget{class_a_i_aa672ee9afaf3d7c4312ae03bace5a2f4}\label{class_a_i_aa672ee9afaf3d7c4312ae03bace5a2f4}} 
+sf\+::\+Circle\+Shape {\bfseries shape}
+\item 
+\mbox{\Hypertarget{class_a_i_acda7a6c7d425af3c14b02e5a5b0b79b9}\label{class_a_i_acda7a6c7d425af3c14b02e5a5b0b79b9}} 
+sf\+::\+Vector2f {\bfseries ai\+Position}
+\item 
+\mbox{\Hypertarget{class_a_i_ad3136b568efa57d2319ac7bcc60d8dec}\label{class_a_i_ad3136b568efa57d2319ac7bcc60d8dec}} 
+sf\+::\+Vector2f {\bfseries ai\+Velocity}
+\item 
+\mbox{\Hypertarget{class_a_i_a4997155c89c95b9d6a2c7d560955c12e}\label{class_a_i_a4997155c89c95b9d6a2c7d560955c12e}} 
+float {\bfseries ai\+Rotation}
+\item 
+\mbox{\Hypertarget{class_a_i_aef3870a63b9fb0ee6922733f4c403930}\label{class_a_i_aef3870a63b9fb0ee6922733f4c403930}} 
+double {\bfseries ai\+Speed} = 5
+\item 
+\mbox{\Hypertarget{class_a_i_a3cf613f84b0b2ac7efbeb59bdebba658}\label{class_a_i_a3cf613f84b0b2ac7efbeb59bdebba658}} 
+sf\+::\+Texture {\bfseries m\+\_\+bullet\+Texture}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/gameuser/\+Desktop/\+Doxy\+Files\+For\+Checking/A\+I.\+h\item 
+C\+:/\+Users/gameuser/\+Desktop/\+Doxy\+Files\+For\+Checking/A\+I.\+cpp\end{DoxyCompactItemize}

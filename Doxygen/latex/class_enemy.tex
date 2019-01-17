@@ -1,0 +1,371 @@
+\hypertarget{class_enemy}{}\section{Enemy Class Reference}
+\label{class_enemy}\index{Enemy@{Enemy}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_enemy_ae98e4e8aeb959fa33b2f956b116fbae3}{Enemy}} (behaviour behaviour, sf\+::\+Vector2f pos, float max\+Speed, sf\+::\+Texture $\ast$tex)
+\begin{DoxyCompactList}\small\item\em Constructor for the sweeper bot \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_enemy_ac0eec4755e28c02688065f9657150ac3}{$\sim$\+Enemy}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the enemy \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_a7101d7b18d9f9f50dbcf3ced525ec7f4}{update}} (sf\+::\+Vector2f player\+Pos, sf\+::\+Vector2f player\+Vel)
+\begin{DoxyCompactList}\small\item\em Update the enemy \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_adce121a5d559e9d666d7f88c7a26dc1f}{render}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Function to render the sweeper \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_a5bd77160e8d13c04b4bf4dae537ada9e}{render\+Dot}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Function to render a dot onto the minimap at the sweepers position \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_enemy_ae7981b82c023a8c6884c52df3f9e3125}{get\+New\+Rotation}} (float rot, sf\+::\+Vector2f vel)
+\begin{DoxyCompactList}\small\item\em Function to calculate rotation so that sweeper faces its target \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structsteering}{steering}} \mbox{\hyperlink{class_enemy_a1b465f7bfba7a4aeb0f5be904dfba900}{wander}} ()
+\begin{DoxyCompactList}\small\item\em Function for sweeper wandering around the base \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structsteering}{steering}} \mbox{\hyperlink{class_enemy_afdb365396a2ce0849e81ca838038a78c}{seek}} (sf\+::\+Vector2f player\+Pos)
+\begin{DoxyCompactList}\small\item\em Function handle the sweeper chasing a position \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structsteering}{steering}} \mbox{\hyperlink{class_enemy_abf2799c252b07c51054dea9b6d5cdfee}{flee}} (sf\+::\+Vector2f player\+Pos)
+\begin{DoxyCompactList}\small\item\em Function to handle fleeing from the player \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_enemy_a5208f54e3db5885caef976f25802f938}{mag}} (sf\+::\+Vector2f v)
+\begin{DoxyCompactList}\small\item\em Function for calculating magnitude of a vector \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_a09f98e210a7bbf73fb9e7d7ce671133e}{start\+Calc}} ()
+\begin{DoxyCompactList}\small\item\em Function that handles updating of velocity and rotation \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_enemy_a20f703afc06d0024fdfad521738f9a06}{dist}} (sf\+::\+Vector2f v1, sf\+::\+Vector2f v2)
+\begin{DoxyCompactList}\small\item\em Function that calculates and returns the distance between two vectors \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_enemy_a6217993e1dcaae812723d71b2cdf496f}{look\+For}} (std\+::vector$<$ \mbox{\hyperlink{class_worker}{Worker}} $\ast$ $>$ enemies)
+\begin{DoxyCompactList}\small\item\em Function that checks if theres a worker in the line of sight of the sweeper \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_a4ff22b3cf32aa1ce4a59bf04e9d55a50}{check\+Collision}} (\mbox{\hyperlink{class_grid}{Grid}} \&grid)
+\begin{DoxyCompactList}\small\item\em Checks for collisions between the sweeper bot and walls \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_a27b3039c164f52c0a2427d9cca8cdf7c}{check\+Player}} (sf\+::\+Vector2f player\+Pos)
+\begin{DoxyCompactList}\small\item\em Function for checking how close the player is \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_enemy_a7ecda579b1a8484065eaccc462b11f14}\label{class_enemy_a7ecda579b1a8484065eaccc462b11f14}} 
+sf\+::\+Texture {\bfseries m\+\_\+texture}
+\item 
+\mbox{\Hypertarget{class_enemy_a7b35b20d1fa3208496ab90487e5e4c9c}\label{class_enemy_a7b35b20d1fa3208496ab90487e5e4c9c}} 
+sf\+::\+Sprite {\bfseries m\+\_\+sprite}
+\item 
+\mbox{\Hypertarget{class_enemy_a641daa5c5c35b3b349e8c6be03ba7003}\label{class_enemy_a641daa5c5c35b3b349e8c6be03ba7003}} 
+sf\+::\+Vector2f {\bfseries m\+\_\+position}
+\item 
+\mbox{\Hypertarget{class_enemy_a52c49c60d7801b24c2abcf7776c51aaf}\label{class_enemy_a52c49c60d7801b24c2abcf7776c51aaf}} 
+sf\+::\+Vector2f {\bfseries m\+\_\+velocity}
+\item 
+\mbox{\Hypertarget{class_enemy_a7915d94ec731981472231b56b7324926}\label{class_enemy_a7915d94ec731981472231b56b7324926}} 
+float {\bfseries m\+\_\+rotation}
+\item 
+\mbox{\Hypertarget{class_enemy_a36955f16c7bdbe9d13f4c8defbf3e58a}\label{class_enemy_a36955f16c7bdbe9d13f4c8defbf3e58a}} 
+sf\+::\+Vector2f $\ast$ {\bfseries m\+\_\+target\+Pos} = new sf\+::\+Vector2f()
+\item 
+\mbox{\Hypertarget{class_enemy_a0cd3ba52fbaad2d7302b3e558c60c340}\label{class_enemy_a0cd3ba52fbaad2d7302b3e558c60c340}} 
+const double {\bfseries D\+E\+G\+\_\+\+T\+O\+\_\+\+R\+AD} = 3.\+14159 / 180.\+0f
+\item 
+\mbox{\Hypertarget{class_enemy_ab83fa33bf13cb90576377804afabbed9}\label{class_enemy_ab83fa33bf13cb90576377804afabbed9}} 
+const double {\bfseries R\+A\+D\+\_\+\+T\+O\+\_\+\+D\+EG} = 180.\+0f / 3.\+14159
+\item 
+\mbox{\Hypertarget{class_enemy_a4c170e25a9a7057ef2890c4a8a994fe6}\label{class_enemy_a4c170e25a9a7057ef2890c4a8a994fe6}} 
+float {\bfseries m\+\_\+speed}
+\item 
+\mbox{\Hypertarget{class_enemy_a57a64268785eedf670abaadcf921a80c}\label{class_enemy_a57a64268785eedf670abaadcf921a80c}} 
+float {\bfseries M\+A\+X\+\_\+\+F\+O\+R\+W\+A\+R\+D\+\_\+\+S\+P\+E\+ED} = 2.\+5
+\item 
+\mbox{\Hypertarget{class_enemy_abace3f13f476b8e343bebf81d398dc30}\label{class_enemy_abace3f13f476b8e343bebf81d398dc30}} 
+const float {\bfseries M\+A\+X\+\_\+\+R\+O\+T\+A\+T\+I\+ON} = 45
+\item 
+\mbox{\Hypertarget{class_enemy_abddbcc00a65eeeca190dfc6fb38a3c1e}\label{class_enemy_abddbcc00a65eeeca190dfc6fb38a3c1e}} 
+const float {\bfseries M\+A\+X\+\_\+\+B\+A\+C\+K\+W\+A\+R\+D\+\_\+\+S\+P\+E\+ED} = 2.\+5
+\item 
+\mbox{\Hypertarget{class_enemy_ae49ae28e2fc4e891816689134abe2dd4}\label{class_enemy_ae49ae28e2fc4e891816689134abe2dd4}} 
+const float {\bfseries T\+I\+M\+E\+\_\+\+T\+O\+\_\+\+T\+A\+R\+G\+ET} = 80.\+0f
+\item 
+\mbox{\Hypertarget{class_enemy_a82eb0830212a6c890e45582fa4f4a6cd}\label{class_enemy_a82eb0830212a6c890e45582fa4f4a6cd}} 
+bool {\bfseries m\+\_\+dead} = false
+\item 
+\mbox{\Hypertarget{class_enemy_afb2476243d62d31863b480faa4a837a8}\label{class_enemy_afb2476243d62d31863b480faa4a837a8}} 
+int {\bfseries temp\+Grid} = 999999
+\item 
+\mbox{\Hypertarget{class_enemy_a39c580a5713f911c3ac8a9f44eb6f224}\label{class_enemy_a39c580a5713f911c3ac8a9f44eb6f224}} 
+bool {\bfseries grid\+Changed} = false
+\item 
+\mbox{\Hypertarget{class_enemy_a424c98f9185a0147da6d634dfaa85070}\label{class_enemy_a424c98f9185a0147da6d634dfaa85070}} 
+int {\bfseries m\+\_\+collected} = 0
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_enemy_aae7281dd7b929738cb90cd96402d5b9f}\label{class_enemy_aae7281dd7b929738cb90cd96402d5b9f}} 
+behaviour {\bfseries b}
+\item 
+\mbox{\Hypertarget{class_enemy_af1b2e2903e4b0db8eda8efab9667f726}\label{class_enemy_af1b2e2903e4b0db8eda8efab9667f726}} 
+float {\bfseries m\+\_\+detected\+Coll} = 0.\+0f
+\item 
+\mbox{\Hypertarget{class_enemy_aa50cae12312ba44306c6742c5bcd92a6}\label{class_enemy_aa50cae12312ba44306c6742c5bcd92a6}} 
+float {\bfseries m\+\_\+angle\+Dev} = 0.\+0f
+\item 
+\mbox{\Hypertarget{class_enemy_a4db6c22a5f49737562fa7656d9191b35}\label{class_enemy_a4db6c22a5f49737562fa7656d9191b35}} 
+float {\bfseries m\+\_\+change\+Angle} = 1.\+0f
+\item 
+\mbox{\Hypertarget{class_enemy_a8dfa4dc17d6716d1f8888595f3fdbeb3}\label{class_enemy_a8dfa4dc17d6716d1f8888595f3fdbeb3}} 
+\mbox{\hyperlink{structsteering}{steering}} {\bfseries steer}
+\item 
+\mbox{\Hypertarget{class_enemy_a06977e280c6f0b00bee48152ab89a4dc}\label{class_enemy_a06977e280c6f0b00bee48152ab89a4dc}} 
+int {\bfseries player\+Grid} = 0
+\item 
+\mbox{\Hypertarget{class_enemy_ae9af61decd4594972b6cad1249b60d55}\label{class_enemy_ae9af61decd4594972b6cad1249b60d55}} 
+int {\bfseries player\+GridX} = 0
+\item 
+\mbox{\Hypertarget{class_enemy_afe88cfda39b49d94fca0b3c24222132d}\label{class_enemy_afe88cfda39b49d94fca0b3c24222132d}} 
+int {\bfseries player\+GridY} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_enemy_ae98e4e8aeb959fa33b2f956b116fbae3}\label{class_enemy_ae98e4e8aeb959fa33b2f956b116fbae3}} 
+\index{Enemy@{Enemy}!Enemy@{Enemy}}
+\index{Enemy@{Enemy}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{Enemy()}{Enemy()}}
+{\footnotesize\ttfamily Enemy\+::\+Enemy (\begin{DoxyParamCaption}\item[{behaviour}]{behaviour,  }\item[{sf\+::\+Vector2f}]{pos,  }\item[{float}]{max\+Speed,  }\item[{sf\+::\+Texture $\ast$}]{tex }\end{DoxyParamCaption})}
+
+
+
+Constructor for the sweeper bot 
+
+
+\begin{DoxyParams}{Parameters}
+{\em behaviour} & \\
+\hline
+{\em pos} & \\
+\hline
+{\em max\+Speed} & \\
+\hline
+{\em tex} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_enemy_ac0eec4755e28c02688065f9657150ac3}\label{class_enemy_ac0eec4755e28c02688065f9657150ac3}} 
+\index{Enemy@{Enemy}!````~Enemy@{$\sim$Enemy}}
+\index{````~Enemy@{$\sim$Enemy}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{$\sim$Enemy()}{~Enemy()}}
+{\footnotesize\ttfamily Enemy\+::$\sim$\+Enemy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for the enemy 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_enemy_a4ff22b3cf32aa1ce4a59bf04e9d55a50}\label{class_enemy_a4ff22b3cf32aa1ce4a59bf04e9d55a50}} 
+\index{Enemy@{Enemy}!checkCollision@{checkCollision}}
+\index{checkCollision@{checkCollision}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{checkCollision()}{checkCollision()}}
+{\footnotesize\ttfamily void Enemy\+::check\+Collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_grid}{Grid}} \&}]{grid }\end{DoxyParamCaption})}
+
+
+
+Checks for collisions between the sweeper bot and walls 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_enemy_a27b3039c164f52c0a2427d9cca8cdf7c}\label{class_enemy_a27b3039c164f52c0a2427d9cca8cdf7c}} 
+\index{Enemy@{Enemy}!checkPlayer@{checkPlayer}}
+\index{checkPlayer@{checkPlayer}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{checkPlayer()}{checkPlayer()}}
+{\footnotesize\ttfamily void Enemy\+::check\+Player (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{player\+Pos }\end{DoxyParamCaption})}
+
+
+
+Function for checking how close the player is 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Pos} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_enemy_a20f703afc06d0024fdfad521738f9a06}\label{class_enemy_a20f703afc06d0024fdfad521738f9a06}} 
+\index{Enemy@{Enemy}!dist@{dist}}
+\index{dist@{dist}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{dist()}{dist()}}
+{\footnotesize\ttfamily float Enemy\+::dist (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{v1,  }\item[{sf\+::\+Vector2f}]{v2 }\end{DoxyParamCaption})}
+
+
+
+Function that calculates and returns the distance between two vectors 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & \\
+\hline
+{\em v2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_enemy_abf2799c252b07c51054dea9b6d5cdfee}\label{class_enemy_abf2799c252b07c51054dea9b6d5cdfee}} 
+\index{Enemy@{Enemy}!flee@{flee}}
+\index{flee@{flee}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{flee()}{flee()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsteering}{steering}} Enemy\+::flee (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{player\+Pos }\end{DoxyParamCaption})}
+
+
+
+Function to handle fleeing from the player 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Pos} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_enemy_ae7981b82c023a8c6884c52df3f9e3125}\label{class_enemy_ae7981b82c023a8c6884c52df3f9e3125}} 
+\index{Enemy@{Enemy}!getNewRotation@{getNewRotation}}
+\index{getNewRotation@{getNewRotation}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{getNewRotation()}{getNewRotation()}}
+{\footnotesize\ttfamily float Enemy\+::get\+New\+Rotation (\begin{DoxyParamCaption}\item[{float}]{rot,  }\item[{sf\+::\+Vector2f}]{vel }\end{DoxyParamCaption})}
+
+
+
+Function to calculate rotation so that sweeper faces its target 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rot} & \\
+\hline
+{\em vel} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_enemy_a6217993e1dcaae812723d71b2cdf496f}\label{class_enemy_a6217993e1dcaae812723d71b2cdf496f}} 
+\index{Enemy@{Enemy}!lookFor@{lookFor}}
+\index{lookFor@{lookFor}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{lookFor()}{lookFor()}}
+{\footnotesize\ttfamily bool Enemy\+::look\+For (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_worker}{Worker}} $\ast$ $>$}]{enemies }\end{DoxyParamCaption})}
+
+
+
+Function that checks if theres a worker in the line of sight of the sweeper 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enemies} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_enemy_a5208f54e3db5885caef976f25802f938}\label{class_enemy_a5208f54e3db5885caef976f25802f938}} 
+\index{Enemy@{Enemy}!mag@{mag}}
+\index{mag@{mag}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{mag()}{mag()}}
+{\footnotesize\ttfamily float Enemy\+::mag (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{v }\end{DoxyParamCaption})}
+
+
+
+Function for calculating magnitude of a vector 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_enemy_adce121a5d559e9d666d7f88c7a26dc1f}\label{class_enemy_adce121a5d559e9d666d7f88c7a26dc1f}} 
+\index{Enemy@{Enemy}!render@{render}}
+\index{render@{render}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Enemy\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Function to render the sweeper 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_enemy_a5bd77160e8d13c04b4bf4dae537ada9e}\label{class_enemy_a5bd77160e8d13c04b4bf4dae537ada9e}} 
+\index{Enemy@{Enemy}!renderDot@{renderDot}}
+\index{renderDot@{renderDot}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{renderDot()}{renderDot()}}
+{\footnotesize\ttfamily void Enemy\+::render\+Dot (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Function to render a dot onto the minimap at the sweepers position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_enemy_afdb365396a2ce0849e81ca838038a78c}\label{class_enemy_afdb365396a2ce0849e81ca838038a78c}} 
+\index{Enemy@{Enemy}!seek@{seek}}
+\index{seek@{seek}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{seek()}{seek()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsteering}{steering}} Enemy\+::seek (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{player\+Pos }\end{DoxyParamCaption})}
+
+
+
+Function handle the sweeper chasing a position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Pos} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_enemy_a09f98e210a7bbf73fb9e7d7ce671133e}\label{class_enemy_a09f98e210a7bbf73fb9e7d7ce671133e}} 
+\index{Enemy@{Enemy}!startCalc@{startCalc}}
+\index{startCalc@{startCalc}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{startCalc()}{startCalc()}}
+{\footnotesize\ttfamily void Enemy\+::start\+Calc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function that handles updating of velocity and rotation 
+
+\mbox{\Hypertarget{class_enemy_a7101d7b18d9f9f50dbcf3ced525ec7f4}\label{class_enemy_a7101d7b18d9f9f50dbcf3ced525ec7f4}} 
+\index{Enemy@{Enemy}!update@{update}}
+\index{update@{update}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Enemy\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{player\+Pos,  }\item[{sf\+::\+Vector2f}]{player\+Vel }\end{DoxyParamCaption})}
+
+
+
+Update the enemy 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Pos} & \\
+\hline
+{\em player\+Vel} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_enemy_a1b465f7bfba7a4aeb0f5be904dfba900}\label{class_enemy_a1b465f7bfba7a4aeb0f5be904dfba900}} 
+\index{Enemy@{Enemy}!wander@{wander}}
+\index{wander@{wander}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{wander()}{wander()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsteering}{steering}} Enemy\+::wander (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function for sweeper wandering around the base 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/gameuser/\+Desktop/\+Doxy\+Files\+For\+Checking/Enemy.\+h\item 
+C\+:/\+Users/gameuser/\+Desktop/\+Doxy\+Files\+For\+Checking/Enemy.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,149 @@
+\hypertarget{class_power_up}{}\section{Power\+Up Class Reference}
+\label{class_power_up}\index{PowerUp@{PowerUp}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_power_up_adcc7af6ff5706a8d599b9d2f2f01310b}{Power\+Up}} (int x, int y, sf\+::\+Texture \&power\+Texture, int value)
+\begin{DoxyCompactList}\small\item\em Constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_power_up_a353053fe27c5a148a2fcd4f5f45e19af}{$\sim$\+Power\+Up}} ()
+\begin{DoxyCompactList}\small\item\em Deconstructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_power_up_a79c505ad6dbc8aedeadb7e77a2302503}{draw}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Function for drawing the pick ups \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_power_up_ade426f76b11c172d9f9ec7c600f45d7c}{render\+Dot}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Function to position and render dots on minimap \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_power_up_aaf784386379724c38b88398e512ee3d0}{check\+Collected}} (sf\+::\+Vector2f player\+Position)
+\begin{DoxyCompactList}\small\item\em Function for checking if pick up was collected \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_power_up_a99b66437f1cf9573ebb1ea5c51c03d6e}\label{class_power_up_a99b66437f1cf9573ebb1ea5c51c03d6e}} 
+int {\bfseries m\+\_\+value}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_power_up_ae75ce5b30344277ed04c831cf49d5f7b}{dist}} (sf\+::\+Vector2f v1, sf\+::\+Vector2f v2)
+\begin{DoxyCompactList}\small\item\em Function that calculates the distance between 2 vectors \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_power_up_a8d93490d2a4e5917d89ec45c2ee2586b}\label{class_power_up_a8d93490d2a4e5917d89ec45c2ee2586b}} 
+sf\+::\+Circle\+Shape {\bfseries shape}
+\item 
+\mbox{\Hypertarget{class_power_up_a34ffe63204b3533994ad6bd696011e43}\label{class_power_up_a34ffe63204b3533994ad6bd696011e43}} 
+sf\+::\+Sprite {\bfseries power\+Sprite}
+\item 
+\mbox{\Hypertarget{class_power_up_a888b24bd35602ffe5f2b36e52d096201}\label{class_power_up_a888b24bd35602ffe5f2b36e52d096201}} 
+sf\+::\+Vector2f {\bfseries power\+Position}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_power_up_adcc7af6ff5706a8d599b9d2f2f01310b}\label{class_power_up_adcc7af6ff5706a8d599b9d2f2f01310b}} 
+\index{PowerUp@{PowerUp}!PowerUp@{PowerUp}}
+\index{PowerUp@{PowerUp}!PowerUp@{PowerUp}}
+\subsubsection{\texorpdfstring{PowerUp()}{PowerUp()}}
+{\footnotesize\ttfamily Power\+Up\+::\+Power\+Up (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{sf\+::\+Texture \&}]{power\+Texture,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em power\+Texture} & \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_power_up_a353053fe27c5a148a2fcd4f5f45e19af}\label{class_power_up_a353053fe27c5a148a2fcd4f5f45e19af}} 
+\index{PowerUp@{PowerUp}!````~PowerUp@{$\sim$PowerUp}}
+\index{````~PowerUp@{$\sim$PowerUp}!PowerUp@{PowerUp}}
+\subsubsection{\texorpdfstring{$\sim$PowerUp()}{~PowerUp()}}
+{\footnotesize\ttfamily Power\+Up\+::$\sim$\+Power\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Deconstructor 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_power_up_aaf784386379724c38b88398e512ee3d0}\label{class_power_up_aaf784386379724c38b88398e512ee3d0}} 
+\index{PowerUp@{PowerUp}!checkCollected@{checkCollected}}
+\index{checkCollected@{checkCollected}!PowerUp@{PowerUp}}
+\subsubsection{\texorpdfstring{checkCollected()}{checkCollected()}}
+{\footnotesize\ttfamily int Power\+Up\+::check\+Collected (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{player\+Position }\end{DoxyParamCaption})}
+
+
+
+Function for checking if pick up was collected 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Position} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_power_up_ae75ce5b30344277ed04c831cf49d5f7b}\label{class_power_up_ae75ce5b30344277ed04c831cf49d5f7b}} 
+\index{PowerUp@{PowerUp}!dist@{dist}}
+\index{dist@{dist}!PowerUp@{PowerUp}}
+\subsubsection{\texorpdfstring{dist()}{dist()}}
+{\footnotesize\ttfamily float Power\+Up\+::dist (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{v1,  }\item[{sf\+::\+Vector2f}]{v2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function that calculates the distance between 2 vectors 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & \\
+\hline
+{\em v2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_power_up_a79c505ad6dbc8aedeadb7e77a2302503}\label{class_power_up_a79c505ad6dbc8aedeadb7e77a2302503}} 
+\index{PowerUp@{PowerUp}!draw@{draw}}
+\index{draw@{draw}!PowerUp@{PowerUp}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Power\+Up\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Function for drawing the pick ups 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_power_up_ade426f76b11c172d9f9ec7c600f45d7c}\label{class_power_up_ade426f76b11c172d9f9ec7c600f45d7c}} 
+\index{PowerUp@{PowerUp}!renderDot@{renderDot}}
+\index{renderDot@{renderDot}!PowerUp@{PowerUp}}
+\subsubsection{\texorpdfstring{renderDot()}{renderDot()}}
+{\footnotesize\ttfamily void Power\+Up\+::render\+Dot (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Function to position and render dots on minimap 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/gameuser/\+Desktop/\+Doxy\+Files\+For\+Checking/Power\+Up.\+h\item 
+C\+:/\+Users/gameuser/\+Desktop/\+Doxy\+Files\+For\+Checking/Power\+Up.\+cpp\end{DoxyCompactItemize}
