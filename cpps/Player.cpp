@@ -127,6 +127,7 @@ void Player::update(Grid &grid)
 	for (Bullet * bullet : m_bullets) {
 	// Loops through players bullets
 		bullet->update();	// Updates bullets
+		bullet->checkCollision(grid);
 		if (bullet->m_lifeTime > bullet->MAX_LIFE) {
 		// Checks if bullet has reached its lifetime
 			m_bullets.erase(m_bullets.begin()); // Delete bullet

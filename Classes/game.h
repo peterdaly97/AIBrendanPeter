@@ -67,6 +67,17 @@ private:
 
 	std::vector<ParticleSystem *> m_particles; // The vector containing all particles in game
 	sf::Texture m_bulletTex;
+
+	// Bools for the win and lose conditions
+	bool m_win = false;
+	bool m_lose = false;
+
+	int m_totalWorkers = 1;	// Total number of workers in game
+
+	sf::Texture m_winTex;
+	sf::Sprite m_winSprite;
+	sf::Texture m_loseTex;
+	sf::Sprite m_loseSprite;
 };
 
 #endif //!GAME_H

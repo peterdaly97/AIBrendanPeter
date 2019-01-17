@@ -46,10 +46,11 @@ AI::~AI()
 /// </summary>
 /// <param name="playerPosition"></param>
 /// <param name="health"></param>
-void AI::update(sf::Vector2f playerPosition, int &health)
+void AI::update(sf::Vector2f playerPosition, int &health, Grid &grid)
 {
 	for (Bullet * bullet : m_bullets) {
 		bullet->update();
+		bullet->checkCollision(grid);
 		if (bullet->m_lifeTime > bullet->MAX_LIFE) {
 			m_bullets.erase(m_bullets.begin());
 

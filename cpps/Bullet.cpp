@@ -21,6 +21,37 @@ Bullet::Bullet(sf::Vector2f pos, float rot, sf::Texture & tex) : m_pos(pos), m_r
 }
 
 /// <summary>
+/// Function that checks if the player has hit a wall
+/// </summary>
+/// <param name="grid"></param>
+void Bullet::checkCollision(Grid &grid)
+{
+	// Sets up the position to check based on the player position and velocity 
+	float scalar = 1.03;
+	sf::Vector2f playerPursue = m_pos + (m_impulse * scalar);
+
+	// Sets up grid dimensions
+	int gridX = 50;
+	int gridY = 50;
+	int indexHorizontal = gridY;
+	int indexVertical = 1;
+
+	// Checks what tile the player is in
+	playerGridX = (playerPursue.x + 5000) / 200;
+	playerGridY = (playerPursue.y + 5000) / 200;
+	playerGrid = playerGridX * 50 + (playerGridY);
+
+	
+
+	if (grid.nodes[playerGrid]->getCost() >= 9999) {
+	// Checks if bullet is hitting a wall
+		m_lifeTime = 101;
+	}
+
+}
+
+
+/// <summary>
 /// Function for updating the bullet
 /// </summary>
 void Bullet::update() {

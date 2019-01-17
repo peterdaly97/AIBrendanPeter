@@ -2,15 +2,18 @@
 #include <SFML/Graphics.hpp>
 #include "Bullet.h"
 #include "Node.h"
+#include "grid.h"
 
 class Player;
+class Bullet;
+class Grid;
 
 class AI
 {
 public:
 	AI(int x, int y, sf::Texture &aiTexture, sf::Texture & bulTex);
 	~AI();
-	void update(sf::Vector2f playerPosition, int &health);
+	void update(sf::Vector2f playerPosition, int &health, Grid &grid);
 	void draw(sf::RenderWindow & window);
 	void renderDot(sf::RenderWindow & window);
 	void move(double vectorX, double vectorY);

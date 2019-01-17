@@ -382,7 +382,8 @@ void Grid::updateAI(sf::Vector2f playerPosition, int &health)
 				surroundCount = surroundCount - 1;
 				ais[x]->removeCount = false;
 			}
-			ais[x]->update(playerPosition, health);
+			Grid * g = this;
+			ais[x]->update(playerPosition, health, *g);
 			if (ais[x]->surroundNow == true)  // Within surround distance.
 			{
 				if (ais[x]->surrounded == false)  // Ensure has not been given a surround spot already.

@@ -66,6 +66,20 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	// Passing the loaded in bullet texture to the player and grid
 	player.m_bulletTex = m_bulletTex;
 	grid->m_bulletTex = m_bulletTex;
+
+	m_winTex.loadFromFile("assets/win.png");
+	m_winSprite.setTexture(m_winTex);
+	m_winSprite.setOrigin(m_winSprite.getLocalBounds().width / 2, m_winSprite.getLocalBounds().height / 2);
+	m_winSprite.setPosition(sf::Vector2f(0, 0));
+	m_winSprite.setColor(sf::Color(255, 255, 255, 150));
+	m_winSprite.setScale(1.2, 1.2);
+
+	m_loseTex.loadFromFile("assets/lose.png");
+	m_loseSprite.setTexture(m_loseTex);
+	m_loseSprite.setOrigin(m_loseSprite.getLocalBounds().width / 2, m_loseSprite.getLocalBounds().height / 2);
+	m_loseSprite.setPosition(sf::Vector2f(0, 0));
+	m_loseSprite.setColor(sf::Color(255, 255, 255, 150));
+	m_loseSprite.setScale(1.2, 1.2);
 }
 
 /// <summary>
@@ -100,7 +114,10 @@ void Game::update() {
 		}
 
 	}
-	grid->update(m_window);	// Updates grid
+
+	if (!m_win && !m_lose) {
+		grid->update(m_window);	// Updates grid
+	}
 
 	checkEntities(); // Calls function which updates every entity
 
@@ -116,63 +133,71 @@ void Game::update() {
 	}
 
 	updateUI(); // Calls function which updates the UI
+
+	if (player.m_health <= 0) {
+		m_lose = true;
+	}
+	if (player.m_collected >= m_totalWorkers) {
+		m_win = true;
+	}
 }
 
 /// <summary>
 /// Function which updates and checks every active entity
 /// </summary>
 void Game::checkEntities() {
+	if (!m_win && !m_lose) {
+		player.update(*grid); // Updates the player
 
-	player.update(*grid); // Updates the player
+		if (player.checkPreds(grid->ais, m_particles) == 1)
+		{ // Checks if player has killed predator	
+			predCount = predCount - 1;	// Reduces amount of current predators
 
-	if (player.checkPreds(grid->ais, m_particles) == 1)
-	{ // Checks if player has killed predator	
-		predCount = predCount - 1;	// Reduces amount of current predators
-
-		grid->surroundCount = grid->surroundCount - 1; // Reduces amount of predators surrounding player
-	}
-	for (int i = 0; i < m_nests.size(); i++) {
-	// Loops through nests
-		if (m_nests.at(i)->spawnPredator() == 1 && predCount < predMax)
-		{ // Checks if theres availability for another predator
-			// Spawns a predator at the current nest being checked
-			grid->spawnPred(m_nests.at(i)->m_sprite.getPosition());
-			predCount = predCount + 1; // Increment amount of current predators
+			grid->surroundCount = grid->surroundCount - 1; // Reduces amount of predators surrounding player
 		}
-		// Update the nest
-		m_nests.at(i)->update(player.m_position, player.m_health, m_particles, *grid, m_workers);
-		player.checkNest(*m_nests.at(i));	// Player checks nest for bullet collision
-		player.checkEnemies(m_nests.at(i)->m_enemies, m_particles); // Player checks enemies for bullet collision
-		if (m_nests.at(i)->m_dead) {
-		// Checks if nest is dead
-			for (Enemy * e : m_nests.at(i)->m_enemies) {
-			// Loops through enemies belonging to dead nest
-				m_remainingEnemies.push_back(e);	// Pushes these enemies onto vector of enemies
+		for (int i = 0; i < m_nests.size(); i++) {
+			// Loops through nests
+			if (m_nests.at(i)->spawnPredator() == 1 && predCount < predMax)
+			{ // Checks if theres availability for another predator
+			  // Spawns a predator at the current nest being checked
+				grid->spawnPred(m_nests.at(i)->m_sprite.getPosition());
+				predCount = predCount + 1; // Increment amount of current predators
 			}
-			// Spawn particles at dead nest position
-			m_particles.push_back(new ParticleSystem(500, m_nests.at(i)->m_position));
-			m_nests.erase(m_nests.begin() + i);	// Delete nest
+			// Update the nest
+			m_nests.at(i)->update(player.m_position, player.m_health, m_particles, *grid, m_workers);
+			player.checkNest(*m_nests.at(i));	// Player checks nest for bullet collision
+			player.checkEnemies(m_nests.at(i)->m_enemies, m_particles); // Player checks enemies for bullet collision
+			if (m_nests.at(i)->m_dead) {
+				// Checks if nest is dead
+				for (Enemy * e : m_nests.at(i)->m_enemies) {
+					// Loops through enemies belonging to dead nest
+					m_remainingEnemies.push_back(e);	// Pushes these enemies onto vector of enemies
+				}
+				// Spawn particles at dead nest position
+				m_particles.push_back(new ParticleSystem(500, m_nests.at(i)->m_position));
+				m_nests.erase(m_nests.begin() + i);	// Delete nest
+			}
 		}
-	}
-	// Player checks enemies for bullet collision
-	player.checkEnemies(m_remainingEnemies, m_particles);
-	for (int i = 0; i < m_workers.size(); i++) {
-	// Loops through workeres
-		m_workers.at(i)->update(grid->nodes,grid->goalNode);	// Calls update on workers
-		m_workers.at(i)->checkCollision(*grid);	// Checks collision between walls and workers
-		if (m_workers.at(i)->m_collected) {
-		// Checks if worker has been collected
-			m_workers.erase(m_workers.begin() + i);	// Deletes worker
+		// Player checks enemies for bullet collision
+		player.checkEnemies(m_remainingEnemies, m_particles);
+		for (int i = 0; i < m_workers.size(); i++) {
+			// Loops through workeres
+			m_workers.at(i)->update(grid->nodes, grid->goalNode);	// Calls update on workers
+			m_workers.at(i)->checkCollision(*grid);	// Checks collision between walls and workers
+			if (m_workers.at(i)->m_collected) {
+				// Checks if worker has been collected
+				m_workers.erase(m_workers.begin() + i);	// Deletes worker
+			}
 		}
-	}
-	player.checkCollection(&m_workers);	// Checks if player is collecting any workers
+		player.checkCollection(&m_workers);	// Checks if player is collecting any workers
 
-	for (Enemy* enemy : m_remainingEnemies) {
-	// Loops through enemies not belonging to a nest
-		
-		enemy->update(player.m_position, sf::Vector2f(0, 0));	// Updates enemy
-		enemy->checkCollision(*grid); // Checks collision between walls and enemy
-		enemy->lookFor(m_workers);	// Checks if workers are in line of sight
+		for (Enemy* enemy : m_remainingEnemies) {
+			// Loops through enemies not belonging to a nest
+
+			enemy->update(player.m_position, sf::Vector2f(0, 0));	// Updates enemy
+			enemy->checkCollision(*grid); // Checks collision between walls and enemy
+			enemy->lookFor(m_workers);	// Checks if workers are in line of sight
+		}
 	}
 }
 
@@ -210,34 +235,44 @@ void Game::render() {
 	m_window.draw(m_workerSprite);
 	m_window.draw(m_heartText);
 	m_window.draw(m_workerText);
-	m_mapBorder.setPosition(player.m_sprite.getPosition().x + 300,player.m_sprite.getPosition().y + 200);
-	m_window.draw(m_mapBorder);
+	if (!m_win && !m_lose) {
+		m_mapBorder.setPosition(player.m_sprite.getPosition().x + 300, player.m_sprite.getPosition().y + 200);
+		m_window.draw(m_mapBorder);
 
-	m_window.setView(m_miniMap);	// Set view to the mini map view
+		m_window.setView(m_miniMap);	// Set view to the mini map view
 
-	m_window.draw(m_worldSprite);	// Draw background
-	m_miniMap.setCenter(0,0);	// Set center of mini map
+		m_window.draw(m_worldSprite);	// Draw background
+		m_miniMap.setCenter(0, 0);	// Set center of mini map
 
-	// Draw all game entites as dots
-	for (Nest * nest : m_nests) {
-		nest->renderDot(m_window);
-	}
-	for (Worker * en : m_workers) {
-		en->renderDot(m_window);
-	}
-	for (Enemy* enemy : m_remainingEnemies) {
-		enemy->renderEnemyDot(m_window);	// Draw remaining enemy
-	}
-	for (PowerUp * powerUp : m_powerUps)
-	{
-		powerUp->renderDot(m_window);
-	}
-	grid->renderDots(m_window);
-	player.renderDot(m_window);
+									// Draw all game entites as dots
+		for (Nest * nest : m_nests) {
+			nest->renderDot(m_window);
+		}
+		for (Worker * en : m_workers) {
+			en->renderDot(m_window);
+		}
+		for (Enemy* enemy : m_remainingEnemies) {
+			enemy->renderEnemyDot(m_window);	// Draw remaining enemy
+		}
+		for (PowerUp * powerUp : m_powerUps)
+		{
+			powerUp->renderDot(m_window);
+		}
+		grid->renderDots(m_window);
+		player.renderDot(m_window);
 
-	// Set mini map viewport to bottom right corner of the screen
-	m_miniMap.setViewport(sf::FloatRect(0.75, 0.75, 0.25, 0.25));
+		// Set mini map viewport to bottom right corner of the screen
+		m_miniMap.setViewport(sf::FloatRect(0.75, 0.75, 0.25, 0.25));
+	}
 	
+	if (m_win) {
+		m_winSprite.setPosition(player.m_position);
+		m_window.draw(m_winSprite);
+	}
+	if (m_lose) {
+		m_loseSprite.setPosition(player.m_position);
+		m_window.draw(m_loseSprite);
+	}
 	m_window.display();		// Display the window 
 }
 

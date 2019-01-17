@@ -3,6 +3,9 @@
 
 #include <SFML\Graphics.hpp>
 #include <iostream>
+#include "grid.h"
+
+class Grid;
 
 class Bullet
 {
@@ -28,6 +31,12 @@ public:
 	// Visual attributes
 	sf::Sprite m_sprite;
 	sf::Texture m_tex;
+
+	void checkCollision(Grid &grid);	// Function that checks walls for collision
+
+	int playerGrid = 0;
+	int playerGridX = 0;
+	int playerGridY = 0;
 };
 #endif // !BULLET_H
 

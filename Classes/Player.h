@@ -82,7 +82,7 @@ private:
 
 	// Current time and max amount of time before player can fire another bullet
 	int m_bulletCounter = 0;
-	const int BULLET_TIME = 30;
+	const int BULLET_TIME = 15;
 
 	bool drawFireBack = false;
 
