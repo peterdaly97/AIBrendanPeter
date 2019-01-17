@@ -3,36 +3,28 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_a_i_a1d782247a4ef257300018bca8701d02e}\label{class_a_i_a1d782247a4ef257300018bca8701d02e}} 
-{\bfseries AI} (int x, int y, sf\+::\+Texture \&ai\+Texture, sf\+::\+Texture \&bul\+Tex)
-\item 
-\mbox{\Hypertarget{class_a_i_ae8fa5ecda8a59f687bd75be465994467}\label{class_a_i_ae8fa5ecda8a59f687bd75be465994467}} 
-void {\bfseries update} (sf\+::\+Vector2f player\+Position, int \&health)
-\item 
-\mbox{\Hypertarget{class_a_i_a4ccda3d254a3f604222423d15d4f767f}\label{class_a_i_a4ccda3d254a3f604222423d15d4f767f}} 
-void {\bfseries draw} (sf\+::\+Render\+Window \&window)
-\item 
-\mbox{\Hypertarget{class_a_i_a9394f659105b698a75e1fe77f6014e0b}\label{class_a_i_a9394f659105b698a75e1fe77f6014e0b}} 
-void {\bfseries render\+Dot} (sf\+::\+Render\+Window \&window)
-\item 
-\mbox{\Hypertarget{class_a_i_a9761e86bf135a4ccf1b24326a5a01431}\label{class_a_i_a9761e86bf135a4ccf1b24326a5a01431}} 
-void {\bfseries move} (double vectorX, double vectorY)
-\item 
-\mbox{\Hypertarget{class_a_i_ac91b130c717b028b2b712a6b9b29c32f}\label{class_a_i_ac91b130c717b028b2b712a6b9b29c32f}} 
-int {\bfseries get\+PositionX} ()
-\item 
-\mbox{\Hypertarget{class_a_i_a3f54bcc3e90cfc46fefd0389c506720b}\label{class_a_i_a3f54bcc3e90cfc46fefd0389c506720b}} 
-int {\bfseries get\+PositionY} ()
-\item 
-\mbox{\Hypertarget{class_a_i_a14ec51b0b964c0e75c7c7ec2ee4829e4}\label{class_a_i_a14ec51b0b964c0e75c7c7ec2ee4829e4}} 
-void {\bfseries surround} (sf\+::\+Vector2f position)
-\item 
-\mbox{\Hypertarget{class_a_i_a128f8cf306126950c7085f582ed671c5}\label{class_a_i_a128f8cf306126950c7085f582ed671c5}} 
-void {\bfseries set\+Spot} (int surround\+Count, int i)
-\item 
-\mbox{\Hypertarget{class_a_i_a80cd7b646be694678ef28cdf9d9af17e}\label{class_a_i_a80cd7b646be694678ef28cdf9d9af17e}} 
-sf\+::\+Vector2f {\bfseries normalise} (sf\+::\+Vector2f vector)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_a_i_a1d782247a4ef257300018bca8701d02e}{AI}} (int x, int y, sf\+::\+Texture \&ai\+Texture, sf\+::\+Texture \&bul\+Tex)
+\begin{DoxyCompactList}\small\item\em Constructor for predator ai. Assign texture reference to sprites. Set scale and start position for predators. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_i_a66a8645f0c27285cd75346f2c2bbfb14}{$\sim$\+AI}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_a_i}{AI}} deconstructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_i_ae8fa5ecda8a59f687bd75be465994467}{update}} (sf\+::\+Vector2f player\+Position, int \&health)
+\begin{DoxyCompactList}\small\item\em Update predators. Update every bullet in the container. Control predator behaviour. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_i_a4ccda3d254a3f604222423d15d4f767f}{draw}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Draw the predator and call bullets to draw themselves \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_i_a9394f659105b698a75e1fe77f6014e0b}{render\+Dot}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Draw the predator dot for the radar \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_i_a9761e86bf135a4ccf1b24326a5a01431}{move}} (double vectorX, double vectorY)
+\begin{DoxyCompactList}\small\item\em Moves the predator with the desired vector \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_a_i_ac91b130c717b028b2b712a6b9b29c32f}{get\+PositionX}} ()
+\begin{DoxyCompactList}\small\item\em Get the position of the ais. Used for grid position calculation. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_a_i_a3f54bcc3e90cfc46fefd0389c506720b}{get\+PositionY}} ()
+\begin{DoxyCompactList}\small\item\em Get the position of the ais. Used for grid position calculation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_i_a14ec51b0b964c0e75c7c7ec2ee4829e4}{surround}} (sf\+::\+Vector2f position)
+\begin{DoxyCompactList}\small\item\em Calculate the velocity to desired position. Use the player position and offset calculated by \mbox{\hyperlink{class_a_i_a128f8cf306126950c7085f582ed671c5}{set\+Spot()}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_i_a128f8cf306126950c7085f582ed671c5}{set\+Spot}} (int surround\+Count, int i)
+\begin{DoxyCompactList}\small\item\em Calculate the spot in surround circle given amount of ais in the circle. i = This ais iterator to get different spot to others. \end{DoxyCompactList}\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_a_i_a80cd7b646be694678ef28cdf9d9af17e}{normalise}} (sf\+::\+Vector2f vector)
+\begin{DoxyCompactList}\small\item\em Normalise a vector \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -63,9 +55,8 @@ int {\bfseries spot} = 0
 \mbox{\Hypertarget{class_a_i_a80cacb38bc6ddb3717d9ae451c9d8d88}\label{class_a_i_a80cacb38bc6ddb3717d9ae451c9d8d88}} 
 void {\bfseries check\+Player} (sf\+::\+Vector2f player\+Position)
 \item 
-\mbox{\Hypertarget{class_a_i_a615bdfb1360b73d38f12e91903bd56a0}\label{class_a_i_a615bdfb1360b73d38f12e91903bd56a0}} 
-float {\bfseries dist} (sf\+::\+Vector2f v1, sf\+::\+Vector2f v2)
-\end{DoxyCompactItemize}
+float \mbox{\hyperlink{class_a_i_a615bdfb1360b73d38f12e91903bd56a0}{dist}} (sf\+::\+Vector2f v1, sf\+::\+Vector2f v2)
+\begin{DoxyCompactList}\small\item\em Calculate distance between 2 vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -93,6 +84,203 @@ double {\bfseries ai\+Speed} = 5
 \mbox{\Hypertarget{class_a_i_a3cf613f84b0b2ac7efbeb59bdebba658}\label{class_a_i_a3cf613f84b0b2ac7efbeb59bdebba658}} 
 sf\+::\+Texture {\bfseries m\+\_\+bullet\+Texture}
 \end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_a_i_a1d782247a4ef257300018bca8701d02e}\label{class_a_i_a1d782247a4ef257300018bca8701d02e}} 
+\index{AI@{AI}!AI@{AI}}
+\index{AI@{AI}!AI@{AI}}
+\subsubsection{\texorpdfstring{AI()}{AI()}}
+{\footnotesize\ttfamily A\+I\+::\+AI (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{sf\+::\+Texture \&}]{ai\+Texture,  }\item[{sf\+::\+Texture \&}]{bul\+Tex }\end{DoxyParamCaption})}
+
+
+
+Constructor for predator ai. Assign texture reference to sprites. Set scale and start position for predators. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em ai\+Texture} & \\
+\hline
+{\em bul\+Tex} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_i_a66a8645f0c27285cd75346f2c2bbfb14}\label{class_a_i_a66a8645f0c27285cd75346f2c2bbfb14}} 
+\index{AI@{AI}!````~AI@{$\sim$AI}}
+\index{````~AI@{$\sim$AI}!AI@{AI}}
+\subsubsection{\texorpdfstring{$\sim$AI()}{~AI()}}
+{\footnotesize\ttfamily A\+I\+::$\sim$\+AI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_a_i}{AI}} deconstructor 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_a_i_a615bdfb1360b73d38f12e91903bd56a0}\label{class_a_i_a615bdfb1360b73d38f12e91903bd56a0}} 
+\index{AI@{AI}!dist@{dist}}
+\index{dist@{dist}!AI@{AI}}
+\subsubsection{\texorpdfstring{dist()}{dist()}}
+{\footnotesize\ttfamily float A\+I\+::dist (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{v1,  }\item[{sf\+::\+Vector2f}]{v2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calculate distance between 2 vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & \\
+\hline
+{\em v2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_i_a4ccda3d254a3f604222423d15d4f767f}\label{class_a_i_a4ccda3d254a3f604222423d15d4f767f}} 
+\index{AI@{AI}!draw@{draw}}
+\index{draw@{draw}!AI@{AI}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void A\+I\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Draw the predator and call bullets to draw themselves 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_i_ac91b130c717b028b2b712a6b9b29c32f}\label{class_a_i_ac91b130c717b028b2b712a6b9b29c32f}} 
+\index{AI@{AI}!getPositionX@{getPositionX}}
+\index{getPositionX@{getPositionX}!AI@{AI}}
+\subsubsection{\texorpdfstring{getPositionX()}{getPositionX()}}
+{\footnotesize\ttfamily int A\+I\+::get\+PositionX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the position of the ais. Used for grid position calculation. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_i_a3f54bcc3e90cfc46fefd0389c506720b}\label{class_a_i_a3f54bcc3e90cfc46fefd0389c506720b}} 
+\index{AI@{AI}!getPositionY@{getPositionY}}
+\index{getPositionY@{getPositionY}!AI@{AI}}
+\subsubsection{\texorpdfstring{getPositionY()}{getPositionY()}}
+{\footnotesize\ttfamily int A\+I\+::get\+PositionY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the position of the ais. Used for grid position calculation. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_i_a9761e86bf135a4ccf1b24326a5a01431}\label{class_a_i_a9761e86bf135a4ccf1b24326a5a01431}} 
+\index{AI@{AI}!move@{move}}
+\index{move@{move}!AI@{AI}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void A\+I\+::move (\begin{DoxyParamCaption}\item[{double}]{vectorX,  }\item[{double}]{vectorY }\end{DoxyParamCaption})}
+
+
+
+Moves the predator with the desired vector 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vectorX} & \\
+\hline
+{\em vectorY} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_i_a80cd7b646be694678ef28cdf9d9af17e}\label{class_a_i_a80cd7b646be694678ef28cdf9d9af17e}} 
+\index{AI@{AI}!normalise@{normalise}}
+\index{normalise@{normalise}!AI@{AI}}
+\subsubsection{\texorpdfstring{normalise()}{normalise()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f A\+I\+::normalise (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{vector }\end{DoxyParamCaption})}
+
+
+
+Normalise a vector 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_i_a9394f659105b698a75e1fe77f6014e0b}\label{class_a_i_a9394f659105b698a75e1fe77f6014e0b}} 
+\index{AI@{AI}!renderDot@{renderDot}}
+\index{renderDot@{renderDot}!AI@{AI}}
+\subsubsection{\texorpdfstring{renderDot()}{renderDot()}}
+{\footnotesize\ttfamily void A\+I\+::render\+Dot (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Draw the predator dot for the radar 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_i_a128f8cf306126950c7085f582ed671c5}\label{class_a_i_a128f8cf306126950c7085f582ed671c5}} 
+\index{AI@{AI}!setSpot@{setSpot}}
+\index{setSpot@{setSpot}!AI@{AI}}
+\subsubsection{\texorpdfstring{setSpot()}{setSpot()}}
+{\footnotesize\ttfamily void A\+I\+::set\+Spot (\begin{DoxyParamCaption}\item[{int}]{surround\+Count,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Calculate the spot in surround circle given amount of ais in the circle. i = This ais iterator to get different spot to others. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em surround\+Count} & \\
+\hline
+{\em i} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_i_a14ec51b0b964c0e75c7c7ec2ee4829e4}\label{class_a_i_a14ec51b0b964c0e75c7c7ec2ee4829e4}} 
+\index{AI@{AI}!surround@{surround}}
+\index{surround@{surround}!AI@{AI}}
+\subsubsection{\texorpdfstring{surround()}{surround()}}
+{\footnotesize\ttfamily void A\+I\+::surround (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{position }\end{DoxyParamCaption})}
+
+
+
+Calculate the velocity to desired position. Use the player position and offset calculated by \mbox{\hyperlink{class_a_i_a128f8cf306126950c7085f582ed671c5}{set\+Spot()}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_i_ae8fa5ecda8a59f687bd75be465994467}\label{class_a_i_ae8fa5ecda8a59f687bd75be465994467}} 
+\index{AI@{AI}!update@{update}}
+\index{update@{update}!AI@{AI}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void A\+I\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{player\+Position,  }\item[{int \&}]{health }\end{DoxyParamCaption})}
+
+
+
+Update predators. Update every bullet in the container. Control predator behaviour. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Position} & \\
+\hline
+{\em health} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

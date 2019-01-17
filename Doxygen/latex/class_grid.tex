@@ -3,24 +3,22 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_grid_a3663bc64d98e521de255d42a971072cc}\label{class_grid_a3663bc64d98e521de255d42a971072cc}} 
-void {\bfseries update} (sf\+::\+Render\+Window \&window)
-\item 
-\mbox{\Hypertarget{class_grid_aed35b0297be5c00ed36e8d27e525fdaa}\label{class_grid_aed35b0297be5c00ed36e8d27e525fdaa}} 
-void {\bfseries update\+AI} (sf\+::\+Vector2f position, int \&health)
-\item 
-\mbox{\Hypertarget{class_grid_a9b42b1d0dcfc434d790b11faf4b461ce}\label{class_grid_a9b42b1d0dcfc434d790b11faf4b461ce}} 
-void {\bfseries draw} (sf\+::\+Render\+Window \&window)
-\item 
-\mbox{\Hypertarget{class_grid_aa58165416bcc766774296f0c8b057d2b}\label{class_grid_aa58165416bcc766774296f0c8b057d2b}} 
-void {\bfseries render\+Dots} (sf\+::\+Render\+Window \&window)
-\item 
-\mbox{\Hypertarget{class_grid_ada242a904e942e6d4a97f458ea3e7ae7}\label{class_grid_ada242a904e942e6d4a97f458ea3e7ae7}} 
-void {\bfseries seek} (int goal)
-\item 
-\mbox{\Hypertarget{class_grid_a2e1a97e06b3d2fcc27e2ea40e80f1f85}\label{class_grid_a2e1a97e06b3d2fcc27e2ea40e80f1f85}} 
-void {\bfseries spawn\+Pred} (sf\+::\+Vector2f)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_grid_a4ac9ff4f63552b4c61ff90fcb35ad66c}{Grid}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_grid}{Grid}} constructor. Load in textures for predators. Call create. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_grid_a3661d0a7f998caaaf8627d7a67072116}{$\sim$\+Grid}} ()
+\begin{DoxyCompactList}\small\item\em deconstructor for grid \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grid_a3663bc64d98e521de255d42a971072cc}{update}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Move the predators is called \mbox{\hyperlink{class_grid}{Grid}} key press functionality removed \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grid_aed35b0297be5c00ed36e8d27e525fdaa}{update\+AI}} (sf\+::\+Vector2f position, int \&health)
+\begin{DoxyCompactList}\small\item\em Updates the ai. \mbox{\hyperlink{class_player}{Player}} health is passed so they can decrease it if they hit. \mbox{\hyperlink{class_player}{Player}} position is passed to determin the behaviour of ai. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grid_a9b42b1d0dcfc434d790b11faf4b461ce}{draw}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Calls the draw of all predators. \mbox{\hyperlink{class_grid}{Grid}} no longer drawn. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grid_aa58165416bcc766774296f0c8b057d2b}{render\+Dots}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Draws dots for predators for radar. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grid_ada242a904e942e6d4a97f458ea3e7ae7}{seek}} (int goal)
+\begin{DoxyCompactList}\small\item\em Sets the goal node. Calls all functions to set up a path to seek to that node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grid_a2e1a97e06b3d2fcc27e2ea40e80f1f85}{spawn\+Pred}} (sf\+::\+Vector2f)
+\begin{DoxyCompactList}\small\item\em creates a predator \mbox{\hyperlink{class_a_i}{AI}} at the desired position \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -42,27 +40,18 @@ sf\+::\+Texture {\bfseries m\+\_\+bullet\+Tex}
 \subsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_grid_ab241558dff6456fdfc66c03a09d33479}\label{class_grid_ab241558dff6456fdfc66c03a09d33479}} 
-void {\bfseries set\+Cost} ()
-\item 
-\mbox{\Hypertarget{class_grid_ad4dcab53aae83978a77ad6b9cd459c3e}\label{class_grid_ad4dcab53aae83978a77ad6b9cd459c3e}} 
-void {\bfseries set\+Vector} ()
-\item 
-\mbox{\Hypertarget{class_grid_a357745b9903ca9c2a9c70024ad079ed1}\label{class_grid_a357745b9903ca9c2a9c70024ad079ed1}} 
-void {\bfseries set\+Distance} ()
-\item 
-\mbox{\Hypertarget{class_grid_aa662cb1071e1138c1c4cf1ddd592146b}\label{class_grid_aa662cb1071e1138c1c4cf1ddd592146b}} 
-void {\bfseries move\+AI} ()
-\item 
-\mbox{\Hypertarget{class_grid_af63dd2374a80c307414dae303b0d052e}\label{class_grid_af63dd2374a80c307414dae303b0d052e}} 
-void {\bfseries create\+Grid} (int random)
-\item 
-\mbox{\Hypertarget{class_grid_ae8c93e8d4957334f59ce65a542b67b98}\label{class_grid_ae8c93e8d4957334f59ce65a542b67b98}} 
-void {\bfseries make\+Map} ()
-\item 
-\mbox{\Hypertarget{class_grid_ad87359494dcfba12f838b621869794ae}\label{class_grid_ad87359494dcfba12f838b621869794ae}} 
-void {\bfseries clear\+All} ()
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_grid_ab241558dff6456fdfc66c03a09d33479}{set\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Set the cost of each obstacle for the flow field pathfinding \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grid_ad4dcab53aae83978a77ad6b9cd459c3e}{set\+Vector}} ()
+\begin{DoxyCompactList}\small\item\em set the vector of each node used by ai to move \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grid_a357745b9903ca9c2a9c70024ad079ed1}{set\+Distance}} ()
+\begin{DoxyCompactList}\small\item\em Calls the set distance of each node for pathfinding. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grid_aa662cb1071e1138c1c4cf1ddd592146b}{move\+AI}} ()
+\begin{DoxyCompactList}\small\item\em Goes through predator container and moves them all with the pathfinding vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grid_af63dd2374a80c307414dae303b0d052e}{create\+Grid}} (int random)
+\begin{DoxyCompactList}\small\item\em Initialises a new grid with hard coded values \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_grid_ad87359494dcfba12f838b621869794ae}{clear\+All}} ()
+\begin{DoxyCompactList}\small\item\em Resets all paramaters of nodes so they can be used for new path \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -144,6 +133,189 @@ sf\+::\+Rectangle\+Shape {\bfseries rectangle}
 \mbox{\Hypertarget{class_grid_a832bcd92c2b22cd81efb7ddc6a865c61}\label{class_grid_a832bcd92c2b22cd81efb7ddc6a865c61}} 
 \mbox{\hyperlink{class_a_i}{AI}} $\ast$ {\bfseries ai}
 \end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_grid_a4ac9ff4f63552b4c61ff90fcb35ad66c}\label{class_grid_a4ac9ff4f63552b4c61ff90fcb35ad66c}} 
+\index{Grid@{Grid}!Grid@{Grid}}
+\index{Grid@{Grid}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{Grid()}{Grid()}}
+{\footnotesize\ttfamily Grid\+::\+Grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_grid}{Grid}} constructor. Load in textures for predators. Call create. 
+
+\mbox{\Hypertarget{class_grid_a3661d0a7f998caaaf8627d7a67072116}\label{class_grid_a3661d0a7f998caaaf8627d7a67072116}} 
+\index{Grid@{Grid}!````~Grid@{$\sim$Grid}}
+\index{````~Grid@{$\sim$Grid}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{$\sim$Grid()}{~Grid()}}
+{\footnotesize\ttfamily Grid\+::$\sim$\+Grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+deconstructor for grid 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_grid_ad87359494dcfba12f838b621869794ae}\label{class_grid_ad87359494dcfba12f838b621869794ae}} 
+\index{Grid@{Grid}!clearAll@{clearAll}}
+\index{clearAll@{clearAll}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{clearAll()}{clearAll()}}
+{\footnotesize\ttfamily void Grid\+::clear\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Resets all paramaters of nodes so they can be used for new path 
+
+\mbox{\Hypertarget{class_grid_af63dd2374a80c307414dae303b0d052e}\label{class_grid_af63dd2374a80c307414dae303b0d052e}} 
+\index{Grid@{Grid}!createGrid@{createGrid}}
+\index{createGrid@{createGrid}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{createGrid()}{createGrid()}}
+{\footnotesize\ttfamily void Grid\+::create\+Grid (\begin{DoxyParamCaption}\item[{int}]{random }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initialises a new grid with hard coded values 
+
+
+\begin{DoxyParams}{Parameters}
+{\em random} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_grid_a9b42b1d0dcfc434d790b11faf4b461ce}\label{class_grid_a9b42b1d0dcfc434d790b11faf4b461ce}} 
+\index{Grid@{Grid}!draw@{draw}}
+\index{draw@{draw}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Grid\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Calls the draw of all predators. \mbox{\hyperlink{class_grid}{Grid}} no longer drawn. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_grid_aa662cb1071e1138c1c4cf1ddd592146b}\label{class_grid_aa662cb1071e1138c1c4cf1ddd592146b}} 
+\index{Grid@{Grid}!moveAI@{moveAI}}
+\index{moveAI@{moveAI}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{moveAI()}{moveAI()}}
+{\footnotesize\ttfamily void Grid\+::move\+AI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Goes through predator container and moves them all with the pathfinding vector. 
+
+\mbox{\Hypertarget{class_grid_aa58165416bcc766774296f0c8b057d2b}\label{class_grid_aa58165416bcc766774296f0c8b057d2b}} 
+\index{Grid@{Grid}!renderDots@{renderDots}}
+\index{renderDots@{renderDots}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{renderDots()}{renderDots()}}
+{\footnotesize\ttfamily void Grid\+::render\+Dots (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Draws dots for predators for radar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_grid_ada242a904e942e6d4a97f458ea3e7ae7}\label{class_grid_ada242a904e942e6d4a97f458ea3e7ae7}} 
+\index{Grid@{Grid}!seek@{seek}}
+\index{seek@{seek}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{seek()}{seek()}}
+{\footnotesize\ttfamily void Grid\+::seek (\begin{DoxyParamCaption}\item[{int}]{goal }\end{DoxyParamCaption})}
+
+
+
+Sets the goal node. Calls all functions to set up a path to seek to that node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_grid_ab241558dff6456fdfc66c03a09d33479}\label{class_grid_ab241558dff6456fdfc66c03a09d33479}} 
+\index{Grid@{Grid}!setCost@{setCost}}
+\index{setCost@{setCost}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{setCost()}{setCost()}}
+{\footnotesize\ttfamily void Grid\+::set\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Set the cost of each obstacle for the flow field pathfinding 
+
+\mbox{\Hypertarget{class_grid_a357745b9903ca9c2a9c70024ad079ed1}\label{class_grid_a357745b9903ca9c2a9c70024ad079ed1}} 
+\index{Grid@{Grid}!setDistance@{setDistance}}
+\index{setDistance@{setDistance}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{setDistance()}{setDistance()}}
+{\footnotesize\ttfamily void Grid\+::set\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calls the set distance of each node for pathfinding. 
+
+\mbox{\Hypertarget{class_grid_ad4dcab53aae83978a77ad6b9cd459c3e}\label{class_grid_ad4dcab53aae83978a77ad6b9cd459c3e}} 
+\index{Grid@{Grid}!setVector@{setVector}}
+\index{setVector@{setVector}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{setVector()}{setVector()}}
+{\footnotesize\ttfamily void Grid\+::set\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+set the vector of each node used by ai to move 
+
+\mbox{\Hypertarget{class_grid_a2e1a97e06b3d2fcc27e2ea40e80f1f85}\label{class_grid_a2e1a97e06b3d2fcc27e2ea40e80f1f85}} 
+\index{Grid@{Grid}!spawnPred@{spawnPred}}
+\index{spawnPred@{spawnPred}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{spawnPred()}{spawnPred()}}
+{\footnotesize\ttfamily void Grid\+::spawn\+Pred (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{position }\end{DoxyParamCaption})}
+
+
+
+creates a predator \mbox{\hyperlink{class_a_i}{AI}} at the desired position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_grid_a3663bc64d98e521de255d42a971072cc}\label{class_grid_a3663bc64d98e521de255d42a971072cc}} 
+\index{Grid@{Grid}!update@{update}}
+\index{update@{update}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Grid\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Move the predators is called \mbox{\hyperlink{class_grid}{Grid}} key press functionality removed 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_grid_aed35b0297be5c00ed36e8d27e525fdaa}\label{class_grid_aed35b0297be5c00ed36e8d27e525fdaa}} 
+\index{Grid@{Grid}!updateAI@{updateAI}}
+\index{updateAI@{updateAI}!Grid@{Grid}}
+\subsubsection{\texorpdfstring{updateAI()}{updateAI()}}
+{\footnotesize\ttfamily void Grid\+::update\+AI (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{player\+Position,  }\item[{int \&}]{health }\end{DoxyParamCaption})}
+
+
+
+Updates the ai. \mbox{\hyperlink{class_player}{Player}} health is passed so they can decrease it if they hit. \mbox{\hyperlink{class_player}{Player}} position is passed to determin the behaviour of ai. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Position} & \\
+\hline
+{\em health} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -3,57 +3,34 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_node_a821ac801921f60f513c6e9870413316a}\label{class_node_a821ac801921f60f513c6e9870413316a}} 
-{\bfseries Node} (int x, int y, int size, sf\+::\+Font \&cost\+Font, int obstacle)
-\item 
-\mbox{\Hypertarget{class_node_acaf47c612c7c8762ec58cb7f15019357}\label{class_node_acaf47c612c7c8762ec58cb7f15019357}} 
-void {\bfseries update} (double dt)
-\item 
-\mbox{\Hypertarget{class_node_a0c3d6ad1d2e0b22ca4f4327a8fb93e31}\label{class_node_a0c3d6ad1d2e0b22ca4f4327a8fb93e31}} 
-void {\bfseries draw} (sf\+::\+Render\+Window \&window)
-\item 
-\mbox{\Hypertarget{class_node_a535896357ea40bc56fe4d6aed70b6361}\label{class_node_a535896357ea40bc56fe4d6aed70b6361}} 
-int {\bfseries get\+PositionX} ()
-\item 
-\mbox{\Hypertarget{class_node_a9a5a7aa1c1cade5e1c959115d8f56441}\label{class_node_a9a5a7aa1c1cade5e1c959115d8f56441}} 
-int {\bfseries get\+PositionY} ()
-\item 
-\mbox{\Hypertarget{class_node_ab680abb24e66f0ac44ad1c01100c284d}\label{class_node_ab680abb24e66f0ac44ad1c01100c284d}} 
-double {\bfseries get\+VectX} ()
-\item 
-\mbox{\Hypertarget{class_node_a94cc29a521ebaf4de2a8d71b7e55346e}\label{class_node_a94cc29a521ebaf4de2a8d71b7e55346e}} 
-double {\bfseries get\+VectY} ()
-\item 
-\mbox{\Hypertarget{class_node_afa06743d48ed804dbadfe408c6b9c7e5}\label{class_node_afa06743d48ed804dbadfe408c6b9c7e5}} 
-void {\bfseries set\+Color} (sf\+::\+Color color)
-\item 
-\mbox{\Hypertarget{class_node_adefee65f1133ce5f2e0b5a363e250ae6}\label{class_node_adefee65f1133ce5f2e0b5a363e250ae6}} 
-void {\bfseries set\+Cost} (double x)
-\item 
-\mbox{\Hypertarget{class_node_a2066fcdaacfab4e47e976a9a4f60f011}\label{class_node_a2066fcdaacfab4e47e976a9a4f60f011}} 
-void {\bfseries set\+Distance} (int goalX, int goalY)
-\item 
-\mbox{\Hypertarget{class_node_af93f2231cdb17bec0ff4d77972aefc82}\label{class_node_af93f2231cdb17bec0ff4d77972aefc82}} 
-void {\bfseries set\+Vector} (double vectorX, double vectorY)
-\item 
-\mbox{\Hypertarget{class_node_ae93169d2d1e75142b35699b22804ab82}\label{class_node_ae93169d2d1e75142b35699b22804ab82}} 
-void {\bfseries set\+Integration\+Field} (double field)
-\item 
-\mbox{\Hypertarget{class_node_a88680b24156b672fc7cb3598e03b065b}\label{class_node_a88680b24156b672fc7cb3598e03b065b}} 
-void {\bfseries set\+Check} (int num)
-\item 
-\mbox{\Hypertarget{class_node_a6598ebb34ab252ac0258b32a78f689d0}\label{class_node_a6598ebb34ab252ac0258b32a78f689d0}} 
-double {\bfseries get\+Cost} ()
-\item 
-\mbox{\Hypertarget{class_node_a1d3e51a36ef8794ca73d3be104ba792c}\label{class_node_a1d3e51a36ef8794ca73d3be104ba792c}} 
-double {\bfseries get\+Integration\+Field} ()
-\item 
-\mbox{\Hypertarget{class_node_a7888accf4c497dbc71e5f55f8c75a5e4}\label{class_node_a7888accf4c497dbc71e5f55f8c75a5e4}} 
-bool {\bfseries check\+Set} ()
-\item 
-\mbox{\Hypertarget{class_node_ae5153ca337211f2dc2ec3b88aecd1063}\label{class_node_ae5153ca337211f2dc2ec3b88aecd1063}} 
-void {\bfseries swap\+Integration\+Calc} ()
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_node_a058fbf447dab1b0748fb203b37a0798e}{Node}} (int x, int y, int size, int obstacle)
+\begin{DoxyCompactList}\small\item\em Creates a node and assignes the cost if it is an obstacle. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node_aa0840c3cb5c7159be6d992adecd2097c}{$\sim$\+Node}} ()
+\begin{DoxyCompactList}\small\item\em Deconstructor for node. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_node_ab680abb24e66f0ac44ad1c01100c284d}{get\+VectX}} ()
+\begin{DoxyCompactList}\small\item\em Get the X vector used for pathfinding. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_node_a535896357ea40bc56fe4d6aed70b6361}{get\+PositionX}} ()
+\begin{DoxyCompactList}\small\item\em Gets the position of node used for vector calculation \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_node_a9a5a7aa1c1cade5e1c959115d8f56441}{get\+PositionY}} ()
+\begin{DoxyCompactList}\small\item\em Gets the position of node used for vector calculation \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_node_a94cc29a521ebaf4de2a8d71b7e55346e}{get\+VectY}} ()
+\begin{DoxyCompactList}\small\item\em Get the Y vector used for pathfinding. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_node_adefee65f1133ce5f2e0b5a363e250ae6}{set\+Cost}} (double x)
+\begin{DoxyCompactList}\small\item\em Set the cost of a node for flow field pathfinding. Set the cost\+Set so it is not used again. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_node_a2066fcdaacfab4e47e976a9a4f60f011}{set\+Distance}} (int goalX, int goalY)
+\begin{DoxyCompactList}\small\item\em Distance no longer used for efficiency \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_node_af93f2231cdb17bec0ff4d77972aefc82}{set\+Vector}} (double vectorX, double vectorY)
+\begin{DoxyCompactList}\small\item\em Set the vector used by ais for pathfinding. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_node_ae93169d2d1e75142b35699b22804ab82}{set\+Integration\+Field}} (double field)
+\begin{DoxyCompactList}\small\item\em Set the integration field of a node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_node_a88680b24156b672fc7cb3598e03b065b}{set\+Check}} (int num)
+\begin{DoxyCompactList}\small\item\em Set the node has been used or not used. Is used for reseting nodes. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_node_a6598ebb34ab252ac0258b32a78f689d0}{get\+Cost}} ()
+\begin{DoxyCompactList}\small\item\em Return the cost of the node \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_node_a1d3e51a36ef8794ca73d3be104ba792c}{get\+Integration\+Field}} ()
+\begin{DoxyCompactList}\small\item\em Get the integration field of a node. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_node_a7888accf4c497dbc71e5f55f8c75a5e4}{check\+Set}} ()
+\begin{DoxyCompactList}\small\item\em Check if the node has already been used \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -90,6 +67,213 @@ bool {\bfseries cost\+Set} = false
 \mbox{\Hypertarget{class_node_a6e7b74adca863064ca0d1684873f33e0}\label{class_node_a6e7b74adca863064ca0d1684873f33e0}} 
 double {\bfseries cost} = 0
 \end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_node_a058fbf447dab1b0748fb203b37a0798e}\label{class_node_a058fbf447dab1b0748fb203b37a0798e}} 
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\subsubsection{\texorpdfstring{Node()}{Node()}}
+{\footnotesize\ttfamily Node\+::\+Node (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{size,  }\item[{int}]{obstacle }\end{DoxyParamCaption})}
+
+
+
+Creates a node and assignes the cost if it is an obstacle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em size} & \\
+\hline
+{\em obstacle} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_node_aa0840c3cb5c7159be6d992adecd2097c}\label{class_node_aa0840c3cb5c7159be6d992adecd2097c}} 
+\index{Node@{Node}!````~Node@{$\sim$Node}}
+\index{````~Node@{$\sim$Node}!Node@{Node}}
+\subsubsection{\texorpdfstring{$\sim$Node()}{~Node()}}
+{\footnotesize\ttfamily Node\+::$\sim$\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Deconstructor for node. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_node_a7888accf4c497dbc71e5f55f8c75a5e4}\label{class_node_a7888accf4c497dbc71e5f55f8c75a5e4}} 
+\index{Node@{Node}!checkSet@{checkSet}}
+\index{checkSet@{checkSet}!Node@{Node}}
+\subsubsection{\texorpdfstring{checkSet()}{checkSet()}}
+{\footnotesize\ttfamily bool Node\+::check\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check if the node has already been used 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_node_a6598ebb34ab252ac0258b32a78f689d0}\label{class_node_a6598ebb34ab252ac0258b32a78f689d0}} 
+\index{Node@{Node}!getCost@{getCost}}
+\index{getCost@{getCost}!Node@{Node}}
+\subsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily double Node\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return the cost of the node 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_node_a1d3e51a36ef8794ca73d3be104ba792c}\label{class_node_a1d3e51a36ef8794ca73d3be104ba792c}} 
+\index{Node@{Node}!getIntegrationField@{getIntegrationField}}
+\index{getIntegrationField@{getIntegrationField}!Node@{Node}}
+\subsubsection{\texorpdfstring{getIntegrationField()}{getIntegrationField()}}
+{\footnotesize\ttfamily double Node\+::get\+Integration\+Field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the integration field of a node. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_node_a535896357ea40bc56fe4d6aed70b6361}\label{class_node_a535896357ea40bc56fe4d6aed70b6361}} 
+\index{Node@{Node}!getPositionX@{getPositionX}}
+\index{getPositionX@{getPositionX}!Node@{Node}}
+\subsubsection{\texorpdfstring{getPositionX()}{getPositionX()}}
+{\footnotesize\ttfamily int Node\+::get\+PositionX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the position of node used for vector calculation 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_node_a9a5a7aa1c1cade5e1c959115d8f56441}\label{class_node_a9a5a7aa1c1cade5e1c959115d8f56441}} 
+\index{Node@{Node}!getPositionY@{getPositionY}}
+\index{getPositionY@{getPositionY}!Node@{Node}}
+\subsubsection{\texorpdfstring{getPositionY()}{getPositionY()}}
+{\footnotesize\ttfamily int Node\+::get\+PositionY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the position of node used for vector calculation 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_node_ab680abb24e66f0ac44ad1c01100c284d}\label{class_node_ab680abb24e66f0ac44ad1c01100c284d}} 
+\index{Node@{Node}!getVectX@{getVectX}}
+\index{getVectX@{getVectX}!Node@{Node}}
+\subsubsection{\texorpdfstring{getVectX()}{getVectX()}}
+{\footnotesize\ttfamily double Node\+::get\+VectX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the X vector used for pathfinding. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_node_a94cc29a521ebaf4de2a8d71b7e55346e}\label{class_node_a94cc29a521ebaf4de2a8d71b7e55346e}} 
+\index{Node@{Node}!getVectY@{getVectY}}
+\index{getVectY@{getVectY}!Node@{Node}}
+\subsubsection{\texorpdfstring{getVectY()}{getVectY()}}
+{\footnotesize\ttfamily double Node\+::get\+VectY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Y vector used for pathfinding. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_node_a88680b24156b672fc7cb3598e03b065b}\label{class_node_a88680b24156b672fc7cb3598e03b065b}} 
+\index{Node@{Node}!setCheck@{setCheck}}
+\index{setCheck@{setCheck}!Node@{Node}}
+\subsubsection{\texorpdfstring{setCheck()}{setCheck()}}
+{\footnotesize\ttfamily void Node\+::set\+Check (\begin{DoxyParamCaption}\item[{int}]{num }\end{DoxyParamCaption})}
+
+
+
+Set the node has been used or not used. Is used for reseting nodes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_node_adefee65f1133ce5f2e0b5a363e250ae6}\label{class_node_adefee65f1133ce5f2e0b5a363e250ae6}} 
+\index{Node@{Node}!setCost@{setCost}}
+\index{setCost@{setCost}!Node@{Node}}
+\subsubsection{\texorpdfstring{setCost()}{setCost()}}
+{\footnotesize\ttfamily void Node\+::set\+Cost (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+Set the cost of a node for flow field pathfinding. Set the cost\+Set so it is not used again. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_node_a2066fcdaacfab4e47e976a9a4f60f011}\label{class_node_a2066fcdaacfab4e47e976a9a4f60f011}} 
+\index{Node@{Node}!setDistance@{setDistance}}
+\index{setDistance@{setDistance}!Node@{Node}}
+\subsubsection{\texorpdfstring{setDistance()}{setDistance()}}
+{\footnotesize\ttfamily void Node\+::set\+Distance (\begin{DoxyParamCaption}\item[{int}]{goalX,  }\item[{int}]{goalY }\end{DoxyParamCaption})}
+
+
+
+Distance no longer used for efficiency 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goalX} & \\
+\hline
+{\em goalY} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_node_ae93169d2d1e75142b35699b22804ab82}\label{class_node_ae93169d2d1e75142b35699b22804ab82}} 
+\index{Node@{Node}!setIntegrationField@{setIntegrationField}}
+\index{setIntegrationField@{setIntegrationField}!Node@{Node}}
+\subsubsection{\texorpdfstring{setIntegrationField()}{setIntegrationField()}}
+{\footnotesize\ttfamily void Node\+::set\+Integration\+Field (\begin{DoxyParamCaption}\item[{double}]{field }\end{DoxyParamCaption})}
+
+
+
+Set the integration field of a node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em field} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_node_af93f2231cdb17bec0ff4d77972aefc82}\label{class_node_af93f2231cdb17bec0ff4d77972aefc82}} 
+\index{Node@{Node}!setVector@{setVector}}
+\index{setVector@{setVector}!Node@{Node}}
+\subsubsection{\texorpdfstring{setVector()}{setVector()}}
+{\footnotesize\ttfamily void Node\+::set\+Vector (\begin{DoxyParamCaption}\item[{double}]{vectorX,  }\item[{double}]{vectorY }\end{DoxyParamCaption})}
+
+
+
+Set the vector used by ais for pathfinding. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vectorX} & \\
+\hline
+{\em vectorY} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -7,5 +7,8 @@ var searchData=
   ['checkentities',['checkEntities',['../class_game.html#a0f45755826070a27ccc98e32deca5d87',1,'Game']]],
   ['checknest',['checkNest',['../class_player.html#a3fd7e9acb89b30b0976248c41ae2f8d3',1,'Player']]],
   ['checkplayer',['checkPlayer',['../class_enemy.html#a27b3039c164f52c0a2427d9cca8cdf7c',1,'Enemy']]],
-  ['checkpreds',['checkPreds',['../class_player.html#a094e0de53a41a86c8e15d4c84c6a8064',1,'Player']]]
+  ['checkpreds',['checkPreds',['../class_player.html#a094e0de53a41a86c8e15d4c84c6a8064',1,'Player']]],
+  ['checkset',['checkSet',['../class_node.html#a7888accf4c497dbc71e5f55f8c75a5e4',1,'Node']]],
+  ['clearall',['clearAll',['../class_grid.html#ad87359494dcfba12f838b621869794ae',1,'Grid']]],
+  ['creategrid',['createGrid',['../class_grid.html#af63dd2374a80c307414dae303b0d052e',1,'Grid']]]
 ];
