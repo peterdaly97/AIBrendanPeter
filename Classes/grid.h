@@ -25,7 +25,7 @@ public:
 	void spawnPred(sf::Vector2f);
 
 	int surroundCount = 0;
-	
+
 	sf::Texture m_bulletTex;
 
 private:
@@ -44,9 +44,7 @@ private:
 	void setDistance();
 	void moveAI();
 	void createGrid(int random);
-	void makeMap();
 	void clearAll();
-	//Player* m_player;
 	sf::Font costFont;
 
 	sf::Text randomText;
@@ -70,6 +68,6 @@ private:
 
 	sf::RectangleShape rectangle;
 	Node* node;
-	
+
 	AI* ai;
 };

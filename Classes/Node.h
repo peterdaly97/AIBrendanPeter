@@ -4,17 +4,14 @@
 class Node
 {
 public:
-	Node(int x, int y, int size, sf::Font &costFont, int obstacle);
+	Node(int x, int y, int size, int obstacle);
 	~Node();
-	void update(double dt);
-	void draw(sf::RenderWindow & window);
+	double getVectX();
 	int getPositionX();
 	int getPositionY();
-	double getVectX();
 	double getVectY();
-	void setColor(sf::Color color);
 	void setCost(double x);
-	void setDistance(int goalX,int goalY);
+	void setDistance(int goalX, int goalY);
 	void setVector(double vectorX, double vectorY);
 	void setIntegrationField(double field);
 	void setCheck(int num);
@@ -22,8 +19,6 @@ public:
 	double getIntegrationField();
 	bool checkSet();
 	int rectSize;
-	//sf::Vertex Line[2];
-	void swapIntegrationCalc();
 
 private:
 
