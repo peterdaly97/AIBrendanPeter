@@ -4,13 +4,14 @@
 #include "SFML/Graphics.hpp"
 #include "Grid.h"
 
-
+// An enum that has all states the worker can be in
 enum act
 {
 	FLEE,
 	WANDER	
 };
 
+// A struct that will hold the workers current steering information
 struct handling {
 	sf::Vector2f linear;
 	float angular;
@@ -19,32 +20,36 @@ struct handling {
 class Worker
 {
 public:
-	Worker(act behaviour, sf::Vector2f pos);
-	~Worker();
+	Worker(act behaviour, sf::Vector2f pos);	// Constructor
+	~Worker();	// Deconstructor
 
+	// Update and render functions
 	void update(std::vector<Node*> &nodes,int goalNode);
 	void render(sf::RenderWindow &window);
+
+	// Function for rendering dot to the mini map
 	void renderDot(sf::RenderWindow &window);
 
-	void checkCollision(Grid &grid);
+	void checkCollision(Grid &grid);	// Checks for collision between the wall and worker
+	// Gets new rotation of the worker
 	float getNewRotation(float rot, sf::Vector2f vel);
-	handling wander();
+	handling wander();	// Function that handles the worker wandering 
 
-	handling flee(sf::Vector2f playerPos);
-	float mag(sf::Vector2f v);
+	float mag(sf::Vector2f v);	// Returns magnitude of passed vector
 	void startCalc();
-	float dist(sf::Vector2f v1, sf::Vector2f v2);
+	float dist(sf::Vector2f v1, sf::Vector2f v2);	// Returns distance between the passed vectors
 
+	bool m_collected = false;
+
+	// Visual attributes
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;
 
+	// Physical attributes
 	sf::Vector2f m_position;
 	sf::Vector2f m_velocity;
 	float m_rotation;
 	sf::Vector2f m_targetPos;
-
-	bool m_collected = false;
-
 	const double DEG_TO_RAD = 3.14159 / 180.0f;
 	const double RAD_TO_DEG = 180.0f / 3.14159;
 	float m_speed;
@@ -53,8 +58,8 @@ public:
 	const float MAX_BACKWARD_SPEED = 2.5;
 	const float TIME_TO_TARGET = 80.0f;
 
-	bool magnet = false;
-	void move(double vectorX, double vectorY);
+	bool magnet = false;	// If the worker is moving towards the player
+	void move(double vectorX, double vectorY);	// Function handles moving the worker
 
 	int tempGrid = 999999;
 	bool gridChanged = false;

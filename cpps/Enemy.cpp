@@ -287,7 +287,9 @@ float Enemy::mag(sf::Vector2f v) {
 	return std::sqrt(v.x * v.x + v.y * v.y);
 }
 
-// Function that handles updating of velocity and rotation
+/// <summary>
+/// Function that handles updating of velocity and rotation
+/// </summary>
 void Enemy::startCalc() {
 	if (m_velocity.x != 0 || m_velocity.y != 0)
 	{
