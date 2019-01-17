@@ -7,19 +7,18 @@ class ParticleSystem
 {
 public:
 
-	ParticleSystem(int count, sf::Vector2f pos);
+	ParticleSystem(int count, sf::Vector2f pos);	// Constructor
 	
-	void update();
-
+	// Update and draw functions
+	void update();	
 	void draw(sf::RenderWindow& window) ;
 
-	std::vector<Particle *> m_particles;
+	std::vector<Particle *> m_particles;	// The vector particles the system handles
 	
 private:
 
-	void resetParticle(int index);
+	void resetParticle(int index);	// Function to reset particle when particle is dead
 
-	
-	sf::Vector2f m_position;
+	sf::Vector2f m_position;	// Position of particle system
 };
 #endif // !PARTICLESYSTEM_H

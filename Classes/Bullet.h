@@ -7,32 +7,27 @@
 class Bullet
 {
 public:
-
+	// Constructor
 	Bullet(sf::Vector2f pos, float rot, sf::Texture & tex);
 
-	~Bullet() { }
+	~Bullet() { }	// Deconstructor 
 
-	void update();
+	// Update and render functions
+	void update();	
 	void render(sf::RenderWindow & window);
 
+	// Physical attributes
 	sf::Vector2f m_pos;
 	float m_rot;
-
 	sf::Vector2f m_impulse;
 	int m_lifeTime;
-
-
-	sf::Sprite m_sprite;
-
 	const int MAX_LIFE = 100;
-
-private:
-
-	sf::Texture m_tex;
-
+	int m_speed;
 	const double DEG_TO_RAD = 3.14159 / 180.0f;
 
-	int m_speed;
+	// Visual attributes
+	sf::Sprite m_sprite;
+	sf::Texture m_tex;
 };
 #endif // !BULLET_H
 

@@ -5,22 +5,29 @@
 class PowerUp
 {
 public:
+	// Constructor
 	PowerUp(int x, int y, sf::Texture &powerTexture, int value);
-	~PowerUp();
-	void update(sf::Vector2f playerPosition, int &health);
+	~PowerUp();	// Deconstructor
+
+	// Render function
 	void draw(sf::RenderWindow & window);
+
+	// Function for rendering dot on the mini map
 	void renderDot(sf::RenderWindow & window);
+
+	// Function for checking to see if it was collected by the player
 	int checkCollected(sf::Vector2f playerPosition);
 
-	int m_value;
+	int m_value;	// The value which determines what type of powerup its is
 
 private:
 	
-	sf::CircleShape shape;
+	sf::CircleShape shape;	// Shape to be drawn on minimap
 
-	float dist(sf::Vector2f v1, sf::Vector2f v2);
+	// Function that calculates the distance between 2 vectors
+	float dist(sf::Vector2f v1, sf::Vector2f v2);	
 
-	sf::Sprite powerSprite;
+	sf::Sprite powerSprite;	// Sprite of pick up
 
-	sf::Vector2f powerPosition;
+	sf::Vector2f powerPosition;	// Position of pick up
 };
