@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Bullet.h"
+#include "Node.h"
 
 class Player;
 
@@ -13,6 +14,7 @@ public:
 	void draw(sf::RenderWindow & window);
 	void renderDot(sf::RenderWindow & window);
 	void move(double vectorX, double vectorY);
+	void move2();
 	int getPositionX();
 	int getPositionY();
 	void surround(sf::Vector2f position);
@@ -29,13 +31,22 @@ public:
 	bool surroundNow = false;
 	bool surrounded = false;
 
+
 	int spot = 0;
 
+	void checkWalls(int AIgrid, std::vector<Node*> &nodes);
+
+	bool removeCount = false;
+
 private:
+
+	bool leftAvailable = true;
+	bool rightAvailable = true;
+	bool upAvailable = true;
+	bool downAvailable = true;
+
 	int m_bulletCounter = 0;
 	const int BULLET_TIME = 30;
-
-	void checkPlayer(sf::Vector2f playerPosition);
 
 	sf::CircleShape shape;
 

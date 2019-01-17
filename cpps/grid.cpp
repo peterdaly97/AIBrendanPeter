@@ -349,12 +349,16 @@ void Grid::moveAI()
 
 				if (AIgrid == goalNode)
 				{
-					// Don't move (vector will be 0).
+					if (ais[x]->surroundNow == true)
+					{
+						ais[x]->move(nodes[AIgrid]->getVectX(), nodes[AIgrid]->getVectY());
+					}
 				}
 				else
 				{
 					ais[x]->move(nodes[AIgrid]->getVectX(), nodes[AIgrid]->getVectY());  // Use grid number to apply correct vector to the predator.
 				}
+				ais[x]->checkWalls(AIgrid, nodes);
 			}
 		}
 	}
@@ -373,6 +377,11 @@ void Grid::updateAI(sf::Vector2f playerPosition, int &health)
 	{
 		for (int x = 0; x < ais.size(); x++)
 		{
+			if (ais[x]->removeCount == true)
+			{
+				surroundCount = surroundCount - 1;
+				ais[x]->removeCount = false;
+			}
 			ais[x]->update(playerPosition, health);
 			if (ais[x]->surroundNow == true)  // Within surround distance.
 			{

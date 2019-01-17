@@ -81,6 +81,15 @@ void AI::update(sf::Vector2f playerPosition, int &health)
 		}
 		surroundNow = true;
 	}
+	else
+	{
+		surroundNow = false;
+		if (surrounded == true)  // Check to see if it has been counted before.
+		{
+			removeCount = true;  // Set bool to tell grid to remove a count from the surround amount.
+			surrounded = false;  // Set the counted before to false. 
+		}
+	}
 
 
 }
@@ -92,15 +101,45 @@ void AI::update(sf::Vector2f playerPosition, int &health)
 /// <param name="vectorY"></param>
 void AI::move(double vectorX, double vectorY)
 {
+	// set velocity vector to 0 if that direction is not available.
 	if (surroundNow != true)
 	{
 		aiSprite.setPosition(aiSprite.getPosition().x + vectorX * aiSpeed, aiSprite.getPosition().y + vectorY * aiSpeed);  // Move with pathfinding vector.
 	}
 	else
 	{
+		if (leftAvailable == false)
+		{
+			if (aiVelocity.x < 0)
+			{
+				aiVelocity.x = 0;
+			}
+		}
+		if (rightAvailable == false)
+		{
+			if (aiVelocity.x > 0)
+			{
+				aiVelocity.x = 0;
+			}
+		}
+		if (upAvailable == false)
+		{
+			if (aiVelocity.y < 0)
+			{
+				aiVelocity.y = 0;
+			}
+		}
+		if (downAvailable == false)
+		{
+			if (aiVelocity.y > 0)
+			{
+				aiVelocity.y = 0;
+			}
+		}
 		aiSprite.setPosition(aiSprite.getPosition().x + aiVelocity.x * aiSpeed, aiSprite.getPosition().y + aiVelocity.y * aiSpeed);  // Move with spot in circle vector.
 	}
 }
+
 
 /// <summary>
 /// Draw the predator and call bullets to draw themselves
@@ -115,6 +154,38 @@ void AI::draw(sf::RenderWindow & window)
 			bullet->render(window);
 		}
 
+	}
+}
+
+/// <summary>
+/// Check to see if all directions are available and set bools accordingly.
+/// </summary>
+/// <param name="AIgrid"></param>
+/// <param name="nodes"></param>
+void AI::checkWalls(int AIgrid, std::vector<Node*> &nodes)
+{
+	int indexHorizontal = 50;
+	int indexVertical = 1;
+	leftAvailable = true;
+	rightAvailable = true;
+	upAvailable = true;
+	downAvailable = true;
+
+	if (nodes[AIgrid - indexHorizontal]->getCost() >= 9000)  // Left check
+	{
+		leftAvailable = false;
+	}
+	if (nodes[AIgrid + indexHorizontal]->getCost() >= 9000)  // Right check
+	{
+		rightAvailable = false;
+	}
+	if (nodes[AIgrid - indexVertical]->getCost() >= 9000)  // Up check
+	{
+		upAvailable = false;
+	}
+	if (nodes[AIgrid + indexVertical]->getCost() >= 9000)  // Down check
+	{
+		downAvailable = false;
 	}
 }
 
