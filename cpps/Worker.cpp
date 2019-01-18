@@ -20,8 +20,9 @@ Worker::Worker(act behaviour, sf::Vector2f pos) {
 	m_sprite.setPosition(pos);
 
 	// Give worker new random position to wander to
-	m_targetPos.x = rand() % 2048;
-	m_targetPos.y = rand() % 1080;
+	m_targetPos.x = rand() % 9600 - 4800;
+	m_targetPos.y = rand() % 9600 - 4800;
+	std::cout << m_targetPos.x << std::endl;
 
 	b = behaviour; // Give worker a behaviour
 }
@@ -65,8 +66,8 @@ void Worker::checkCollision(Grid &grid) {
 		m_velocity.y = -m_velocity.y * 0.6;
 
 		// Change position worker is moving towards
-		m_targetPos.x = rand() % 3840;
-		m_targetPos.y = rand() % 2160;
+		m_targetPos.x = rand() % 9600 - 4800;
+		m_targetPos.y = rand() % 9600 - 4800;
 	}
 }
 
@@ -148,8 +149,8 @@ handling Worker::wander() {
 	if (dist(m_targetPos, m_position) < 10) {
 	// If worker has reached destination
 		// Assign a new target destination
-		m_targetPos.x = rand() % 3840;
-		m_targetPos.y = rand() % 2160;
+		m_targetPos.x = rand() % 9600 - 4800;
+		m_targetPos.y = rand() % 9600 - 4800;
 	}
 
 	handling wanderSteer;

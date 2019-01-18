@@ -32,7 +32,7 @@ void Missile::update(sf::Vector2f playerPos, int & health) {
 
 	if (dist(playerPos, m_position) < 45) {
 	// If missile has hit player
-		health--;	// Hurt the player
+		health = health - 15;	// Hurt the player
 		m_dead = true;	// Missile is dead
 	}
 

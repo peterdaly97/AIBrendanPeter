@@ -207,7 +207,7 @@ void Player::move() {
 void Player::checkCollection(std::vector<Worker*> * workers) {
 	for (int i = 0; i < workers->size(); i++) {
 	// Loops through all the workers
-		if (dist(m_position, workers->at(i)->m_position) < 30) {
+		if (dist(m_position, workers->at(i)->m_position) < 40) {
 		// Checks if player has hit the worker
 			workers->at(i)->m_collected = true;	// Sets worker to be collected
 			m_collected++;	// Increments amount of workers collected

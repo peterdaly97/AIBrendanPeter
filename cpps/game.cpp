@@ -23,6 +23,8 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_workerSprite.setOrigin(m_workerSprite.getLocalBounds().width / 2, m_workerSprite.getLocalBounds().height / 2);
 	m_workerSprite.setScale(2, 2);
 
+	srand(time(NULL));
+
 	if (!m_font.loadFromFile("assets/arial.ttf"))	// Checks to make sure font is correct
 	{
 		std::cout << "Problem loading font file!" << std::endl;
@@ -80,6 +82,27 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_loseSprite.setPosition(sf::Vector2f(0, 0));
 	m_loseSprite.setColor(sf::Color(255, 255, 255, 150));
 	m_loseSprite.setScale(1.2, 1.2);
+
+
+	// Randomly spawn workers at a non obstacle
+	for (int i = 0; i < grid->nodes.size(); i++)
+	{	
+			if (grid->nodes[i]->getCost() < 9999)
+			{
+				int workerRand = rand() % 40 + 1;
+				if (workerRand == 2)
+				{
+					m_workers.push_back(new Worker(act::WANDER, sf::Vector2f(grid->nodes[i]->getPositionX() + 100, grid->nodes[i]->getPositionY() + 100)));
+					m_totalWorkers++;
+				}
+			}
+	}
+	m_totalWorkers = m_workers.size();
+	
+
+
+
+	
 }
 
 /// <summary>
