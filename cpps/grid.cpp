@@ -356,7 +356,7 @@ void Grid::moveAI()
 				}
 				else
 				{
-					if (AIgrid <= 2500)
+					if (AIgrid <= 2500 && AIgrid >= -2500)
 					{
 						ais[x]->move(nodes[AIgrid]->getVectX(), nodes[AIgrid]->getVectY());  // Use grid number to apply correct vector to the predator.
 					}

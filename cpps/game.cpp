@@ -52,12 +52,6 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_mapBorder.setOutlineColor(sf::Color::Black);
 	m_mapBorder.setSize(sf::Vector2f(300, 200));
 
-	// Initialising and positioning the power ups
-	m_powerUps.push_back(new PowerUp(500, 500, m_powerTex, 1));
-	m_powerUps.push_back(new PowerUp(500, 1000, m_blastTex, 2));
-	m_powerUps.push_back(new PowerUp(500, 1500, m_healthTex, 3));
-
-
 	m_miniMap.zoom(10);	// Setting how zoomed out the mini map is
 	grid = new Grid();	// Initialising the grid
 
@@ -93,11 +87,25 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	}
 	m_totalWorkers = m_workers.size();
 
+	// Initialising and positioning the powerUps randomly
+	for (int i = 0; i < grid->nodes.size(); i++)
+	{
+		if (grid->nodes[i]->getCost() < 9999)
+		{
+			int powerUpRand = rand() % 1000 + 1;
+			if (powerUpRand >= 1 && powerUpRand <= 5) {
+				m_powerUps.push_back(new PowerUp(grid->nodes[i]->getPositionX() + 100, grid->nodes[i]->getPositionY() + 100, m_powerTex, 1));
+			}
+			if (powerUpRand >= 20 && powerUpRand < 30) {
+				m_powerUps.push_back(new PowerUp(grid->nodes[i]->getPositionX() + 100, grid->nodes[i]->getPositionY() + 100, m_blastTex, 2));
+			}
+			if (powerUpRand >= 30 && powerUpRand < 40) {
+				m_powerUps.push_back(new PowerUp(grid->nodes[i]->getPositionX() + 100, grid->nodes[i]->getPositionY() + 100, m_healthTex, 3));
+			}
+		}
+	}
+
 	// Initialising and positioning the nests
-	//m_nests.push_back(new Nest(sf::Vector2f(0, -4000)));
-	//m_nests.push_back(new Nest(sf::Vector2f(-3500, 2000)));
-	//m_nests.push_back(new Nest(sf::Vector2f(3500, -2000)));
-	//m_nests.push_back(new Nest(sf::Vector2f(-1000, 3600)));
 	createNests();
 
 
