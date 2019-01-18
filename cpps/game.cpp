@@ -47,14 +47,6 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_mapBorder.setOutlineThickness(10.0f);
 	m_mapBorder.setOutlineColor(sf::Color::Black);
 	m_mapBorder.setSize(sf::Vector2f(300, 200));
-
-	// Initialising and positioning the workers
-	m_workers.push_back(new Worker(act::WANDER, sf::Vector2f(200, 200)));
-
-	// Initialising and positioning the nests
-	m_nests.push_back(new Nest(sf::Vector2f(0, -4000)));
-	m_nests.push_back(new Nest(sf::Vector2f(-3500, 2000)));
-	m_nests.push_back(new Nest(sf::Vector2f(3500, -2000)));
 	
 	// Initialising and positioning the power ups
 	m_powerUps.push_back(new PowerUp(500, 500, m_powerTex, 1));
@@ -84,7 +76,7 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_loseSprite.setScale(1.2, 1.2);
 
 
-	// Randomly spawn workers at a non obstacle
+	// Initialising and positioning the workers randomly
 	for (int i = 0; i < grid->nodes.size(); i++)
 	{	
 			if (grid->nodes[i]->getCost() < 9999)
@@ -98,6 +90,13 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 			}
 	}
 	m_totalWorkers = m_workers.size();
+
+	// Initialising and positioning the nests
+	//m_nests.push_back(new Nest(sf::Vector2f(0, -4000)));
+	//m_nests.push_back(new Nest(sf::Vector2f(-3500, 2000)));
+	//m_nests.push_back(new Nest(sf::Vector2f(3500, -2000)));
+	//m_nests.push_back(new Nest(sf::Vector2f(-1000, 3600)));
+	createNests();
 	
 
 
@@ -119,6 +118,38 @@ void Game::run() {
 	while (m_window.isOpen()) {
 		update();
 		render();
+	}
+}
+
+void Game::createNests() {
+	m_nests.clear();
+	int nestRand = rand() % 2 + 1;
+	// Random middle nest
+	if (nestRand == 1)
+	{
+		m_nests.push_back(new Nest(sf::Vector2f(0, -4000)));
+	}
+	else
+	{
+		m_nests.push_back(new Nest(sf::Vector2f(-1000, 3600)));
+	}
+	// Random left nest
+	if (nestRand == 1)
+	{
+		m_nests.push_back(new Nest(sf::Vector2f(-3500, 3500)));
+	}
+	else
+	{
+		m_nests.push_back(new Nest(sf::Vector2f(-3500, -3500)));
+	}
+	// Random right nest
+	if (nestRand == 1)
+	{
+		m_nests.push_back(new Nest(sf::Vector2f(3500, 3500)));
+	}
+	else
+	{
+		m_nests.push_back(new Nest(sf::Vector2f(3500, -3500)));
 	}
 }
 

@@ -41,6 +41,8 @@ public:
 	Grid* grid;	// Our grid object
 
 private:
+
+	void createNests();
 	sf::Texture m_worldTexture;
 	sf::Sprite m_worldSprite;
 

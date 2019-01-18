@@ -356,7 +356,10 @@ void Grid::moveAI()
 				}
 				else
 				{
-					ais[x]->move(nodes[AIgrid]->getVectX(), nodes[AIgrid]->getVectY());  // Use grid number to apply correct vector to the predator.
+					if (AIgrid <= 2500)
+					{
+						ais[x]->move(nodes[AIgrid]->getVectX(), nodes[AIgrid]->getVectY());  // Use grid number to apply correct vector to the predator.
+					}
 				}
 				ais[x]->checkWalls(AIgrid, nodes);
 			}
