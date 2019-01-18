@@ -30,7 +30,7 @@ public:
 	sf::RenderWindow m_window;
 
 	std::vector<Nest *> m_nests;	// The vector containing all nests in game
-	 
+
 	const int SCREEN_WIDTH = 1200;
 	const int SCREEN_HEIGHT = 800;
 
@@ -51,7 +51,7 @@ private:
 
 	std::vector<Worker *> m_workers;	// The vector containing all workers in game
 	std::vector<Enemy *> m_remainingEnemies;	// The vector containing all enemies not being updates by nests
-	
+
 	std::vector<PowerUp *> m_powerUps; // The vector containing all power ups in game
 	sf::Texture m_powerTex;
 	sf::Texture m_blastTex;
@@ -65,6 +65,7 @@ private:
 
 	sf::Text m_heartText;
 	sf::Text m_workerText;
+	sf::Text m_scoreText;
 	sf::Font m_font;
 
 	std::vector<ParticleSystem *> m_particles; // The vector containing all particles in game

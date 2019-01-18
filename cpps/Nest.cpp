@@ -32,25 +32,25 @@ Nest::~Nest() {}
 /// <param name="wpos"></param>
 void Nest::update(sf::Vector2f playerPos, int & health, std::vector<ParticleSystem *> & ps, Grid &grid, std::vector<Worker *> wpos) {
 	// Increment timers for spawning enemies
-	m_spawnTimer++;	
+	m_spawnTimer++;
 	predSpawnTimer++;
 
 	if (m_spawnTimer > SPAWN_NEXT && m_enemies.size() < 5) {
-	// If time to spawn sweeper bot and the maximum number hasn't been reached
+		// If time to spawn sweeper bot and the maximum number hasn't been reached
 		spawn();	// Spawn sweeper bot
 	}
 	for (Enemy* enemy : m_enemies) {
-	// Loop through enemies
-		
+		// Loop through enemies
+
 		enemy->update(playerPos, sf::Vector2f(0, 0));	// Update sweeper
 		enemy->checkCollision(grid);	// Check sweeper for collision with walls
 		enemy->lookFor(wpos);	// Have enemies check if worker is in line of sight
 	}
 	for (int i = 0; i < m_missiles.size(); i++) {
-	// Loop through missiles
+		// Loop through missiles
 		m_missiles.at(i)->update(playerPos, health);	// Update missiles
 		if (m_missiles.at(i)->m_dead) {
-		// If missile is dead
+			// If missile is dead
 			// Spawn particles at missiles position
 			ps.push_back(new ParticleSystem(1000, m_missiles.at(i)->m_position));
 			m_missiles.erase(m_missiles.begin() + i);	// Delete missile 
@@ -65,7 +65,7 @@ void Nest::update(sf::Vector2f playerPos, int & health, std::vector<ParticleSyst
 int Nest::spawnPredator()
 {
 	if (predSpawnTimer > 100) {
-	// If its time to spawn a predator
+		// If its time to spawn a predator
 		predSpawnTimer = 0;	// Reset timer 
 		return 1; // Return true 
 	}
@@ -77,11 +77,12 @@ int Nest::spawnPredator()
 /// <summary>
 /// Function that is called when the nest is hit by a bullet
 /// </summary>
-void Nest::loseHealth() {
+void Nest::loseHealth(int & score) {
 	m_health--;	// Deduct health 
 	if (m_health <= 0) {
-	// Checks if nest has run out of health
+		// Checks if nest has run out of health
 		m_dead = true;	// Set nest to be dead
+		score += 20;
 	}
 }
 
@@ -90,7 +91,7 @@ void Nest::loseHealth() {
 /// </summary>
 void Nest::addMissile() {
 	if (m_missiles.size() < 1) {
-	// If missile is currently fired 
+		// If missile is currently fired 
 		m_missiles.push_back(new Missile(m_position));	// Fire missile
 	}
 }
@@ -131,6 +132,6 @@ void Nest::renderDot(sf::RenderWindow &window) {
 void Nest::spawn() {
 	m_spawnTimer = 0;	// Reset the timer
 
-	// Spawn a new sweeper
+						// Spawn a new sweeper
 	m_enemies.push_back(new Enemy(behaviour::PATROL, m_position, 5.0f, &m_enemyTex));
 }

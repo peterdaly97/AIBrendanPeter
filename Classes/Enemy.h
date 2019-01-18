@@ -14,9 +14,9 @@ enum behaviour
 };
 
 // A struct that will hold the enemies current steering information
-struct steering { 
-	sf::Vector2f linear; 
-	float angular; 
+struct steering {
+	sf::Vector2f linear;
+	float angular;
 };
 
 class Enemy
@@ -31,8 +31,8 @@ public:
 	void update(sf::Vector2f playerPos, sf::Vector2f playerVel);	// Update function
 	void render(sf::RenderWindow &window);	// Render function
 
-	// Function fo rendering dot on minimap at enemies position
-	void renderEnemyDot(sf::RenderWindow &window);	
+											// Function fo rendering dot on minimap at enemies position
+	void renderEnemyDot(sf::RenderWindow &window);
 
 	// Function that updates enemies rotation
 	float getNewRotation(float rot, sf::Vector2f vel);
@@ -50,7 +50,7 @@ public:
 	float dist(sf::Vector2f v1, sf::Vector2f v2);	// Calculates distance between 2 vectors
 	bool lookFor(std::vector<Worker *> enemies);	// Function looks for workers in line of sight
 
-	// Visual attributes of enemy
+													// Visual attributes of enemy
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;
 
@@ -76,6 +76,10 @@ public:
 	bool gridChanged = false;
 
 	int m_collected = 0;	// How many workers the enemy has collected
+
+							// Two random points to wander between
+	int minRandom = -4800;
+	int maxRandom = 9600;
 
 private:
 	behaviour b;	// Behaviour of enemy

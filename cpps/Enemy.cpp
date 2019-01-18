@@ -19,8 +19,8 @@ Enemy::Enemy(behaviour behaviour, sf::Vector2f pos, float maxSpeed, sf::Texture 
 	m_speed = 2.5;
 
 	// Chooses random positon for sweeper to wander towards
-	m_targetPos->x = rand() % 2048;
-	m_targetPos->y = rand() % 1080;
+	m_targetPos->x = rand() % maxRandom + minRandom;
+	m_targetPos->y = rand() % maxRandom + minRandom;
 
 	// Assigns a behaviour to the sweeper bot
 	b = behaviour;
@@ -37,10 +37,10 @@ Enemy::~Enemy() {}
 /// <param name="playerPos"></param>
 /// <param name="playerVel"></param>
 void Enemy::update(sf::Vector2f playerPos, sf::Vector2f playerVel) {
-	
+
 	checkPlayer(playerPos);	// Checks to see if the player is near
 
-	// Checks what behaviour the sweeper has
+							// Checks what behaviour the sweeper has
 	switch (b)
 	{
 	case SEEK:
@@ -91,7 +91,7 @@ void Enemy::checkCollision(Grid &grid) {
 	tempGrid = playerGrid;
 
 	if (grid.nodes[playerGrid]->getCost() >= 9999) {
-	// Checks if sweeper is hitting a wall
+		// Checks if sweeper is hitting a wall
 
 		// Knock sweeper back
 		m_position -= (m_velocity * 3.0f);
@@ -99,8 +99,8 @@ void Enemy::checkCollision(Grid &grid) {
 		m_velocity.y = -m_velocity.y * 0.6;
 
 		// Change position sweeper is moving towards
-		m_targetPos->x = rand() % 3840;
-		m_targetPos->y = rand() % 2160;
+		m_targetPos->x = rand() % maxRandom + minRandom;
+		m_targetPos->y = rand() % maxRandom + minRandom;
 	}
 }
 
@@ -110,13 +110,16 @@ void Enemy::checkCollision(Grid &grid) {
 /// <param name="playerPos"></param>
 void Enemy::checkPlayer(sf::Vector2f playerPos) {
 	if (dist(playerPos, m_position) < 300) {
-	// Is player less than 300 pixels away
+		// Is player less than 300 pixels away
+		// Change position sweeper is moving towards
+		m_targetPos->x = rand() % maxRandom + minRandom;
+		m_targetPos->y = rand() % maxRandom + minRandom;
 		if (b == behaviour::PATROL) {
 			b = behaviour::EVADE;	// Evade the player
 		}
 	}
 	else if (b == behaviour::EVADE) {
-	// If player is further away 
+		// If player is further away 
 		b = behaviour::PATROL;	// Go back to patrolling
 	}
 }
@@ -138,12 +141,12 @@ steering Enemy::wander() {
 		m_changeAngle *= -1;
 	}
 	m_sprite.setRotation(m_rotation);	// Assigns new rotation to the sprite
-	
+
 	if (dist(*m_targetPos, m_position) < 10) {
-	// If sweeper has reached destination
+		// If sweeper has reached destination
 		// Assign a new target destination
-		m_targetPos->x = rand() % 3840;
-		m_targetPos->y = rand() % 2160;
+		m_targetPos->x = rand() % maxRandom + minRandom;
+		m_targetPos->y = rand() % maxRandom + minRandom;
 	}
 
 	steering wanderSteer;
@@ -194,9 +197,9 @@ steering Enemy::seek(sf::Vector2f playerPos) {
 /// <returns></returns>
 bool Enemy::lookFor(std::vector<Worker *> enemies) {
 	for (Worker * w : enemies) {
-	// Loops through workers
+		// Loops through workers
 		if (mag(m_position - w->m_position) < 300 && w->m_position != m_position) {
-		// Cheks if worker is close enough
+			// Cheks if worker is close enough
 			sf::Vector2f realVelPos = m_velocity + m_position;
 
 			// C = m_position A = m_velocity B = Player Pos
@@ -214,15 +217,15 @@ bool Enemy::lookFor(std::vector<Worker *> enemies) {
 			angle = angle * RAD_TO_DEG;
 
 			if (dist(w->m_position, m_position) < 50) {
-			// If sweeper has caught worker
+				// If sweeper has caught worker
 				b = behaviour::PATROL;	// Worker goes back to patrolling
 				m_collected++;	// Increment amount sweeper has caught
 				w->m_collected = true;	// Set worker to have been collected
-				angle = 180;	
+				angle = 180;
 			}
 
 			if (angle < 45 && angle > -45) {
-			// Worker is in line of sight of sweeper
+				// Worker is in line of sight of sweeper
 				m_targetPos = &w->m_position;	// Sets target position to workers position
 				b = behaviour::SEEK;	// Sweeper will now seek worker
 				return true;
@@ -265,13 +268,13 @@ void Enemy::renderEnemyDot(sf::RenderWindow &window) {
 float Enemy::getNewRotation(float rot, sf::Vector2f vel) {
 
 	if (mag(m_velocity) > 0.0) {
-	// Makes sure sweeper is moving
+		// Makes sure sweeper is moving
 		// Calculates rotation based on which way sweeper is moving
 		float rotation = std::atan2(-m_velocity.x, m_velocity.y) * (180 / 3.14159);
 		return (rotation + 90);
 	}
 	else {
-	// If sweeper isn't moving
+		// If sweeper isn't moving
 		return rot;	// Just return current rotation
 	}
 
@@ -298,7 +301,7 @@ void Enemy::startCalc() {
 		m_velocity = m_velocity * m_speed;
 		m_rotation = getNewRotation(m_rotation, m_velocity);
 	}
-	
+
 }
 
 /// <summary>

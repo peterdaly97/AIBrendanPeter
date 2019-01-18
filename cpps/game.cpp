@@ -4,7 +4,7 @@
 /// Game constructor which initialises our render window
 /// </summary>
 Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
-		
+
 	// Setting the update time for the game
 	m_window.setFramerateLimit(60);
 
@@ -13,11 +13,11 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_worldSprite.setTexture(m_worldTexture);
 	m_worldSprite.setScale(1, 1);
 	m_worldSprite.setOrigin(m_worldSprite.getLocalBounds().width / 2, m_worldSprite.getLocalBounds().height / 2);
-	
+
 	m_heartTex.loadFromFile("assets/heart.png");
 	m_heartSprite.setTexture(m_heartTex);
 	m_heartSprite.setOrigin(m_heartSprite.getLocalBounds().width / 2, m_heartSprite.getLocalBounds().height / 2);
-	
+
 	m_workerTex.loadFromFile("assets/worker.png");
 	m_workerSprite.setTexture(m_workerTex);
 	m_workerSprite.setOrigin(m_workerSprite.getLocalBounds().width / 2, m_workerSprite.getLocalBounds().height / 2);
@@ -44,10 +44,14 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_workerText.setFillColor(sf::Color::White);
 	m_workerText.setOrigin(m_workerText.getLocalBounds().width / 2, m_workerText.getLocalBounds().height / 2);
 
+	m_scoreText.setFont(m_font);
+	m_scoreText.setFillColor(sf::Color::White);
+	m_scoreText.setOrigin(m_scoreText.getLocalBounds().width / 2, m_scoreText.getLocalBounds().height / 2);
+
 	m_mapBorder.setOutlineThickness(10.0f);
 	m_mapBorder.setOutlineColor(sf::Color::Black);
 	m_mapBorder.setSize(sf::Vector2f(300, 200));
-	
+
 	// Initialising and positioning the power ups
 	m_powerUps.push_back(new PowerUp(500, 500, m_powerTex, 1));
 	m_powerUps.push_back(new PowerUp(500, 1000, m_blastTex, 2));
@@ -57,7 +61,7 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_miniMap.zoom(10);	// Setting how zoomed out the mini map is
 	grid = new Grid();	// Initialising the grid
 
-	// Passing the loaded in bullet texture to the player and grid
+						// Passing the loaded in bullet texture to the player and grid
 	player.m_bulletTex = m_bulletTex;
 	grid->m_bulletTex = m_bulletTex;
 
@@ -65,29 +69,27 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_winSprite.setTexture(m_winTex);
 	m_winSprite.setOrigin(m_winSprite.getLocalBounds().width / 2, m_winSprite.getLocalBounds().height / 2);
 	m_winSprite.setPosition(sf::Vector2f(0, 0));
-	m_winSprite.setColor(sf::Color(255, 255, 255, 150));
 	m_winSprite.setScale(1.2, 1.2);
 
 	m_loseTex.loadFromFile("assets/lose.png");
 	m_loseSprite.setTexture(m_loseTex);
 	m_loseSprite.setOrigin(m_loseSprite.getLocalBounds().width / 2, m_loseSprite.getLocalBounds().height / 2);
 	m_loseSprite.setPosition(sf::Vector2f(0, 0));
-	m_loseSprite.setColor(sf::Color(255, 255, 255, 150));
 	m_loseSprite.setScale(1.2, 1.2);
 
 
 	// Initialising and positioning the workers randomly
 	for (int i = 0; i < grid->nodes.size(); i++)
-	{	
-			if (grid->nodes[i]->getCost() < 9999)
+	{
+		if (grid->nodes[i]->getCost() < 9999)
+		{
+			int workerRand = rand() % 40 + 1;
+			if (workerRand == 2)
 			{
-				int workerRand = rand() % 40 + 1;
-				if (workerRand == 2)
-				{
-					m_workers.push_back(new Worker(act::WANDER, sf::Vector2f(grid->nodes[i]->getPositionX() + 100, grid->nodes[i]->getPositionY() + 100)));
-					m_totalWorkers++;
-				}
+				m_workers.push_back(new Worker(act::WANDER, sf::Vector2f(grid->nodes[i]->getPositionX() + 100, grid->nodes[i]->getPositionY() + 100)));
+				m_totalWorkers++;
 			}
+		}
 	}
 	m_totalWorkers = m_workers.size();
 
@@ -97,11 +99,11 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	//m_nests.push_back(new Nest(sf::Vector2f(3500, -2000)));
 	//m_nests.push_back(new Nest(sf::Vector2f(-1000, 3600)));
 	createNests();
-	
 
 
 
-	
+
+
 }
 
 /// <summary>
@@ -159,7 +161,7 @@ void Game::createNests() {
 void Game::update() {
 
 	for (int i = 0; i < m_powerUps.size(); i++) {
-	// Loops through power ups
+		// Loops through power ups
 		// Checks if power up was collected
 		if (m_powerUps.at(i)->checkCollected(player.m_sprite.getPosition()) > 0) {
 			// Carries out effect on player based on which power up was collected
@@ -178,8 +180,8 @@ void Game::update() {
 	checkEntities(); // Calls function which updates every entity
 
 	for (int i = 0; i < m_particles.size(); i++) {
-	// Loops through particle systems
-		m_particles.at(i)->update(); 
+		// Loops through particle systems
+		m_particles.at(i)->update();
 
 		//Checks if the particle system is empty
 		if (m_particles.at(i)->m_particles.size() <= 0) {
@@ -263,7 +265,7 @@ void Game::checkEntities() {
 void Game::render() {
 	m_window.clear();	// Clears window
 	m_window.setView(player.m_view);	// Sets view of window to be the players view
-	
+
 	m_window.draw(m_worldSprite);	// Draws background
 	grid->draw(m_window);	// Draws all the tiles
 	for (PowerUp * powerUp : m_powerUps)
@@ -283,14 +285,15 @@ void Game::render() {
 		ps->draw(m_window); // Draw particle system
 	}
 
-	
+
 	player.render(m_window);	// Draw the player
 
-	// Draw UI
+								// Draw UI
 	m_window.draw(m_heartSprite);
 	m_window.draw(m_workerSprite);
 	m_window.draw(m_heartText);
 	m_window.draw(m_workerText);
+	m_window.draw(m_scoreText);
 	if (!m_win && !m_lose) {
 		m_mapBorder.setPosition(player.m_sprite.getPosition().x + 300, player.m_sprite.getPosition().y + 200);
 		m_window.draw(m_mapBorder);
@@ -320,14 +323,27 @@ void Game::render() {
 		// Set mini map viewport to bottom right corner of the screen
 		m_miniMap.setViewport(sf::FloatRect(0.75, 0.75, 0.25, 0.25));
 	}
-	
+
 	if (m_win) {
 		m_winSprite.setPosition(player.m_position);
 		m_window.draw(m_winSprite);
+		m_scoreText.setCharacterSize(100.0f);
+		m_scoreText.setPosition(
+			player.m_sprite.getPosition().x - m_scoreText.getGlobalBounds().width / 2,
+			player.m_sprite.getPosition().y - m_scoreText.getGlobalBounds().height / 2
+		);
+		m_window.draw(m_scoreText);
 	}
 	if (m_lose) {
 		m_loseSprite.setPosition(player.m_position);
 		m_window.draw(m_loseSprite);
+		m_scoreText.setFillColor(sf::Color::Black);
+		m_scoreText.setCharacterSize(100.0f);
+		m_scoreText.setPosition(
+			player.m_sprite.getPosition().x - m_scoreText.getGlobalBounds().width / 2,
+			player.m_sprite.getPosition().y - 200
+		);
+		m_window.draw(m_scoreText);
 	}
 	m_window.display();		// Display the window 
 }
@@ -357,6 +373,12 @@ void Game::updateUI() {
 	m_workerText.setString(std::to_string(player.m_collected));
 	m_workerText.setPosition(
 		player.m_sprite.getPosition().x + 500,
+		player.m_sprite.getPosition().y - 370
+	);
+
+	m_scoreText.setString("Score: " + std::to_string(player.m_score));
+	m_scoreText.setPosition(
+		player.m_sprite.getPosition().x - m_scoreText.getGlobalBounds().width / 2,
 		player.m_sprite.getPosition().y - 370
 	);
 }

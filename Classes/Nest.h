@@ -11,7 +11,7 @@ public:
 
 	~Nest();	// Destructor
 
-	// Update function
+				// Update function
 	void update(sf::Vector2f playerPos, int & heath, std::vector<ParticleSystem *> & ps, Grid &grid, std::vector<Worker *> wpos);
 	void render(sf::RenderWindow &window);	// Render function
 	void renderDot(sf::RenderWindow &window);	// Function for rendering dots to the minimap
@@ -21,11 +21,11 @@ public:
 
 	int predSpawnTimer = 0;	// Timer between predator spawns
 
-	void loseHealth();	// Function called when nest hit by player bullet
+	void loseHealth(int & score);	// Function called when nest hit by player bullet
 
 	void addMissile();	// Function to fire missile at player
 
-	// Visual attributes 
+						// Visual attributes 
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;
 	sf::Texture m_enemyTex;
@@ -40,7 +40,7 @@ public:
 	std::vector<Enemy *> m_enemies;	// The nests vector of enemies
 	std::vector<Missile *> m_missiles;	// The nests vector of missiles
 private:
-	
+
 	const int SPAWN_NEXT = 100;	// Time that has to pass before next predator spawn
 	int m_spawnTimer; // Timer for sweeper spawns
 };

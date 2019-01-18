@@ -28,7 +28,7 @@ Player::Player()
 	m_speed = 0;
 
 	// Sets the size of the main view
-	m_view.setSize(1200, 800);	
+	m_view.setSize(1200, 800);
 }
 
 
@@ -54,9 +54,9 @@ void Player::checkCollision(Grid &grid)
 	int indexVertical = 1;
 
 	// Checks what tile the player is in
-	playerGridX = (playerPursue.x+5000) / 200;
-	playerGridY = (playerPursue.y+5000) / 200;
-	playerGrid = playerGridX*50 + (playerGridY);
+	playerGridX = (playerPursue.x + 5000) / 200;
+	playerGridY = (playerPursue.y + 5000) / 200;
+	playerGrid = playerGridX * 50 + (playerGridY);
 
 	if (tempGrid != playerGrid)
 	{// If player has changed tile since the last check
@@ -65,7 +65,7 @@ void Player::checkCollision(Grid &grid)
 	tempGrid = playerGrid;
 
 	if (grid.nodes[playerGrid]->getCost() >= 9999) {
-	// Checks if player is hitting a wall
+		// Checks if player is hitting a wall
 		// Knocks the player back
 		m_velocity.x = -m_velocity.x * 0.6;
 		m_velocity.y = -m_velocity.y * 0.6;
@@ -97,7 +97,7 @@ void Player::animationUpdate()
 	}
 
 	// Assigns current stage of animation to the engine fire texture
-	m_fireSprite.setTextureRect(rectSourceSprite);	
+	m_fireSprite.setTextureRect(rectSourceSprite);
 }
 
 /// <summary>
@@ -125,11 +125,11 @@ void Player::update(Grid &grid)
 	}
 
 	for (Bullet * bullet : m_bullets) {
-	// Loops through players bullets
+		// Loops through players bullets
 		bullet->update();	// Updates bullets
 		bullet->checkCollision(grid);
 		if (bullet->m_lifeTime > bullet->MAX_LIFE) {
-		// Checks if bullet has reached its lifetime
+			// Checks if bullet has reached its lifetime
 			m_bullets.erase(m_bullets.begin()); // Delete bullet
 		}
 	}
@@ -141,7 +141,7 @@ void Player::update(Grid &grid)
 /// </summary>
 void Player::handleInput() {
 	if (m_keys.isKeyPressed(sf::Keyboard::Up)) {
-	// Checks for the up arrow being pressed
+		// Checks for the up arrow being pressed
 		drawFireBack = true;
 		if (m_speed < MAX_FORWARD_SPEED)
 			m_speed += 0.15;	// Increments speed
@@ -150,31 +150,31 @@ void Player::handleInput() {
 		drawFireBack = false;
 	}
 	if (m_keys.isKeyPressed(sf::Keyboard::Down)) {
-	// Checks for the down arrow being pressed
+		// Checks for the down arrow being pressed
 		if (m_speed > MAX_BACKWARD_SPEED)
 			m_speed -= 0.05;	// Decrement speed 
 	}
 	if (m_keys.isKeyPressed(sf::Keyboard::Left)) {
-	// Checks for the left arrow being pressed
+		// Checks for the left arrow being pressed
 		m_rotation -= 3;	// Rotate ship anti-clockwise
 	}
 	if (m_keys.isKeyPressed(sf::Keyboard::Right)) {
-	// Checks for the right arrow being pressed
+		// Checks for the right arrow being pressed
 		m_rotation += 3; // Rotate ship clockwise
 	}
 
 	m_bulletCounter++;	// Increment bullet times
-	if (m_keys.isKeyPressed(sf::Keyboard::Space) && 
+	if (m_keys.isKeyPressed(sf::Keyboard::Space) &&
 		m_bulletCounter > BULLET_TIME) {
 		// If enough time has passed and player hits space
 		m_bulletCounter = 0;	// Reset bullet timer
-		// Spawn bullet
+								// Spawn bullet
 		m_bullets.push_back(new Bullet(m_sprite.getPosition(), m_sprite.getRotation(), m_bulletTex));
 	}
 	if (m_keys.isKeyPressed(sf::Keyboard::Q) && m_blast) {
-	// Checks if Q key was pressed and player has blast attack activated
+		// Checks if Q key was pressed and player has blast attack activated
 		for (int i = 0; i < 360; i += 15) {
-		// Spawn ring of bullets around player
+			// Spawn ring of bullets around player
 			m_bullets.push_back(new Bullet(m_sprite.getPosition(), i, m_bulletTex));
 			m_blast = false;	// Player has used up his ability
 		}
@@ -188,7 +188,7 @@ void Player::move() {
 	// Sets players current physical attributes
 	m_sprite.setPosition(m_position);
 	m_sprite.setRotation(m_rotation);
-	m_fireSprite.setPosition(m_position.x,m_position.y);
+	m_fireSprite.setPosition(m_position.x, m_position.y);
 	m_fireSprite.setRotation(m_rotation);
 
 	// Calculates velocity based on speed and rotation
@@ -206,14 +206,15 @@ void Player::move() {
 /// <param name="workers"></param>
 void Player::checkCollection(std::vector<Worker*> * workers) {
 	for (int i = 0; i < workers->size(); i++) {
-	// Loops through all the workers
+		// Loops through all the workers
 		if (dist(m_position, workers->at(i)->m_position) < 40) {
-		// Checks if player has hit the worker
+			// Checks if player has hit the worker
 			workers->at(i)->m_collected = true;	// Sets worker to be collected
 			m_collected++;	// Increments amount of workers collected
+			m_score += 5;
 		}
 		if (magnet) {
-		// Checks if player has magnet power up
+			// Checks if player has magnet power up
 			workers->at(i)->magnet = true;	// Sets worker to move towards player
 		}
 	}
@@ -226,17 +227,17 @@ void Player::checkCollection(std::vector<Worker*> * workers) {
 /// <param name="nest"></param>
 void Player::checkNest(Nest & nest) {
 	if (dist(m_position, nest.m_position) < 500) {
-	// Checks if player is close to the nest
+		// Checks if player is close to the nest
 		nest.addMissile();	// Nest fires bullet at player
 	}
 	for (int i = 0; i < m_bullets.size(); i++) {
-	// Loops through all of the player bullets
+		// Loops through all of the player bullets
 		if (dist(m_bullets.at(i)->m_pos, nest.m_position) < 150) {
-		// Checks to see if a bullet has hit the nest
-			nest.loseHealth();	// Nest loses health
+			// Checks to see if a bullet has hit the nest
+			nest.loseHealth(m_score);	// Nest loses health
 			m_bullets.erase(m_bullets.begin() + i);	// Delete bullet
 		}
-		
+
 	}
 }
 
@@ -247,15 +248,16 @@ void Player::checkNest(Nest & nest) {
 /// <param name="ps"></param>
 void Player::checkEnemies(std::vector<Enemy *> & enemies, std::vector<ParticleSystem *> & ps) {
 	for (int i = 0; i < m_bullets.size(); i++) {
-	// Loops through all of the players bullets
+		// Loops through all of the players bullets
 		for (int j = 0; j < enemies.size(); j++) {
-		// Loops through all the sweeper bots
+			// Loops through all the sweeper bots
 			if (m_bullets.size() > i && dist(m_bullets.at(i)->m_pos, enemies.at(j)->m_position) < 75) {
-			// Checks if bullet has hit enemy
+				// Checks if bullet has hit enemy
 				m_collected += enemies.at(j)->m_collected;	// Player gets any worker that sweeper has collected
 				ps.push_back(new ParticleSystem(500, enemies.at(j)->m_position));	// Spawn particles at dead sweepers position
 				enemies.erase(enemies.begin() + j);	// Delete sweeper
 				m_bullets.erase(m_bullets.begin() + i);	// Delete bullet
+				m_score += 2;
 			}
 		}
 	}
@@ -269,17 +271,18 @@ void Player::checkEnemies(std::vector<Enemy *> & enemies, std::vector<ParticleSy
 /// <returns></returns>
 bool Player::checkPreds(std::vector<AI *> & ais, std::vector<ParticleSystem *> & ps) {
 	for (int i = 0; i < m_bullets.size(); i++) {
-	// Loops through player bullets
+		// Loops through player bullets
 		for (int j = 0; j < ais.size(); j++) {
-		// Loops through predators
+			// Loops through predators
 			if (m_bullets.size() > i && dist(m_bullets.at(i)->m_pos, ais.at(j)->aiSprite.getPosition()) < 75) {
-			// Checks if player has hit predator
+				// Checks if player has hit predator
 				ps.push_back(new ParticleSystem(500, ais.at(j)->aiSprite.getPosition())); // Spawn particles at dead predators position
 				ais.erase(ais.begin() + j);	// Delete predator
 				m_bullets.erase(m_bullets.begin() + i);	// Delete bullet
+				m_score += 2;
 				return true;
 			}
-		
+
 		}
 	}
 	return false;
@@ -299,12 +302,12 @@ void Player::render(sf::RenderWindow & window)
 		window.draw(m_fireSprite);	// Draw the engine fire
 	}
 	for (Bullet * bullet : m_bullets) {
-	// Loops through bullets
+		// Loops through bullets
 		if (bullet) {
-		// If the bullet is alive
+			// If the bullet is alive
 			bullet->render(window);	// Draw bullet 
 		}
-		
+
 	}
 }
 
@@ -316,15 +319,15 @@ void Player::render(sf::RenderWindow & window)
 void Player::powerUp(int power)
 {
 	if (power == 1) {
-	// If magnet was collected
+		// If magnet was collected
 		magnet = true;	// Player is now a magnet for workers
 	}
 	else if (power == 2) {
-	// If blast attack was collected
+		// If blast attack was collected
 		m_blast = true;	// Player can now use blast attack
 	}
 	else if (power == 3) {
-	// If health pack was collected
+		// If health pack was collected
 		if (m_health < 90) {
 			m_health += 10;
 		}
