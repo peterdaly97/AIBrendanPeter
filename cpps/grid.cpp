@@ -347,21 +347,24 @@ void Grid::moveAI()
 				int AIgridY = (ais[x]->getPositionY() + 5000) / 200;
 				int AIgrid = AIgridX * 50 + (AIgridY);
 
-				if (AIgrid == goalNode)
+				if (AIgrid >= 0 && AIgrid < 2500)
 				{
-					if (ais[x]->surroundNow == true)
+					if (AIgrid == goalNode)
 					{
-						ais[x]->move(nodes[AIgrid]->getVectX(), nodes[AIgrid]->getVectY());
+						if (ais[x]->surroundNow == true)
+						{
+							ais[x]->move(nodes[AIgrid]->getVectX(), nodes[AIgrid]->getVectY());
+						}
 					}
-				}
-				else
-				{
-					if (AIgrid <= 2500 && AIgrid >= -2500)
+					else
 					{
-						ais[x]->move(nodes[AIgrid]->getVectX(), nodes[AIgrid]->getVectY());  // Use grid number to apply correct vector to the predator.
+						if (AIgrid <= 2500 && AIgrid >= -2500)
+						{
+							ais[x]->move(nodes[AIgrid]->getVectX(), nodes[AIgrid]->getVectY());  // Use grid number to apply correct vector to the predator.
+						}
 					}
+					ais[x]->checkWalls(AIgrid, nodes);
 				}
-				ais[x]->checkWalls(AIgrid, nodes);
 			}
 		}
 	}

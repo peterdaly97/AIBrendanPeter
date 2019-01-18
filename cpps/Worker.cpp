@@ -118,10 +118,13 @@ void Worker::update(std::vector<Node*> &nodes, int goalNode) {
 		int WorkergridY = (m_sprite.getPosition().y + 5000) / 200;
 		int Workergrid = WorkergridX * 50 + (WorkergridY);
 
-		if (Workergrid != goalNode)
+		if (Workergrid >= 0 && Workergrid < 2500)
 		{
-			// Move towards player
-			move(nodes[Workergrid]->getVectX(), nodes[Workergrid]->getVectY());
+			if (Workergrid != goalNode)
+			{
+				// Move towards player
+				move(nodes[Workergrid]->getVectX(), nodes[Workergrid]->getVectY());
+			}
 		}
 		
 	}

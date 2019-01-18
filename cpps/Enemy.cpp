@@ -90,17 +90,20 @@ void Enemy::checkCollision(Grid &grid) {
 	}
 	tempGrid = playerGrid;
 
-	if (grid.nodes[playerGrid]->getCost() >= 9999) {
-		// Checks if sweeper is hitting a wall
+	if (playerGrid >= 0 && playerGrid < 2500)
+	{
+		if (grid.nodes[playerGrid]->getCost() >= 9999) {
+			// Checks if sweeper is hitting a wall
 
-		// Knock sweeper back
-		m_position -= (m_velocity * 3.0f);
-		m_velocity.x = -m_velocity.x * 0.6;
-		m_velocity.y = -m_velocity.y * 0.6;
+			// Knock sweeper back
+			m_position -= (m_velocity * 3.0f);
+			m_velocity.x = -m_velocity.x * 0.6;
+			m_velocity.y = -m_velocity.y * 0.6;
 
-		// Change position sweeper is moving towards
-		m_targetPos->x = rand() % maxRandom + minRandom;
-		m_targetPos->y = rand() % maxRandom + minRandom;
+			// Change position sweeper is moving towards
+			m_targetPos->x = rand() % maxRandom + minRandom;
+			m_targetPos->y = rand() % maxRandom + minRandom;
+		}
 	}
 }
 

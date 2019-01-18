@@ -64,12 +64,15 @@ void Player::checkCollision(Grid &grid)
 	}
 	tempGrid = playerGrid;
 
-	if (grid.nodes[playerGrid]->getCost() >= 9999) {
-		// Checks if player is hitting a wall
-		// Knocks the player back
-		m_velocity.x = -m_velocity.x * 0.6;
-		m_velocity.y = -m_velocity.y * 0.6;
-		m_speed = -m_speed;
+	if (playerGrid >= 0 && playerGrid < 2500)
+	{
+		if (grid.nodes[playerGrid]->getCost() >= 9999) {
+			// Checks if player is hitting a wall
+			// Knocks the player back
+			m_velocity.x = -m_velocity.x * 0.6;
+			m_velocity.y = -m_velocity.y * 0.6;
+			m_speed = -m_speed;
+		}
 	}
 
 }
