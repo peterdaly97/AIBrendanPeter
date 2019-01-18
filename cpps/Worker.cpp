@@ -22,7 +22,6 @@ Worker::Worker(act behaviour, sf::Vector2f pos) {
 	// Give worker new random position to wander to
 	m_targetPos.x = rand() % 9600 - 4800;
 	m_targetPos.y = rand() % 9600 - 4800;
-	std::cout << m_targetPos.x << std::endl;
 
 	b = behaviour; // Give worker a behaviour
 }
@@ -55,20 +54,23 @@ void Worker::checkCollision(Grid &grid) {
 	{// If worker has changed tile since the last check
 		gridChanged = true;
 	}
-	tempGrid = playerGrid;
+	
+	if (playerGrid >= 0 && playerGrid < 2500)
+	{
+		if (grid.nodes[playerGrid]->getCost() >= 9999) {
+			// Checks if worker is hitting a wall	
 
-	if (grid.nodes[playerGrid]->getCost() >= 9999) {
-	// Checks if worker is hitting a wall	
+				// Knock worker back
+			m_position -= (m_velocity * 3.0f);
+			m_velocity.x = -m_velocity.x * 0.6;
+			m_velocity.y = -m_velocity.y * 0.6;
 
-		// Knock worker back
-		m_position -= (m_velocity * 3.0f);
-		m_velocity.x = -m_velocity.x * 0.6;
-		m_velocity.y = -m_velocity.y * 0.6;
-
-		// Change position worker is moving towards
-		m_targetPos.x = rand() % 9600 - 4800;
-		m_targetPos.y = rand() % 9600 - 4800;
+			// Change position worker is moving towards
+			m_targetPos.x = rand() % 9600 - 4800;
+			m_targetPos.y = rand() % 9600 - 4800;
+		}
 	}
+	
 }
 
 /// <summary>

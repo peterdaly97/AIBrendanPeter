@@ -42,10 +42,12 @@ void Bullet::checkCollision(Grid &grid)
 	playerGrid = playerGridX * 50 + (playerGridY);
 
 	
-
-	if (grid.nodes[playerGrid]->getCost() >= 9999) {
-	// Checks if bullet is hitting a wall
-		m_lifeTime = 101;
+	if (playerGrid >= 0 && playerGrid < 2500)
+	{
+		if (grid.nodes[playerGrid]->getCost() >= 9999) {
+			// Checks if bullet is hitting a wall
+			m_lifeTime = 101;
+		}
 	}
 
 }

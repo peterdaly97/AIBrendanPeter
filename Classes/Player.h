@@ -64,7 +64,7 @@ public:
 
 	std::vector<Bullet *> m_bullets;	// All bullets fired by the player that are currently alive
 
-	int m_health = 10000;
+	int m_health = 100;
 
 	int m_collected = 0;	// How many workers collected by the player
 

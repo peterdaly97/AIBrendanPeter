@@ -141,6 +141,7 @@ void Player::update(Grid &grid)
 		if (magnetCount >= maxMagnet)
 		{
 			magnet = false;
+			magnetCount = 0;
 		}
 	}
 }
@@ -188,6 +189,11 @@ void Player::handleInput() {
 			m_bullets.push_back(new Bullet(m_sprite.getPosition(), i, m_bulletTex));
 			m_blast = false;	// Player has used up his ability
 		}
+	}
+
+	// Cheats for testing.
+	if (m_keys.isKeyPressed(sf::Keyboard::H)) {
+		m_health = m_health + 1000;
 	}
 }
 

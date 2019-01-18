@@ -4,6 +4,8 @@ SPLIT:
 
 PLAYER/GAME WORLD:
 
+Press H to cheat and give more health for testing.
+
 Camera focused on player.
 Player rotates with left and right arrow.
 Up arrow increases velocity in desired location and creates thruster flames.

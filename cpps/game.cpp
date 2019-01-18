@@ -5,6 +5,7 @@
 /// </summary>
 Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 
+	m_window.setMouseCursorVisible(false);
 	// Setting the update time for the game
 	m_window.setFramerateLimit(60);
 
