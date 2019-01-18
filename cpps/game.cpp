@@ -104,13 +104,15 @@ void Game::run() {
 /// </summary>
 void Game::update() {
 
-	for (PowerUp * powerUp : m_powerUps) { 
+	for (int i = 0; i < m_powerUps.size(); i++) {
 	// Loops through power ups
 		// Checks if power up was collected
-		if (powerUp->checkCollected(player.m_sprite.getPosition()) > 0)
-		{
+		if (m_powerUps.at(i)->checkCollected(player.m_sprite.getPosition()) > 0) {
 			// Carries out effect on player based on which power up was collected
-			player.powerUp(powerUp->m_value);
+			player.powerUp(m_powerUps.at(i)->m_value);
+		}
+		if (m_powerUps.at(i)->m_collected) {
+			m_powerUps.erase(m_powerUps.begin() + i);
 		}
 
 	}

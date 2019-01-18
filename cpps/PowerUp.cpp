@@ -34,6 +34,7 @@ PowerUp::~PowerUp() {}
 int PowerUp::checkCollected(sf::Vector2f playerPosition) {
 	if (dist(powerSprite.getPosition(), playerPosition) < 80) {
 	// Checks if player hit pick up
+		m_collected = true;
 		return m_value;	// Return the value of the collected pick up
 	}
 	return 0;

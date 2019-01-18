@@ -20,6 +20,8 @@ public:
 
 	int m_value;	// The value which determines what type of powerup its is
 
+	bool m_collected = false;
+
 private:
 	
 	sf::CircleShape shape;	// Shape to be drawn on minimap
