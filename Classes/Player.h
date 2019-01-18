@@ -80,6 +80,9 @@ public:
 	int m_score = 0; // The players score
 
 private:
+	int maxMagnet = 400;
+	int magnetCount = 0;
+
 	int gridChangedCount = 0;
 
 	// Current time and max amount of time before player can fire another bullet

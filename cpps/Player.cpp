@@ -133,6 +133,16 @@ void Player::update(Grid &grid)
 			m_bullets.erase(m_bullets.begin()); // Delete bullet
 		}
 	}
+
+	// Turn magnet off after set time.
+	if (magnet)
+	{
+		magnetCount = magnetCount + 1;
+		if (magnetCount >= maxMagnet)
+		{
+			magnet = false;
+		}
+	}
 }
 
 /// <summary>
@@ -216,6 +226,9 @@ void Player::checkCollection(std::vector<Worker*> * workers) {
 		if (magnet) {
 			// Checks if player has magnet power up
 			workers->at(i)->magnet = true;	// Sets worker to move towards player
+		}
+		else {
+			workers->at(i)->magnet = false;
 		}
 	}
 

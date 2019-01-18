@@ -19,6 +19,7 @@ public:
 	double getIntegrationField();
 	bool checkSet();
 	int rectSize;
+	
 
 private:
 
