@@ -77,6 +77,10 @@ public:
 
 	int m_collected = 0;	// How many workers the enemy has collected
 
+	// Two random points to wander between
+	int minRandom = -4800;
+	int maxRandom = 9600;
+
 private:
 	behaviour b;	// Behaviour of enemy
 

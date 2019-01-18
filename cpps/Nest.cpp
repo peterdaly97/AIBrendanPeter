@@ -77,11 +77,12 @@ int Nest::spawnPredator()
 /// <summary>
 /// Function that is called when the nest is hit by a bullet
 /// </summary>
-void Nest::loseHealth() {
+void Nest::loseHealth(int & score) {
 	m_health--;	// Deduct health 
 	if (m_health <= 0) {
 	// Checks if nest has run out of health
 		m_dead = true;	// Set nest to be dead
+		score += 20;
 	}
 }
 

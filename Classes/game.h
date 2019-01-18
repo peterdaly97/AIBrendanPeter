@@ -63,6 +63,7 @@ private:
 
 	sf::Text m_heartText;
 	sf::Text m_workerText;
+	sf::Text m_scoreText;
 	sf::Font m_font;
 
 	std::vector<ParticleSystem *> m_particles; // The vector containing all particles in game

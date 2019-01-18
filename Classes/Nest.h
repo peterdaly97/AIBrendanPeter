@@ -21,7 +21,7 @@ public:
 
 	int predSpawnTimer = 0;	// Timer between predator spawns
 
-	void loseHealth();	// Function called when nest hit by player bullet
+	void loseHealth(int & score);	// Function called when nest hit by player bullet
 
 	void addMissile();	// Function to fire missile at player
 

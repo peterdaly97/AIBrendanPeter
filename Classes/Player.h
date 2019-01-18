@@ -77,6 +77,8 @@ public:
 
 	sf::Texture m_bulletTex;
 
+	int m_score = 0; // The players score
+
 private:
 	int gridChangedCount = 0;
 

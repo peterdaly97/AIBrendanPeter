@@ -211,6 +211,7 @@ void Player::checkCollection(std::vector<Worker*> * workers) {
 		// Checks if player has hit the worker
 			workers->at(i)->m_collected = true;	// Sets worker to be collected
 			m_collected++;	// Increments amount of workers collected
+			m_score += 5;
 		}
 		if (magnet) {
 		// Checks if player has magnet power up
@@ -233,7 +234,7 @@ void Player::checkNest(Nest & nest) {
 	// Loops through all of the player bullets
 		if (dist(m_bullets.at(i)->m_pos, nest.m_position) < 150) {
 		// Checks to see if a bullet has hit the nest
-			nest.loseHealth();	// Nest loses health
+			nest.loseHealth(m_score);	// Nest loses health
 			m_bullets.erase(m_bullets.begin() + i);	// Delete bullet
 		}
 		
@@ -256,6 +257,7 @@ void Player::checkEnemies(std::vector<Enemy *> & enemies, std::vector<ParticleSy
 				ps.push_back(new ParticleSystem(500, enemies.at(j)->m_position));	// Spawn particles at dead sweepers position
 				enemies.erase(enemies.begin() + j);	// Delete sweeper
 				m_bullets.erase(m_bullets.begin() + i);	// Delete bullet
+				m_score += 2;
 			}
 		}
 	}
@@ -277,6 +279,7 @@ bool Player::checkPreds(std::vector<AI *> & ais, std::vector<ParticleSystem *> &
 				ps.push_back(new ParticleSystem(500, ais.at(j)->aiSprite.getPosition())); // Spawn particles at dead predators position
 				ais.erase(ais.begin() + j);	// Delete predator
 				m_bullets.erase(m_bullets.begin() + i);	// Delete bullet
+				m_score += 2;
 				return true;
 			}
 		

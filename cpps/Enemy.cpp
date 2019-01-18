@@ -19,8 +19,8 @@ Enemy::Enemy(behaviour behaviour, sf::Vector2f pos, float maxSpeed, sf::Texture 
 	m_speed = 2.5;
 
 	// Chooses random positon for sweeper to wander towards
-	m_targetPos->x = rand() % 2048;
-	m_targetPos->y = rand() % 1080;
+	m_targetPos->x = rand() % maxRandom + minRandom;
+	m_targetPos->y = rand() % maxRandom + minRandom;
 
 	// Assigns a behaviour to the sweeper bot
 	b = behaviour;
@@ -99,8 +99,8 @@ void Enemy::checkCollision(Grid &grid) {
 		m_velocity.y = -m_velocity.y * 0.6;
 
 		// Change position sweeper is moving towards
-		m_targetPos->x = rand() % 3840;
-		m_targetPos->y = rand() % 2160;
+		m_targetPos->x = rand() % maxRandom + minRandom;
+		m_targetPos->y = rand() % maxRandom + minRandom;
 	}
 }
 
@@ -111,6 +111,9 @@ void Enemy::checkCollision(Grid &grid) {
 void Enemy::checkPlayer(sf::Vector2f playerPos) {
 	if (dist(playerPos, m_position) < 300) {
 	// Is player less than 300 pixels away
+		// Change position sweeper is moving towards
+		m_targetPos->x = rand() % maxRandom + minRandom;
+		m_targetPos->y = rand() % maxRandom + minRandom;
 		if (b == behaviour::PATROL) {
 			b = behaviour::EVADE;	// Evade the player
 		}

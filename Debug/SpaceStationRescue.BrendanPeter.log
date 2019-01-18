@@ -1,12 +1,10 @@
-﻿  PowerUp.cpp
-c:\users\gameuser\desktop\aibrendanpeter\cpps\powerup.cpp(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  game.cpp
-c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(75): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(82): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(107): warning C4018: '<': signed/unsigned mismatch
-c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(126): warning C4018: '<': signed/unsigned mismatch
-c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(160): warning C4018: '<': signed/unsigned mismatch
-c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(185): warning C4018: '<': signed/unsigned mismatch
-  main.cpp
-  Generating Code...
+﻿  game.cpp
+c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(78): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(84): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(109): warning C4018: '<': signed/unsigned mismatch
+c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(128): warning C4018: '<': signed/unsigned mismatch
+c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(162): warning C4018: '<': signed/unsigned mismatch
+c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(187): warning C4018: '<': signed/unsigned mismatch
+c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(276): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+c:\users\gameuser\desktop\aibrendanpeter\cpps\game.cpp(287): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
   SpaceStationRescue.BrendanPeter.vcxproj -> C:\Users\gameuser\Desktop\AIBrendanPeter\Debug\SpaceStationRescue.BrendanPeter.exe

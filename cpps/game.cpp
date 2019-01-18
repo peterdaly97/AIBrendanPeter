@@ -42,6 +42,10 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_workerText.setFillColor(sf::Color::White);
 	m_workerText.setOrigin(m_workerText.getLocalBounds().width / 2, m_workerText.getLocalBounds().height / 2);
 
+	m_scoreText.setFont(m_font);
+	m_scoreText.setFillColor(sf::Color::White);
+	m_scoreText.setOrigin(m_scoreText.getLocalBounds().width / 2, m_scoreText.getLocalBounds().height / 2);
+	
 	m_mapBorder.setOutlineThickness(10.0f);
 	m_mapBorder.setOutlineColor(sf::Color::Black);
 	m_mapBorder.setSize(sf::Vector2f(300, 200));
@@ -71,14 +75,12 @@ Game::Game() : m_window(sf::VideoMode(1200, 800), "AI") {
 	m_winSprite.setTexture(m_winTex);
 	m_winSprite.setOrigin(m_winSprite.getLocalBounds().width / 2, m_winSprite.getLocalBounds().height / 2);
 	m_winSprite.setPosition(sf::Vector2f(0, 0));
-	m_winSprite.setColor(sf::Color(255, 255, 255, 150));
 	m_winSprite.setScale(1.2, 1.2);
 
 	m_loseTex.loadFromFile("assets/lose.png");
 	m_loseSprite.setTexture(m_loseTex);
 	m_loseSprite.setOrigin(m_loseSprite.getLocalBounds().width / 2, m_loseSprite.getLocalBounds().height / 2);
 	m_loseSprite.setPosition(sf::Vector2f(0, 0));
-	m_loseSprite.setColor(sf::Color(255, 255, 255, 150));
 	m_loseSprite.setScale(1.2, 1.2);
 }
 
@@ -237,6 +239,7 @@ void Game::render() {
 	m_window.draw(m_workerSprite);
 	m_window.draw(m_heartText);
 	m_window.draw(m_workerText);
+	m_window.draw(m_scoreText);
 	if (!m_win && !m_lose) {
 		m_mapBorder.setPosition(player.m_sprite.getPosition().x + 300, player.m_sprite.getPosition().y + 200);
 		m_window.draw(m_mapBorder);
@@ -270,10 +273,23 @@ void Game::render() {
 	if (m_win) {
 		m_winSprite.setPosition(player.m_position);
 		m_window.draw(m_winSprite);
+		m_scoreText.setCharacterSize(100.0f);
+		m_scoreText.setPosition(
+			player.m_sprite.getPosition().x - m_scoreText.getGlobalBounds().width / 2,
+			player.m_sprite.getPosition().y - m_scoreText.getGlobalBounds().height / 2
+		);
+		m_window.draw(m_scoreText);
 	}
 	if (m_lose) {
 		m_loseSprite.setPosition(player.m_position);
 		m_window.draw(m_loseSprite);
+		m_scoreText.setFillColor(sf::Color::Black);
+		m_scoreText.setCharacterSize(100.0f);
+		m_scoreText.setPosition(
+			player.m_sprite.getPosition().x - m_scoreText.getGlobalBounds().width / 2,
+			player.m_sprite.getPosition().y - 200
+		);
+		m_window.draw(m_scoreText);
 	}
 	m_window.display();		// Display the window 
 }
@@ -303,6 +319,12 @@ void Game::updateUI() {
 	m_workerText.setString(std::to_string(player.m_collected));
 	m_workerText.setPosition(
 		player.m_sprite.getPosition().x + 500,
+		player.m_sprite.getPosition().y - 370
+	);
+
+	m_scoreText.setString("Score: " + std::to_string(player.m_score));
+	m_scoreText.setPosition(
+		player.m_sprite.getPosition().x - m_scoreText.getGlobalBounds().width / 2,
 		player.m_sprite.getPosition().y - 370
 	);
 }
